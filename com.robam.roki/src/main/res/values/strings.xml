@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ROKI智能烹饪</string>
+    <string name="home_tab_personal">个人</string>
+    <string name="home_tab_recipe">菜谱</string>
+    <string name="home_tab_device">厨电</string>
+    <string name="home_tab_trolley">购物车</string>
+
+
+    <!--device-->
+    <string name="roki_error_no_wifi">无可用WiFi网络，请检查WiFi网络</string>
+    <string name="roki_wifi_pwd_hint">请输入WiFi密码</string>
+    <string name="fan_invalid_error">油烟机已离线</string>
+    <string name="stove_invalid_error">电磁灶已离线</string>
+    <string name="stove_off_hint">请手动打开电磁灶</string>
+    <string name="dev_invalid_error">没有可用的设备</string>
+
+</resources>

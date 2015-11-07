@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false" >
+
+    <solid android:color="@color/recipe_search_bg" />
+
+    <size
+        android:height="@dimen/recipe_circle_top_width"
+        android:width="@dimen/recipe_circle_top_width" />
+
+    <stroke
+        android:width="1px"
+        android:color="@color/recipe_search_stroke" />
+
+</shape>

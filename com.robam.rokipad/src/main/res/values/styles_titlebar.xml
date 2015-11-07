@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="titlebar_style">
+        <item name="android:background">@color/black_10</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:actionBarSize</item>
+        <item name="android:paddingLeft">@dimen/titlebar_padding_left</item>
+        <item name="android:paddingRight">@dimen/titlebar_padding_right</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="titlebar_divider_style">
+        <item name="android:background">@color/common_divide_background</item>
+        <item name="android:layout_height">@dimen/titlebar_divider_height</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="titlebar_icon_style">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">?android:actionBarSize</item>
+        <item name="android:padding">@dimen/titlebar_icon_padding_size</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:background">@drawable/common_view_background_selector</item>
+    </style>
+
+    <style name="titlebar_text_style">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/common_view_background_selector</item>
+        <item name="android:textColor">@color/setting_text_normal</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">?android:actionBarSize</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">25dp</item>
+    </style>
+
+    <style name="titlebar_title_style" parent="@style/titlebar_text_style">
+        <item name="android:textColor">@color/titlebar_title_color_selector</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+
+</resources>

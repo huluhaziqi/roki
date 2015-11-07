@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_phone"
+            android:textColor="@color/Black"
+            android:textSize="23sp" />
+
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:inputType="phone" >
+
+            <requestFocus />
+        </EditText>
+    </TableRow>
+
+    <TableRow android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/tv_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textColor="@color/Black"
+            android:textSize="23sp" />
+
+        <EditText
+            android:id="@+id/edtPwd"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </TableRow>
+
+    <TableRow android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/txtRegist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="right"
+            android:text="还没注册?"
+            android:textColor="@color/home_bg"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+    </TableRow>
+
+</TableLayout>

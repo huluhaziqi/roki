@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.legent.ui.ext.views.ExtScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/divTop"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/imgBookImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="17dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp">
+
+                    <TextView
+                        android:id="@+id/txtRecipeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="芦笋炒虾仁"
+                        android:textColor="#fff"
+                        android:textSize="19sp" />
+
+                    <com.robam.roki.ui.view.DividerDashedView
+                        android:layout_width="140dp"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginTop="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="步骤"
+                            android:textColor="#fff"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/txtStepCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4"
+                            android:textColor="@color/c02"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:text="用时"
+                            android:textColor="#fff"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/txtCookTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30"
+                            android:textColor="@color/c02"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="min"
+                            android:textColor="@color/c02"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/txtCollectCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30人"
+                            android:textColor="@color/c02"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="11dp"
+                            android:text="喜欢"
+                            android:textColor="#fff"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtBookDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="14dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="11dp"
+                android:textColor="#575757"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:id="@+id/divPrepare"
+                android:layout_width="match_parent"
+                android:layout_height="290dp">
+
+                <ImageView
+                    android:id="@+id/imgPrestepImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:scaleType="fitStart"
+                    android:src="@mipmap/ic_recipe_prestep_bookmark" />
+            </FrameLayout>
+
+            <com.robam.roki.ui.view.RecipeDetailMaterialsView
+                android:id="@+id/materialsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="11dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/ic_recipe_prestep_desc" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="备注"
+                        android:textColor="@color/c02"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtPrestepDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/c02"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <com.robam.roki.ui.view.RecipeDetailCookstepView
+                android:id="@+id/cookstepView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.robam.roki.ui.view.RecipeDetailAlbumView
+                android:id="@+id/albumView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </com.legent.ui.ext.views.ExtScrollView>
+
+    <LinearLayout
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/titlebar_padding_left"
+        android:paddingRight="@dimen/titlebar_padding_right">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            style="@style/titlebar_icon_style"
+            android:src="@mipmap/ic_titlebar_return" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imgToday"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_recipe_trolley" />
+
+        <ImageView
+            android:id="@+id/imgFavority"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="30dp"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_recipe_favority" />
+
+        <ImageView
+            android:id="@+id/imgShare"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="30dp"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_recipe_share" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtConfirm"
+        style="@style/common_button"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="开始烹饪" />
+
+</RelativeLayout>

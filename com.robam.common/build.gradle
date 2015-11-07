@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 14
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':com.legent.ui')
+    compile project(':com.legent.utils.qrcode')
+    //    compile project(':com.legent.utils.easylink')
+    //    compile 'com.legent.common:com.legent:1.0'
+    //    compile 'com.legent.common:com.legent.plat:1.0'
+    //    compile 'com.legent.common:com.legent.ui:1.0'
+    //    compile 'com.legent.common:com.legent.utils.easylink:3.1'
+    //    compile 'com.legent.common:com.legent.utils.qrcode:1.0'
+    compile 'com.legent.libraries:com.viewpagerindicator:2.4.1'
+    compile 'com.legent.libraries:com.etsy.android.grid:1.0.3'
+    compile 'com.jakewharton:butterknife:6.1.0'
+}

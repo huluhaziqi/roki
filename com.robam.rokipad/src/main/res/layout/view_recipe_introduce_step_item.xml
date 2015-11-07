@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1."
+        android:textStyle="italic"
+        android:layout_marginTop="@dimen/introduce_order_num_margin"
+        android:layout_marginBottom="@dimen/introduce_order_num_margin"
+        android:textSize="@dimen/introduce_order_num_size"
+        android:textColor="@color/home_bg" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/introduce_text_content_size"
+        android:textColor="@color/setting_text_normal"
+        android:layout_marginBottom="@dimen/introduce_text_content_margin_bottom"
+        android:text="黑鱼宰杀：拍晕,剪腮,刮鱼鳞,剖肚取内脏,去骨片肉,切夹刀厚片。" />
+
+</LinearLayout>

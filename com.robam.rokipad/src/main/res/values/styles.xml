@@ -1,0 +1,56 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="img_gear">
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="tv_home_advert">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:background">#33000000</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="style_tv_dish_name">
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:background">#33000000</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="layout_home_right">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/shape_home_right_bg</item>
+        <item name="android:padding">1px</item>
+    </style>
+
+
+
+    <style name="setting_content_text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/setting_content_text_size</item>
+        <item name="android:textColor">@color/setting_text_normal</item>
+    </style>
+
+    <style name="setting_text_with_line">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">-5dp</item>
+        <item name="android:drawableBottom">@mipmap/ic_text_line</item>
+        <item name="android:textColor">@color/intel_setting_text</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>

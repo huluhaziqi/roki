@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.robam.roki.ui.view.EmojiEmptyView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:description="" />
+
+    <com.robam.roki.ui.view.MomentGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:column_count="2"
+        app:grid_paddingBottom="4dp"
+        app:grid_paddingLeft="4dp"
+        app:grid_paddingRight="4dp"
+        app:grid_paddingTop="4dp"
+        app:item_margin="6dp" />
+
+</FrameLayout>

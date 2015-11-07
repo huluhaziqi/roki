@@ -1,0 +1,1 @@
+include ':com.robam.roki', ':com.robam.common', ':com.robam.rokipad', ':com.legent', ':com.legent.utils.easylink', ':com.legent.plat', ':com.legent.ui', ':com.legent.utils.qrcode', ':com.legent.utils.serialport', ':com.legent.utils.sharesdk', ':com.legent.utils.speech'

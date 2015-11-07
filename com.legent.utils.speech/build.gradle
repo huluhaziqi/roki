@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 14
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':com.legent')
+}
+
+android {
+    defaultConfig {
+        ndk {
+            moduleName "utils_speech"
+            ldLibs "logFile", "z", "m"
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+    }
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir 'libs'
+    }
+}

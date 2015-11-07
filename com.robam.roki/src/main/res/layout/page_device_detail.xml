@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp">
+
+        <com.legent.ui.ext.views.NestedListView
+            android:id="@+id/deviceListView"
+            style="@style/common_listview"
+            android:fastScrollEnabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="0dp"
+            android:listSelector="@color/Transparent"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_device_detail_user" />
+
+            <TextView
+                android:id="@+id/txtDevice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="用户"
+                android:textColor="#6486b0"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <com.legent.ui.ext.views.NestedListView
+            android:id="@+id/userListView"
+            android:fastScrollEnabled="false"
+            style="@style/common_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="1px" />
+    </LinearLayout>
+</ScrollView>

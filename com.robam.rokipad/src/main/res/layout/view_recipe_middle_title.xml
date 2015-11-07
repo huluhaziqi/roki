@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="?android:actionBarSize"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/titlebar_title_style"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:text="食材分类"
+        android:textColor="@color/recipe_category_title_color" />
+
+    <ImageView
+        android:id="@+id/img_arrow"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/tv_title"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_title_arrow_down" />
+
+</RelativeLayout>

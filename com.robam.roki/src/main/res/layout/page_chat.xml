@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/listview"
+        style="@style/common_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:listSelector="@color/Transparent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_button_height"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <EditText
+            android:id="@+id/edtSend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape_yellow_edit_bg"
+            android:hint="请输入咨询内容"
+            android:paddingLeft="8dp"
+            android:textColor="@color/c16"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txtSend"
+            style="@style/common_button"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:text="发送" />
+    </LinearLayout>
+
+</LinearLayout>

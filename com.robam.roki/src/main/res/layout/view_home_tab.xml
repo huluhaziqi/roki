@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="6dp">
+
+    <com.robam.roki.ui.view.HomeTabItemView
+        android:id="@+id/tab1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:imgSource="@drawable/ic_home_tab_personal"
+        app:title="@string/home_tab_personal" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:background="#1e1e1e" />
+
+    <com.robam.roki.ui.view.HomeTabItemView
+        android:id="@+id/tab2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:imgSource="@drawable/ic_home_tab_recipe"
+        app:title="@string/home_tab_recipe" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:background="#1e1e1e" />
+
+    <com.robam.roki.ui.view.HomeTabItemView
+        android:id="@+id/tab3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:imgSource="@drawable/ic_home_tab_device"
+        app:title="@string/home_tab_device" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:background="#1e1e1e" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <com.robam.roki.ui.view.HomeTabItemView
+            android:id="@+id/tab4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:imgSource="@drawable/ic_home_tab_trolley"
+            app:title="@string/home_tab_trolley" />
+
+        <ImageView
+            android:id="@+id/imgTrolleyFree"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_trolley_free" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="7dp" >
+
+    <RelativeLayout
+        android:id="@+id/pnlFavority"
+        style="@style/layout_home_right"
+        android:background="@mipmap/img_home_favority_bg" >
+
+        <ImageView
+            android:id="@+id/img_collection_name"
+            android:layout_width="287dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/home_bg"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@mipmap/img_home_favority_name" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/img_collection_name"
+            android:background="@mipmap/img_positive"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pnlRecommend"
+        style="@style/layout_home_right"
+        android:layout_marginTop="7dp"
+        android:background="@mipmap/img_home_recommend_bg" >
+
+        <ImageView
+            android:id="@+id/img_like_name"
+            android:layout_width="287dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/home_bg"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@mipmap/img_home_recommend_name" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/img_like_name"
+            android:background="@mipmap/img_negative"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pnlAll"
+        style="@style/layout_home_right"
+        android:layout_marginTop="7dp"
+        android:background="@mipmap/img_home_all_recipes_bg" >
+
+        <ImageView
+            android:id="@+id/img_all_name"
+            android:layout_width="287dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/home_bg"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@mipmap/img_home_all_recipes_name" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/img_all_name"
+            android:background="@mipmap/img_positive"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+</LinearLayout>

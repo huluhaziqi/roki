@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+     android:background="@drawable/common_view_background_selector" >
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        style="@style/titlebar_icon_style"
+        android:contentDescription="@null"
+        android:src="@mipmap/ic_search" />
+
+</RelativeLayout>

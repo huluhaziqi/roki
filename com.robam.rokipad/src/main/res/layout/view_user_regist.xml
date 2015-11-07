@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/your_phone"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:inputType="phone"
+            android:textSize="21sp" >
+        </EditText>
+    </TableRow>
+
+    <TableRow android:layout_marginTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/nickname"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/edtNickname"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:inputType="text"
+            android:textSize="21sp" >
+        </EditText>
+    </TableRow>
+
+    <TableRow android:layout_marginTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/password"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/edtPwd"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPassword"
+            android:textSize="21sp" >
+        </EditText>
+    </TableRow>
+
+    <TableRow android:layout_marginTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/confirm_pwd"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/edtPwd2"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPassword"
+            android:textSize="21sp" >
+        </EditText>
+    </TableRow>
+
+    <TableRow android:layout_marginTop="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:text="@string/input_identify_code"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/edtCode"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="21sp" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btnGetCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/img_send_identify_bg"
+            android:text="@string/send_identify_code"
+            android:textColor="@color/White"
+            android:textSize="18sp" />
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="isLeft" format="boolean" />
+
+    <declare-styleable name="AdvertItemView">
+        <attr name="title" />
+        <attr name="imgBackgroud" />
+    </declare-styleable>
+    <declare-styleable name="StoveHeadView">
+        <attr name="isLeft" />
+    </declare-styleable>
+
+</resources>

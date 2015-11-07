@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="description" format="string|reference" />
+    <attr name="title_title_text" format="string|reference" />
+    <attr name="title_left_text" format="string|reference" />
+    <attr name="title_right_text" format="string|reference" />
+    <attr name="gender" format="boolean" />
+
+    <declare-styleable name="HomeTitle">
+        <attr name="title_title_text" />
+        <attr name="title_left_text" />
+        <attr name="title_right_text" />
+    </declare-styleable>
+
+    <declare-styleable name="HomeTabItem">
+        <attr name="title" />
+        <attr name="imgSource" />
+    </declare-styleable>
+    <declare-styleable name="HomeUnlistedDeviceItem">
+        <attr name="title" />
+        <attr name="description" />
+        <attr name="imgSource" />
+    </declare-styleable>
+    <declare-styleable name="DeviceFanGear">
+        <attr name="title" />
+        <attr name="description" />
+    </declare-styleable>
+    <declare-styleable name="UserVerifyCodeHint">
+        <attr name="integerValue" />
+        <attr name="title" />
+    </declare-styleable>
+    <declare-styleable name="RecipeSearchOption">
+        <attr name="title" />
+    </declare-styleable>
+    <declare-styleable name="UserGender">
+        <attr name="gender" />
+    </declare-styleable>
+    <declare-styleable name="EmojiEmpty">
+        <attr name="description" />
+    </declare-styleable>
+
+</resources>

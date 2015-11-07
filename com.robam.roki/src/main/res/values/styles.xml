@@ -1,0 +1,46 @@
+<resources>
+
+
+    <style name="common_edit">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColorHint">@color/c01</item>
+        <item name="android:textColor">@color/c05</item>
+        <item name="android:layout_height">@dimen/common_edit_height</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:background">@drawable/shape_yellow_edit_bg</item>
+    </style>
+
+
+    <style name="user_text_style">
+        <item name="android:background">@drawable/shape_user_text_bg</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textColor">#232323</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="check_box_style">
+        <item name="android:background">@drawable/ic_check_box</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textOn"></item>
+        <item name="android:textOff"></item>
+
+    </style>
+
+
+    <style name="maintain_home_anim" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/maintain_home_enter</item>
+        <item name="@android:windowExitAnimation">@anim/maintain_home_exit</item>
+    </style>
+
+    <style name="maintain_home_dialog_style" parent="Theme_Dialog_FullScreen">
+        <item name="android:windowAnimationStyle">@style/maintain_home_anim</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_guide_bg" >
+
+    <ImageView
+        android:id="@+id/img_fan"
+        android:layout_width="600dp"
+        android:layout_height="350dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="90dp"
+        android:scaleType="centerInside"
+        android:contentDescription="@null"
+        android:src="@mipmap/img_guide_home_bg" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="110dp"
+        android:text="让不会做饭的人学会做饭"
+        android:textColor="@color/setting_text_normal"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/pnlDeviceInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tv_title"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="30dp"
+        android:gravity="right"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="型号 : "
+            android:textColor="@color/setting_text_normal"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="软件版本 : "
+            android:textColor="@color/setting_text_normal"
+            android:textSize="19sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="288dp"
+        android:layout_height="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/img_guide_btn_bg"
+        android:gravity="center_vertical|right"
+        android:paddingRight="109dp"
+        android:text="@string/active_start"
+        android:textColor="@color/White"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/img_fan"
+        android:layout_below="@id/img_fan"
+        android:layout_marginTop="10dp"
+        android:text="@string/active_welcome"
+        android:textColor="@color/setting_text_normal"
+        android:textSize="15sp" />
+
+</RelativeLayout>

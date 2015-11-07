@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="@dimen/prepare_dialog_width"
+        android:layout_height="@dimen/prepare_dialog_height"
+        android:layout_gravity="center"
+        android:background="@color/dialog_choose_bg" >
+
+        <ImageView
+            android:id="@+id/img_left"
+            android:layout_width="@dimen/prepare_dialog_stove_size"
+            android:layout_height="@dimen/prepare_dialog_stove_size"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/prepare_dialog_margin_left"
+            android:layout_marginTop="@dimen/prepare_dialog_margin_top"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_stove_head" />
+
+        <ImageView
+            android:id="@+id/img_right"
+            android:layout_width="@dimen/prepare_dialog_stove_size"
+            android:layout_height="@dimen/prepare_dialog_stove_size"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/prepare_dialog_margin_left"
+            android:layout_marginTop="@dimen/prepare_dialog_margin_top"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_stove_head" />
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img_left"
+            android:layout_below="@+id/img_left"
+            android:layout_marginLeft="74dp"
+            android:layout_marginTop="@dimen/prepare_dialog_text_margin_top"
+            android:gravity="fill"
+            android:text="L"
+            android:textColor="@color/home_bg"
+            android:textSize="@dimen/prepare_dialog_tv_stove_size" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/img_right"
+            android:layout_below="@+id/img_right"
+            android:layout_marginLeft="74dp"
+            android:layout_marginTop="@dimen/prepare_dialog_text_margin_top"
+            android:gravity="fill"
+            android:text="R"
+            android:textColor="@color/home_bg"
+            android:textSize="@dimen/prepare_dialog_tv_stove_size" />
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/prepare_dialog_hint_height"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/home_bg"
+            android:gravity="center"
+            android:text="@string/dialog_choose_stove_hint"
+            android:textColor="@color/White"
+            android:textSize="@dimen/prepare_dialog_hint_size" />
+    </RelativeLayout>
+
+</FrameLayout>

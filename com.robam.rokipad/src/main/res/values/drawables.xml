@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="default_background" type="drawable">@mipmap/img_home_bg</item>
+    <item name="default_background_title" type="drawable">@color/Transparent</item>
+    <item name="default_background_content" type="drawable">@drawable/shape_device_control_bg</item>
+
+</resources>

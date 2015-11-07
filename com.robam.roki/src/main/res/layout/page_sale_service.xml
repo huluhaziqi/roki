@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="30dp"
+    android:paddingTop="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imgCall"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/common_view_background_selector"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_sale_service_call" />
+
+            <TextView
+                android:id="@+id/lblService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="全国售后服务"
+                android:textColor="@color/c01"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/lblService"
+                android:layout_below="@+id/lblService"
+                android:layout_marginTop="10dp"
+                android:text="95105855"
+                android:textColor="@color/c01"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:background="@mipmap/ic_sale_service_divider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地址：浙江省余杭经济开发区临平大道592号"
+            android:textColor="@color/c01"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="电话：0571-86281888"
+            android:textColor="@color/c01"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@mipmap/ic_sale_service_divider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="点击”一键售后“，售后人员会主动电话回访~"
+            android:textColor="@color/c01"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="为您排忧解难"
+            android:textColor="@color/c01"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/applyService"
+        style="@style/common_button"
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/ic_sale_service_headset" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一键售后"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

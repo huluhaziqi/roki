@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="scan_text">将二维码放入扫描框内, 即可自动扫描</string>
+
+    <!-- 菜单与页面标题 -->
+    <string name="title_app_name">老板厨电</string>
+    <string name="title_about">关于软件</string>
+
+
+
+    <!-- 添加设备 -->
+    <string name="add_dev">点击添加更多联网设备</string>
+    <string name="search_again">重新搜索</string>
+    <string name="cancel_search">取消搜索</string>
+
+    <!-- 首页 -->
+    <string name="love_meal">来吃有爱的饭</string>
+    <string name="today_main">今日主打</string>
+    <string name="today_menu">今日菜谱</string>
+    <!-- 设置 -->
+    <string name="setting_add_dev">点击添加新设备</string>
+    <string name="setting_dev_manage">设备管理</string>
+    <string name="setting_account_manage">账户管理</string>
+    <string name="setting_network">烟机联网</string>
+    <string name="setting_intel_setting">智能设定</string>
+    <string name="setting_foresale">售后服务</string>
+    <string name="setting_myroki">关于软件</string>
+    <string name="recover_setting">恢复默认设置</string>
+    <string name="inactive_hint">您尚未联网激活，此功能暂不可用，想更好的使用我，请点击联网并激活</string>
+    <string name="connect_and_active">联网并激活</string>
+    <string name="disconnect_hint">您还尚未联网，想更好的使用我，请点击联网设置</string>
+    <string name="setting_wifi">联网设置</string>
+    <string name="unlogin_hint">您尚未登录，此功能暂不可用，想更好的使用我，请点击登录</string>
+    <string name="official_website">roki官网</string>
+    <string name="usage_terms">使用条款</string>
+    <string name="company_title">公司名称 : </string>
+    <string name="company_name">杭州老板电器股份有限公司</string>
+    <string name="system_version">系统版本 : </string>
+    <string name="copyright">Copyright@2014robam All right reserved</string>
+    <string name="update">版本更新</string>
+    <string name="update_en">Version update</string>
+    <string name="apply_foresale">申请售后</string>
+    <string name="foresale_phone">售后热线 : 95105855</string>
+    <string name="main_account">主账户</string>
+    <string name="setting_nickname">昵称 : </string>
+    <string name="setting_phone">电话 : </string>
+    <string name="dialog_add_user_hint">请使用roki APP扫二维码添加用户</string>
+    <string name="add_user">点击添加新成员</string>
+    <string name="add_device_fail">添加设备失败!</string>
+    <string name="unconnect_toast">设备未连接!</string>
+
+    <!-- 菜谱 -->
+    <string name="recipes_category_material">食材分类</string>
+    <string name="recipes_category_style">菜系分类</string>
+    <string name="recipes_category_taste">口味分类</string>
+    <string name="recipes_vegetable">果蔬类</string>
+    <string name="recipes_meat">红肉类</string>
+    <string name="recipes_egg">蛋禽类</string>
+    <string name="recipes_bean">豆制品</string>
+    <string name="recipes_aquatic">水产品</string>
+    <string name="recipes_main">主食</string>
+    <string name="search">搜索</string>
+    <string name="cancel">取消</string>
+
+    <!-- 动态菜谱 -->
+    <string name="start_cook">开始烹饪</string>
+    <string name="main_material">主料</string>
+    <string name="assist_material">辅料</string>
+    <string name="accessory_material">佐料</string>
+    <string name="dialog_choose_stove_hint">即将开始烹饪，请选择您要使用的炉头</string>
+    <string name="product_time">制作时间</string>
+    <string name="next_step">下一步</string>
+    <string name="quit">退出</string>
+
+    <!-- 激活 -->
+    <string name="active_welcome">欢迎购买ROBAM的智能产品，点击开始进入无线网连接</string>
+    <string name="active_start">开始</string>
+    <string name="active_skip">跳过</string>
+    <string name="active_next">下一步</string>
+    <string name="active">激活</string>
+    <string name="check_and_active">确认并激活</string>
+    <string name="register">注册新号码</string>
+    <string name="forget_pwd">忘记密码</string>
+    <string name="password">密码</string>
+    <string name="show_password">显示密码</string>
+    <string name="main_phone">您的手机号码</string>
+    <string name="your_phone">您的手机号码</string>
+    <string name="nickname">昵称</string>
+    <string name="confirm_pwd">确认新密码</string>
+    <string name="input_identify_code">输入验证码</string>
+    <string name="send_identify_code">发送验证码</string>
+    <string name="wifi_connected">已连接</string>
+    <string name="login">登录</string>
+    <string name="account_login">账户登录</string>
+    <string name="account_register">账户注册</string>
+    <string name="account">账号</string>
+    <string name="show_pwd">显示密码</string>
+
+    <!-- 设备相关 -->
+    <string name="device_sync_timeout_error">sync timeout</string>
+    <string name="fan_invalid_error">油烟机已离线</string>
+    <string name="stove_invalid_error">电磁灶已离线</string>
+    <string name="dev_invalid_error">没有可用的设备</string>
+
+    <!-- 售后 -->
+    <string name="forsale_address_hz">浙江省余杭经济开发区临平大道592号</string>
+    <string name="forsale_phone_hz">95105855</string>
+    <string name="forsale_dialog_hint">您的请求已发送至服务器，请耐心等待ROKI售后的主动回拨</string>
+
+</resources>

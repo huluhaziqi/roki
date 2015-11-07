@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 14
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+def supportV4 = 'com.android.support:support-v4:23.0.1'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile supportV4
+    compile 'com.google.guava:guava:18.0'
+    //okhttp 2.2.0 可以避免 post without body 的异常
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.retrofit:converter-jackson:1.9.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+}
+

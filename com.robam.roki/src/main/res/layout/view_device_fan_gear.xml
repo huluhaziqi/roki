@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/txtGear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_margin="0dp"
+        android:background="@drawable/ic_device_fan_gear_circle"
+        android:gravity="center"
+        android:text="弱"
+        android:textColor="@color/device_board_text_color_selector"
+        android:textSize="65sp" />
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtGear"
+        android:layout_alignRight="@+id/txtGear"
+        android:gravity="center"
+        android:text="档"
+        android:textColor="@color/device_board_text_color_selector"
+        android:textSize="18sp" />
+</RelativeLayout>

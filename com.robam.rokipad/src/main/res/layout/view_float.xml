@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/float_layout"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="139dp"
+        android:layout_height="88dp"
+        android:background="#cc0c6c9f" >
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/ic_float_time"
+            android:drawablePadding="5dp"
+            android:textColor="@color/White"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:text="葱油鱼片"
+            android:textColor="@color/White"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>

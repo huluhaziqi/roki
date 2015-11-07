@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--override-->
+    <color name="main_background">#ececec</color>
+    <color name="home_bg">#e9a60f</color>
+
+
+
+    <!-- button -->
+    <color name="common_button_background">@color/c02</color>
+    <color name="common_button_background_disabled">@color/c16</color>
+    <color name="common_button_background_pressed">@color/common_view_background_pressed</color>
+    <color name="common_button_background_selected">@color/c16</color>
+    <color name="common_button_background_checked">@color/c02</color>
+
+    <color name="common_button_text">@color/White</color>
+    <color name="common_button_text_disabled">@color/Gray</color>
+    <color name="common_button_text_enabled">@color/common_button_text</color>
+    <color name="common_button_text_pressed">@color/White</color>
+    <color name="common_button_text_selected">@color/common_button_text_pressed</color>
+    <color name="common_button_text_checked">@color/common_button_text_pressed</color>
+
+    <!--define-->
+    <color name="c01">#acacac</color>
+    <color name="c02">#e9a60f</color>
+    <color name="c03">#343434</color>
+    <color name="c04">#6586b1</color>
+    <color name="c05">#1b2046</color>
+    <color name="c06">#db4545</color>
+    <color name="c07">#f41f1f</color>
+    <color name="c08">#6486b0</color>
+    <color name="c09">#f6f9fe</color>
+    <color name="c10">#82a0c7</color>
+    <color name="c11">#e9a60f</color>
+    <color name="c12">#3b495a</color>
+    <color name="c13">#dadada</color>
+    <color name="c14">#ffffff</color>
+    <color name="c15">#f1f2ed</color>
+    <color name="c16">#929292</color>
+    <color name="c17">#98989a</color>
+    <color name="c18">#dedfd7</color>
+    <color name="Black_65">#a6000000</color>
+    <color name="Black_80">#cd000000</color>
+    <color name="White_90">#e5ffffff</color>
+    <color name="White_60">#99ffffff</color>
+
+    <!--device-->
+    <color name="device_board_bg">@color/c03</color>
+    <color name="device_board_translucent">#52e9a60f</color>
+    <color name="device_board_text_invalid">#424242</color>
+    <color name="device_board_text_valid">#f8bf40</color>
+
+    <!--recipe-->
+    <color name="recipe_banner_text">#342d2a</color>
+</resources>

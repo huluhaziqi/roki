@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black_10">#1A000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_80">#CD000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_60">#9A000000</color>
+    <color name="black_40_40">#29000000</color>
+    <color name="black_35">#5A000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="white_70">#B4FFFFFF</color>
+    <color name="white_25">#40FFFFFF</color>
+
+    <!-- 重载 -->
+    <color name="common_divide_background">#c4c4c4</color>
+
+    <!-- 公共通用 -->
+    <color name="app_blue">#43a4fe</color>
+    <color name="main_background">#efefef</color>
+    <color name="content_bg">#fcfefe</color>
+    <color name="gray_dark">#565555</color>
+    <color name="gray_light">#9e9f9f</color>
+    <color name="ciycle_indicator_unselected">#e8e9e8</color>
+    <!-- 首页 -->
+    <color name="home_bg">#e9a60f</color>
+    <color name="control_bg">#C0FFFFFF</color>
+    <color name="control_off_bg">#1A000000</color>
+    <color name="color_off">#b9b9b9</color>
+    <color name="color_stroke">#c4c4c4</color>
+    <color name="setting_text_normal">#7f7f7f</color>
+    <color name="setting_text_pressed">#e9a60f</color>
+    <color name="setting_divide">#1A000000</color>
+    <color name="setting_bg_pressed">#80cecece</color>
+
+    <!-- recipes -->
+    <color name="recipe_category_title_color">#575757</color>
+    <color name="pop_divider">#26ffffff</color>
+    <color name="recipe_pop_bg">#cd000000</color>
+    <color name="recipe_item_text">#916400</color>
+    <color name="recipe_search_bg">#cdffffff</color>
+    <color name="recipe_search_stroke">#1a000000</color>
+
+    <!-- 菜谱介绍 -->
+
+    <color name="introduce_layout_name_bg">#c0ffffff</color>
+    <color name="introduce_back_bg">#80ffffff</color>
+    <color name="dialog_choose_bg">#f7f7f8</color>
+
+    <!-- 激活 -->
+    <color name="active_step_bg">#bfc2c4</color>
+
+    <!-- 设置 -->
+    <color name="intel_setting_text">#353535</color>
+    <color name="foresale_btn_bg_normal">#cecece</color>
+    <color name="foresale_divider">#19000000</color>
+    <color name="btn_recovery_normal">#0c000000</color>
+
+</resources>

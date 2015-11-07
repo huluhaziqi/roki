@@ -1,0 +1,103 @@
+{
+  "main": "MainForm",
+  "forms": [
+    {
+      "id": "WelcomeForm",
+      "homePage": "Welcome",
+      "loader": "com.robam.common.ui.RokiLoader"
+    },
+    {
+      "id": "GuideForm",
+      "homePage": "GuideHome",
+      "loader": "com.robam.common.ui.RokiLoader"
+    },
+    {
+      "id": "MainForm",
+      "homePage": "Home",
+      "loader": "com.robam.common.ui.RokiLoader"
+    }
+  ],
+  "menus": [],
+  "pages": [
+    {
+      "id": "Home",
+      "name": "老板厨电",
+      "clazz": "com.robam.rokipad.ui.page.HomePage"
+    },
+    {
+      "id": "Welcome",
+      "clazz": "com.robam.rokipad.ui.page.WelcomePage"
+    },
+    {
+      "id": "WebClient",
+      "clazz": "com.robam.rokipad.ui.page.WebClientPage"
+    },
+    {
+      "id": "Setting",
+      "name": "设置",
+      "clazz": "com.robam.rokipad.ui.page.SettingPage"
+    },
+    {
+      "id": "UserRegist",
+      "clazz": "com.robam.rokipad.ui.page.UserRegistPage"
+    },
+    {
+      "id": "UserLogin",
+      "clazz": "com.robam.rokipad.ui.page.UserLoginPage"
+    },
+    {
+      "id": "GuideHome",
+      "clazz": "com.robam.rokipad.ui.page.GuideHomePage"
+    },
+    {
+      "id": "GuideWifi",
+      "name": "WIFI设置",
+      "clazz": "com.robam.rokipad.ui.page.GuideWifiPage"
+    },
+    {
+      "id": "GuideLogin",
+      "name": "用户登录",
+      "clazz": "com.robam.rokipad.ui.page.GuideLoginPage"
+    },
+    {
+      "id": "GuideRegist",
+      "name": "用户注册",
+      "clazz": "com.robam.rokipad.ui.page.GuideRegistPage"
+    },
+    {
+      "id": "RecipeCategory",
+      "clazz": "com.robam.rokipad.ui.page.RecipeCategoryPage"
+    },
+    {
+      "id": "RecipeToday",
+      "name": "今日菜谱",
+      "clazz": "com.robam.rokipad.ui.page.RecipeTodayPage"
+    },
+    {
+      "id": "RecipeFavority",
+      "name": "我的收藏",
+      "clazz": "com.robam.rokipad.ui.page.RecipeFavorityPage"
+    },
+    {
+      "id": "RecipeRecommend",
+      "name": "猜你喜欢",
+      "clazz": "com.robam.rokipad.ui.page.RecipeRecommendPage"
+    },
+    {
+      "id": "RecipePrepare",
+      "clazz": "com.robam.rokipad.ui.page.RecipePreparePage"
+    },
+    {
+      "id": "RecipeIntroduce",
+      "clazz": "com.robam.rokipad.ui.page.RecipeIntroducePage"
+    },
+    {
+      "id": "RecipeSearch",
+      "clazz": "com.robam.rokipad.ui.page.RecipeSearchPage"
+    },
+    {
+      "id": "RecipeCooking",
+      "clazz": "com.robam.rokipad.ui.page.RecipeCookingPage"
+    }
+  ]
+}

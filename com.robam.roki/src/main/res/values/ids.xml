@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_weekly_ventilation_date_hour" type="id" />
+    <item name="tag_weekly_ventilation_date_minute" type="id" />
+
+</resources>
