@@ -329,7 +329,7 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 			default:
 				break;
 			}
-		} else {
+		} else if (isFanMsg(msg)){
 			// 油烟机
 
 			switch (key) {			// 8700/9700为通用烟机
@@ -422,10 +422,18 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 				break;
 			}
 
+		}else if (isSterilizer(msg)){
+
 		}
 	}
 
 	private boolean isStoveMsg(Msg msg) {
 		return Utils.isStove(msg.getDeviceGuid().getGuid());
+	}
+	private  boolean isFanMsg(Msg msg){  //判断是否为油烟机 by zhaiyuanyi 20151120
+		return Utils.isFan(msg.getDeviceGuid().getGuid());
+	}
+	private boolean isSterilizer(Msg msg){//判断是否为消毒柜 by zhaiyuanyi 20151120
+		return Utils.isSterilizer(msg.getDeviceGuid().getGuid());
 	}
 }

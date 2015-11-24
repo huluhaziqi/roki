@@ -1,6 +1,7 @@
 package com.robam.common;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Lists;
 import com.legent.plat.Plat;
 import com.legent.plat.pojos.device.IDevice;
 import com.legent.plat.pojos.dictionary.DeviceType;
@@ -9,6 +10,8 @@ import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.pojos.device.fan.IFan;
+
+import java.util.List;
 
 public class Utils {
 
@@ -25,7 +28,8 @@ public class Utils {
         AbsFan fan = (AbsFan)getDefaultFan();
         Stove stove = null;
         if (fan != null) {
-            stove = fan.getChildByDeviceType(IRokiFamily.R9W70);
+            //stove = fan.getChildByDeviceType(IRokiFamily.R9W70);
+            stove =fan.getChild();
         }
         return stove;
     }
@@ -51,6 +55,9 @@ public class Utils {
         return DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8700)
                 || DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9700)
                 ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R8229);
+    }
+    static public boolean isSterilizer(String guid){//判断是否为消毒柜 by zhaiyuanyi
+        return DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.RR829);
     }
     static public byte whichFan(String guid){
         if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9700)||

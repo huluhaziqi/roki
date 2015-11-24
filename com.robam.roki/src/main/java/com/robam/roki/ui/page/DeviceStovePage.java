@@ -15,6 +15,7 @@ import com.google.common.eventbus.Subscribe;
 import com.legent.VoidCallback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
+
 import com.legent.ui.ext.HeadPage;
 import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.EventUtils;
@@ -22,12 +23,14 @@ import com.legent.utils.api.ToastUtils;
 import com.robam.common.Utils;
 import com.robam.common.events.StoveStatusChangedEvent;
 import com.robam.common.events.StoveTempEvent;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove;
 import com.robam.common.pojos.device.StoveStatus;
 import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;
 import com.robam.roki.ui.view.DeviceSwitchView;
+import com.squareup.okhttp.internal.Util;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -143,6 +146,10 @@ public class DeviceStovePage extends HeadPage {
 
     @OnClick(R.id.imgLock)
     public void onClickLock() {
+        if (stove.getStoveModel().equals(IRokiFamily.R9B12)) {                   //灶具为R9B12，童锁功能取消;by zhaiyuanyi 20151120
+            ToastUtils.showShort("不允许远程控制");
+            return;
+        }
         setLock();
     }
 
@@ -176,6 +183,10 @@ public class DeviceStovePage extends HeadPage {
 
     @OnClick({R.id.powerLeftView, R.id.powerRightView})
     public void onClickSwitch(View v) {
+        if (stove.getStoveModel().equals(IRokiFamily.R9B12)) {                   //灶具为R9B12，开关机功能取消;by zhaiyuanyi 20151120
+            ToastUtils.showShort("不允许远程控制");
+            return;
+        }
         final Stove.StoveHead head;
         if (v.getId() == R.id.powerLeftView)
             head = stove.leftHead;
@@ -189,6 +200,10 @@ public class DeviceStovePage extends HeadPage {
 
     @OnClick({R.id.imgUpLeft, R.id.imgUpRight})
     public void onClickUp(View v) {
+        if (stove.getStoveModel().equals(IRokiFamily.R9B12)) {                    //灶具为R9B12，加档位功能取消;by zhaiyuanyi 20151120
+            ToastUtils.showShort("不允许远程控制");
+            return;
+        }
         final Stove.StoveHead head;
         if (v.getId() == R.id.imgUpLeft)
             head = stove.leftHead;
@@ -211,6 +226,10 @@ public class DeviceStovePage extends HeadPage {
 
     @OnClick({R.id.imgDownLeft, R.id.imgDownRight})
     public void onClickDown(View v) {
+        if (stove.getStoveModel().equals(IRokiFamily.R9B12)) {                    //灶具为R9B12，减档位功能取消；by zhaiyuanyi 20151120
+            ToastUtils.showShort("不允许远程控制");
+            return;
+        }
         final Stove.StoveHead head;
         if (v.getId() == R.id.imgDownLeft)
             head = stove.leftHead;

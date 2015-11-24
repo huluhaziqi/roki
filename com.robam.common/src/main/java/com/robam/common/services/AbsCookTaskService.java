@@ -9,6 +9,7 @@ import com.legent.services.TaskService;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.utils.EventUtils;
+import com.robam.common.Utils;
 import com.robam.common.events.CookCountdownEvent;
 import com.robam.common.pojos.CookStep;
 import com.robam.common.pojos.Recipe;
@@ -134,6 +135,10 @@ abstract public class AbsCookTaskService extends AbsService {
             stepIndex++;
 
             CookStep step = steps.get(stepIndex);
+            //判断是否处于看看菜谱的看看模式，如果处于看看模式，将不发控制命令到烟灶设备；
+            Stove stove = Utils.getDefaultStove();
+            if (stove==null)
+                return;
             setCommand(step);
         }
 

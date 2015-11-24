@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.legent.Callback;
 import com.legent.VoidCallback;
 import com.legent.plat.pojos.device.AbsDeviceHub;
+import com.legent.plat.pojos.device.IDevice;
 import com.legent.ui.ext.HeadPage;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.ListDialog;
@@ -20,8 +21,10 @@ import com.legent.ui.ext.views.CheckBoxView;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.Utils;
 import com.robam.common.io.cloud.RokiRestHelper;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.SmartParams;
 import com.robam.common.pojos.device.fan.AbsFan;
+import com.robam.common.pojos.device.fan.Fan8229;
 import com.robam.common.pojos.device.fan.IFan;
 import com.robam.common.ui.dialog.TimeSetDialog;
 import com.robam.roki.R;
@@ -77,7 +80,8 @@ public class SmartParamsPage extends HeadPage implements CompoundButton.OnChecke
     protected View onCreateContentView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View view = layoutInflater.inflate(R.layout.page_smart_params, viewGroup, false);
         ButterKnife.inject(this, view);
-        fan = Utils.getDefaultFan();
+            fan = Utils.getDefaultFan();
+
         initData();
         return view;
     }
@@ -143,20 +147,21 @@ public class SmartParamsPage extends HeadPage implements CompoundButton.OnChecke
         switchView(isEmpty);
         if (isEmpty) return;
 
-        fan.getSmartConfig(new Callback<SmartParams>() {
+            fan.getSmartConfig(new Callback<SmartParams>() {
 
-            @Override
-            public void onSuccess(SmartParams smartParams) {
-                refresh(smartParams);
-                setListener();
-            }
+                @Override
+                public void onSuccess(SmartParams smartParams) {
+                    refresh(smartParams);
+                    setListener();
+                }
 
-            @Override
-            public void onFailure(Throwable t) {
-                ToastUtils.showThrowable(t);
-                setListener();
-            }
-        });
+                @Override
+                public void onFailure(Throwable t) {
+                    ToastUtils.showThrowable(t);
+                    setListener();
+                }
+            });
+
 
 
         RokiRestHelper.getSmartParams360(fan.getID(), new Callback<Boolean>() {
@@ -228,6 +233,7 @@ public class SmartParamsPage extends HeadPage implements CompoundButton.OnChecke
             return;
         }
 
+
         SmartParams sp = new SmartParams();
         sp.IsPowerLinkage = chkIsPowerLinkage.isChecked();
         sp.IsLevelLinkage = chkIsLevelLinkage.isChecked();
@@ -243,18 +249,19 @@ public class SmartParamsPage extends HeadPage implements CompoundButton.OnChecke
         sp.WeeklyVentilationDate_Hour = Short.parseShort(txtWeeklyVentilationDateTime.getTag(R.id.tag_weekly_ventilation_date_hour).toString());
         sp.WeeklyVentilationDate_Minute = Short.parseShort(txtWeeklyVentilationDateTime.getTag(R.id.tag_weekly_ventilation_date_minute).toString());
 
-        fan.setSmartConfig(sp, new VoidCallback() {
+            fan.setSmartConfig(sp, new VoidCallback() {
 
-            @Override
-            public void onSuccess() {
-                ToastUtils.showShort("设置成功");
-            }
+                @Override
+                public void onSuccess() {
+                    ToastUtils.showShort("设置成功");
+                }
 
-            @Override
-            public void onFailure(Throwable t) {
-                ToastUtils.showThrowable(t);
-            }
-        });
+                @Override
+                public void onFailure(Throwable t) {
+                    ToastUtils.showThrowable(t);
+                }
+            });
+
     }
 
     void setSmartParamsOn360() {

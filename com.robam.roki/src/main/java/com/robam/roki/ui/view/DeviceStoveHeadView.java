@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.api.ToastUtils;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove;
 import com.robam.common.pojos.device.Stove.StoveHead;
 import com.robam.common.pojos.device.StoveStatus;
@@ -97,11 +98,13 @@ public class DeviceStoveHeadView extends FrameLayout {
 
     @OnClick(R.id.switchView)
     public void onClickSwitch() {
+
         setStatus();
     }
 
     @OnClick(R.id.imgUp)
     public void onClickUp() {
+
         if (head.status == StoveStatus.StandyBy) {
             setLevel(5);
         } else {
@@ -115,6 +118,7 @@ public class DeviceStoveHeadView extends FrameLayout {
 
     @OnClick(R.id.imgDown)
     public void onClickDown() {
+
         if (head.status == StoveStatus.StandyBy) {
             setLevel(5);
         } else {

@@ -8,7 +8,9 @@ import com.legent.plat.pojos.device.IDeviceFactory;
 import com.legent.plat.pojos.device.SubDeviceInfo;
 import com.legent.plat.services.DeviceTypeManager;
 import com.robam.common.pojos.device.IRokiFamily;
+import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove9B12;
 import com.robam.common.pojos.device.fan.Fan8229;
 import com.robam.common.pojos.device.fan.Fan8700;
 import com.robam.common.pojos.device.fan.Fan9700;
@@ -37,7 +39,9 @@ public class RokiDeviceFactory implements IDeviceFactory {
                 return new Fan8700(devInfo);
             } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8229)) {
                 return new Fan8229(devInfo);
-            } else {
+            } else if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.RR829)){
+                return new Steri829(devInfo);
+            }else{
                 //TODO add log here ....
                 return null;
             }
@@ -46,7 +50,7 @@ public class RokiDeviceFactory implements IDeviceFactory {
             if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9W70)) {
                 return new Stove(deviceInfo);
             } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B12)) {
-                return new Stove(deviceInfo);
+                return new Stove9B12(deviceInfo);
             } else {
                 //TODO add log here ....
                 return null;

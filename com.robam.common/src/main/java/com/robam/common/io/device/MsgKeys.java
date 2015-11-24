@@ -27,6 +27,10 @@ public interface MsgKeys {
      * 油烟机事件上报
      */
     short FanEvent_Noti = 148;
+    /**
+     * 消毒柜事件上报      by zhaiyuanyi 20151120
+     */
+    short SteriAlarm_Noti = 146;
 
     // -------------------------------------------------------------------------------
     // 应答类
@@ -183,4 +187,69 @@ public interface MsgKeys {
      */
     short SetSmartConfig_Rep = 147;
 
+    // ------------------------------------------------------------------------------消毒柜  by zhaiyuanyi 20151120
+    /**
+     * 设置消毒柜开关（请求）
+     */
+    short SetSteriPowerOnOff_Req = 128;
+    /**
+     * 设置消毒柜开关（应答）
+     */
+    short SetSteriPowerOnOff_Rep = 129;
+    /**
+     * 设置消毒柜预约时间（请求）
+     */
+    short SetSteriReserveTime_Req = 130;
+    /**
+     * 设置消毒柜预约时间（应答）
+     */
+    short SetSteriReserveTime_Rep = 131;
+    /**
+     * 设置消毒柜烘干（请求）
+     */
+    short SetSteriDrying_Req = 132;
+    /**
+     * 设置消毒柜烘干（应答）
+     */
+    short SetSteriDrying_Rep = 133;
+    /**
+     * 设置消毒柜保洁（请求）
+     */
+    short SetSteriClean_Req = 134;
+    /**
+     * 设置消毒柜保洁（应答）
+     */
+    short SetSteriClean_Rep = 135;
+    /**
+     * 设置消毒柜消毒（请求）
+     */
+    short SetSteriDisinfect_Req = 136;
+    /**
+     * 设置消毒柜消毒（应答）
+     */
+    short SetSteriDisinfect_Rep = 137;
+    /**
+     * 设置消毒柜童锁（请求）
+     */
+    short SetSteriLock_Req = 138;
+    /**
+     * 设置消毒柜童锁（应答）
+     */
+    short SetSteriLock_Rep = 139;
+    /**
+     * 查询消毒柜温度／湿度／细菌数（请求）
+     */
+    short GetSteriParam_Req = 142;
+    /**
+     * 查询消毒柜温度／湿度／细菌数（应答）
+     */
+    short GetSteriParam_Rep = 143;
+    /**
+     * 消毒柜状态查询（请求）
+     */
+    short GetSteriStatus_Req = 144;
+    /**
+     * 消毒柜状态查询（应答）
+     */
+    short GetSteriStatus_Rep = 145;
 }

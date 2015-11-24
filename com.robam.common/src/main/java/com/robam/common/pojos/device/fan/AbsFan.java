@@ -148,6 +148,7 @@ abstract public class AbsFan extends AbsDeviceHub implements IFan {
         savedLevel = PowerLevel_0;
     }
 
+
     @Override
     public void getFanStatus(VoidCallback callback) {
         try {
@@ -294,7 +295,7 @@ abstract public class AbsFan extends AbsDeviceHub implements IFan {
         try {
             Msg msg = newReqMsg(MsgKeys.SetFanTimeWork_Req);
             msg.putOpt(MsgParams.TerminalType, terminalType);             // 控制端类型区分 by zhaiyuanyi
-            msg.putOpt(MsgParams.UserId, getSrcUser());                   //增加 userid
+//            msg.putOpt(MsgParams.UserId, getSrcUser());
             msg.putOpt(MsgParams.FanLevel, level);
             msg.putOpt(MsgParams.FanTime, time);
 
@@ -373,7 +374,7 @@ abstract public class AbsFan extends AbsDeviceHub implements IFan {
         try {
             Msg msg = newReqMsg(MsgKeys.SetSmartConfig_Req);
             msg.putOpt(MsgParams.TerminalType, terminalType);
-            msg.putOpt(MsgParams.UserId, getSrcUser());                   //增加 userid
+           // msg.putOpt(MsgParams.UserId, getSrcUser());                   //增加 userid
             msg.putOpt(MsgParams.IsPowerLinkage, smartParams.IsPowerLinkage);
             msg.putOpt(MsgParams.IsLevelLinkage, smartParams.IsLevelLinkage);
             msg.putOpt(MsgParams.IsShutdownLinkage, smartParams.IsShutdownLinkage);

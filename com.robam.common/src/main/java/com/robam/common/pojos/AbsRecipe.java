@@ -34,6 +34,14 @@ abstract public class AbsRecipe extends AbsStorePojo<Long> {
     @JsonProperty("collectCount")
     public int collectCount;
 
+    /*
+     *是否支持配送   by zhaiyuanyi
+     */
+    @DatabaseField()
+    @JsonProperty("allowDistribution")
+    public boolean allowDistribution;
+
+
     /**
      * 是否在今日菜单
      */

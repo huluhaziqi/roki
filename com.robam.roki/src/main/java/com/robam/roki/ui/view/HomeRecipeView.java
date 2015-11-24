@@ -26,6 +26,7 @@ import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;
 import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.UIListeners;
+import com.robam.roki.ui.dialog.LostRecipeDialog;
 import com.robam.roki.ui.dialog.MaintainHomeDialog;
 import com.robam.roki.ui.page.RecipeSearchPage;
 
@@ -38,6 +39,7 @@ import butterknife.OnClick;
 public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh {
 
     final static String Prefs_Maintain_First = "Maintain_First";
+    final static String Prefs_LostRecipe_First = "LostRecipe_First";
 
     ColorStateList tagTextColor;
 
@@ -61,7 +63,8 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);
             setGesture(divTop);
-            popoupMaintainOnlyFirst();
+            //popoupMaintainOnlyFirst();
+            popoupLostrecipeOnlyFirst();
         }
 
     }
@@ -179,7 +182,19 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
         }, 500);
 
     }
+    void popoupLostrecipeOnlyFirst(){
+        postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                boolean isFirst = PreferenceUtils.getBool(Prefs_LostRecipe_First,true);
+                if (isFirst){
+                    LostRecipeDialog.show(getContext());
+                    PreferenceUtils.setBool(Prefs_LostRecipe_First, false);
+                }
 
+            }
+        },500);
+    }
 
     void onMaintain() {
         RokiRestHelper.queryMaintain(new Callback<MaintainInfo>() {
@@ -213,9 +228,11 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
 
                 if (velocityY > 0) {
                     //下滑
-                    onMaintain();
+                   // onMaintain();
+                    LostRecipeDialog.show(getContext());
                 } else {
-                    //上滑
+                    //上滑;
+
                 }
 
                 return true;

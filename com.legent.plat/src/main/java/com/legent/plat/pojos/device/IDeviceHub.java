@@ -14,7 +14,10 @@ public interface IDeviceHub{
      * 设备分组编码
      */
     long getGroupId();
-
+    /**
+     * 获取子设备   // by zhaiyuanyi 20151119
+     */
+    <T extends IDevice> T getChild();
     /**
      * 获取子设备,根据guid
      */

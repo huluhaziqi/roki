@@ -84,6 +84,7 @@ abstract public class AbsDeviceHub extends AbsDevice implements IDeviceHub {
         return groupId;
     }
 
+
     @Override
     public <T extends IDevice> T getChild(String guid) {
         return (T) map.get(guid);
@@ -116,6 +117,19 @@ abstract public class AbsDeviceHub extends AbsDevice implements IDeviceHub {
             }
         }
         return list;
+    }
+    // by zhaiyuanyi 20151119
+    @Override
+    public <T extends IDevice> T getChild() {
+        List<T> list = Lists.newArrayList();
+        for (IDevice dev : map.values()){
+            list.add((T) dev);
+        }
+        if (list.size()>0) {
+            return  list.get(0);
+        }else{
+            return null;
+        }
     }
 
     @Override

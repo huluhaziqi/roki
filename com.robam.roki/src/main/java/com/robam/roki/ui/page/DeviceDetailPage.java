@@ -82,7 +82,7 @@ public class DeviceDetailPage extends HeadPage {
         List<IDevice> devices = Lists.newArrayList();
         devices.add(fan);
 
-        Stove stove = fan.getChildByDeviceType(IRokiFamily.R9W70);
+        Stove stove = fan.getChild();                     //getChildByDeviceType(IRokiFamily.R9W70);
         if (stove != null) {
             devices.add(stove);
         }

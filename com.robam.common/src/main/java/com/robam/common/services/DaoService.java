@@ -44,4 +44,5 @@ public class DaoService extends AbsDaoService {
         long curUserId = Plat.accountService.getCurrentUserId();
         return String.format("%s_%s", super.getDbName(), curUserId);
     }
+
 }

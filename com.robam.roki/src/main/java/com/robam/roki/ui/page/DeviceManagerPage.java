@@ -125,7 +125,7 @@ public class DeviceManagerPage extends HeadPage {
             }
 
             void showData(IDevice dev) {
-                txtName.setText("油烟机/电磁灶");
+                txtName.setText("油烟机/灶具");
             }
         }
     }

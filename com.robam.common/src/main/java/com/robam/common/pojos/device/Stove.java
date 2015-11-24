@@ -131,6 +131,11 @@ public class Stove extends AbsDevice implements IStove {
     }
 
     @Override
+    public String getStoveModel() {
+        return IRokiFamily.R9W70;
+    }
+
+    @Override
     public void getStoveStatus(VoidCallback callback) {
         try {
             Msg msg = newReqMsg(MsgKeys.GetStoveStatus_Req);

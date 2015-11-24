@@ -63,35 +63,40 @@ public class UiHelper {
 
         CookbookManager cm = CookbookManager.getInstance();
 
-        if (book.isToday) {
-            cm.deleteTodayCookbook(book.id, new VoidCallback() {
+        if (book.allowDistribution) {
+            if (book.isToday) {
+                cm.deleteTodayCookbook(book.id, new VoidCallback() {
 
-                @Override
-                public void onSuccess() {
-                    book.isToday = false;
-                    ToastUtils.showShort("已经从购物车中移除!");
-                }
+                    @Override
+                    public void onSuccess() {
+                        book.isToday = false;
+                        ToastUtils.showShort("已经从购物车中移除!");
+                    }
 
-                @Override
-                public void onFailure(Throwable t) {
-                    ToastUtils.showShort(t.getMessage());
-                }
-            });
-        } else {
-            cm.addTodayCookbook(book.id, new VoidCallback() {
+                    @Override
+                    public void onFailure(Throwable t) {
+                        ToastUtils.showShort(t.getMessage());
+                    }
+                });
+            } else {
+                cm.addTodayCookbook(book.id, new VoidCallback() {
 
-                @Override
-                public void onSuccess() {
-                    book.isToday = true;
-                    ToastUtils.showShort("已经加入到购物车!");
-                }
+                    @Override
+                    public void onSuccess() {
+                        book.isToday = true;
+                        ToastUtils.showShort("已经加入到购物车!");
+                    }
 
-                @Override
-                public void onFailure(Throwable t) {
-                    ToastUtils.showShort(t.getMessage());
-                }
-            });
+                    @Override
+                    public void onFailure(Throwable t) {
+                        ToastUtils.showShort(t.getMessage());
+                    }
+                });
 
+            }
+        }else{
+            ToastUtils.showShort("失传菜博大精深" +"\n"+
+                    "暂不支持加入购物车");
         }
     }
 
