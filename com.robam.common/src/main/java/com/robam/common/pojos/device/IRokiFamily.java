@@ -30,6 +30,16 @@ public interface IRokiFamily {
     String R9B12 = "R9B12";
 
     /**
+     * 燃气灶   add by zhaiyuanyi
+     */
+    String R9B37 = "R9B37";
+
+    /**
+     * 燃气灶   add by zhaiyuanyi
+     */
+    String R9B39 = "R9B39";
+
+    /**
      * 消毒柜
      */
     String RR829 = "RR829";

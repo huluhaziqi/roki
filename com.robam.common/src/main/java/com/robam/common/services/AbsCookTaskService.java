@@ -13,6 +13,7 @@ import com.robam.common.Utils;
 import com.robam.common.events.CookCountdownEvent;
 import com.robam.common.pojos.CookStep;
 import com.robam.common.pojos.Recipe;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove;
 import com.robam.common.pojos.device.Stove.StoveHead;
 import com.robam.common.pojos.device.StoveStatus;
@@ -380,7 +381,20 @@ abstract public class AbsCookTaskService extends AbsService {
                     || stoveHead.level == Stove.PowerLevel_0) {
                 setStoveStatus(StoveStatus.StandyBy);
             }
-
+            if(!stove.getStoveModel().equals(IRokiFamily.R9W70))
+            {                                                       //燃气灶与电磁灶档位关系对应 by zhaiyuanyi 20151128
+                if (level==0||level==1){
+                    level=1;
+                }else if (level==2||level==3){
+                    level=2;
+                }else if (level==4||level==5){
+                    level=3;
+                }else if (level==6){
+                    level=4;
+                }else if (level==7||level==8||level==9){
+                    level=5;
+                }
+            }
             stove.setStoveLevel(true, stoveHead.ihId, (short) level, null);
         }
     }

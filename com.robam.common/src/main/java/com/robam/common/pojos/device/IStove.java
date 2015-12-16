@@ -9,7 +9,7 @@ import com.legent.VoidCallback;
 public interface IStove extends IPauseable {
 
     /**
-     * 灶具model查询：R9W70/R9B12/R9B37
+     * 灶具model查询：R9W70/R9B12/R9B37/R9B39
      */
     public String getStoveModel();
 

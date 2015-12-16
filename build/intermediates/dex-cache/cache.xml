@@ -2,11 +2,207 @@
 <items version="2" >
 
     <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/butterknife-6.1.0-e30edaca238f9cc2d9019c861c442147ec7ed730.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/com.legent.libraries/com.handmark.pulltorefresh/2.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e020dfc688f3eb925eeecea4378c95bbb1e71d72">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-fcada12cd7ca3b094498e0db97e82342d98f7dbd.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-7189d357a5de4698825e3dc606f1aa239714da24.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.legent/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5c23acdadbdd1c3bff5915aeb9607fb2c9b77bd6">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-1ece13d72608a7ce7800fc12f728208910384928.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/universal-image-loader-1.9.3-572defa55637346def028b08c0c586fcc13e9990.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-core/4.48/e579bd2905d0399af5029aaaf9817d5fa0ca88a5/ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/ormlite-core-4.48-2e41e22cec018e2cf6669b10d5ed62f81db771a7.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.1/5e57baebad3898aca8a825adaf2be6fd189442f2/jackson-databind-2.5.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5e57baebad3898aca8a825adaf2be6fd189442f2">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/jackson-databind-2.5.1-4f875507ce1a71ee01cccda19f8c0469a294060d.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.legent.utils.easylink/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="389b97c26d9d0e31452a63142f124a75bdfcda87">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-75ae826aeaf307b2afde83f342406fbfbbe0393a.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.1/e2a00ad1d7e540ec395e9296a34da484c8888d4d/jackson-core-2.5.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e2a00ad1d7e540ec395e9296a34da484c8888d4d">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/jackson-core-2.5.1-d1ac07c2dfb63d7f5871853baefc99cc71a03150.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/com.legent.libraries/com.viewpagerindicator/2.4.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="36abc4ed965ea3f99ca04223f35ca58578864332">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-08dd8780e008a7c885ac345cfb80a0ed316ca4ce.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/okhttp-2.2.0-992c83572589b85e79da8ac592890f71ff9d3c25.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-android/4.48/afa06f539a4026c10b247386312aa67404b80a16/ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/ormlite-android-4.48-5f609d72d398c7e09cc50e0bf297c3fef23bf3b7.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.legent.plat/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c28a49620b131df2ffc7df9be21d0dcec4ca3af0">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-64650fbe1b8a83650ad90b87b3c55e303ee86c98.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.legent.utils.qrcode/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="66f498e629d53f489581f78c4491eacdd11d368d">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-60eb0de934c7e2338bda86ae5a20b2f32ba748db.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/guava-18.0-13fdfff191731ac4950ca94f32f05fe9cdcb4494.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/core-3.2.0-9f201448d82c861c412fde963da9cb80dbeb548f.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/gson-2.3.1-7fe755c8a2a4491ac83fa68b3183e95ec894cc3a.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/internal_impl-23.0.1-9692086a6927281ec34c443d0d607924f946fac9.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/support-annotations-23.0.1-280fe32ae93598aefab2502ca6555e02176197a1.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.legent.utils.serialport/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6392226841adb6183d6fc36fdb94e38bd9653331">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-851932094ce299ca924065a000558066c20a4cad.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/11752d3f24d1a9deda4533a7ca18d8496417ceeb/org.eclipse.paho.client.mqttv3-1.0.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="11752d3f24d1a9deda4533a7ca18d8496417ceeb">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/org.eclipse.paho.client.mqttv3-1.0.2-64e5c02c9cafd9ad26fdb209d5bed9c5fbe1a4fa.jar" />
+    </item>
+    <item
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.roki/build/intermediates/exploded-aar/roki/com.robam.common/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="4df40246255b5f3fe77ac25a13d33dc1e4d46196">
+        sha1="3b4992316ba70d9ff38783ee1b4a4155fd260176">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.roki/build/intermediates/pre-dexed/debug/classes-66f4ddb287c1e43f2d372d9b017ed8093bdb4f18.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/com.legent.libraries/com.etsy.android.grid/1.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8139ec316bec67dcd10bcda38dfe579c8a1630e5">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-43264cc71894245529962ef13f69d61349e9ff01.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.1/71c1992c0cf5e0ce62574e96009572062ba0f4d9/jackson-annotations-2.5.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="71c1992c0cf5e0ce62574e96009572062ba0f4d9">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/jackson-annotations-2.5.1-f47cb1835a9fccd6a5c2ac111f9515d6b67a77b2.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/converter-jackson/1.9.0/a3968e43e377b21ade8fa77d633716edda8fe17b/converter-jackson-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a3968e43e377b21ade8fa77d633716edda8fe17b">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/converter-jackson-1.9.0-8f93a6b6546612da1f557a2f18a5d6cf20eb1c81.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.legent.ui/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="62767a205dbd11f64d2f950d8537ef319d3c5ac2">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-b8108996915052850dc64884e3dc62be2a293496.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.2.0/c0b52915a48fa91b1b94a28d4a2997bac5f524df/okio-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c0b52915a48fa91b1b94a28d4a2997bac5f524df">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/okio-1.2.0-a6457cddaf3f607c4ccfafd3e11c80cd489e0e7d.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/exploded-aar/roki/com.robam.common/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3b4992316ba70d9ff38783ee1b4a4155fd260176">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-a1ec8472a16b19c65335e552ec4c05ec0f855108.jar" />
+    </item>
+    <item
+        jar="/Users/zhaiyuanyi/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/roki_project/roki/com.robam.rokipad/build/intermediates/pre-dexed/release/retrofit-1.9.0-3e4a988a152dec00c2b5c10f83aed4edab81a744.jar" />
     </item>
 
 </items>

@@ -11,6 +11,7 @@ import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Stove;
 import com.robam.common.pojos.device.Stove9B12;
+import com.robam.common.pojos.device.Stove9B37;
 import com.robam.common.pojos.device.fan.Fan8229;
 import com.robam.common.pojos.device.fan.Fan8700;
 import com.robam.common.pojos.device.fan.Fan9700;
@@ -51,7 +52,9 @@ public class RokiDeviceFactory implements IDeviceFactory {
                 return new Stove(deviceInfo);
             } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B12)) {
                 return new Stove9B12(deviceInfo);
-            } else {
+            } else if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B37)){
+                return new Stove9B37(deviceInfo);
+            }else {
                 //TODO add log here ....
                 return null;
             }
