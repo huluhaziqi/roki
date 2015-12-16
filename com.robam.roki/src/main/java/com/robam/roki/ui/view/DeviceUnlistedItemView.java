@@ -41,7 +41,7 @@ public class DeviceUnlistedItemView extends FrameLayout {
 
     void init(Context cx, AttributeSet attrs) {
 
-        View view = LayoutInflater.from(cx).inflate(R.layout.view_device_unlisted_item,
+        View view = LayoutInflater.from(cx).inflate(R.layout.view_device_unlisted_item_before,
                 this, true);
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);

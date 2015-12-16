@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.robam.common.Utils;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove;
 import com.robam.roki.R;
 
@@ -46,6 +47,22 @@ public class RecipeCookingStoveStatusView extends FrameLayout {
     public void setLevel(short level) {
 
         boolean isRoki = Utils.getDefaultFan() != null;
+        boolean is9w70 = Utils.getDefaultStove().getStoveModel().equals(IRokiFamily.R9W70);
+        if (!is9w70){
+            {                                                       //燃气灶与电磁灶档位关系对应 by zhaiyuanyi 20151128
+                if (level==0||level==1){
+                    level=1;
+                }else if (level==2||level==3){
+                    level=2;
+                }else if (level==4||level==5){
+                    level=3;
+                }else if (level==6){
+                    level=4;
+                }else if (level==7||level==8||level==9){
+                    level=5;
+                }
+            }
+        }
         String str = String.format("P%s", level);
         if (!isRoki) {
             if (level == Stove.PowerLevel_0)
@@ -56,7 +73,6 @@ public class RecipeCookingStoveStatusView extends FrameLayout {
                 str = "中火";
             else str = "大火";
         }
-
         txtValue.setText(str);
     }
 

@@ -12,18 +12,17 @@
         android:id="@+id/imgDevice"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_toLeftOf="@+id/text_add_description"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:scaleType="centerInside"
-        android:src="@mipmap/ic_symbol_add_yellow" />
+        android:src="@mipmap/ic_home_device_xdg" />
 
     <LinearLayout
-        android:id="@+id/text_add_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/imgDevice"
         android:gravity="right"
         android:orientation="vertical">
 
@@ -31,9 +30,9 @@
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="4dp"
             android:text="消毒柜"
-            android:textColor="@color/home_bg"
+            android:textColor="@color/c01"
             android:textSize="16sp" />
 
         <TextView
@@ -42,14 +41,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Sterilizer"
-            android:textColor="@color/home_bg"
+            android:textColor="@color/c01"
             android:textSize="13sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text=" "
+            android:text="即将上市"
             android:textColor="@color/c01"
             android:textSize="16sp" />
     </LinearLayout>

@@ -12,6 +12,7 @@ import com.robam.roki.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 public class DeviceUnlistedView extends FrameLayout {
 
@@ -41,7 +42,7 @@ public class DeviceUnlistedView extends FrameLayout {
 
     void init(Context cx, AttributeSet attrs) {
 
-        View view = LayoutInflater.from(cx).inflate(R.layout.view_device_unlisted,
+        View view = LayoutInflater.from(cx).inflate(R.layout.view_device_unlisted_before,
                 this, true);
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);
@@ -53,5 +54,9 @@ public class DeviceUnlistedView extends FrameLayout {
             item4.loadData(dm.queryById(IRokiFamily.R9W74));
         }
     }
+//    @OnClick(R.id.item1)
+//    public void onclickAddSterilizer(){
+//
+//    }
 
 }
