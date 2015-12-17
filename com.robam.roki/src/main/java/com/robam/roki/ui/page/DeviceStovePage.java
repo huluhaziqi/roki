@@ -36,6 +36,7 @@ import com.robam.roki.ui.view.DeviceSwitchView;
 import com.robam.roki.ui.view.StoveCtr9b12View;
 import com.robam.roki.ui.view.StoveCtr9b37;
 import com.robam.roki.ui.view.StoveCtr9w70View;
+import com.robam.roki.ui.view.StoveCtr9w70View_new;
 import com.squareup.okhttp.internal.Util;
 
 import butterknife.ButterKnife;
@@ -108,7 +109,9 @@ public class DeviceStovePage extends HeadPage {
         if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9W70)) {
 
             //增加9w70的view
-            ctrView = new StoveCtr9w70View(cx);
+            //ctrView = new StoveCtr9w70View(cx);
+            ctrView = new StoveCtr9w70View_new(cx);
+
 
         }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B12)){
             //增加9b12的view
