@@ -1,6 +1,6 @@
 package com.robam.common.events;
 
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 
 public class StoveLevelEvent {
     public Stove stove;

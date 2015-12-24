@@ -1,4 +1,4 @@
-package com.robam.common.pojos.device;
+package com.robam.common.pojos.device.Stove;
 
 public interface StoveStatus {
     /**

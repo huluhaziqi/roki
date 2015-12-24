@@ -1,7 +1,7 @@
 package com.robam.common.events;
 
 import com.robam.common.pojos.dictionary.StoveAlarm;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.services.StoveAlarmManager;
 
 /**

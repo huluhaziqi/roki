@@ -14,9 +14,9 @@ import com.robam.common.events.CookCountdownEvent;
 import com.robam.common.pojos.CookStep;
 import com.robam.common.pojos.Recipe;
 import com.robam.common.pojos.device.IRokiFamily;
-import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.Stove.StoveHead;
-import com.robam.common.pojos.device.StoveStatus;
+import com.robam.common.pojos.device.Stove.Stove;
+import com.robam.common.pojos.device.Stove.Stove.StoveHead;
+import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.ui.dialog.PauseDialog;
 

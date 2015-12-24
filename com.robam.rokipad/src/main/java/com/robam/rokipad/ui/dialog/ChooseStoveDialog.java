@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.legent.ui.ext.dialogs.AbsDialog;
-import com.robam.common.pojos.device.Stove.StoveHead;
+import com.robam.common.pojos.device.Stove.Stove.StoveHead;
 import com.robam.rokipad.R;
 
 import butterknife.ButterKnife;

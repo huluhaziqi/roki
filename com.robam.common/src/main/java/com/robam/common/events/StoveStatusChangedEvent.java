@@ -1,7 +1,7 @@
 package com.robam.common.events;
 
 import com.legent.events.AbsEvent;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 
 /**
  * 电磁灶状态刷新事件

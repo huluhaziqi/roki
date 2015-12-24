@@ -12,10 +12,9 @@ import android.widget.TextView;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.api.ToastUtils;
-import com.robam.common.pojos.device.IRokiFamily;
-import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.Stove.StoveHead;
-import com.robam.common.pojos.device.StoveStatus;
+import com.robam.common.pojos.device.Stove.Stove;
+import com.robam.common.pojos.device.Stove.Stove.StoveHead;
+import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
 

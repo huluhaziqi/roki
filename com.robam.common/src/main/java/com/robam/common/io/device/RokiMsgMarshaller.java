@@ -6,7 +6,7 @@ import com.legent.plat.io.device.IAppMsgMarshaller;
 import com.legent.plat.io.device.msg.Msg;
 import com.legent.plat.io.device.msg.MsgUtils;
 import com.robam.common.Utils;
-import com.robam.common.pojos.device.Stove.StoveHead;
+import com.robam.common.pojos.device.Stove.Stove.StoveHead;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

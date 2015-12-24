@@ -16,7 +16,7 @@ import com.legent.ui.ext.dialogs.AbsDialog;
 import com.legent.utils.api.ViewUtils;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.pojos.dictionary.StoveAlarm;
-import com.robam.common.pojos.device.StoveStatus;
+import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.roki.R;
 
 import java.util.List;

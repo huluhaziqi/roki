@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.utils.api.ToastUtils;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.rokipad.R;
 
 import butterknife.ButterKnife;

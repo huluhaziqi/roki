@@ -1,7 +1,8 @@
-package com.robam.common.pojos.device;
+package com.robam.common.pojos.device.Stove;
 
 
 import com.legent.VoidCallback;
+import com.robam.common.pojos.device.IPauseable;
 
 /**
  * Created by sylar on 15/7/24.

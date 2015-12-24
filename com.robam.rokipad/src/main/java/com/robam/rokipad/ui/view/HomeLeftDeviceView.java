@@ -13,7 +13,7 @@ import com.legent.plat.pojos.device.IDevice;
 import com.legent.utils.EventUtils;
 import com.robam.common.events.FanStatusChangedEvent;
 import com.robam.common.events.StoveStatusChangedEvent;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.Fan9700;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.UIEvents;

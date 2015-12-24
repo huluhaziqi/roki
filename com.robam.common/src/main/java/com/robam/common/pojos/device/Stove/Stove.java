@@ -1,4 +1,4 @@
-package com.robam.common.pojos.device;
+package com.robam.common.pojos.device.Stove;
 
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
@@ -10,10 +10,10 @@ import com.robam.common.events.StoveAlarmEvent;
 import com.robam.common.events.StoveLevelEvent;
 import com.robam.common.events.StovePowerEvent;
 import com.robam.common.events.StoveStatusChangedEvent;
-import com.robam.common.events.StoveTempEvent;
 import com.robam.common.io.device.MsgKeys;
 import com.robam.common.io.device.MsgParams;
 import com.robam.common.io.device.TerminalType;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.services.StoveAlarmManager;
 
 import java.util.List;

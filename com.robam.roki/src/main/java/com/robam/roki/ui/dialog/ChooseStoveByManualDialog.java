@@ -11,7 +11,7 @@ import com.legent.utils.api.DisplayUtils;
 import com.legent.utils.api.ViewUtils;
 import com.robam.common.Utils;
 import com.robam.common.pojos.Recipe;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.roki.R;
 import com.robam.roki.ui.Helper;
 

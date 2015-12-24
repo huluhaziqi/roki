@@ -17,7 +17,7 @@ import com.robam.common.events.StoveLevelEvent;
 import com.robam.common.events.StovePowerEvent;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.pojos.dictionary.StoveAlarm;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 
 public class NotifyService extends AbsService {
 

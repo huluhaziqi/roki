@@ -1,6 +1,6 @@
 package com.robam.common.events;
 
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 
 /**
  * Created by zhaiyuanyi on 15/10/30.

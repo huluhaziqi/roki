@@ -1,17 +1,12 @@
 package com.robam.common;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.Lists;
 import com.legent.plat.Plat;
-import com.legent.plat.pojos.device.IDevice;
 import com.legent.plat.pojos.dictionary.DeviceType;
 import com.legent.plat.services.DeviceTypeManager;
 import com.robam.common.pojos.device.IRokiFamily;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
-import com.robam.common.pojos.device.fan.IFan;
-
-import java.util.List;
 
 public class Utils {
 

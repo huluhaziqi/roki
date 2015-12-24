@@ -12,8 +12,8 @@ import com.legent.utils.EventUtils;
 import com.legent.utils.api.ViewUtils;
 import com.robam.common.events.StoveStatusChangedEvent;
 import com.robam.common.pojos.Recipe;
-import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.StoveStatus;
+import com.robam.common.pojos.device.Stove.Stove;
+import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.roki.R;
 import com.robam.roki.ui.Helper;
 

@@ -25,7 +25,7 @@ import com.legent.ui.ext.utils.OnTouchListenerWithAntiShake;
 import com.legent.utils.EventUtils;
 import com.legent.utils.api.WifiUtils;
 import com.robam.common.Utils;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.ui.UiHelper;
 import com.robam.rokipad.R;

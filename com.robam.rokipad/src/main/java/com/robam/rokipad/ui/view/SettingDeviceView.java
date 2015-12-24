@@ -16,7 +16,7 @@ import com.legent.plat.pojos.device.DeviceGuid;
 import com.legent.plat.pojos.device.IDevice;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.Utils;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.pojos.device.fan.Fan9700;
 import com.robam.rokipad.R;

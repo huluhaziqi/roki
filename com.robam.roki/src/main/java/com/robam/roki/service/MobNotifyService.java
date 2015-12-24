@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.legent.ui.UIService;
 import com.legent.utils.api.ToastUtils;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.pojos.dictionary.StoveAlarm;
 import com.robam.common.services.NotifyService;

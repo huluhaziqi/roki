@@ -3,7 +3,7 @@ package com.robam.common.pojos.dictionary;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.legent.pojos.AbsKeyPojo;
 import com.legent.utils.api.ResourcesUtils;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 
 /**
  * Created by sylar on 15/6/3.

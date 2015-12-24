@@ -14,10 +14,9 @@ import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.api.ToastUtils;
-import com.robam.common.pojos.device.IRokiFamily;
-import com.robam.common.pojos.device.IStove;
-import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.StoveStatus;
+import com.robam.common.pojos.device.Stove.IStove;
+import com.robam.common.pojos.device.Stove.Stove;
+import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
 import com.robam.roki.ui.UIListeners;
@@ -25,8 +24,6 @@ import com.robam.roki.ui.UIListeners;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-
-import static com.legent.ui.UI.getString;
 
 /**
  * Created by zhaiyuanyi on 15/11/25.

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.robam.common.Utils;
 import com.robam.common.pojos.device.IRokiFamily;
-import com.robam.common.pojos.device.Stove;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.roki.R;
 
 import butterknife.ButterKnife;

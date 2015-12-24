@@ -24,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="12dp"
                     android:paddingTop="15dp"
-                    android:text="为了安全，请在电磁灶上开 启"
+                    android:text="为了安全，请在电磁灶上开启"
                     android:textColor="#7c7c7c"
                     android:textSize="15sp" />
 

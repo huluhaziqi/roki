@@ -1,6 +1,6 @@
 package com.robam.roki.ui;
 
-import com.robam.common.pojos.device.IStove;
+import com.robam.common.pojos.device.Stove.IStove;
 import com.robam.common.pojos.device.fan.IFan;
 
 /**
