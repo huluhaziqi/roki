@@ -106,7 +106,7 @@ public class StoveCtr9w70View_new extends FrameLayout implements UIListeners.ISt
 //
 //    @OnClick(R.id.imgLock)
 //    public void onClickLock() {
-//        if (stove.getStoveModel().equals(IRokiFamily.R9B12)) {                   //灶具为R9B12，童锁功能取消;by zhaiyuanyi 20151120
+//        if (stove.getStoveModel().equals(IRokiFamily.R9B39)) {                   //灶具为R9B39，童锁功能取消;by zhaiyuanyi 20151120
 //            ToastUtils.showShort("不允许远程控制");
 //            return;
 //        }

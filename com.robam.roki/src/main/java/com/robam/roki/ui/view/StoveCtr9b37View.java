@@ -12,10 +12,11 @@ import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
+import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.pojos.device.IStove;
 import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.Stove9B12;
+import com.robam.common.pojos.device.Stove9B39;
 import com.robam.common.pojos.device.Stove9B37;
 import com.robam.common.pojos.device.StoveStatus;
 import com.robam.common.ui.UiHelper;
@@ -24,11 +25,12 @@ import com.robam.roki.ui.UIListeners;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Created by zhaiyuanyi on 15/12/4.
  */
-public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrView {
+public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveCtrView {
     final static String HINT_1 = "为了安全\n请在灶具上开启";
     final static String HINT_2 = "火力开启后\n才能打开计时关火";
     Stove9B37 stove;
@@ -61,7 +63,7 @@ public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrVi
 
 
 
-    public StoveCtr9b37(Context context) {
+    public StoveCtr9b37View(Context context) {
         super(context);
         init(context,null);
     }
@@ -76,7 +78,7 @@ public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrVi
 
     @Override
     public void attachStove(IStove stove) {
-        Preconditions.checkState(stove instanceof Stove9B12, "attachFan error:not 9B12");
+        Preconditions.checkState(stove instanceof Stove9B37, "attachFan error:not 9B37");
         this.stove = (Stove9B37) stove;
     }
 
@@ -89,6 +91,32 @@ public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrVi
         refreshHead(stove.rightHead);
 
     }
+    @OnClick({R.id.txtClockLeft, R.id.txtClockRight})
+    public void onClickClock(View v) {
+
+        final Stove.StoveHead head;
+        if (v.getId() == R.id.txtClockLeft)
+            head = stove.leftHead;
+        else
+            head = stove.rightHead;
+
+        Preconditions.checkNotNull(head);
+
+        if (!checkConnection()) return;
+        if (head.level < Stove.PowerLevel_1) {
+            showHint(HINT_2);
+            return;
+        }
+
+        NumberDialog.show(getContext(), "设置倒计时", 0, 99, 0, new NumberDialog.NumberSeletedCallback() {
+            @Override
+            public void onNumberSeleted(int i) {
+                int seconds = 60 * i;
+                setTimeShutDown(head, (short) seconds);
+            }
+        });
+
+    }
     public void refreshHead(Stove.StoveHead head) {
 
         if (head == null || !stove.isConnected()) {
@@ -96,7 +124,7 @@ public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrVi
             //setViewEnable(head, false);
             showStaus(head, false);
         } else {
-            setViewValid(head,false);
+            setViewValid(head, false);
             if (stove.leftHead.level>=1&&stove.leftHead.level<=5
                     ||stove.rightHead.level>=1&&stove.rightHead.level<=5){
                 setViewValid(head,true);
@@ -164,6 +192,22 @@ public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrVi
         else
             txtClockRight.setText(strTime);
     }
+    void setTimeShutDown(final Stove.StoveHead head, final short seconds) {
+
+        stove.setStoveShutdown(head.ihId, seconds, new VoidCallback() {
+
+            @Override
+            public void onSuccess() {
+                showCountdownTime(head, seconds);
+                ToastUtils.showShort("倒计时已设置");
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                ToastUtils.showThrowable(t);
+            }
+        });
+    }
     void setStatus(final Stove.StoveHead head) {
 
         if (!checkConnection()) return;
@@ -192,7 +236,19 @@ public class StoveCtr9b37 extends FrameLayout implements UIListeners.IStoveCtrVi
     void showLockView(boolean visible) {
         divLock.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
+    void showHint(String hint) {
+        txtHint.setText(hint);
+        txtHint.setVisibility(View.VISIBLE);
+        txtHint.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //if (isVisible()) {
+                txtHint.setVisibility(View.GONE);
+                // }
+            }
+        }, 1500);
 
+    }
 
     boolean checkConnection() {
         if (!stove.isConnected()) {

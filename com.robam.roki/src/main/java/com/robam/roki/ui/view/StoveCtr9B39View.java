@@ -17,7 +17,7 @@ import com.legent.utils.api.ToastUtils;
 import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.IStove;
 import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.Stove9B12;
+import com.robam.common.pojos.device.Stove9B39;
 import com.robam.common.pojos.device.StoveStatus;
 import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
@@ -30,10 +30,10 @@ import butterknife.OnClick;
 /**
  * Created by zhaiyuanyi on 15/11/27.
  */
-public class StoveCtr9b12View extends FrameLayout implements UIListeners.IStoveCtrView {
+public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveCtrView {
     final static String HINT_1 = "为了安全\n请在灶具上开启";
     final static String HINT_2 = "火力开启后\n才能打开计时关火";
-    Stove9B12 stove;
+    Stove9B39 stove;
     @InjectView(R.id.txtClockLeft)
     TextView txtClockLeft;
 
@@ -62,18 +62,18 @@ public class StoveCtr9b12View extends FrameLayout implements UIListeners.IStoveC
 
 
 
-    public StoveCtr9b12View(Context cx){
+    public StoveCtr9B39View(Context cx){
         super(cx);
         init(cx, null);
 
     }
 
-    public StoveCtr9b12View(Context cx, AttributeSet attrs) {
+    public StoveCtr9B39View(Context cx, AttributeSet attrs) {
         super(cx, attrs);
     }
 
     void init(Context cx,AttributeSet attrs){
-        View view = LayoutInflater.from(cx).inflate(R.layout.view_9b12,
+        View view = LayoutInflater.from(cx).inflate(R.layout.view_9b39,
                 this, true);
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);
@@ -82,8 +82,8 @@ public class StoveCtr9b12View extends FrameLayout implements UIListeners.IStoveC
 
     @Override
     public void attachStove(IStove stove) {
-        Preconditions.checkState(stove instanceof Stove9B12, "attachFan error:not 9B12");
-        this.stove = (Stove9B12) stove;
+        Preconditions.checkState(stove instanceof Stove9B39, "attachFan error:not 9B39");
+        this.stove = (Stove9B39) stove;
     }
 
     @Override
@@ -102,39 +102,39 @@ public class StoveCtr9b12View extends FrameLayout implements UIListeners.IStoveC
 //
 //    @OnClick(R.id.imgLock)
 //    public void onClickLock() {
-//        if (stove.getStoveModel().equals(IRokiFamily.R9B12)) {                   //灶具为R9B12，童锁功能取消;by zhaiyuanyi 20151120
+//        if (stove.getStoveModel().equals(IRokiFamily.R9B39)) {                   //灶具为R9B39，童锁功能取消;by zhaiyuanyi 20151120
 //            ToastUtils.showShort("不允许远程控制");
 //            return;
 //        }
 //        //setLock();
 //    }
 
-//    @OnClick({R.id.txtClockLeft, R.id.txtClockRight})
-//    public void onClickClock(View v) {
-//
-//        final Stove.StoveHead head;
-//        if (v.getId() == R.id.txtClockLeft)
-//            head = stove.leftHead;
-//        else
-//            head = stove.rightHead;
-//
-//        Preconditions.checkNotNull(head);
-//
-//        if (!checkConnection()) return;
-//        if (head.level < Stove.PowerLevel_1) {
-//            showHint(HINT_2);
-//            return;
-//        }
-//
-//        NumberDialog.show(getContext(), "设置倒计时", 0, 99, 0, new NumberDialog.NumberSeletedCallback() {
-//            @Override
-//            public void onNumberSeleted(int i) {
-//                int seconds = 60 * i;
-//                setTimeShutDown(head, (short) seconds);
-//            }
-//        });
-//
-//    }
+    @OnClick({R.id.txtClockLeft, R.id.txtClockRight})
+    public void onClickClock(View v) {
+
+        final Stove.StoveHead head;
+        if (v.getId() == R.id.txtClockLeft)
+            head = stove.leftHead;
+        else
+            head = stove.rightHead;
+
+        Preconditions.checkNotNull(head);
+
+        if (!checkConnection()) return;
+        if (head.level < Stove.PowerLevel_1) {
+            showHint(HINT_2);
+            return;
+        }
+
+        NumberDialog.show(getContext(), "设置倒计时", 0, 99, 0, new NumberDialog.NumberSeletedCallback() {
+            @Override
+            public void onNumberSeleted(int i) {
+                int seconds = 60 * i;
+                setTimeShutDown(head, (short) seconds);
+            }
+        });
+
+    }
 
     public void refreshHead(Stove.StoveHead head) {
 
@@ -146,6 +146,20 @@ public class StoveCtr9b12View extends FrameLayout implements UIListeners.IStoveC
             setViewValid(head,false);
             if (stove.leftHead.level>=1&&stove.leftHead.level<=5
                     ||stove.rightHead.level>=1&&stove.rightHead.level<=5){
+                if (stove.leftHead.level>=1&&stove.leftHead.level<=5){
+                    txtClockLeft.setSelected(true);
+                    txtLevelLeft.setSelected(true);
+                }else {
+                    txtClockLeft.setSelected(false);
+                    txtLevelLeft.setSelected(false);
+                }
+                if (stove.rightHead.level>=1&&stove.rightHead.level<=5){
+                    txtClockRight.setSelected(true);
+                    txtLevelRight.setSelected(true);
+                }else{
+                    txtClockRight.setSelected(false);
+                    txtLevelRight.setSelected(false);
+                }
                 setViewValid(head,true);
             }else{
                 setViewValid(head,false);

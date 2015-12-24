@@ -7,41 +7,28 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.common.base.Objects;
-import com.google.common.base.Preconditions;
 import com.google.common.eventbus.Subscribe;
-import com.legent.VoidCallback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
 
 import com.legent.plat.services.DeviceTypeManager;
 import com.legent.ui.ext.HeadPage;
-import com.legent.ui.ext.dialogs.NumberDialog;
-import com.legent.utils.EventUtils;
 import com.legent.utils.api.ToastUtils;
-import com.robam.common.Utils;
 import com.robam.common.events.StoveStatusChangedEvent;
-import com.robam.common.events.StoveTempEvent;
 import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.StoveStatus;
-import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;
 import com.robam.roki.ui.UIListeners;
-import com.robam.roki.ui.view.DeviceSwitchView;
-import com.robam.roki.ui.view.StoveCtr9b12View;
-import com.robam.roki.ui.view.StoveCtr9b37;
-import com.robam.roki.ui.view.StoveCtr9w70View;
+import com.robam.roki.ui.view.StoveCtr9B39View;
+import com.robam.roki.ui.view.StoveCtr9b37View;
 import com.robam.roki.ui.view.StoveCtr9w70View_new;
-import com.squareup.okhttp.internal.Util;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 
 public class DeviceStovePage extends HeadPage {
 
@@ -113,12 +100,12 @@ public class DeviceStovePage extends HeadPage {
             ctrView = new StoveCtr9w70View_new(cx);
 
 
-        }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B12)){
-            //增加9b12的view
-            ctrView = new StoveCtr9b12View(cx);
+        }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B39)){
+            //增加9B39的view
+            ctrView = new StoveCtr9B39View(cx);
         }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B37)){
             //增加9b37的view
-            ctrView = new StoveCtr9b37(cx);
+            ctrView = new StoveCtr9b37View(cx);
         }
 
         ctrView.attachStove(stove);

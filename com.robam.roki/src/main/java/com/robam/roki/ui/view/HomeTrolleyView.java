@@ -219,6 +219,7 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
                     iconOrder.setVisibility(notEmpty ? VISIBLE : GONE);
                 }
 
+
                 @Override
                 public void onFailure(Throwable t) {
                     ToastUtils.showThrowable(t);
