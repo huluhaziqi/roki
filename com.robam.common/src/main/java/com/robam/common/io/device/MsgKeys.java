@@ -28,9 +28,13 @@ public interface MsgKeys {
      */
     short FanEvent_Noti = 148;
     /**
-     * 消毒柜事件上报      by zhaiyuanyi 20151120
+     * 消毒柜报警上报      by zhaiyuanyi 20151120
      */
     short SteriAlarm_Noti = 146;
+    /**
+     * 消毒柜事件上报      by zhaiyuanyi 20151218
+     */
+    short SteriEvent_Noti = 152;
 
     // -------------------------------------------------------------------------------
     // 应答类
@@ -252,4 +256,20 @@ public interface MsgKeys {
      * 消毒柜状态查询（应答）
      */
     short GetSteriStatus_Rep = 145;
+    /**
+     * 读取消毒柜峰谷定时设置(请求)
+     */
+    short getSteriPVConfig_Req = 147;
+    /**
+     * 读取消毒柜峰谷定时设置(应答)
+     */
+    short getSteriPVConfig_Rep = 148;
+    /**
+     * 设置消毒柜峰谷定时开启（请求）
+     */
+    short getSteriPVReserveTime_Req = 149;
+    /**
+     * 设置消毒柜峰谷定时开启（应答）
+     */
+    short getSteriPVReserveTime_Rep = 150;
 }

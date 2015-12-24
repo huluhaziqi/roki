@@ -28,7 +28,6 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
 
 
 
-    protected boolean isConnected;
 
     protected short terminalType = TerminalType.getType();
 

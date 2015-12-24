@@ -53,28 +53,17 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:src="@mipmap/ic_stove_left"
-                                android:layout_marginTop="81px"
-                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="35dp"
+                                android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true" />
                             <ImageView
                                 android:id="@+id/imageView5"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:src="@mipmap/ic_stove_fire"
-                                android:layout_below="@+id/imageView4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="29px" />
-
-                            <TextView
-                                android:id="@+id/txtLevelLeft"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="P8"
-                                android:textColor="@color/device_board_text_color_selector"
-                                android:textSize="36sp"
-                                android:layout_below="@+id/imageView5"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8px" />
+                                android:layout_marginTop="66dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true" />
 
 
                             <TextView
@@ -85,9 +74,9 @@
                                 android:text="定时"
                                 android:textColor="@color/device_board_text_color_selector"
                                 android:textSize="30dp"
-                                android:layout_alignParentBottom="true"
+                                android:layout_above="@+id/imageView4"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="30px"/>
+                                android:layout_marginBottom="54dp" />
 
 
 
@@ -121,28 +110,17 @@
                                 android:layout_height="30dp"
                                 android:src="@mipmap/ic_stove_right"
                                 android:id="@+id/imageView2"
-                                android:layout_marginTop="81px"
-                                android:layout_alignParentTop="true"
+                                android:layout_marginBottom="30dp"
+                                android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true" />
                             <ImageView
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:src="@mipmap/ic_stove_fire"
                                 android:id="@+id/imageView3"
-                                android:layout_below="@+id/imageView2"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="29px" />
-
-                            <TextView
-                                android:id="@+id/txtLevelRight"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="P8"
-                                android:textColor="@color/device_board_text_color_selector"
-                                android:textSize="36sp"
-                                android:layout_below="@+id/imageView3"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8px" />
+                                android:layout_marginTop="57dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true" />
 
                             <TextView
                                 android:id="@+id/txtClockRight"
@@ -152,9 +130,9 @@
                                 android:text="定时"
                                 android:textColor="@color/device_board_text_color_selector"
                                 android:textSize="30dp"
-                                android:layout_alignParentBottom="true"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="30px"/>
+                                android:layout_marginBottom="60dp"
+                                android:layout_above="@+id/imageView2"
+                                android:layout_centerHorizontal="true" />
 
 
 
@@ -251,6 +229,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
+            <com.robam.roki.ui.view.DeviceSwitchView
+                android:id="@+id/powerLeftView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+            <com.robam.roki.ui.view.DeviceSwitchView
+                android:id="@+id/powerRightView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1" />
 
 
         </LinearLayout>

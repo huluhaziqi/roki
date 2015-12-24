@@ -10,7 +10,7 @@ import com.legent.plat.services.DeviceTypeManager;
 import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Stove;
-import com.robam.common.pojos.device.Stove9B12;
+import com.robam.common.pojos.device.Stove9B39;
 import com.robam.common.pojos.device.Stove9B37;
 import com.robam.common.pojos.device.fan.Fan8229;
 import com.robam.common.pojos.device.fan.Fan8700;
@@ -50,8 +50,8 @@ public class RokiDeviceFactory implements IDeviceFactory {
             // is subDevice/chileDevice
             if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9W70)) {
                 return new Stove(deviceInfo);
-            } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B12)) {
-                return new Stove9B12(deviceInfo);
+            } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B39)) {
+                return new Stove9B39(deviceInfo);
             } else if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B37)){
                 return new Stove9B37(deviceInfo);
             }else {
