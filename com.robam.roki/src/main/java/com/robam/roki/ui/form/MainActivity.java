@@ -2,6 +2,7 @@ package com.robam.roki.ui.form;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.google.common.eventbus.Subscribe;
 import com.legent.events.AppVisibleEvent;
@@ -56,6 +57,18 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void showTipWhenExit() {
         ToastUtils.showShort("再按一次返回键退出程序");
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    Bundle bd = data.getExtras();
+                    ToastUtils.showLong(bd.getString("result"));
+                }
+                break;
+        }
     }
 
 }

@@ -60,7 +60,7 @@
                                 android:id="@+id/imageView5"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
-                                android:src="@mipmap/ic_stove_fire"
+                                android:src="@mipmap/ic_stove_fire_off"
                                 android:layout_below="@+id/imageView4"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="29px" />
@@ -127,7 +127,7 @@
                             <ImageView
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
-                                android:src="@mipmap/ic_stove_fire"
+                                android:src="@mipmap/ic_stove_fire_off"
                                 android:id="@+id/imageView3"
                                 android:layout_below="@+id/imageView2"
                                 android:layout_centerHorizontal="true"

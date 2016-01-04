@@ -390,7 +390,7 @@ public class StoveCtr9w70View extends FrameLayout implements UIListeners.IStoveC
             public void run() {
                 //if (isVisible()) {
                     txtHint.setVisibility(View.GONE);
-               // }
+            //   }
             }
         }, 1500);
 

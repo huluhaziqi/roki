@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:text="开关"
+        android:text="辅助关火"
         android:textColor="@color/device_switch_text_color_selector"
         android:textSize="18sp" />
 

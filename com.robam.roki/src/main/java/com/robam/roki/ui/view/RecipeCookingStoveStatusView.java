@@ -48,8 +48,9 @@ public class RecipeCookingStoveStatusView extends FrameLayout {
 
         boolean isRoki = Utils.getDefaultFan() != null;
         if (isRoki){
+            if (Utils.getDefaultStove()==null) return;
         if (Utils.getDefaultStove().getStoveModel().equals(IRokiFamily.R9B39)||Utils.getDefaultStove().getStoveModel().equals(IRokiFamily.R9B39)){
-            {                                                       //燃气灶与电磁灶档位关系对应 by zhaiyuanyi 20151128
+            {
                 if (level==0||level==1){
                     level=1;
                 }else if (level==2||level==3){

@@ -14,13 +14,16 @@ import com.google.common.eventbus.Subscribe;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
 
+import com.legent.plat.events.RecipeShowEvent;
 import com.legent.plat.services.DeviceTypeManager;
+import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.events.StoveStatusChangedEvent;
 import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.roki.R;
+import com.robam.roki.ui.FormKey;
 import com.robam.roki.ui.PageArgumentKey;
 import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.view.StoveCtr9B39View;
@@ -29,6 +32,7 @@ import com.robam.roki.ui.view.StoveCtr9w70View_new;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 public class DeviceStovePage extends HeadPage {
 
@@ -43,6 +47,9 @@ public class DeviceStovePage extends HeadPage {
     TextView txtTitle;
     @InjectView(R.id.txtDesc)
     TextView txtDesc;
+    @InjectView(R.id.txtStoveReceipe)
+    TextView txtStoveReceipe;
+
     @InjectView(R.id.divMain)
     FrameLayout divMain;
 
@@ -99,7 +106,6 @@ public class DeviceStovePage extends HeadPage {
             //ctrView = new StoveCtr9w70View(cx);
             ctrView = new StoveCtr9w70View_new(cx);
 
-
         }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B39)){
             //增加9B39的view
             ctrView = new StoveCtr9B39View(cx);
@@ -128,7 +134,11 @@ public class DeviceStovePage extends HeadPage {
 
     }
 
-
+    @OnClick(R.id.txtStoveReceipe)
+    public void onClicktxtStoveReceipe(){
+        postEvent(new RecipeShowEvent());
+        UIService.getInstance().popBack();
+    }
     boolean checkConnection() {
         if (!stove.isConnected()) {
             ToastUtils.showShort(R.string.fan_invalid_error);

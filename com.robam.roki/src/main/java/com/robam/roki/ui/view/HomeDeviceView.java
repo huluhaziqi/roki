@@ -1,10 +1,13 @@
 package com.robam.roki.ui.view;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ import com.legent.plat.events.UserLogoutEvent;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.EventUtils;
+import com.legent.utils.qrcode.ScanQrActivity;
 import com.robam.common.Utils;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
@@ -134,8 +138,21 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
                 UIService.getInstance().postPage(PageKey.SaleService);
             }
         });
-
         titleBar.replaceRight(icon);
+
+        ImageView icon_scan = TitleBar.newTitleIconView(getContext(), R.mipmap.ic_device_scan, new OnClickListener() {
+            @Override
+            //private final static int SCANNIN_GREQUEST_CODE = 1;
+            public void onClick(View view) {
+                Activity atv = UIService.getInstance().getTop().getActivity();
+                Intent intent = new Intent();
+                intent.setClass(atv, ScanQrActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                atv.startActivityForResult(intent, 1);
+
+            }
+        });
+        titleBar.replaceLeft(icon_scan);
     }
 
     void refreshWhenPull() {

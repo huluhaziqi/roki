@@ -27,7 +27,8 @@
             android:layout_marginRight="7dp"
             android:layout_toLeftOf="@+id/imgHead"
             android:gravity="right"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
 
 
             <TextView
@@ -49,6 +50,15 @@
                 android:textSize="12sp" />
 
         </LinearLayout>
+        <TextView
+            android:id = "@+id/txtStoveReceipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="灶具\n菜谱"
+            android:textColor="@color/c11"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="27dp" />
 
     </RelativeLayout>
 

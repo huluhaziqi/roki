@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import com.google.common.collect.Lists;
 import com.google.common.eventbus.Subscribe;
+import com.legent.events.ConnectionModeChangedEvent;
+import com.legent.plat.events.RecipeShowEvent;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
 import com.legent.ui.ext.BasePage;
@@ -65,6 +67,11 @@ public class HomePage extends BasePage {
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.reset(this);
+    }
+
+    @Subscribe
+    public void onEvent(RecipeShowEvent event) {            //处理跳转到菜谱主页的消息
+        tabView.selectTab(TAB_RECIPE);
     }
 
     @Subscribe

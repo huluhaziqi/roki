@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.robam.rokipad"
-    android:versionCode="228"
-    android:versionName="2.2.8">
+    android:versionCode="229"
+    android:versionName="2.2.9">
 
     <supports-screens
         android:anyDensity="true"

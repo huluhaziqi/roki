@@ -30,35 +30,33 @@ import butterknife.OnClick;
  * Created by zhaiyuanyi on 15/12/4.
  */
 public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveCtrView {
-    final static String HINT_1 = "为了安全\n请在灶具上开启";
+    final static String HINT_1 = "请在灶具上\n按”电源键“开火";
     final static String HINT_2 = "火力开启后\n才能打开计时关火";
     Stove9B37 stove;
+    @InjectView(R.id.stove_fire_left)
+    ImageView stove_fire_left;
 
+    @InjectView(R.id.divClockLeft)
+    LinearLayout divClockLeft;
     @InjectView(R.id.txtClockLeft)
     TextView txtClockLeft;
 
-    @InjectView(R.id.txtLevelLeft)
-    TextView txtLevelLeft;
+    @InjectView(R.id.stove_fire_right)
+    ImageView stove_fire_right;
 
-    @InjectView(R.id.divHeadLeft)
-    LinearLayout divHeadLeft;
-
+    @InjectView(R.id.divClockRight)
+    LinearLayout divClockRight;
     @InjectView(R.id.txtClockRight)
     TextView txtClockRight;
-    @InjectView(R.id.txtLevelRight)
-    TextView txtLevelRight;
 
-    @InjectView(R.id.divHeadRight)
-    LinearLayout divHeadRight;
+    @InjectView(R.id.powerLeftView)
+    StoveSwitchView powerLeftView;
+    @InjectView(R.id.powerRightView)
+    StoveSwitchView powerRightView;
 
-    @InjectView(R.id.divStoveHead)
-    LinearLayout divStoveHead;
-    @InjectView(R.id.divLock)
-    RelativeLayout divLock;
     @InjectView(R.id.txtHint)
     TextView txtHint;
-    @InjectView(R.id.imgLock)
-    ImageView imgLock;
+
 
 
 
@@ -84,17 +82,16 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
     @Override
     public void onRefresh() {
         if (stove==null)
-            return;;
-        refreshLock(stove != null && stove.isLock);
+            return;
         refreshHead(stove.leftHead);
         refreshHead(stove.rightHead);
 
     }
-    @OnClick({R.id.txtClockLeft, R.id.txtClockRight})
+    @OnClick({R.id.divClockLeft, R.id.divClockRight})
     public void onClickClock(View v) {
 
         final Stove.StoveHead head;
-        if (v.getId() == R.id.txtClockLeft)
+        if (v.getId() == R.id.divClockLeft)
             head = stove.leftHead;
         else
             head = stove.rightHead;
@@ -102,11 +99,10 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
         Preconditions.checkNotNull(head);
 
         if (!checkConnection()) return;
-        if (head.level < Stove.PowerLevel_1) {
+        if (head.status ==StoveStatus.Off) {
             showHint(HINT_2);
             return;
         }
-
         NumberDialog.show(getContext(), "设置倒计时", 0, 99, 0, new NumberDialog.NumberSeletedCallback() {
             @Override
             public void onNumberSeleted(int i) {
@@ -116,42 +112,55 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
         });
 
     }
+
+    @OnClick({R.id.powerLeftView, R.id.powerRightView})
+    public void onClickPowerView(View v){
+        final Stove.StoveHead head;
+        if (v.getId()==R.id.powerLeftView)
+            head = stove.leftHead;
+        else
+            head = stove.rightHead;
+        Preconditions.checkNotNull(head);
+
+        if (!checkConnection()) return;
+        if (head.status == StoveStatus.Off) {
+            showHint(HINT_1);
+            return;
+        }
+        setStatus(head);
+    }
+
     public void refreshHead(Stove.StoveHead head) {
 
-        if (head == null || !stove.isConnected()) {
+        if (head == null || !stove.isConnected()||head.status==StoveStatus.Off) {
             setViewValid(head, false);
-            //setViewEnable(head, false);
             showStaus(head, false);
         } else {
             setViewValid(head, false);
-            if (stove.leftHead.level>=1&&stove.leftHead.level<=5
-                    ||stove.rightHead.level>=1&&stove.rightHead.level<=5){
+            if (head.status!=StoveStatus.Off){
                 setViewValid(head,true);
             }else{
                 setViewValid(head,false);
             }
             showStaus(head, true);
-//
-//            if (stove.isLock) {
-//                setViewEnable(head, false);
-//            } else {
-//                setViewEnable(head, true);
-//            }
+
         }
     }
     void setViewValid(final Stove.StoveHead head, boolean isValid) {
 
         if (head.isLeft()) {
-
+            stove_fire_left.setSelected(isValid);
+            divClockLeft.setSelected(isValid);
             txtClockLeft.setSelected(isValid);
-            txtLevelLeft.setSelected(isValid);
-        } else {
+            powerLeftView.setStatus(isValid);
 
+        } else {
+            stove_fire_right.setSelected(isValid);
+            divClockRight.setSelected(isValid);
             txtClockRight.setSelected(isValid);
-            txtLevelRight.setSelected(isValid);
+            powerRightView.setStatus(isValid);
         }
 
-        showLevel(head, 0);
         showCountdownTime(head, (short) 0);
     }
     void showStaus(Stove.StoveHead head, boolean valid) {
@@ -159,30 +168,13 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
 
         if (valid) {
             boolean isOn = head.status != StoveStatus.Off;
-            showLevel(head, head.level);
             showCountdownTime(head, head.time);
-            showLockView(stove.isLock);
+
         } else {
-            showLevel(head, 0);
             showCountdownTime(head, (short) 0);
-            showLockView(false);
         }
     }
-    void showLevel(Stove.StoveHead head, int level) {
-        String str = "--";
-        if (level >= 1 && level <= 9) {
-            str = String.valueOf(level);
-            if (head.isLeft())
-                txtLevelLeft.setText("P" + str);
-            else
-                txtLevelRight.setText("P" + str);
-        } else {
-            if (head.isLeft())
-                txtLevelLeft.setText(str);
-            else
-                txtLevelRight.setText(str);
-        }
-    }
+
     void showCountdownTime(Stove.StoveHead head, short time) {
         String strTime = time <= 0 ? "未定时" : UiHelper.second2String(time);
 
@@ -210,6 +202,7 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
     void setStatus(final Stove.StoveHead head) {
 
         if (!checkConnection()) return;
+        if (!checkIsPowerOn(head)) return;
         short status = (head.status == StoveStatus.Off) ? StoveStatus.StandyBy
                 : StoveStatus.Off;
 
@@ -227,14 +220,7 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
         });
     }
 
-    void refreshLock(boolean isLock) {
-        showLockView(isLock);
-        imgLock.setSelected(isLock);
-    }
 
-    void showLockView(boolean visible) {
-        divLock.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
     void showHint(String hint) {
         txtHint.setText(hint);
         txtHint.setVisibility(View.VISIBLE);
@@ -247,6 +233,15 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
             }
         }, 1500);
 
+    }
+
+    boolean checkIsPowerOn(Stove.StoveHead head) {
+        if (head.status != StoveStatus.Off)
+            return true;
+        else {
+            showHint(HINT_1);
+            return false;
+        }
     }
 
     boolean checkConnection() {
