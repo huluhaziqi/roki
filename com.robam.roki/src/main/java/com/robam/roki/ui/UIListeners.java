@@ -1,5 +1,6 @@
 package com.robam.roki.ui;
 
+import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Stove.IStove;
 import com.robam.common.pojos.device.fan.IFan;
 
@@ -17,6 +18,9 @@ public interface UIListeners {
     }
     interface IStoveCtrView extends IRefresh{
         void attachStove(IStove stove);
+    }
+    interface ISteriCtrView extends IRefresh{
+        void attachSteri(ISterilizer steri);
     }
 
     interface CookingNextCallback {
