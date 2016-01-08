@@ -209,7 +209,7 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
         isEnableOrder = enalble;
         iconOrder.setVisibility(GONE);
         recipeView.setOrderEnable(isEnableOrder);
-        iconThird.setVisibility(isEnableOrder ? VISIBLE : GONE);
+        //iconThird.setVisibility(isEnableOrder ? VISIBLE : GONE);
 
         if (isEnableOrder && Plat.accountService.isLogon()) {
             StoreService.getInstance().queryOrder(Calendar.getInstance().getTimeInMillis() + 1000 * 60 * 60, 5, new Callback<List<OrderInfo>>() {

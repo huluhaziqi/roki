@@ -5,8 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.common.eventbus.Subscribe;
+import com.legent.Callback;
 import com.legent.events.AppVisibleEvent;
+import com.legent.plat.Plat;
 import com.legent.plat.events.UserLogoutEvent;
+import com.legent.plat.pojos.User;
+import com.legent.plat.pojos.device.DeviceInfo;
+import com.legent.plat.pojos.device.IDevice;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.BaseActivity;
 import com.legent.utils.EventUtils;
@@ -61,11 +66,25 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        final User owner = Plat.accountService.getCurrentUser();
         switch (requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {
                     Bundle bd = data.getExtras();
-                    ToastUtils.showLong(bd.getString("result"));
+                    String sn = bd.getString("result");
+                    ToastUtils.showLong(sn);
+                    Plat.deviceService.getDeviceBySn(sn, new Callback<DeviceInfo>() {
+                        @Override
+                        public void onSuccess(DeviceInfo deviceInfo) {
+                            Plat.deviceService.bindDevice(owner.getID(),deviceInfo.getID(),deviceInfo.getName(),true,null);
+                        }
+
+                        @Override
+                        public void onFailure(Throwable t) {
+                            ToastUtils.show("绑定失败",2000);
+                        }
+                    });
+
                 }
                 break;
         }

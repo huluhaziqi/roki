@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.plat/unspecified/jars/classes.jar"
+        jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.utils.qrcode/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="372b491b2ba9835e7ee0f312f978337db971cd0c">
-        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-de6a18f8b71ba2bdfa387a4c9b291b0f06f25bcf.jar" />
+        sha1="8f6e04907d9333d8bc9dd6b04a847a3a261e2585">
+        <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-22afd56ba994e3dbe36e147dad948abbe7e09237.jar" />
     </item>
 
 </items>

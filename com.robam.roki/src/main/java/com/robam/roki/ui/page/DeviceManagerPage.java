@@ -16,6 +16,8 @@ import com.legent.plat.pojos.device.IDevice;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
 import com.legent.ui.ext.adapters.ExtBaseAdapter;
+import com.robam.common.Utils;
+import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;
 import com.robam.roki.ui.PageKey;
@@ -125,7 +127,13 @@ public class DeviceManagerPage extends HeadPage {
             }
 
             void showData(IDevice dev) {
-                txtName.setText("油烟机/灶具");
+                String DeviceName;
+                if (dev instanceof AbsFan){
+                    DeviceName = "油烟机／灶具";
+                }else {
+                    DeviceName = dev.getDeviceType().getName();
+                }
+                txtName.setText(DeviceName);
             }
         }
     }

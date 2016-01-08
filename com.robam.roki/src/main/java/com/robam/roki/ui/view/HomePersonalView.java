@@ -17,6 +17,7 @@ import com.google.common.collect.Lists;
 import com.google.common.eventbus.Subscribe;
 import com.legent.Callback;
 import com.legent.plat.Plat;
+import com.legent.plat.events.UserLogoutEvent;
 import com.legent.plat.events.UserUpdatedEvent;
 import com.legent.plat.pojos.User;
 import com.legent.ui.UIService;
@@ -90,6 +91,10 @@ public class HomePersonalView extends FrameLayout implements UIListeners.IRefres
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         EventUtils.unregist(this);
+    }
+    @Subscribe
+    public void  onEvent(UserLogoutEvent event){
+        onRefresh();
     }
 
     @Subscribe

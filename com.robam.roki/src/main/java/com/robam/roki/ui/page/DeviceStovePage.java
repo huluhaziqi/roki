@@ -103,9 +103,7 @@ public class DeviceStovePage extends HeadPage {
         if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9W70)) {
 
             //增加9w70的view
-            //ctrView = new StoveCtr9w70View(cx);
             ctrView = new StoveCtr9w70View_new(cx);
-
         }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B39)){
             //增加9B39的view
             ctrView = new StoveCtr9B39View(cx);

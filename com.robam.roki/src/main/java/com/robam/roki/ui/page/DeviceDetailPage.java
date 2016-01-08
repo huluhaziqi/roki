@@ -11,8 +11,11 @@ import android.widget.TextView;
 import com.google.common.collect.Lists;
 import com.legent.plat.Plat;
 import com.legent.plat.pojos.User;
+import com.legent.plat.pojos.device.AbsDevice;
+import com.legent.plat.pojos.device.AbsDeviceHub;
 import com.legent.plat.pojos.device.DeviceGuid;
 import com.legent.plat.pojos.device.IDevice;
+import com.legent.plat.pojos.device.IDeviceHub;
 import com.legent.plat.pojos.dictionary.DeviceType;
 import com.legent.plat.services.DeviceTypeManager;
 import com.legent.ui.UIService;
@@ -46,14 +49,14 @@ public class DeviceDetailPage extends HeadPage {
 
     DeviceAdapter deviceAdapter;
     UserAdapter userAdapter;
-    AbsFan fan;
+    AbsDeviceHub deviceHub;
 
     @Override
     protected View onCreateContentView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-
         String guid = getArguments().getString(PageArgumentKey.Guid);
-        fan = Plat.deviceService.lookupChild(guid);
-        titleBar.setTitle(fan.getName());
+        deviceHub = Plat.deviceService.lookupChild(guid);
+        titleBar.setTitle(deviceHub.getName());
+
 
         View view = layoutInflater.inflate(R.layout.page_device_detail, viewGroup, false);
         ButterKnife.inject(this, view);
@@ -79,9 +82,8 @@ public class DeviceDetailPage extends HeadPage {
     void initData() {
 
         List<IDevice> devices = Lists.newArrayList();
-        devices.add(fan);
-
-        Stove stove = fan.getChild();                     //getChildByDeviceType(IRokiFamily.R9W70);
+        devices.add(deviceHub);
+        Stove stove = deviceHub.getChild();                     //getChildByDeviceType(IRokiFamily.R9W70);
         if (stove != null) {
             devices.add(stove);
         }
@@ -89,7 +91,7 @@ public class DeviceDetailPage extends HeadPage {
         deviceAdapter.loadData(devices);
 
         long ownerId = Plat.accountService.getCurrentUserId();
-        Plat.deviceService.getDeviceUsers(ownerId, fan.getID(), new com.legent.Callback<List<User>>() {
+        Plat.deviceService.getDeviceUsers(ownerId, deviceHub.getID(), new com.legent.Callback<List<User>>() {
             @Override
             public void onSuccess(List<User> users) {
                 userAdapter.loadData(users);
@@ -109,7 +111,7 @@ public class DeviceDetailPage extends HeadPage {
                 if (which == DialogInterface.BUTTON_POSITIVE) {
                     ProgressDialogHelper.setRunning(cx, true);
 
-                    Plat.deviceService.deleteWithUnbind(fan.getID(), new com.legent.VoidCallback() {
+                    Plat.deviceService.deleteWithUnbind(deviceHub.getID(), new com.legent.VoidCallback() {
                         @Override
                         public void onSuccess() {
                             ProgressDialogHelper.setRunning(cx, false);
@@ -180,7 +182,7 @@ public class DeviceDetailPage extends HeadPage {
 
                 txtDeviceType.setText(Utils.getDeviceModel(dt));
                 txtDevice.setText(dt.getName());
-                txtBid.setText(device.getBid());
+                txtBid.setText(dg.getDeviceNumber());//(device.getBid());
                 txtOtaVer.setText(String.valueOf(device.getVersion()));
 
                 if (Utils.isFan(device.getID())) {

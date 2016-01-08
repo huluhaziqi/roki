@@ -52,8 +52,8 @@ public class TrolleyRecipeView extends FrameLayout {
 
     @InjectView(R.id.listview)
     SwipeMenuListView listview;
-    @InjectView(R.id.thirdPlatView)
-    TrolleyThirdPlatView thirdPlatView;
+//    @InjectView(R.id.thirdPlatView)
+//    TrolleyThirdPlatView thirdPlatView;
     @InjectView(R.id.freeView)
     TrolleyFreeView freeView;
 
@@ -102,7 +102,7 @@ public class TrolleyRecipeView extends FrameLayout {
             adapter.notifyDataSetChanged();
         }
 
-        thirdPlatView.setVisibility(isEnableOrder ? GONE : VISIBLE);
+//        thirdPlatView.setVisibility(isEnableOrder ? GONE : VISIBLE);
         freeView.setVisibility(!isEnableOrder ? GONE : VISIBLE);
     }
 

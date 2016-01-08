@@ -15,23 +15,30 @@ import android.widget.TextView;
 import com.google.common.eventbus.Subscribe;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
+import com.legent.Callback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceConnectedNoticEvent;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
 import com.legent.plat.events.DeviceSelectedEvent;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
+import com.legent.plat.pojos.User;
+import com.legent.plat.pojos.device.DeviceInfo;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.EventUtils;
+import com.legent.utils.api.ToastUtils;
 import com.legent.utils.qrcode.ScanQrActivity;
 import com.robam.common.Utils;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
+import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
 import com.robam.roki.service.AppService;
 import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.UIListeners;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -123,8 +130,6 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
                     refreshWhenPull();
                 }
             });
-
-
             onRefresh();
         }
     }
@@ -141,14 +146,17 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
         titleBar.replaceRight(icon);
 
         ImageView icon_scan = TitleBar.newTitleIconView(getContext(), R.mipmap.ic_device_scan, new OnClickListener() {
+            private final static int SCANNIN_GREQUEST_CODE = 1;
+
             @Override
-            //private final static int SCANNIN_GREQUEST_CODE = 1;
             public void onClick(View view) {
-                Activity atv = UIService.getInstance().getTop().getActivity();
-                Intent intent = new Intent();
-                intent.setClass(atv, ScanQrActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                atv.startActivityForResult(intent, 1);
+                if (UiHelper.checkAuthWithDialog(getContext(), PageKey.UserLogin)) {
+                    Activity atv = UIService.getInstance().getTop().getActivity();
+                    Intent intent = new Intent();
+                    intent.setClass(atv, ScanQrActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    atv.startActivityForResult(intent, SCANNIN_GREQUEST_CODE);
+                }
 
             }
         });
@@ -156,16 +164,36 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
     }
 
     void refreshWhenPull() {
-
         AppService.getInstance().init(Plat.app);
         pullRefreshScrollview.onRefreshComplete();
     }
 
     @Override
     public void onRefresh() {
-
         onRefreshConnection();
+//        long userid = Plat.accountService.getCurrentUserId();
+//        Plat.deviceService.getDevices(userid, new Callback<List<DeviceInfo>>() {
+//            @Override
+//            public void onSuccess(List<DeviceInfo> deviceInfos) {
+//                int listsize = deviceInfos.size();
+//            }
+//
+//            @Override
+//            public void onFailure(Throwable t) {
+//
+//            }
+//        });
+        onFanViewFresh();
+    }
 
+    void onRefreshConnection() {
+        AbsFan fan = Utils.getDefaultFan();
+        boolean isDisconnected = fan != null && !fan.isConnected();
+        disconnectHintView.setVisibility(isDisconnected
+                ? View.VISIBLE
+                : View.GONE);
+    }
+    public void onFanViewFresh(){
         AbsFan fan = Utils.getDefaultFan();
         boolean hasDevice = (fan != null);
         addView.setVisibility(!hasDevice ? VISIBLE : GONE);
@@ -181,14 +209,7 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
         if (hasStove) {
             stoveView.loadData(stove);
         }
-    }
 
-    void onRefreshConnection() {
-        AbsFan fan = Utils.getDefaultFan();
-        boolean isDisconnected = fan != null && !fan.isConnected();
-        disconnectHintView.setVisibility(isDisconnected
-                ? View.VISIBLE
-                : View.GONE);
     }
 
 }
