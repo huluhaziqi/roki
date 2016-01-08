@@ -94,6 +94,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         sterilizer.setSelected(selected);
         if (sterilizer.isSelected()) {
             sterilizer.setTextColor(Color.parseColor("#ffffff"));
+        }else {
+            sterilizer.setTextColor(Color.parseColor("#575757"));
         }
     }
 
