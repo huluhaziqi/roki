@@ -15,6 +15,7 @@ public class PageKey {
     static public final String DeviceDetail = "DeviceDetail";
     static public final String DeviceFan = "DeviceFan";
     static public final String DeviceStove = "DeviceStove";
+    static public final String DeviceSterilizer = "DeviceSterilizer";
     // 设备----end
 
     // 菜谱----start
@@ -41,7 +42,8 @@ public class PageKey {
     // 其它
     static public final String CookWithoutDevice = "CookWithoutDevice";
     static public final String TrolleyThirdPlat = "TrolleyThirdPlat";
-
+    static public final String SteriSwitch = "SteriSwitch";
+    static public final String CountDown = "CountDown";
 
     // 用户-----start
     static public final String UserRegist = "UserRegist";

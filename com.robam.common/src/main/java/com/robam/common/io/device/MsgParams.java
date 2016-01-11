@@ -166,5 +166,11 @@ public interface MsgParams {
      */
     String Temp_Param1 = "Temp_Param1";
     String Temp_Param2 = "Temp_Param2";
-
+    // -------------------------------------------------------------------------------
+    //
+    // -------------------------------------------------------------------------------
+    /**
+     * 消毒柜工作状态[1Byte]（0关机，1开机）
+     */
+    String SteriStatus = "SteriStatus";
 }

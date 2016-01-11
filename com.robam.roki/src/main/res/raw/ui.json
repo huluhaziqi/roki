@@ -20,6 +20,11 @@
       "id": "MainForm",
       "homePage": "Home",
       "loader": "com.robam.common.ui.RokiLoader"
+    },
+    {
+      "id": "CountDownForm",
+      "homePage": "CountDown",
+      "loader": "com.robam.common.ui.RokiLoader"
     }
   ],
   "menus": [],
@@ -206,6 +211,22 @@
       "id": "UserModifyPwd",
       "name": "修改密码",
       "clazz": "com.robam.roki.ui.page.UserModifyPwdPage"
+    },
+    {
+      "id": "DeviceSterilizer",
+      "name": "消毒柜",
+      "clazz": "com.robam.roki.ui.page.DeviceSterilizerPage"
+    },
+    {
+      "id": "SteriSwitch",
+      "name": "开始消毒",
+      "clazz": "com.robam.roki.ui.page.SteriSwitchPage"
+    },
+    {
+      "id": "CountDown",
+      "name": "开始倒计时",
+      "clazz": "com.robam.roki.ui.page.CountDownPage"
     }
+
   ]
 }

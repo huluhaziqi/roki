@@ -1,8 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.robam.roki"
     android:versionCode="2472"
-    android:versionName="2.4.7.2">
+    android:versionName="2.4.7.2" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -49,20 +50,22 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
-        android:name="com.robam.roki.MobApp"
+        android:name=".MobApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:logo="@mipmap/ic_launcher"
         android:theme="@style/AppTheme"
-        tools:replace="android:label,android:icon">
+        tools:replace="android:label,android:icon" >
         <activity
-            android:name="com.robam.roki.ui.form.WelcomeActivity"
+            android:name=".ui.form.WelcomeActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme_Activity_Fullscreen">
+            android:theme="@style/Theme_Activity_Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,19 +73,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.robam.roki.ui.form.MainActivity"
+            android:name=".ui.form.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.robam.roki.ui.form.UserActivity"
+            android:name=".ui.form.UserActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|stateHidden" />
         <activity
-            android:name="com.robam.roki.ui.form.WizardActivity"
+            android:name=".ui.form.WizardActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|stateHidden" />
         <activity
-            android:name="com.robam.roki.ui.form.CookingActivity"
+            android:name=".ui.form.CookingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
@@ -98,16 +101,22 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.dialog.CountDownDialog"
+            android:theme="@android:style/Theme.Dialog"/>
+        <activity
+            android:name=".ui.page.SteriSwitchPage" />
 
         <!-- service -->
 
         <receiver
             android:name="com.legent.plat.services.DevicePollingReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.legent.plat.services.DevicePollingReceiver" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

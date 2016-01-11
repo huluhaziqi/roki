@@ -42,6 +42,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh {
 
@@ -211,5 +212,11 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
         }
 
     }
+
+    @OnClick(R.id.unlistedView)
+    public void onClickUnListedView(){
+        UIService.getInstance().postPage(PageKey.DeviceSterilizer);
+    }
+
 
 }

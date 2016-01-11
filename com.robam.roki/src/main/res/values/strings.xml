@@ -10,8 +10,14 @@
     <string name="roki_error_no_wifi">无可用WiFi网络，请检查WiFi网络</string>
     <string name="roki_wifi_pwd_hint">请输入WiFi密码</string>
     <string name="fan_invalid_error">油烟机已离线</string>
+    <string name="steri_invalid_error">消毒柜已离线</string>
     <string name="stove_invalid_error">电磁灶已离线</string>
     <string name="stove_off_hint">请手动打开电磁灶</string>
     <string name="dev_invalid_error">没有可用的设备</string>
+    <string name="title_activity_test">TestActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_count_down_dialog">CountDownDialog</string>
 
 </resources>
