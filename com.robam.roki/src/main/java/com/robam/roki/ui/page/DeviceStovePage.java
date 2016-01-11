@@ -110,8 +110,8 @@ public class DeviceStovePage extends HeadPage {
         }else if (DeviceTypeManager.getInstance().isInDeviceType(stove.getGuid(),IRokiFamily.R9B37)){
             //增加9b37的view
             ctrView = new StoveCtr9b37View(cx);
-        }
 
+        }
         ctrView.attachStove(stove);
         divMain.addView((View) ctrView);
 

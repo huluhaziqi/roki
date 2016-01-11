@@ -32,6 +32,12 @@ public class DeviceNoticDialog extends AbsDialog {
     static final public int Notic_Type_3_WithoutPan = 3;
     static final public int Notic_Type_4_InnerError = 4;
     static final public int Notic_Type_5_CleanNotic = 5;
+    static final public int Notic_Type_6_TimeOver_9B39 = 6;    // E0  定时结束
+    static final public int Notic_Type_7_TimeOver_9B37 = 7;    // E0  定时结束
+    static final public int Notic_Type_8_FireFailure = 8;      // E1  点火失败
+    static final public int Notic_Type_9_FireOver_Unexpect = 9;         // E2 突然熄火
+    static final public int Notic_Type_10_InnerError = 10;              //E3/E4/E5/E8
+    static final public int Notic_Type_11_InnerError_9B37 = 11;              //E3/E4/E5/E8
 
 
     static List<NoticNode> nodes = Lists.newArrayList();
@@ -40,14 +46,38 @@ public class DeviceNoticDialog extends AbsDialog {
     static {
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip1, "电压不稳定，请稍后使用", null,
                 "关闭烟灶", 0));
+
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip2, "我出了点小状况，请重启", null,
                 "重启", 0));
+
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip3, "请正确使用锅具",
                 "温馨提示：请把锅放置在灶具上；或者尝试调整锅的位置；请使用电磁灶匹配锅", "知道了", 0));
+
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "灶具内部故障，请申请售后", null,
                 "95105855", R.mipmap.ic_notic_phone));
+
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip5, "烟机油网可以清洗一下了~", null,
                 "知道了", 0));
+
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "9B39 E0  定时OK啦\n" +
+                "美味出炉，嘻嘻\n" +
+                "记得复位按钮哦.", null,
+                "95105855", R.mipmap.ic_notic_phone));
+
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "9B37 E0  定时OK啦\n" +
+                "美味出炉，嘻嘻\n" +
+                "记得复位按钮哦.", null,
+                "95105855", R.mipmap.ic_notic_phone));
+
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "E1  点火失败", null,
+                "95105855", R.mipmap.ic_notic_phone));
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "E2 突然熄火", null,
+                "95105855", R.mipmap.ic_notic_phone));
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "//E3/E4/E5/E8灶具内部故障，请申请售后", null,
+                "95105855", R.mipmap.ic_notic_phone));
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "//E3/E4/E5/E8灶具内部故障9B37，请申请售后", null,
+                "95105855", R.mipmap.ic_notic_phone));
+
     }
 
     static public void show(Activity activity, AbsFan fan, int noticType) {

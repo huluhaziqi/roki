@@ -32,7 +32,8 @@ import butterknife.OnClick;
 public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveCtrView {
     final static String HINT_1 = "请在灶具上\n按”电源键“开火";
     final static String HINT_2 = "火力开启后\n才能打开计时关火";
-    Stove9B37 stove;
+    final static String HINT_3 ="火力已关，为了安全，\n请到灶具前复位按钮";
+    Stove stove;
     @InjectView(R.id.stove_fire_left)
     ImageView stove_fire_left;
 
@@ -75,8 +76,8 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
 
     @Override
     public void attachStove(IStove stove) {
-        Preconditions.checkState(stove instanceof Stove9B37, "attachFan error:not 9B37");
-        this.stove = (Stove9B37) stove;
+        Preconditions.checkState(stove instanceof Stove, "attachFan error:not 9B37");
+        this.stove = (Stove) stove;
     }
 
     @Override
@@ -211,6 +212,7 @@ public class StoveCtr9b37View extends FrameLayout implements UIListeners.IStoveC
             @Override
             public void onSuccess() {
                 refreshHead(head);
+                showHint(HINT_3);
             }
 
             @Override
