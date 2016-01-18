@@ -117,6 +117,13 @@ public interface Reponses {
 
     }
 
+    class HomeTitleForMobResponse extends RCReponse {
+
+        @JsonProperty("images")
+        public List<Advert.MobAdvert> titles;
+
+    }
+
     class HomeAdvertsForPadResponse extends RCReponse {
 
         @JsonProperty("left")
@@ -183,6 +190,14 @@ public interface Reponses {
 
         @JsonProperty()
         public boolean open;
+    }
+
+    class EventStatusReponse extends RCReponse {
+
+        @JsonProperty()
+        public String image;
+        @JsonProperty()
+        public int status;
     }
 
     class SubmitOrderReponse extends RCReponse {

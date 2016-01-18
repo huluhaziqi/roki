@@ -67,6 +67,7 @@ public interface IRokiRestService {
     //
     // -------------------------------------------------------------------------------
     String getHomeAdvertsForMob = "/rest/api/app/image/advert/get";
+    String getHomeTitleForMob="/rest/api/app/image/title/get";
     String getHomeAdvertsForPad = "/rest/api/pad/image/advert/get";
     String getFavorityImagesForPad = "/rest/api/pad/image/collect/get";
     String getRecommendImagesForPad = "/rest/api/pad/image/recommend/get";
@@ -95,6 +96,7 @@ public interface IRokiRestService {
     String cancelOrder = "/rest/api/shopping/order/delete";
     String orderIfOpen = "/rest/api/shopping/if-open";
     String deiverIfAllow = "/rest/api/shopping/if-allow-free-send";
+    String getEventStatus="/rest/api/event/status/get";
 
 
     // -------------------------------------------------------------------------------
@@ -347,6 +349,12 @@ public interface IRokiRestService {
     void getHomeAdvertsForMob(Callback<HomeAdvertsForMobResponse> callback);
 
     /**
+     * 获取mob端首页推广的title的文字和图片
+     */
+    @POST(getHomeTitleForMob)
+    void getHomeTitleForMob(Callback<HomeTitleForMobResponse> callback);
+
+    /**
      * 获取pad首页推广图片
      */
     @POST(getHomeAdvertsForPad)
@@ -439,6 +447,9 @@ public interface IRokiRestService {
 
     @POST(orderIfOpen)
     void orderIfOpen(Callback<OrderIfOpenReponse> callback);
+
+    @POST(getEventStatus)
+    void getEventStatus(Callback<EventStatusReponse> callback);
 
     @POST(deiverIfAllow)
     void deiverIfAllow(@Body UserRequest reqBody, Callback<DeiverIfAllowReponse> callback);

@@ -28,6 +28,7 @@ import com.robam.common.io.cloud.Reponses.HotKeysForCookbookResponse;
 import com.robam.common.io.cloud.Reponses.MaterialFrequencyResponse;
 import com.robam.common.io.cloud.Reponses.MaterialsResponse;
 import com.robam.common.io.cloud.Reponses.OrderIfOpenReponse;
+import com.robam.common.io.cloud.Reponses.EventStatusReponse;
 import com.robam.common.io.cloud.Reponses.QueryMaintainReponse;
 import com.robam.common.io.cloud.Reponses.QueryOrderReponse;
 import com.robam.common.io.cloud.Reponses.SmartParamsReponse;
@@ -380,6 +381,15 @@ public class RokiRestHelper {
         });
     }
 
+    static public void getHomeTitleForMob(final Callback<List<MobAdvert>> callback){
+        svr.getHomeTitleForMob(new RCRetrofitCallback<Reponses.HomeTitleForMobResponse>(callback){
+            @Override
+            protected void afterSuccess(Reponses.HomeTitleForMobResponse result) {
+                callback.onSuccess(result.titles);
+            }
+        });
+    }
+
     static public void getHomeAdvertsForPad(
             final Callback<HomeAdvertsForPadResponse> callback) {
         svr.getHomeAdvertsForPad(new RCRetrofitCallback<HomeAdvertsForPadResponse>(
@@ -531,6 +541,15 @@ public class RokiRestHelper {
             @Override
             protected void afterSuccess(OrderIfOpenReponse result) {
                 Helper.onSuccess(callback, result.open);
+            }
+        });
+    }
+
+    static public void getEventStatus(final Callback<EventStatusReponse> callback) {
+        svr.getEventStatus(new RCRetrofitCallback<EventStatusReponse>(callback) {
+            @Override
+            protected void afterSuccess(EventStatusReponse result) {
+                Helper.onSuccess(callback, result);
             }
         });
     }

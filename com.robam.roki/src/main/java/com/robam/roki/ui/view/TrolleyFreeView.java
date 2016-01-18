@@ -2,6 +2,7 @@ package com.robam.roki.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,9 +12,12 @@ import com.google.common.eventbus.Subscribe;
 import com.legent.Callback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceCollectionChangedEvent;
+import com.legent.plat.events.RecipeOpenEvent;
 import com.legent.utils.EventUtils;
+import com.legent.utils.graphic.ImageUtils;
 import com.robam.common.Utils;
 import com.robam.common.events.OrderRefreshEvent;
+import com.robam.common.io.cloud.Reponses;
 import com.robam.common.services.StoreService;
 import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
@@ -38,6 +42,7 @@ public class TrolleyFreeView extends FrameLayout {
     TextView txtDeliver;
     @InjectView(R.id.txtHint)
     TextView txtHint;
+    boolean isDeliver = false;
 
     int rc;
     OnDeliverCallback callback;
@@ -99,6 +104,35 @@ public class TrolleyFreeView extends FrameLayout {
         }
     }
 
+    @Subscribe
+    public void onEvent(RecipeOpenEvent event) {
+        StoreService.getInstance().getEventStatus(new Callback<Reponses.EventStatusReponse>() {
+            @Override
+            public void onSuccess(Reponses.EventStatusReponse eventStatusReponse) {
+                if (eventStatusReponse.status == 1) {
+                    txtDeliver.setVisibility(GONE);
+                } else {
+                    txtDeliver.setVisibility(VISIBLE);
+                }
+                if (eventStatusReponse.status == 2) {
+                    txtDeliver.setText("即将开抢\n(不可点击)");
+                }
+                if (eventStatusReponse.status == 3) {
+                    txtDeliver.setText("免费配送");
+                }
+                if (eventStatusReponse.status == 4) {
+                    txtDeliver.setText("抢光了\n活动已结束\n(不可点击)");
+                }
+                txtDeliver.setSelected(!(eventStatusReponse.status == 3) && !isDeliver);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+    }
+
     @OnClick(R.id.txtDeliver)
     public void onClick() {
         if (rc > 0) {
@@ -118,7 +152,8 @@ public class TrolleyFreeView extends FrameLayout {
         refreshHint();
 
         if (!Plat.accountService.isLogon()) {
-            setDeliverable(false);
+            //setDeliverable(false);
+            isDeliver = false;
             return;
         }
 
@@ -127,12 +162,16 @@ public class TrolleyFreeView extends FrameLayout {
             @Override
             public void onSuccess(Integer i) {
                 rc = i;
-                setDeliverable(i == 0);
+                if (i == 0) {
+                    isDeliver = true;
+                }
+                //setDeliverable(i == 0);
             }
 
             @Override
             public void onFailure(Throwable throwable) {
-                setDeliverable(false);
+                //setDeliverable(false);
+                isDeliver = false;
             }
         });
     }
@@ -142,7 +181,7 @@ public class TrolleyFreeView extends FrameLayout {
     }
 
 
-    void setDeliverable(boolean isDeliver) {
-        txtDeliver.setSelected(!isDeliver);
-    }
+//    void setDeliverable(boolean isDeliver) {
+//        txtDeliver.setSelected(!isDeliver);
+//    }
 }

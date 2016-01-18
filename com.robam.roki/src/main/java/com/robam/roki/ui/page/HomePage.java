@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.common.collect.Lists;
+import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import com.legent.events.ConnectionModeChangedEvent;
+import com.legent.plat.events.RecipeOpenEvent;
 import com.legent.plat.events.RecipeShowEvent;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
@@ -39,6 +41,7 @@ public class HomePage extends BasePage {
     static public final int TAB_RECIPE = 1;
     static public final int TAB_DEVICE = 2;
     static public final int TAB_TROLLEY = 3;
+
 
     @InjectView(R.id.pager)
     ExtViewPager pager;
@@ -117,6 +120,7 @@ public class HomePage extends BasePage {
                     break;
                 case TAB_TROLLEY:
                     setRootBgRes(R.color.main_background);
+                    postEvent(new RecipeOpenEvent());
                     break;
             }
 
@@ -149,8 +153,5 @@ public class HomePage extends BasePage {
             this.tabIndex = tabIndex;
         }
     }
-
-
-
 
 }
