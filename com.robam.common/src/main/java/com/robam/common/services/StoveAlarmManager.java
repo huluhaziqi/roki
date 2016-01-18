@@ -22,6 +22,26 @@ public class StoveAlarmManager extends AbsPojoManagerWithMap<StoveAlarm,Short> {
 	final static public short Key_Unknow_12 = 12;
 	final static public short Key_Bluetooth_Error = 13;
 
+	final static public short E_None = 0;
+	final static public short E_0 = 64;
+	final static public short E_1 = 1;
+	final static public short E_2 = 2;
+	final static public short E_3 = 3;
+	final static public short E_4 = 4;
+	final static public short E_5 = 5;
+	final static public short E_6 = 6;
+	final static public short E_7 = 7;
+	final static public short E_8 = 8;
+	final static public short E_9 = 9;
+
+
+
+
+
+
+
+
+
 	static private StoveAlarmManager instance = new StoveAlarmManager();
 
 	synchronized static public StoveAlarmManager getInstance() {
@@ -30,4 +50,5 @@ public class StoveAlarmManager extends AbsPojoManagerWithMap<StoveAlarm,Short> {
 
 	private StoveAlarmManager() {
 	}
+
 }

@@ -1,9 +1,13 @@
 package com.robam.roki.service;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothClass;
 
+import com.legent.plat.pojos.dictionary.DeviceType;
+import com.legent.plat.services.DeviceTypeManager;
 import com.legent.ui.UIService;
 import com.legent.utils.api.ToastUtils;
+import com.robam.common.pojos.device.IRokiFamily;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.pojos.dictionary.StoveAlarm;
@@ -49,23 +53,57 @@ public class MobNotifyService extends NotifyService {
             return;
         }
 
-
         AbsFan dev = (AbsFan)stove.getParent();
+        String guid =dev.getGuid().getGuid();
 
         switch (id) {
-            case StoveAlarmManager.Key_WithoutPan:
-                DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_3_WithoutPan);
+            case StoveAlarmManager.E_0:
+                if (stove.getStoveModel().equals(IRokiFamily.R9W70)){  //Key_InnerError:
+                    DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_4_InnerError);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B39)){ //定时Ok了，
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_6_TimeOver_9B39);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B37)){ //定时Ok了，记得复位旋钮
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_7_TimeOver_9B37);
+                }
+
                 break;
-            case StoveAlarmManager.Key_Voltage_High:
-            case StoveAlarmManager.Key_Voltage_Low:
-                DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_1_Voltage);
+            case StoveAlarmManager.E_1:
+                if (stove.getStoveModel().equals(IRokiFamily.R9W70)) {  //Key_WithoutPan:
+                    DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_3_WithoutPan);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B39)){ //点火失败，请检查气源，重新点火
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_8_FireFailure);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B37)){ //点火失败，请检查气源，重新点火
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_8_FireFailure);
+                }
+
                 break;
-            case StoveAlarmManager.Key_InnerError:
-                DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_4_InnerError);
+            case StoveAlarmManager.E_2:
+                if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9W70)){  //Key_IGBT_Open
+                    DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_2_RebootHint);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B39)){ //突然熄火了，请重新开火
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_9_FireOver_Unexpect);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B37)){ //突然熄火了，请重新开火
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_9_FireOver_Unexpect);
+                }
                 break;
+            case StoveAlarmManager.E_3://Key_Voltage_High:
+            case StoveAlarmManager.E_4://Key_Voltage_Low:
+            case StoveAlarmManager.E_5://Key_Voltage_Low:
+            case StoveAlarmManager.E_8://Key_Voltage_Low:
+                if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9W70)){  //有点小故障请联系售后
+                    DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_1_Voltage);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B39)){ //有点小故障请联系售后
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_10_InnerError);
+                }else if (stove.getStoveModel().equals(IRokiFamily.R9B37)){ //有点小故障，请复位旋钮，联系售后
+                    DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_11_InnerError_9B37);
+                }
+
+                break;
+
             default:
                 DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_2_RebootHint);
         }
 
     }
+
 }

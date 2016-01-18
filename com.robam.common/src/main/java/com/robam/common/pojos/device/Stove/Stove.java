@@ -140,7 +140,6 @@ public class Stove extends AbsDevice implements IStove {
         try {
             Msg msg = newReqMsg(MsgKeys.GetStoveStatus_Req);
             msg.putOpt(MsgParams.TerminalType, terminalType);
-
             sendMsg(msg, new RCMsgCallbackWithVoid(callback) {
                 protected void afterSuccess(Msg resMsg) {
 

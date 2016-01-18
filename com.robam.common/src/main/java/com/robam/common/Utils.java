@@ -43,7 +43,8 @@ public class Utils {
 
     static public boolean isStove(String guid) {//判断是否为灶具 by zhaiyuanyi
         return DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9W70)
-                ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B39);
+                ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B39)
+                ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B37);
     }
 
     static public boolean isFan(String guid) {//判断是否为烟机 by zhaiyuanyi
