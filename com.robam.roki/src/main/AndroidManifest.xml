@@ -103,7 +103,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".ui.dialog.CountDownDialog"
-            android:theme="@android:style/Theme.Dialog"/>
+            android:theme="@style/countdown_dialog_style"/>
         <activity
             android:name=".ui.page.SteriSwitchPage" />
 
