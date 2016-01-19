@@ -28,19 +28,19 @@ public class OrderHintDialog extends AbsDialog {
         switch (rcCode) {
             case 5201:
                 title="您已经享受过免费配送！";
-                desc="非ROKI智能厨电用户只能免费配送一次";
+                desc="未购买ROKI智能厨电用户只能免费配送一次.";
                 break;
-            case 5202:
-                title="今日已送完，明日再来！";
-                desc="本活动：一人一次最多免费配送三道菜\n每日限免50人次";
-                break;
+//            case 5202:
+//                title="今日已送完，明日再来！";
+//                desc="本活动：一人一次最多免费配送三道菜\n每日限免50人次";
+//                break;
             case 5203:
                 title="本周已配送！";
-                desc="每周一次，每次最多免费配送三道菜";
+                desc="ROKI智能厨电用户每周一次免费配送";
                 break;
             case 5204:
-                title="限免超额！";
-                desc="每次最多免费配送三道菜";
+                title="选择大与1道菜";
+                desc="本活动只支持配送1道菜";
                 break;
             default:
                 ToastUtils.showShort("未知的result code:" + rcCode);

@@ -35,13 +35,13 @@ public class TrolleyFreeView extends FrameLayout {
         void onDeliver();
     }
 
-    final static String HINT_IS_ROKI = "*免费配送:\n每周一次；每次最多三道菜";
-    final static String HINT_NOT_ROKI = "*免费配送:一人一次最多三道菜\n(每日限量50人次)";
+//    final static String HINT_IS_ROKI = "*免费配送:\n每周一次；每次最多三道菜";
+//    final static String HINT_NOT_ROKI = "*免费配送:一人一次最多三道菜\n(每日限量50人次)";
 
     @InjectView(R.id.txtDeliver)
     TextView txtDeliver;
-    @InjectView(R.id.txtHint)
-    TextView txtHint;
+    //    @InjectView(R.id.txtHint)
+//    TextView txtHint;
     boolean isDeliver = false;
 
     int rc;
@@ -87,10 +87,10 @@ public class TrolleyFreeView extends FrameLayout {
     }
 
 
-    @Subscribe
-    public void onEvent(DeviceCollectionChangedEvent event) {
-        refreshHint();
-    }
+//    @Subscribe
+//    public void onEvent(DeviceCollectionChangedEvent event) {
+//        refreshHint();
+//    }
 
     @Subscribe
     public void onEvent(OrderRefreshEvent event) {
@@ -115,15 +115,17 @@ public class TrolleyFreeView extends FrameLayout {
                     txtDeliver.setVisibility(VISIBLE);
                 }
                 if (eventStatusReponse.status == 2) {
-                    txtDeliver.setText("即将开抢\n(不可点击)");
+                    txtDeliver.setSelected(true);
+                    txtDeliver.setText("即将开抢");
                 }
                 if (eventStatusReponse.status == 3) {
+                    txtDeliver.setSelected(!isDeliver);
                     txtDeliver.setText("免费配送");
                 }
                 if (eventStatusReponse.status == 4) {
-                    txtDeliver.setText("抢光了\n活动已结束\n(不可点击)");
+                    txtDeliver.setSelected(true);
+                    txtDeliver.setText("抢光了\n活动已结束");
                 }
-                txtDeliver.setSelected(!(eventStatusReponse.status == 3) && !isDeliver);
             }
 
             @Override
@@ -149,7 +151,7 @@ public class TrolleyFreeView extends FrameLayout {
 
     void onRefresh() {
 
-        refreshHint();
+        //refreshHint();
 
         if (!Plat.accountService.isLogon()) {
             //setDeliverable(false);
@@ -176,9 +178,9 @@ public class TrolleyFreeView extends FrameLayout {
         });
     }
 
-    void refreshHint() {
-        txtHint.setText(Utils.hasRokiDevice() ? HINT_IS_ROKI : HINT_NOT_ROKI);
-    }
+//    void refreshHint() {
+//        txtHint.setText(Utils.hasRokiDevice() ? HINT_IS_ROKI : HINT_NOT_ROKI);
+//    }
 
 
 //    void setDeliverable(boolean isDeliver) {

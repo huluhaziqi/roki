@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="horizontal"
     android:padding="15dp">
-
-
-    <TextView
-        android:id="@+id/txtHint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_weight="1"
-        android:text="*免费配送:\n每周一次；每次最多三道菜"
-        android:textColor="#df7b18"
-        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/txtDeliver"
         style="@style/common_button"
-        android:layout_marginBottom="0dp"
-        android:layout_marginRight="0dp"
         android:text="免费配送"
+        android:layout_alignParentRight="true"
         android:textColor="#fff"
         android:textSize="24sp" />
 
-</LinearLayout>
+</RelativeLayout>
