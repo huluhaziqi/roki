@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout_lost_recipe"
-    android:background="@mipmap/ic_lost_recipe"
     android:layout_gravity="bottom">
 
+    <ImageView
+        android:id="@+id/layout_lost_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_lost_recipe" />
+
     <Button
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:text=""
         android:id="@+id/btn_jmp2web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical|top"
-        android:layout_weight="1.07"
-        android:layout_marginTop="160dp"
-        android:alpha="0" />
-</LinearLayout>
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="80dp"
+        android:alpha="0"
+        android:text="" />
+</FrameLayout>
