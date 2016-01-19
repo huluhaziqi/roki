@@ -65,6 +65,7 @@
             android:id="@+id/imgTrolleyFree"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:visibility="gone"
             android:layout_alignParentRight="true"
             android:scaleType="centerInside"
             android:src="@mipmap/ic_trolley_free" />
