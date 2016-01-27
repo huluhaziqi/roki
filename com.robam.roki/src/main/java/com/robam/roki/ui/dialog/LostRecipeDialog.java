@@ -26,9 +26,18 @@ import butterknife.OnClick;
 public class LostRecipeDialog extends AbsDialog {
     @InjectView(R.id.layout_lost_recipe)
     ImageView recipe;
+    private static LostRecipeDialog dlg = null;
+
+    static public void newInstance(Context cx){
+        if (dlg == null) {
+            dlg = new LostRecipeDialog(cx);
+        }
+    }
 
     static public void show(Context cx) {
-        LostRecipeDialog dlg = new LostRecipeDialog(cx);
+        if (dlg == null) {
+            dlg = new LostRecipeDialog(cx);
+        }
         dlg.show();
     }
 

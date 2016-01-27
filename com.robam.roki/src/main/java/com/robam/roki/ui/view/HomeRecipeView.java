@@ -67,6 +67,7 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
 
         View view = LayoutInflater.from(cx).inflate(R.layout.view_home_recipe,
                 this, true);
+        LostRecipeDialog.newInstance(cx);
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);
             initTitleData();
