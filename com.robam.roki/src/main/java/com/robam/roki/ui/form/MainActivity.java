@@ -6,16 +6,17 @@ import android.os.Bundle;
 
 import com.google.common.eventbus.Subscribe;
 import com.legent.Callback;
+import com.legent.VoidCallback;
 import com.legent.events.AppVisibleEvent;
 import com.legent.plat.Plat;
 import com.legent.plat.events.UserLogoutEvent;
 import com.legent.plat.pojos.User;
 import com.legent.plat.pojos.device.DeviceInfo;
-import com.legent.plat.pojos.device.IDevice;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.BaseActivity;
 import com.legent.utils.EventUtils;
 import com.legent.utils.api.ToastUtils;
+import com.robam.common.events.DeviceEasylinkCompletedEvent;
 import com.robam.roki.ui.FormKey;
 import com.robam.roki.ui.PageKey;
 
@@ -72,11 +73,23 @@ public class MainActivity extends BaseActivity {
                 if (resultCode == RESULT_OK) {
                     Bundle bd = data.getExtras();
                     String sn = bd.getString("result");
-                    ToastUtils.showLong(sn);
+//                    ToastUtils.showLong(sn);
                     Plat.deviceService.getDeviceBySn(sn, new Callback<DeviceInfo>() {
                         @Override
-                        public void onSuccess(DeviceInfo deviceInfo) {
-                            Plat.deviceService.bindDevice(owner.getID(),deviceInfo.getID(),deviceInfo.getName(),true,null);
+                        public void onSuccess(final DeviceInfo deviceInfo) {
+                            Plat.deviceService.bindDevice(owner.getID(), deviceInfo.getID(), deviceInfo.getName(), true, new VoidCallback() {
+                                @Override
+                                public void onSuccess() {
+                                    ToastUtils.showShort("添加完成");
+                                    EventUtils.postEvent(new DeviceEasylinkCompletedEvent(deviceInfo));
+                                    UIService.getInstance().returnHome();
+                                }
+
+                                @Override
+                                public void onFailure(Throwable t) {
+                                    ToastUtils.showThrowable(t);
+                                }
+                            });
                         }
 
                         @Override
