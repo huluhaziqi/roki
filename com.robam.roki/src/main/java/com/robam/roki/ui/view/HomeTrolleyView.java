@@ -14,6 +14,7 @@ import com.google.common.eventbus.Subscribe;
 import com.legent.Callback;
 import com.legent.VoidCallback;
 import com.legent.plat.Plat;
+import com.legent.plat.events.RecipeOpenEvent;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.adapters.ExtPageAdapter;
 import com.legent.ui.ext.dialogs.DialogHelper;
@@ -22,9 +23,11 @@ import com.legent.ui.ext.views.ExtViewPager;
 import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.EventUtils;
 import com.legent.utils.api.ToastUtils;
+import com.legent.utils.graphic.ImageUtils;
 import com.robam.common.events.FavorityBookRefreshEvent;
 import com.robam.common.events.OrderRefreshEvent;
 import com.robam.common.events.TodayBookRefreshEvent;
+import com.robam.common.io.cloud.Reponses;
 import com.robam.common.io.cloud.Reponses.CookbooksResponse;
 import com.robam.common.pojos.Materials;
 import com.robam.common.pojos.OrderInfo;
@@ -46,6 +49,8 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
     TitleBar titleBar;
     @InjectView(R.id.emptyView)
     View emptyView;
+    @InjectView(R.id.img_event)
+    ImageView event;
     @InjectView(R.id.mainView)
     LinearLayout mainView;
     @InjectView(R.id.tabView)
@@ -111,6 +116,12 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
         }, 500);
     }
 
+    @Subscribe
+    public void onEvent(RecipeOpenEvent event){
+        getOrderEnable();
+        initStatusData();
+    }
+
     void init(Context cx, AttributeSet attrs) {
         this.cx = cx;
         View view = LayoutInflater.from(cx).inflate(R.layout.view_home_trolley,
@@ -125,8 +136,23 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
 
             tabView.setOnTabSelectedCallback(tabCallback);
             tabView.selectedTab(TrolleyTabView.TAB_RECIPE);
+            initStatusData();
             onRefresh();
         }
+    }
+
+    private void initStatusData() {
+        StoreService.getInstance().getEventStatus(new Callback<Reponses.EventStatusReponse>() {
+            @Override
+            public void onSuccess(Reponses.EventStatusReponse eventStatusReponse) {
+                ImageUtils.displayImage(eventStatusReponse.image, event);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
     }
 
     void setTitleBar() {
@@ -191,18 +217,20 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
         }
     }
 
-    void getOrderEnable() {
-        StoreService.getInstance().orderIfOpen(new Callback<Boolean>() {
-            @Override
-            public void onSuccess(Boolean b) {
-                refreshOrder(b);
-            }
 
-            @Override
-            public void onFailure(Throwable throwable) {
-                refreshOrder(false);
-            }
-        });
+    void getOrderEnable() {
+//        StoreService.getInstance().orderIfOpen(new Callback<Boolean>() {
+//            @Override
+//            public void onSuccess(Boolean b) {
+//                refreshOrder(b);
+//            }
+//
+//            @Override
+//            public void onFailure(Throwable throwable) {
+//                refreshOrder(false);
+//            }
+//        });
+        refreshOrder(true);
     }
 
     void refreshOrder(boolean enalble) {

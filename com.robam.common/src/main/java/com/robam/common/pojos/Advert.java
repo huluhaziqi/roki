@@ -51,7 +51,9 @@ public class Advert extends AbsStorePojo<Long> {
         return desc;
     }
 
-
+    public String getImgUrl() {
+        return imgUrl;
+    }
 
     static public class MobAdvert extends Advert {
 

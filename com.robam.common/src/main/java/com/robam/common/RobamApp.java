@@ -12,7 +12,7 @@ import com.robam.common.services.StoreService;
 
 abstract public class RobamApp extends PlatApp {
 
-    protected static final String SERVICE_HOST = "112.124.101.32";   //"mqtt.myroki.com";  //
+    protected static final String SERVICE_HOST = "api.myroki.com";
 
     abstract public NotifyService getNotifyService();
 

@@ -24,8 +24,10 @@ import com.robam.common.events.FavorityBookRefreshEvent;
 import com.robam.common.events.OrderRefreshEvent;
 import com.robam.common.events.TodayBookCleanEvent;
 import com.robam.common.events.TodayBookRefreshEvent;
+import com.robam.common.io.cloud.Reponses;
 import com.robam.common.io.cloud.Reponses.CookbooksResponse;
 import com.robam.common.io.cloud.Reponses.HomeAdvertsForPadResponse;
+import com.robam.common.io.cloud.Reponses.EventStatusReponse;
 import com.robam.common.io.cloud.RokiRestHelper;
 import com.robam.common.pojos.AbsRecipe;
 import com.robam.common.pojos.Advert;
@@ -591,6 +593,26 @@ public class StoreService extends AbsService {
         });
     }
 
+    public void getHomeTitleForMob(final Callback<List<MobAdvert>> callback){
+        RokiRestHelper.getHomeTitleForMob(new Callback<List<MobAdvert>>() {
+            @Override
+            public void onSuccess(List<MobAdvert> mobAdverts) {
+                DaoHelper.deleteAll(MobAdvert.class);
+                if (mobAdverts != null) {
+                    for (MobAdvert advert : mobAdverts) {
+                        advert.save2db();
+                    }
+                }
+                Helper.onSuccess(callback, mobAdverts);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Helper.onFailure(callback, t);
+            }
+        });
+    }
+
     public void getHomeAdvertsForPad(
             final Callback<HomeAdvertsForPadResponse> callback) {
         RokiRestHelper
@@ -755,6 +777,10 @@ public class StoreService extends AbsService {
 
     public void orderIfOpen(final Callback<Boolean> callback) {
         RokiRestHelper.orderIfOpen(callback);
+    }
+
+    public void getEventStatus(final Callback<EventStatusReponse> callback) {
+        RokiRestHelper.getEventStatus(callback);
     }
 
     public void deiverIfAllow(final Callback<Integer> callback) {

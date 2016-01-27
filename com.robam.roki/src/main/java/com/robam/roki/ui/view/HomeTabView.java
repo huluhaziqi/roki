@@ -30,8 +30,8 @@ public class HomeTabView extends FrameLayout {
         void onTabSelected(int tabIndex);
     }
 
-    @InjectView(R.id.imgTrolleyFree)
-    ImageView imgFree;
+//    @InjectView(R.id.imgTrolleyFree)
+//    ImageView imgFree;
     @InjectViews({R.id.tab1, R.id.tab2, R.id.tab3, R.id.tab4})
     List<HomeTabItemView> tabs;
 
@@ -83,7 +83,7 @@ public class HomeTabView extends FrameLayout {
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);
 
-            refreshOrder();
+//            refreshOrder();
         }
     }
 
@@ -102,33 +102,33 @@ public class HomeTabView extends FrameLayout {
 
     }
 
-    @Subscribe
-    public void onEvent(OrderRefreshEvent event) {
-        imgFree.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                refreshOrder();
-            }
-        }, 500);
-    }
+//    @Subscribe
+//    public void onEvent(OrderRefreshEvent event) {
+//        imgFree.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                refreshOrder();
+//            }
+//        }, 500);
+//    }
 
 
-    void refreshOrder() {
-
-        if (Plat.accountService.isLogon()) {
-            StoreService.getInstance().queryOrder(Calendar.getInstance().getTimeInMillis() + 1000 * 60 * 60, 5, new Callback<List<OrderInfo>>() {
-                @Override
-                public void onSuccess(List<OrderInfo> orders) {
-                    final boolean notEmpty = orders != null && orders.size() > 0;
-                    imgFree.setVisibility(notEmpty ? GONE : VISIBLE);
-                }
-
-                @Override
-                public void onFailure(Throwable t) {
-                }
-            });
-        } else {
-            imgFree.setVisibility(VISIBLE);
-        }
-    }
+//    void refreshOrder() {
+//
+//        if (Plat.accountService.isLogon()) {
+//            StoreService.getInstance().queryOrder(Calendar.getInstance().getTimeInMillis() + 1000 * 60 * 60, 5, new Callback<List<OrderInfo>>() {
+//                @Override
+//                public void onSuccess(List<OrderInfo> orders) {
+//                    final boolean notEmpty = orders != null && orders.size() > 0;
+//                    imgFree.setVisibility(notEmpty ? GONE : VISIBLE);
+//                }
+//
+//                @Override
+//                public void onFailure(Throwable t) {
+//                }
+//            });
+//        } else {
+//            imgFree.setVisibility(VISIBLE);
+//        }
+//    }
 }

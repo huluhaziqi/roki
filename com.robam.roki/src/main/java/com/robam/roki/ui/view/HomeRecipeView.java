@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.common.collect.Lists;
@@ -18,10 +19,15 @@ import com.legent.ui.ext.dialogs.ProgressDialogHelper;
 import com.legent.ui.ext.views.TagCloudView;
 import com.legent.utils.api.PreferenceUtils;
 import com.legent.utils.api.ToastUtils;
+import com.legent.utils.graphic.ImageUtils;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.robam.common.io.cloud.RokiRestHelper;
+import com.robam.common.pojos.Advert;
 import com.robam.common.pojos.MaintainInfo;
 import com.robam.common.pojos.Recipe;
 import com.robam.common.services.CookbookManager;
+import com.robam.common.services.StoreService;
 import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;
 import com.robam.roki.ui.PageKey;
@@ -29,7 +35,15 @@ import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.dialog.LostRecipeDialog;
 import com.robam.roki.ui.dialog.MaintainHomeDialog;
 import com.robam.roki.ui.page.RecipeSearchPage;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
+import org.apache.http.client.HttpClient;
+
+import java.io.IOException;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -49,6 +63,8 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
     @InjectView(R.id.tagView)
     TagCloudView tagView;
 
+    @InjectView(R.id.imgEmoji)
+    ImageView emoji;
 
     public HomeRecipeView(Context context) {
         super(context);
@@ -65,8 +81,22 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
             setGesture(divTop);
             //popoupMaintainOnlyFirst();
             popoupLostrecipeOnlyFirst();
+            initTitleData();
         }
 
+    }
+
+    private void initTitleData() {
+        StoreService.getInstance().getHomeTitleForMob(new Callback<List<Advert.MobAdvert>>() {
+            @Override
+            public void onSuccess(List<Advert.MobAdvert> mobAdverts) {
+                ImageUtils.displayImage(mobAdverts.get(0).getImgUrl(),emoji);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+            }
+        });
     }
 
     @Override
@@ -81,8 +111,7 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
         UIService.getInstance().postPage(PageKey.RecipeSeasoning);
     }
 
-
-    @OnClick(R.id.imgHistory)
+    @OnClick({R.id.imgHistory, R.id.imgEmoji})
     public void onClickHistory() {
         UIService.getInstance().postPage(PageKey.RecipeHistory);
     }
@@ -182,18 +211,19 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
         }, 500);
 
     }
-    void popoupLostrecipeOnlyFirst(){
+
+    void popoupLostrecipeOnlyFirst() {
         postDelayed(new Runnable() {
             @Override
             public void run() {
-                boolean isFirst = PreferenceUtils.getBool(Prefs_LostRecipe_First,true);
-                if (isFirst){
+                boolean isFirst = PreferenceUtils.getBool(Prefs_LostRecipe_First, true);
+                if (isFirst) {
                     LostRecipeDialog.show(getContext());
                     PreferenceUtils.setBool(Prefs_LostRecipe_First, false);
                 }
 
             }
-        },500);
+        }, 500);
     }
 
     void onMaintain() {
@@ -228,7 +258,7 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
 
                 if (velocityY > 0) {
                     //下滑
-                   // onMaintain();
+                    // onMaintain();
                     LostRecipeDialog.show(getContext());
                 } else {
                     //上滑;
