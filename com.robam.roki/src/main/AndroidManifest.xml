@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.robam.roki"
-    android:versionCode="2472"
-    android:versionName="2.4.7.2" >
+    android:versionCode="2475"
+    android:versionName="2.4.7.5" >
 
     <uses-sdk
         android:minSdkVersion="14"

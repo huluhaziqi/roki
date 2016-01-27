@@ -15,21 +15,18 @@ import android.widget.TextView;
 import com.google.common.eventbus.Subscribe;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
-import com.legent.Callback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceConnectedNoticEvent;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
 import com.legent.plat.events.DeviceSelectedEvent;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
-import com.legent.plat.pojos.User;
-import com.legent.plat.pojos.device.DeviceInfo;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.EventUtils;
-import com.legent.utils.api.ToastUtils;
 import com.legent.utils.qrcode.ScanQrActivity;
 import com.robam.common.Utils;
+import com.robam.common.events.DeviceEasylinkCompletedEvent;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.ui.UiHelper;
@@ -38,11 +35,8 @@ import com.robam.roki.service.AppService;
 import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.UIListeners;
 
-import java.util.List;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 
 public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh {
 
@@ -95,6 +89,12 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
 
     @Subscribe
     public void onEvent(UserLogoutEvent event) {
+        onRefresh();
+    }
+
+    @Subscribe
+    public void onEvent(DeviceEasylinkCompletedEvent event){
+        AppService.getInstance().init(Plat.app);
         onRefresh();
     }
 
@@ -213,10 +213,10 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
 
     }
 
-    @OnClick(R.id.unlistedView)
-    public void onClickUnListedView(){
-        UIService.getInstance().postPage(PageKey.DeviceSterilizer);
-    }
+//    @OnClick(R.id.unlistedView)
+//    public void onClickUnListedView(){
+//        UIService.getInstance().postPage(PageKey.DeviceSterilizer);
+//    }
 
 
 }

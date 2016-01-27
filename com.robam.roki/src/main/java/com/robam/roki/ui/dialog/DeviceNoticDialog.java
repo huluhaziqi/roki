@@ -60,18 +60,17 @@ public class DeviceNoticDialog extends AbsDialog {
                 "知道了", 0));
 
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "9B39 E0  定时OK啦\n" +
-                "美味出炉，嘻嘻\n" +
-                "记得复位按钮哦.", null,
-                "95105855", R.mipmap.ic_notic_phone));
+                "美味出炉，嘻嘻\n", null,
+                "知道了", 0));
 
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "9B37 E0  定时OK啦\n" +
                 "美味出炉，嘻嘻\n" +
                 "记得复位按钮哦.", null,
-                "95105855", R.mipmap.ic_notic_phone));
+                "知道了", 0));
 
-        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "E1  点火失败", null,
-                "95105855", R.mipmap.ic_notic_phone));
-        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "E2 突然熄火", null,
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "E1  点火失败,请确认气源，重新点火", null,
+                "知道了", 0));
+        nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "E2 突然熄火，请申请售后", null,
                 "95105855", R.mipmap.ic_notic_phone));
         nodes.add(new NoticNode(R.mipmap.ic_notic_tip4, "//E3/E4/E5/E8灶具内部故障，请申请售后", null,
                 "95105855", R.mipmap.ic_notic_phone));

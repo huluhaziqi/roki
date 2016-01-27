@@ -16,7 +16,6 @@ import com.legent.plat.pojos.device.IDevice;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
 import com.legent.ui.ext.adapters.ExtBaseAdapter;
-import com.robam.common.Utils;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;

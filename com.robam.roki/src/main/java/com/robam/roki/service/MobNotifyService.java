@@ -78,7 +78,7 @@ public class MobNotifyService extends NotifyService {
 
                 break;
             case StoveAlarmManager.E_2:
-                if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9W70)){  //Key_IGBT_Open
+                if (stove.getStoveModel().equals(IRokiFamily.R9W70)){  //Key_IGBT_Open
                     DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_2_RebootHint);
                 }else if (stove.getStoveModel().equals(IRokiFamily.R9B39)){ //突然熄火了，请重新开火
                     DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_9_FireOver_Unexpect);
@@ -90,7 +90,7 @@ public class MobNotifyService extends NotifyService {
             case StoveAlarmManager.E_4://Key_Voltage_Low:
             case StoveAlarmManager.E_5://Key_Voltage_Low:
             case StoveAlarmManager.E_8://Key_Voltage_Low:
-                if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9W70)){  //有点小故障请联系售后
+                if (stove.getStoveModel().equals(IRokiFamily.R9W70)){  //有点小故障请联系售后
                     DeviceNoticDialog.show(atv, dev, DeviceNoticDialog.Notic_Type_1_Voltage);
                 }else if (stove.getStoveModel().equals(IRokiFamily.R9B39)){ //有点小故障请联系售后
                     DeviceNoticDialog.show(atv,dev,DeviceNoticDialog.Notic_Type_10_InnerError);
