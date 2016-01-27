@@ -66,7 +66,7 @@ public interface IRokiRestService {
     // -------------------------------------------------------------------------------
     //
     // -------------------------------------------------------------------------------
-    String getHomeAdvertsForMob = "/rest/api/app/image/advert/get";
+    String getHomeAdvertsForMob = "/rest/api//app/image/advert/drop-down/get";
     String getHomeTitleForMob="/rest/api/app/image/title/get";
     String getHomeAdvertsForPad = "/rest/api/pad/image/advert/get";
     String getFavorityImagesForPad = "/rest/api/pad/image/collect/get";

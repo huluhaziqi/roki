@@ -79,7 +79,13 @@ public class OrderContacterEditPage extends BasePage {
     @OnClick(R.id.txtOK)
     public void onClickOK() {
         try {
-            onSave();
+            if (edtName.getText().toString().isEmpty()) {
+                ToastUtils.show("收货人不能为空", 1500);
+            } else if (edtAddress.getText().toString().isEmpty()) {
+                ToastUtils.show("配送地址不能为空", 1500);
+            } else {
+                onSave();
+            }
         } catch (Exception e) {
             ToastUtils.showException(e);
         }
@@ -165,7 +171,7 @@ public class OrderContacterEditPage extends BasePage {
 //            }
 //        });
 
-        PopupWindow pop= Helper.newOrderAreaPicker(cx, new Callback2<String>() {
+        PopupWindow pop = Helper.newOrderAreaPicker(cx, new Callback2<String>() {
             @Override
             public void onCompleted(String s) {
                 edtCity.setText(s);

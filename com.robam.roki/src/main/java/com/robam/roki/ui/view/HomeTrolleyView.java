@@ -117,7 +117,7 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
     }
 
     @Subscribe
-    public void onEvent(RecipeOpenEvent event){
+    public void onEvent(RecipeOpenEvent event) {
         getOrderEnable();
         initStatusData();
     }
@@ -145,7 +145,7 @@ public class HomeTrolleyView extends FrameLayout implements UIListeners.IRefresh
         StoreService.getInstance().getEventStatus(new Callback<Reponses.EventStatusReponse>() {
             @Override
             public void onSuccess(Reponses.EventStatusReponse eventStatusReponse) {
-                ImageUtils.displayImage(eventStatusReponse.image, event);
+                ImageUtils.displayImage(eventStatusReponse.image, event, ImageUtils.defaultOptions);
             }
 
             @Override

@@ -54,9 +54,4 @@ public class DeviceUnlistedView extends FrameLayout {
             item4.loadData(dm.queryById(IRokiFamily.R9W74));
         }
     }
-//    @OnClick(R.id.item1)
-//    public void onclickAddSterilizer(){
-//
-//    }
-
 }

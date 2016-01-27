@@ -78,6 +78,8 @@ abstract public class AbsCookTaskService extends AbsService {
         if (stoveHead != null) {
             stove = stoveHead.parent;
             fan = (AbsFan)stove.getParent();
+        }else {
+            fan=Utils.getDefaultFan();
         }
 
         steps = book.getCookSteps();

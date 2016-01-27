@@ -158,7 +158,7 @@ public class OrderListPage extends HeadPage {
                 txtTime.setText(sdf.format(c.getTime()));
                 txtStatus.setText(order.getStatusString());
 
-                boolean isDelivering = order.status == OrderInfo.OrderStatus_Delivering;
+                boolean isDelivering = order.status == OrderInfo.OrderStatus_Delivering||order.status == OrderInfo.OrderStatus_nullity;
 
                 txtStatus.setBackgroundColor(isDelivering
                         ? Color.parseColor("#f07878")

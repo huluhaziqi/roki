@@ -42,9 +42,9 @@ public class OrderHintDialog extends AbsDialog {
                 title="选择大与1道菜";
                 desc="本活动只支持配送1道菜";
                 break;
-            default:
-                ToastUtils.showShort("未知的result code:" + rcCode);
-                break;
+//            default:
+//                ToastUtils.showShort("未知的result code:" + rcCode);
+//                break;
         }
 
         if (Strings.isNullOrEmpty(title)) return;

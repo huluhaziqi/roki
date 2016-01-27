@@ -18,6 +18,7 @@ import com.robam.common.Utils;
 import com.robam.common.pojos.Recipe;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.Stove.StoveStatus;
+import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.roki.R;
 import com.robam.roki.model.CrmArea;
 import com.robam.roki.service.CookTaskService;
@@ -71,11 +72,16 @@ public class Helper {
         }
 
         Stove stove = Utils.getDefaultStove();
+        AbsFan fan = Utils.getDefaultFan();
 
         if (stove == null) {
-            Bundle bd = new Bundle();
-            bd.putLong(PageArgumentKey.BookId, recipe.id);
-            UIService.getInstance().postPage(PageKey.CookWithoutDevice, bd);
+            if (fan == null) {
+                Bundle bd = new Bundle();
+                bd.putLong(PageArgumentKey.BookId, recipe.id);
+                UIService.getInstance().postPage(PageKey.CookWithoutDevice, bd);
+            } else {
+                CookTaskService.getInstance().start(null, recipe);
+            }
         } else {
 
             boolean isOffLeft = stove.leftHead != null && stove.leftHead.status == StoveStatus.Off;

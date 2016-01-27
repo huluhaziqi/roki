@@ -213,10 +213,10 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
 
     }
 
-    @OnClick(R.id.unlistedView)
-    public void onClickUnListedView(){
-        UIService.getInstance().postPage(PageKey.DeviceSterilizer);
-    }
+//    @OnClick(R.id.unlistedView)
+//    public void onClickUnListedView(){
+//        UIService.getInstance().postPage(PageKey.DeviceSterilizer);
+//    }
 
 
 }

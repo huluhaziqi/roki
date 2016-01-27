@@ -306,10 +306,10 @@ public class CookbookManager extends AbsService {
 
         //是否10分钟内更新
         boolean isNearest = Calendar.getInstance().getTimeInMillis() - lastUpdateTime_recommend <= UpdatePeriod;
-        if (isNearest) {
-            CookbooksResponse result = StoreHelper.getRecommendList();
-            Helper.onSuccess(callback, result.cookbooks);
-        } else {
+//        if (isNearest) {
+//            CookbooksResponse result = StoreHelper.getRecommendList();
+//            Helper.onSuccess(callback, result.cookbooks);
+//        } else {
             ss.getRecommendCookbooks(new Callback<List<Recipe>>() {
 
                 @Override
@@ -324,7 +324,7 @@ public class CookbookManager extends AbsService {
                     Helper.onSuccess(callback, result.cookbooks);
                 }
             });
-        }
+//        }
     }
 
     public void getGroundingRecipes(int start, int limit, final Callback<List<Recipe>> callback) {

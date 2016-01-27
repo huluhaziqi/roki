@@ -20,8 +20,6 @@ import com.legent.ui.ext.views.TagCloudView;
 import com.legent.utils.api.PreferenceUtils;
 import com.legent.utils.api.ToastUtils;
 import com.legent.utils.graphic.ImageUtils;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.robam.common.io.cloud.RokiRestHelper;
 import com.robam.common.pojos.Advert;
 import com.robam.common.pojos.MaintainInfo;
@@ -35,15 +33,7 @@ import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.dialog.LostRecipeDialog;
 import com.robam.roki.ui.dialog.MaintainHomeDialog;
 import com.robam.roki.ui.page.RecipeSearchPage;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
-import org.apache.http.client.HttpClient;
-
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -57,7 +47,7 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
 
     ColorStateList tagTextColor;
 
-    @InjectView(R.id.divTop)
+    @InjectView(R.id.divTop_recipe_home)
     View divTop;
 
     @InjectView(R.id.tagView)
@@ -65,6 +55,7 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
 
     @InjectView(R.id.imgEmoji)
     ImageView emoji;
+    private ImageView recipe;
 
     public HomeRecipeView(Context context) {
         super(context);
@@ -78,26 +69,15 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
                 this, true);
         if (!view.isInEditMode()) {
             ButterKnife.inject(this, view);
+            initTitleData();
             setGesture(divTop);
+            setGesture(emoji);
             //popoupMaintainOnlyFirst();
             popoupLostrecipeOnlyFirst();
-            initTitleData();
         }
 
     }
 
-    private void initTitleData() {
-        StoreService.getInstance().getHomeTitleForMob(new Callback<List<Advert.MobAdvert>>() {
-            @Override
-            public void onSuccess(List<Advert.MobAdvert> mobAdverts) {
-                ImageUtils.displayImage(mobAdverts.get(0).getImgUrl(),emoji);
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-            }
-        });
-    }
 
     @Override
     protected void onAttachedToWindow() {
@@ -136,6 +116,19 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
             public void onFailure(Throwable t) {
                 ProgressDialogHelper.setRunning(cx, false);
                 ToastUtils.showThrowable(t);
+            }
+        });
+    }
+
+    private void initTitleData() {
+        StoreService.getInstance().getHomeTitleForMob(new Callback<List<Advert.MobAdvert>>() {
+            @Override
+            public void onSuccess(List<Advert.MobAdvert> mobAdverts) {
+                ImageUtils.displayImage(mobAdverts.get(0).getImgUrl(), emoji, ImageUtils.defaultOptions);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
             }
         });
     }
@@ -188,7 +181,15 @@ public class HomeRecipeView extends FrameLayout implements UIListeners.IRefresh 
     void setGesture(View rootView) {
         final GestureDetector gd = new GestureDetector(getContext(), new GestureCallback());
         rootView.setClickable(true);
+        emoji.setClickable(true);
         rootView.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gd.onTouchEvent(event);
+            }
+        });
+        emoji.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {

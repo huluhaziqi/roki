@@ -11,9 +11,8 @@ import java.util.List;
 
 /**
  * 免费配送订单
- *
+ * <p/>
  * Created by sylar on 15/7/17.
- *
  */
 public class OrderInfo extends AbsStorePojo<Long> implements Parcelable {
 
@@ -33,6 +32,10 @@ public class OrderInfo extends AbsStorePojo<Long> implements Parcelable {
      * 配送完成
      */
     final public static int OrderStatus_Completed = 4;
+    /**
+     * 无效订单
+     */
+    final public static int OrderStatus_nullity = 5;
 
 
     @DatabaseField(id = true)
@@ -92,6 +95,9 @@ public class OrderInfo extends AbsStorePojo<Long> implements Parcelable {
                 break;
             case OrderStatus_Completed:
                 str = "配送完成";
+                break;
+            case OrderStatus_nullity:
+                str = "无效订单";
                 break;
         }
         return str;

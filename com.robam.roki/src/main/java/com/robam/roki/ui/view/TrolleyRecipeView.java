@@ -52,7 +52,7 @@ public class TrolleyRecipeView extends FrameLayout {
 
     @InjectView(R.id.listview)
     SwipeMenuListView listview;
-//    @InjectView(R.id.thirdPlatView)
+    //    @InjectView(R.id.thirdPlatView)
 //    TrolleyThirdPlatView thirdPlatView;
     @InjectView(R.id.freeView)
     TrolleyFreeView freeView;
@@ -103,7 +103,7 @@ public class TrolleyRecipeView extends FrameLayout {
         }
 
 //        thirdPlatView.setVisibility(isEnableOrder ? GONE : VISIBLE);
-        freeView.setVisibility(!isEnableOrder ? GONE : VISIBLE);
+        freeView.setVisibility(isEnableOrder ? VISIBLE : GONE);
     }
 
     void loadData(final List<Recipe> books) {
@@ -179,17 +179,20 @@ public class TrolleyRecipeView extends FrameLayout {
                 ToastUtils.showShort("您好像还没选菜呢");
                 return;
             }
+            if (ids == null || ids.size() > 1) {
+                ToastUtils.showShort("每次最多一道菜");
+                return;
+            }
 
             StoreService.getInstance().getCustomerInfo(new Callback<OrderContacter>() {
                 @Override
                 public void onSuccess(OrderContacter contacter) {
+                        Bundle bd = new Bundle();
+                        bd.putBoolean(PageArgumentKey.IsEditOrderContacter, false);
+                        bd.putParcelable(PageArgumentKey.OrderContacterEditCallback, new OrderContacterEditCallback(ids));
+                        bd.putParcelable(PageArgumentKey.OrderContacter, contacter);
 
-                    Bundle bd = new Bundle();
-                    bd.putBoolean(PageArgumentKey.IsEditOrderContacter, false);
-                    bd.putParcelable(PageArgumentKey.OrderContacterEditCallback, new OrderContacterEditCallback(ids));
-                    bd.putParcelable(PageArgumentKey.OrderContacter, contacter);
-
-                    UIService.getInstance().postPage(PageKey.OrderContacterEdit, bd);
+                        UIService.getInstance().postPage(PageKey.OrderContacterEdit, bd);
                 }
 
                 @Override

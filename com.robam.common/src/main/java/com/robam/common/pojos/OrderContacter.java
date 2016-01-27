@@ -43,6 +43,9 @@ public class OrderContacter extends AbsStorePojo<Long> implements Parcelable {
         return name;
     }
 
+    public String getAddress() {
+        return address;
+    }
 
     @Override
     public int describeContents() {

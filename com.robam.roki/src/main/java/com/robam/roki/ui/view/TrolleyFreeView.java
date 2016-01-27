@@ -42,9 +42,10 @@ public class TrolleyFreeView extends FrameLayout {
     TextView txtDeliver;
     //    @InjectView(R.id.txtHint)
 //    TextView txtHint;
-    boolean isDeliver = false;
-
     int rc;
+    boolean isDeliver = false;
+    boolean flag = true;
+    boolean peisong = false;
     OnDeliverCallback callback;
 
     public TrolleyFreeView(Context context) {
@@ -121,10 +122,16 @@ public class TrolleyFreeView extends FrameLayout {
                 if (eventStatusReponse.status == 3) {
                     txtDeliver.setSelected(!isDeliver);
                     txtDeliver.setText("免费配送");
+                    peisong = true;
+                } else {
+                    peisong = false;
                 }
                 if (eventStatusReponse.status == 4) {
                     txtDeliver.setSelected(true);
-                    txtDeliver.setText("抢光了\n活动已结束");
+                    txtDeliver.setText("抢光了");
+                    flag = false;
+                } else {
+                    flag = true;
                 }
             }
 
@@ -138,8 +145,9 @@ public class TrolleyFreeView extends FrameLayout {
     @OnClick(R.id.txtDeliver)
     public void onClick() {
         if (rc > 0) {
-            OrderHintDialog.show(getContext(), rc);
-        } else if (callback != null && UiHelper.checkAuthWithDialog(getContext(), PageKey.UserLogin)) {
+            if (flag)
+                OrderHintDialog.show(getContext(), rc);
+        } else if (peisong && callback != null && UiHelper.checkAuthWithDialog(getContext(), PageKey.UserLogin)) {
             callback.onDeliver();
         }
     }
