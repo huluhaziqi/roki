@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:visibility="visible" />
 
+
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView
         android:id="@+id/pull_refresh_scrollview"
         android:layout_width="match_parent"
@@ -52,12 +53,60 @@
                     android:layout_marginTop="2dp" />
 
             </LinearLayout>
+           <TableLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:stretchColumns="*">
+               <TableRow>
 
+                   <com.robam.roki.ui.view.DeviceUnlistedItemView
+                       android:id="@+id/item1"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       app:description="Sterilizer"
+                       app:imgSource="@mipmap/ic_home_device_xdg"
+                       app:title="消毒柜" />
+
+
+                   <com.robam.roki.ui.view.DeviceUnlistedItemView
+                       android:id="@+id/item2"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="3dp"
+                       app:description="Sterilizer"
+                       app:imgSource="@mipmap/ic_home_device_dkx"
+                       app:title="消毒柜" />
+               </TableRow>
+
+               <TableRow android:layout_marginTop="3dp">
+
+                   <com.robam.roki.ui.view.DeviceUnlistedItemView
+                       android:id="@+id/item3"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       app:description="Sterilizer"
+                       app:imgSource="@mipmap/ic_home_device_wbl"
+                       app:title="消毒柜" />
+
+
+                   <com.robam.roki.ui.view.DeviceUnlistedItemView
+                       android:id="@+id/item4"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="3dp"
+                       app:description="Sterilizer"
+                       app:imgSource="@mipmap/ic_home_device_zql"
+                       app:title="消毒柜" />
+               </TableRow>
+           </TableLayout>
+<!--
             <com.robam.roki.ui.view.DeviceUnlistedView
                 android:id="@+id/unlistedView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp" />
+                -->
+
 
         </LinearLayout>
 
