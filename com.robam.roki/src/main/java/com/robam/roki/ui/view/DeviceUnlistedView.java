@@ -49,9 +49,9 @@ public class DeviceUnlistedView extends FrameLayout {
 
             DeviceTypeManager dm = DeviceTypeManager.getInstance();
             item1.loadData(dm.queryById(IRokiFamily.RR829));
-            item2.loadData(dm.queryById(IRokiFamily.R9W72));
-            item3.loadData(dm.queryById(IRokiFamily.R9W73));
-            item4.loadData(dm.queryById(IRokiFamily.R9W74));
+            item2.loadData(dm.queryById(IRokiFamily.RR039));
+            item3.loadData(dm.queryById(IRokiFamily.RM509));
+            item4.loadData(dm.queryById(IRokiFamily.RS209));
         }
     }
 }

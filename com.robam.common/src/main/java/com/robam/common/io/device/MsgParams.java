@@ -173,4 +173,46 @@ public interface MsgParams {
      * 消毒柜工作状态[1Byte]（0关机，1开机）
      */
     String SteriStatus = "SteriStatus";
+    /**
+     *ORDER_TIME[1Byte] {0:预约取消，1，2，3，4…24预约时间}
+     */
+    String SteriReserveTime = "SteriReserveTime";
+    /**
+     *DRYING_TIME[1Byte] {0取消烘干，>1 为烘干时间}
+     */
+    String SteriDryingTime = "SteriDryingTime";
+    /**
+     *CLEAN_TIME[1Byte] {0取消保洁，60，保洁时间}
+     */
+    String SteriCleanTime = "SteriCleanTime";
+    /**
+     *DISINFECT_TIME[1Byte] {0取消消毒,150消毒时间}
+     */
+    String SteriDisinfectTime = "SteriDisinfectTime";
+    /**
+     *ON_OFF [1Byte] {0取消童锁，1，开童锁}
+     */
+    String SteriLock = "SteriLock";
+    /**
+     *是否开启定时消毒[1BYTE]
+     */
+    String SteriSwitchDisinfect = "SteriSwitchDisinfect";
+    /**
+     *定时消毒间隔时间[1BYTE],单位天
+     */
+    String SteriInternalDisinfect = "SteriInternalDisinfect";
+    /**
+     *是否开启每周消毒[1BYTE]
+     */
+    String SteriSwitchWeekDisinfect = "SteriSwitchWeekDisinfect";
+    /**
+     *每周消毒的时时间[1BYTE]
+     */
+    String SteriWeekInternalDisinfect = "SteriWeekInternalDisinfect";
+    /**
+     *消毒柜峰谷电时间[1BYTE]
+     */
+    String SteriTimeDisinfect = "SteriTimeDisinfect";
+
+
 }

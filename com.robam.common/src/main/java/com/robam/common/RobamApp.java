@@ -1,5 +1,4 @@
 package com.robam.common;
-
 import com.legent.plat.Plat;
 import com.legent.plat.PlatApp;
 import com.legent.ui.UIService;
@@ -12,7 +11,7 @@ import com.robam.common.services.StoreService;
 
 abstract public class RobamApp extends PlatApp {
 
-    protected static final String SERVICE_HOST = "api.myroki.com";
+    protected static final String SERVICE_HOST = "mqtt.myroki.com";  //"112.124.101.32";   //
 
     abstract public NotifyService getNotifyService();
 

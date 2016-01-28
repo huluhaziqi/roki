@@ -47,17 +47,17 @@ public interface IRokiFamily {
     /**
      * 电烤箱
      */
-    String R9W72 = "R9W72";
+    String RR039 = "RR039";
 
     /**
      * 微波炉
      */
-    String R9W73 = "R9W73";
+    String RM509 = "RM509";
 
     /**
      * 蒸汽炉
      */
-    String R9W74 = "R9W74";
+    String RS209 = "RS209";
 
 
 }

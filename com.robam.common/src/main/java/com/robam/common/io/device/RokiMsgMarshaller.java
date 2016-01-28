@@ -26,6 +26,8 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 		short s;
 
 		boolean isStoveMsg = isStoveMsg(msg);
+		boolean isFanMsg = isFanMsg(msg);
+		boolean isSterilizerMsg = isSterilizer(msg);
 		int key = msg.getID();
 
 		ByteBuffer buf = ByteBuffer.allocate(BufferSize).order(BYTE_ORDER);
@@ -101,7 +103,7 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 			default:
 				break;
 			}
-		} else {
+		} else if (isFanMsg){
 			// 油烟机
 
 			switch (key) {
@@ -233,6 +235,72 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 				break;
 			}
 
+		}else if (isSterilizerMsg){
+			switch (key){
+				case MsgKeys.SetSteriPowerOnOff_Req:
+					//
+//					b = (byte)msg.optInt(MsgParams.TerminalType);
+//					buf.put(MsgUtils.toByte(b));
+					//
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					//
+					b = (byte)msg.optInt(MsgParams.SteriStatus);
+					buf.put(b);
+					break;
+				case MsgKeys.SetSteriReserveTime_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte)msg.optInt(MsgParams.SteriReserveTime);
+					buf.put(b);
+					break;
+				case MsgKeys.SetSteriDrying_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte)msg.optInt(MsgParams.SteriDryingTime);
+					buf.put(b);
+					break;
+				case MsgKeys.SetSteriClean_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte)msg.optInt(MsgParams.SteriCleanTime);
+					buf.put(b);
+					break;
+				case MsgKeys.SetSteriDisinfect_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte)msg.optInt(MsgParams.SteriDisinfectTime);
+					buf.put(b);
+					break;
+				case MsgKeys.SetSteriLock_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte)msg.optInt(MsgParams.SteriLock);
+					buf.put(b);
+					break;
+				case MsgKeys.GetSteriParam_Req:
+					break;
+				case MsgKeys.GetSteriStatus_Req:
+					break;
+				case MsgKeys.GetSteriPVConfig_Req:
+					break;
+				case MsgKeys.SetSteriPVReserveTime_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte)msg.optInt(MsgParams.SteriSwitchDisinfect);
+					buf.put(b);
+					b = (byte)msg.optInt(MsgParams.SteriInternalDisinfect);
+					buf.put(b);
+					b = (byte)msg.optInt(MsgParams.SteriSwitchWeekDisinfect);
+					buf.put(b);
+					b = (byte)msg.optInt(MsgParams.SteriWeekInternalDisinfect);
+					buf.put(b);
+					b = (byte)msg.optInt(MsgParams.SteriTimeDisinfect);
+					buf.put(b);
+					break;
+				default:
+					break;
+			}
 		}
 
 		//
@@ -423,6 +491,76 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 			}
 
 		}else if (isSterilizer(msg)){
+			switch (key){
+				case MsgKeys.SetSteriPowerOnOff_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SetSteriReserveTime_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SetSteriDrying_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SetSteriClean_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SetSteriDisinfect_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SetSteriLock_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+//				case MsgKeys.GetSteriParam_Rep:
+//					msg.putOpt(MsgParams.SteriTemp,
+//							MsgUtils.getShort(payload[offset++]));
+//					msg.putOpt(MsgParams.SteriHum,
+//							MsgUtils.getShort(payload[offset++]));
+//					break;
+//				case MsgKeys.GetSteriStatus_Rep:
+//					msg.putOpt(MsgParams.SteriState,
+//							MsgUtils.getShort(payload[offset++]));
+//					msg.putOpt(MsgParams.SteriChildLock,
+//							MsgUtils.getShort(payload[offset++]));
+//					msg.putOpt(MsgParams.SteriAlarm,
+//							MsgUtils.getShort(payload[offset++]));
+//					msg.putOpt(MsgParams.SteriGateAlarm,
+//						MsgUtils.getShort(payload[offset++]));
+//					msg.putOpt(MsgParams.SteriUVAlarm,
+//							MsgUtils.getShort(payload[offset++]));
+//					msg.putOpt(MsgParams.SteriTempSensorAlarm,
+//							MsgUtils.getShort(payload[offset++]));
+//					break;
+				case MsgKeys.GetSteriPVConfig_Rep:
+					msg.putOpt(MsgParams.SteriSwitchDisinfect,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriInternalDisinfect,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriSwitchWeekDisinfect,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriWeekInternalDisinfect,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriTimeDisinfect,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SetSteriPVReserveTime_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				// -------------------------------------------------------------------------------
+				// 通知类
+				// -------------------------------------------------------------------------------
+				case MsgKeys.SteriAlarm_Noti:
+					break;
+				case MsgKeys.SteriEvent_Noti:
+
+					break;
+			}
 
 		}
 	}

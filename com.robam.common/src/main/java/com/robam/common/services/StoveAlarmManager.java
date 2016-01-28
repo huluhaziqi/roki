@@ -22,8 +22,8 @@ public class StoveAlarmManager extends AbsPojoManagerWithMap<StoveAlarm,Short> {
 	final static public short Key_Unknow_12 = 12;
 	final static public short Key_Bluetooth_Error = 13;
 
-	final static public short E_None = 0;
-	final static public short E_0 = 64;
+	final static public short E_None = 255;
+	final static public short E_0 = 0;
 	final static public short E_1 = 1;
 	final static public short E_2 = 2;
 	final static public short E_3 = 3;

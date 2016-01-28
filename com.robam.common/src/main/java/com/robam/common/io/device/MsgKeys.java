@@ -259,17 +259,17 @@ public interface MsgKeys {
     /**
      * 读取消毒柜峰谷定时设置(请求)
      */
-    short getSteriPVConfig_Req = 147;
+    short GetSteriPVConfig_Req = 147;
     /**
      * 读取消毒柜峰谷定时设置(应答)
      */
-    short getSteriPVConfig_Rep = 148;
+    short GetSteriPVConfig_Rep = 148;
     /**
      * 设置消毒柜峰谷定时开启（请求）
      */
-    short getSteriPVReserveTime_Req = 149;
+    short SetSteriPVReserveTime_Req = 149;
     /**
      * 设置消毒柜峰谷定时开启（应答）
      */
-    short getSteriPVReserveTime_Rep = 150;
+    short SetSteriPVReserveTime_Rep = 150;
 }
