@@ -53,63 +53,75 @@
                     android:layout_marginTop="2dp" />
 
             </LinearLayout>
-           <TableLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:stretchColumns="*">
-               <TableRow>
 
-                   <com.robam.roki.ui.view.DeviceUnlistedItemView
-                       android:id="@+id/item1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       app:description="Sterilizer"
-                       app:imgSource="@mipmap/ic_home_device_xdg"
-                       app:title="消毒柜" />
-
-
-                   <com.robam.roki.ui.view.DeviceUnlistedItemView
-                       android:id="@+id/item2"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="3dp"
-                       app:description="Sterilizer"
-                       app:imgSource="@mipmap/ic_home_device_dkx"
-                       app:title="消毒柜" />
-               </TableRow>
-
-               <TableRow android:layout_marginTop="3dp">
-
-                   <com.robam.roki.ui.view.DeviceUnlistedItemView
-                       android:id="@+id/item3"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       app:description="Sterilizer"
-                       app:imgSource="@mipmap/ic_home_device_wbl"
-                       app:title="消毒柜" />
-
-
-                   <com.robam.roki.ui.view.DeviceUnlistedItemView
-                       android:id="@+id/item4"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="3dp"
-                       app:description="Sterilizer"
-                       app:imgSource="@mipmap/ic_home_device_zql"
-                       app:title="消毒柜" />
-               </TableRow>
-           </TableLayout>
-<!--
-            <com.robam.roki.ui.view.DeviceUnlistedView
-                android:id="@+id/unlistedView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp" />
-                -->
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal">
+
+                    <com.robam.roki.ui.view.DeviceAddSterilizerView
+                        android:id="@+id/add_sterilizer_View"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:description="Sterilizer"
+                        app:title="消毒柜" />
+
+                    <com.robam.roki.ui.view.DeviceUnlistedItemView
+                        android:id="@+id/sterilizer_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:description="Sterilizer"
+                        app:title="消毒柜" />
 
 
+                    <com.robam.roki.ui.view.DeviceUnlistedItemNoView
+                        android:id="@+id/item2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_weight="1"
+                        app:description="Oven"
+                        app:imgSource="@mipmap/ic_home_device_dkx"
+                        app:title="电烤箱" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.robam.roki.ui.view.DeviceUnlistedItemNoView
+                        android:id="@+id/item3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:description="Microwave"
+                        app:imgSource="@mipmap/ic_home_device_wbl"
+                        app:title="微波炉" />
+
+
+                    <com.robam.roki.ui.view.DeviceUnlistedItemNoView
+                        android:id="@+id/item4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_weight="1"
+                        app:description="SteamOven"
+                        app:imgSource="@mipmap/ic_home_device_zql"
+                        app:title="蒸汽炉" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-
     </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 </LinearLayout>

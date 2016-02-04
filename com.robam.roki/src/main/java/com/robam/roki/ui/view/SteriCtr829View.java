@@ -3,28 +3,24 @@ package com.robam.roki.ui.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
-import com.legent.ui.UIService;
+import com.legent.VoidCallback;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
+import com.robam.common.pojos.device.Sterilizer.SteriStatus;
 import com.robam.roki.R;
-import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.SterilizerAnimationUtil;
 import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.dialog.CountDownDialog;
-
-import java.util.zip.Inflater;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -78,6 +74,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     public void attachSteri(ISterilizer steri) {
         Preconditions.checkState(steri instanceof Steri829, "attachFan error:not 829");
         this.steri = (Steri829) steri;
+
     }
 
     @Override
@@ -88,15 +85,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     @OnClick(R.id.sterilizer_switch)
     public void onClickSwitch(View v) {
         boolean selected = ((CheckBox) v).isChecked();
-        order.setSelected(selected);
-        stoving.setSelected(selected);
-        clean.setSelected(selected);
-        sterilizer.setSelected(selected);
-        if (sterilizer.isSelected()) {
-            sterilizer.setTextColor(Color.parseColor("#ffffff"));
-        }else {
-            sterilizer.setTextColor(Color.parseColor("#575757"));
-        }
+        setBtnSelected(selected);
+        setStatus(selected);
     }
 
     @OnClick(R.id.tv_sterilizer_btn)
@@ -106,4 +96,30 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         }
     }
 
+    public void setBtnSelected(boolean btnSelected) {
+        order.setSelected(btnSelected);
+        stoving.setSelected(btnSelected);
+        clean.setSelected(btnSelected);
+        sterilizer.setSelected(btnSelected);
+        if (sterilizer.isSelected()) {
+            sterilizer.setTextColor(Color.parseColor("#ffffff"));
+        } else {
+            sterilizer.setTextColor(Color.parseColor("#575757"));
+        }
+    }
+
+    public void setStatus(boolean witchStatus) {
+        short status = witchStatus ? SteriStatus.On : SteriStatus.Off;
+        steri.setSteriStatus(status, new VoidCallback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+    }
 }

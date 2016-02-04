@@ -64,12 +64,12 @@ public class SaleServicePage extends HeadPage {
         startActivity(it);
     }
 
-    @OnClick(R.id.applyService)
-    public void onClickApply() {
-        if (UiHelper.checkAuthWithDialog(cx, PageKey.UserLogin)) {
-            onApplyService();
-        }
-    }
+//    @OnClick(R.id.applyService)
+//    public void onClickApply() {
+//        if (UiHelper.checkAuthWithDialog(cx, PageKey.UserLogin)) {
+//            onApplyService();
+//        }
+//    }
 
     void onApplyService() {
         String phone = Plat.accountService.getCurrentUser().phone;

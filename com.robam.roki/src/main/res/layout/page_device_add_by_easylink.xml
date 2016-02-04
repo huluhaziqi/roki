@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="15dp"
-                android:text="请长按烟机上"
+                android:text="请长按厨电上"
                 android:textColor="@color/c05"
                 android:textSize="18sp" />
 
@@ -122,7 +122,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_device_add_by_easylink_pwd_bg"
             android:gravity="center"
-            android:hint="请告诉烟机您家的WIFI密码"
+            android:hint="请告诉厨电您家的WIFI密码"
             android:singleLine="true"
             android:textColor="@color/c05"
             android:textColorHint="@color/c01"
@@ -152,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="21dp"
-            android:text="温馨提醒：一键连接开启后，其它已连接手机暂时无法操作烟灶，完成连接后，所有连接手机均可正常使用。"
+            android:text="温馨提醒：一键连接开启后，其它已连接手机暂时无法操作厨电，完成连接后，所有连接手机均可正常使用。"
             android:textColor="@color/c06"
             android:textSize="10sp" />
     </LinearLayout>

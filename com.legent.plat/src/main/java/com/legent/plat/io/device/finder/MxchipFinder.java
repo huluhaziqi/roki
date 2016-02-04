@@ -123,7 +123,7 @@ public class MxchipFinder implements IDeviceFinder {
                 // 检查搜索结果
                 Preconditions.checkState(result != null, "添加厨电失败，请确认\n" +
                         "1.WIFI密码正确\n" +
-                        "2.烟机一键连功能激活");
+                        "2.厨电一键连功能激活");
 
             } finally {
                 EventUtils.unregist(this);

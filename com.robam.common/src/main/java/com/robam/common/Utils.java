@@ -2,11 +2,15 @@ package com.robam.common;
 
 import com.google.common.base.Objects;
 import com.legent.plat.Plat;
+import com.legent.plat.pojos.device.IDevice;
 import com.legent.plat.pojos.dictionary.DeviceType;
 import com.legent.plat.services.DeviceTypeManager;
 import com.robam.common.pojos.device.IRokiFamily;
+import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
+
+import java.util.List;
 
 public class Utils {
 
@@ -15,18 +19,27 @@ public class Utils {
     }
 
     static public AbsFan getDefaultFan() {
-        AbsFan fan = Plat.deviceService.getDefault();
+        AbsFan fan = (AbsFan) Plat.deviceService.getDefault();
         return fan;
     }
 
     static public Stove getDefaultStove() {
-        AbsFan fan = (AbsFan)getDefaultFan();
+        AbsFan fan = (AbsFan) getDefaultFan();
         Stove stove = null;
         if (fan != null) {
             //stove = fan.getChildByDeviceType(IRokiFamily.R9W70);
-            stove =fan.getChild();
+            stove = fan.getChild();
         }
         return stove;
+    }
+
+    static public AbsSterilizer getDefaultSterilizer() {
+        List<IDevice> list = Plat.deviceService.queryAll();
+        for (IDevice device : list) {
+            if (device instanceof AbsSterilizer)
+                return (AbsSterilizer) device;
+        }
+        return null;
     }
 
     static public String getDeviceModel(DeviceType dt) {
@@ -43,37 +56,37 @@ public class Utils {
 
     static public boolean isStove(String guid) {//判断是否为灶具 by zhaiyuanyi
         return DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9W70)
-                ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B39)
-                ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B37);
+                || DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B39)
+                || DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B37);
     }
 
     static public boolean isFan(String guid) {//判断是否为烟机 by zhaiyuanyi
         return DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8700)
                 || DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9700)
-                ||DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R8229);
+                || DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8229);
     }
-    static public boolean isSterilizer(String guid){//判断是否为消毒柜 by zhaiyuanyi
-        return DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.RR829);
+
+    static public boolean isSterilizer(String guid) {//判断是否为消毒柜 by zhaiyuanyi
+        return DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.RR829);
     }
-    static public byte whichFan(String guid){
-        if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9700)||
-                DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R8700))
-        {
+
+    static public byte whichFan(String guid) {
+        if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9700) ||
+                DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8700)) {
             return 1;
-        }else if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R8229))
-        {
+        } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8229)) {
             return 2;
-        }else
-        {
-            return  0;
+        } else {
+            return 0;
         }
     }
-    static public byte whichStove(String guid){
-        if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9W70)){
+
+    static public byte whichStove(String guid) {
+        if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9W70)) {
             return 1;
-        }else if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.R9B39)){
+        } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R9B39)) {
             return 2;
-        }else{
+        } else {
             return 0;
         }
     }

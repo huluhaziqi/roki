@@ -21,12 +21,14 @@ import com.legent.plat.events.DeviceConnectionChangedEvent;
 import com.legent.plat.events.DeviceSelectedEvent;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
+import com.legent.plat.pojos.device.IDevice;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.EventUtils;
 import com.legent.utils.qrcode.ScanQrActivity;
 import com.robam.common.Utils;
 import com.robam.common.events.DeviceEasylinkCompletedEvent;
+import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.ui.UiHelper;
@@ -34,6 +36,8 @@ import com.robam.roki.R;
 import com.robam.roki.service.AppService;
 import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.UIListeners;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -44,12 +48,16 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
     TitleBar titleBar;
     @InjectView(R.id.addView)
     DeviceAddView addView;
+    @InjectView(R.id.add_sterilizer_View)
+    DeviceAddSterilizerView addSterilizerView;
     @InjectView(R.id.fanView)
     DeviceItemView fanView;
     @InjectView(R.id.stoveView)
     DeviceItemView stoveView;
     @InjectView(R.id.devicesLayout)
     LinearLayout devicesLayout;
+    @InjectView(R.id.sterilizer_layout)
+    DeviceUnlistedItemView sterilizerLayout;
     @InjectView(R.id.disconnectHintView)
     LinearLayout disconnectHintView;
     @InjectView(R.id.pull_refresh_scrollview)
@@ -93,7 +101,7 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
     }
 
     @Subscribe
-    public void onEvent(DeviceEasylinkCompletedEvent event){
+    public void onEvent(DeviceEasylinkCompletedEvent event) {
         AppService.getInstance().init(Plat.app);
         onRefresh();
     }
@@ -185,7 +193,9 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
 //            }
 //        });
         onFanViewFresh();
+        onSteriViewFresh();
     }
+
 
     void onRefreshConnection() {
         AbsFan fan = Utils.getDefaultFan();
@@ -194,29 +204,28 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
                 ? View.VISIBLE
                 : View.GONE);
     }
-    public void onFanViewFresh(){
+
+    public void onFanViewFresh() {
         AbsFan fan = Utils.getDefaultFan();
         boolean hasDevice = (fan != null);
         addView.setVisibility(!hasDevice ? VISIBLE : GONE);
         devicesLayout.setVisibility(hasDevice ? VISIBLE : GONE);
-
         if (!hasDevice) return;
-
         fanView.loadData(fan);
-
         Stove stove = Utils.getDefaultStove();
         boolean hasStove = stove != null;
         stoveView.setVisibility(hasStove ? VISIBLE : GONE);
         if (hasStove) {
             stoveView.loadData(stove);
         }
-
     }
 
-//    @OnClick(R.id.unlistedView)
-//    public void onClickUnListedView(){
-//        UIService.getInstance().postPage(PageKey.DeviceSterilizer);
-//    }
-
-
+    private void onSteriViewFresh() {
+        AbsSterilizer sterilizer = Utils.getDefaultSterilizer();
+        boolean hasSterilizer = (sterilizer != null);
+        addSterilizerView.setVisibility(!hasSterilizer ? VISIBLE : GONE);
+        sterilizerLayout.setVisibility(hasSterilizer ? VISIBLE : GONE);
+        if (!hasSterilizer) return;
+        sterilizerLayout.loadData(sterilizer);
+    }
 }

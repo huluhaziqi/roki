@@ -3,8 +3,10 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/shape_device_status_bg"
-    android:orientation="horizontal">
+    android:background="@color/White"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingRight="10dp">
 
 
     <ImageView
@@ -12,17 +14,18 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/text_add_description"
-        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/ll_sterilizer"
         android:scaleType="centerInside"
-        android:src="@mipmap/ic_item_sterilizer_before" />
+        android:src="@mipmap/ic_item_device_add" />
 
     <LinearLayout
-        android:id="@+id/text_add_description"
+        android:id="@+id/ll_sterilizer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/img_triangle_flag"
-        android:layout_marginRight="8dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imgDevice"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
         android:gravity="left"
         android:orientation="vertical">
 
@@ -30,30 +33,19 @@
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:text="消毒柜"
-            android:textColor="#ffffff"
+            android:textColor="#e9a60f"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:text="Sterilizer"
-            android:textColor="#ffffff"
-            android:textSize="13sp" />
+            android:textColor="#e9a60f"
+            android:textSize="16sp" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/img_triangle_flag"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="2dp"
-        android:layout_marginRight="2dp"
-        android:scaleType="centerInside"
-        android:src="@mipmap/ic_home_device_triangle_flag" />
 
 </RelativeLayout>
