@@ -194,6 +194,17 @@ public interface MsgParams {
      */
     String SteriLock = "SteriLock";
     /**
+     * DOORLOCK{0：门锁关，1 门锁关}
+     */
+    String SteriDoorLock = "SteriDoorLock";
+    /**
+     * ALARM {0xff:无报警，
+     0x00:门控报警，
+     0x01: 紫外线灯管不工作或上层传感器不良
+     0x02: 温度传感器不良}
+     */
+    String SteriAlarmStatus = "SteriAlarmStatus";
+    /**
      *是否开启定时消毒[1BYTE]
      */
     String SteriSwitchDisinfect = "SteriSwitchDisinfect";
@@ -212,7 +223,20 @@ public interface MsgParams {
     /**
      *消毒柜峰谷电时间[1BYTE]
      */
-    String SteriTimeDisinfect = "SteriTimeDisinfect";
+    String SteriPVDisinfectTime = "SteriPVDisinfectTime";
+    /**
+     * 消毒柜参数：
+     TEM[1Byte]  温度值
+     HUM [1Byte]  湿度值
+     GERM [1Byte] 细菌值
+     臭氧[1Byte]
+     */
+    String SteriParaTem = "SteriParaTem";
+    String SteriParaHum = "SteriParaHum";
+    String SteriParaGerm = "SteriParaGerm";
+    String SteriParaOzone = "SteriParaOzone";
+
+
 
 
 }

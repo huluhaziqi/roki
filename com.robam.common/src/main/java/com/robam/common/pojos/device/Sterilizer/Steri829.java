@@ -1,5 +1,6 @@
 package com.robam.common.pojos.device.Sterilizer;
 
+import com.legent.VoidCallback;
 import com.legent.plat.pojos.device.DeviceInfo;
 import com.robam.common.pojos.device.IRokiFamily;
 
@@ -15,4 +16,5 @@ public class Steri829 extends AbsSterilizer implements ISteri829 {
     public String getSterilizerModel() {
         return IRokiFamily.RR829;
     }
+
 }

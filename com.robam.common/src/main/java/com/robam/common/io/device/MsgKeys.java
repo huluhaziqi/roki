@@ -267,9 +267,10 @@ public interface MsgKeys {
     /**
      * 设置消毒柜峰谷定时开启（请求）
      */
-    short SetSteriPVReserveTime_Req = 149;
+    short SetSteriPVConfig_Req = 149;
     /**
      * 设置消毒柜峰谷定时开启（应答）
      */
-    short SetSteriPVReserveTime_Rep = 150;
+    short SetSteriPVConfig_Rep = 150;
+
 }

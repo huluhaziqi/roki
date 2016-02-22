@@ -73,7 +73,7 @@ public class RokiMsgSyncDecider implements IAppMsgSyncDecider {
             addPairsKey(MsgKeys.GetSteriParam_Req,MsgKeys.GetSteriParam_Rep);
             addPairsKey(MsgKeys.GetSteriStatus_Req,MsgKeys.GetSteriStatus_Rep);
             addPairsKey(MsgKeys.GetSteriPVConfig_Req,MsgKeys.GetSteriPVConfig_Rep);
-            addPairsKey(MsgKeys.SetSteriPVReserveTime_Req,MsgKeys.SetSteriPVReserveTime_Rep);
+            addPairsKey(MsgKeys.SetSteriPVConfig_Req,MsgKeys.SetSteriPVConfig_Rep);
 
         }
     }
