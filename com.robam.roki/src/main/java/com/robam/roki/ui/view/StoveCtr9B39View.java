@@ -11,12 +11,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
+import com.google.common.eventbus.Subscribe;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.pojos.device.Stove.IStove;
 import com.robam.common.pojos.device.Stove.Stove;
-import com.robam.common.pojos.device.Stove.Stove9B39;
 import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.common.ui.UiHelper;
 import com.robam.roki.R;
@@ -74,7 +74,7 @@ public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveC
     @InjectView(R.id.divPower)
     LinearLayout divPower;
 
-    public StoveCtr9B39View(Context cx){
+    public StoveCtr9B39View(Context cx) {
         super(cx);
         init(cx, null);
 
@@ -84,7 +84,7 @@ public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveC
         super(cx, attrs);
     }
 
-    void init(Context cx,AttributeSet attrs){
+    void init(Context cx, AttributeSet attrs) {
         View view = LayoutInflater.from(cx).inflate(R.layout.view_9b39,
                 this, true);
         if (!view.isInEditMode()) {
@@ -101,12 +101,11 @@ public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveC
 
     @Override
     public void onRefresh() {
-        if (stove==null)
-            return;;
+        if (stove == null)
+            return;
         refreshLock(stove != null && stove.isLock);
         refreshHead(stove.leftHead);
         refreshHead(stove.rightHead);
-
     }
 
     @OnClick(R.id.txtHint)
@@ -133,7 +132,8 @@ public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveC
 
         if (!checkConnection()) return;
         if (head.level < Stove.PowerLevel_1) {
-            showHint(HINT_2);
+            if (!stove.isLock)
+                showHint(HINT_2);
             return;
         }
 
@@ -215,8 +215,7 @@ public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveC
             showStaus(head, false);
         } else {
             setViewValid(head, false);
-            if (head.status!=StoveStatus.Off)
-            {
+            if (head.status != StoveStatus.Off) {
                 setViewValid(head, true);
 
             }
@@ -419,10 +418,13 @@ public class StoveCtr9B39View extends FrameLayout implements UIListeners.IStoveC
         if (head.status != StoveStatus.Off)
             return true;
         else {
-            showHint(HINT_1);
+            if (!stove.isLock) {
+                showHint(HINT_1);
+            }
             return false;
         }
     }
+
     boolean checkConnection() {
         if (!stove.isConnected()) {
             ToastUtils.showShort(R.string.fan_invalid_error);
