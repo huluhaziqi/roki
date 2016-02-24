@@ -3,6 +3,7 @@ package com.robam.roki.ui.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
+import com.legent.ui.ext.dialogs.DialogHelper;
+import com.legent.ui.ext.dialogs.NumberDialog;
+import com.legent.utils.api.ToastUtils;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Sterilizer.SteriStatus;
@@ -89,11 +93,29 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         setStatus(selected);
     }
 
+    @OnClick(R.id.tv_order_btn)
+    public void onClickOrder() {
+        if (steri.SteriReserveTime!=0)
+            onStopOrderClock();
+        else onStartOrderClock();
+    }
+    @OnClick(R.id.tv_stoving_btn)
+    public void onClickDrying(){
+        if (steri.SteriDrying!=0)
+            onStopDryingClock();
+        else onStartDryingClock();
+    }
+
+    @OnClick()
+    public void onClickClean(){
+        if (steri.SteriCleanTime!=0)
+            onStopClean();
+        else onStartClean();
+
+    }
+
     @OnClick(R.id.tv_sterilizer_btn)
     public void onClickSteri() {
-        if (sterilizer.isSelected()) {
-            CountDownDialog.start((Activity) getContext());
-        }
     }
 
     public void setBtnSelected(boolean btnSelected) {
@@ -110,7 +132,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     public void setStatus(boolean witchStatus) {
         short status = witchStatus ? SteriStatus.On : SteriStatus.Off;
-        steri.setSteriStatus(status, new VoidCallback() {
+        steri.setSteriPower(status, new VoidCallback() {
             @Override
             public void onSuccess() {
 
@@ -122,4 +144,128 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             }
         });
     }
+
+    //设置预约倒计时
+    void onStartOrderClock() {
+//        final short currentFanlevel = fan.level;
+        String title = "预约消毒";
+        NumberDialog.show(getContext(), title, 0, 24, 12,
+                new NumberDialog.NumberSeletedCallback() {
+
+                    @Override
+                    public void onNumberSeleted(final int value) {
+//                        fan.setFanTimeWork(currentFanlevel, (short) value, new VoidCallback() {
+//                            @Override
+//                            public void onSuccess() {
+//                                //changeClockViewStatus((short)value);
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Throwable t) {
+//                                ToastUtils.showThrowable(t);
+//                            }
+//                        });
+                    }
+                });
+    }
+
+    //停止预约倒计时
+    void onStopOrderClock() {
+
+        String message = "确定要关闭倒计时吗？";
+//        final short currentFanlevel = fan.level;
+        DialogHelper.newDialog_OkCancel(getContext(), null, message,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dlg, int witch) {
+//                        if (witch == DialogInterface.BUTTON_POSITIVE) {
+//                            fan.setFanTimeWork(currentFanlevel, (short) 0, new VoidCallback() {
+//                                @Override
+//                                public void onSuccess() {
+//
+//                                }
+//
+//                                @Override
+//                                public void onFailure(Throwable t) {
+//
+//                                }
+//                            });
+//                        }
+                    }
+                }).show();
+    }
+
+
+    //开始消毒
+    void onStartDisinfect() {
+
+    }
+    //停止消毒
+    void onStopDisinfectClock() {
+
+    }
+
+
+    //设置烘干倒计时
+    void onStartDryingClock() {
+//        final short currentFanlevel = fan.level;
+        String title = "设置倒计时";
+        NumberDialog.show(getContext(), title, 60, 80, 60,
+                new NumberDialog.NumberSeletedCallback() {
+
+                    @Override
+                    public void onNumberSeleted(final int value) {
+//                        fan.setFanTimeWork(currentFanlevel, (short) value, new VoidCallback() {
+//                            @Override
+//                            public void onSuccess() {
+//                                //changeClockViewStatus((short)value);
+//                            }
+//
+//                            @Override
+//                            public void onFailure(Throwable t) {
+//                                ToastUtils.showThrowable(t);
+//                            }
+//                        });
+                    }
+                });
+    }
+    //停止烘干倒计时
+    void onStopDryingClock() {
+
+        String message = "确定要关闭倒计时吗？";
+//        final short currentFanlevel = fan.level;
+        DialogHelper.newDialog_OkCancel(getContext(), null, message,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dlg, int witch) {
+//                        if (witch == DialogInterface.BUTTON_POSITIVE) {
+//                            fan.setFanTimeWork(currentFanlevel, (short) 0, new VoidCallback() {
+//                                @Override
+//                                public void onSuccess() {
+//
+//                                }
+//
+//                                @Override
+//                                public void onFailure(Throwable t) {
+//
+//                                }
+//                            });
+//                        }
+                    }
+                }).show();
+    }
+
+    //开始快洁
+    void onStartClean() {
+
+    }
+    //停止快洁
+    void onStopClean() {
+
+    }
+
+
+
 }

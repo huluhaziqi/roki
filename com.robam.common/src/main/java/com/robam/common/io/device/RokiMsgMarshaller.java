@@ -284,7 +284,7 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 					break;
 				case MsgKeys.GetSteriPVConfig_Req:
 					break;
-				case MsgKeys.SetSteriPVReserveTime_Req:
+				case MsgKeys.SetSteriPVConfig_Req:
 					str = msg.optString(MsgParams.UserId);
 					buf.put(str.getBytes());
 					b = (byte)msg.optInt(MsgParams.SteriSwitchDisinfect);
@@ -295,7 +295,7 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 					buf.put(b);
 					b = (byte)msg.optInt(MsgParams.SteriWeekInternalDisinfect);
 					buf.put(b);
-					b = (byte)msg.optInt(MsgParams.SteriTimeDisinfect);
+					b = (byte)msg.optInt(MsgParams.SteriPVDisinfectTime);
 					buf.put(b);
 					break;
 				default:
@@ -516,26 +516,26 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 					msg.putOpt(MsgParams.RC,
 							MsgUtils.getShort(payload[offset++]));
 					break;
-//				case MsgKeys.GetSteriParam_Rep:
-//					msg.putOpt(MsgParams.SteriTemp,
-//							MsgUtils.getShort(payload[offset++]));
-//					msg.putOpt(MsgParams.SteriHum,
-//							MsgUtils.getShort(payload[offset++]));
-//					break;
-//				case MsgKeys.GetSteriStatus_Rep:
-//					msg.putOpt(MsgParams.SteriState,
-//							MsgUtils.getShort(payload[offset++]));
-//					msg.putOpt(MsgParams.SteriChildLock,
-//							MsgUtils.getShort(payload[offset++]));
-//					msg.putOpt(MsgParams.SteriAlarm,
-//							MsgUtils.getShort(payload[offset++]));
-//					msg.putOpt(MsgParams.SteriGateAlarm,
-//						MsgUtils.getShort(payload[offset++]));
-//					msg.putOpt(MsgParams.SteriUVAlarm,
-//							MsgUtils.getShort(payload[offset++]));
-//					msg.putOpt(MsgParams.SteriTempSensorAlarm,
-//							MsgUtils.getShort(payload[offset++]));
-//					break;
+				case MsgKeys.GetSteriParam_Rep:
+					msg.putOpt(MsgParams.SteriParaTem,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriParaHum,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriParaGerm,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriParaOzone,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.GetSteriStatus_Rep:
+					msg.putOpt(MsgParams.SteriStatus,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriLock,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriDoorLock,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriAlarmStatus,
+						MsgUtils.getShort(payload[offset++]));
+					break;
 				case MsgKeys.GetSteriPVConfig_Rep:
 					msg.putOpt(MsgParams.SteriSwitchDisinfect,
 							MsgUtils.getShort(payload[offset++]));
@@ -545,10 +545,10 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 							MsgUtils.getShort(payload[offset++]));
 					msg.putOpt(MsgParams.SteriWeekInternalDisinfect,
 							MsgUtils.getShort(payload[offset++]));
-					msg.putOpt(MsgParams.SteriTimeDisinfect,
+					msg.putOpt(MsgParams.SteriPVDisinfectTime,
 							MsgUtils.getShort(payload[offset++]));
 					break;
-				case MsgKeys.SetSteriPVReserveTime_Rep:
+				case MsgKeys.SetSteriPVConfig_Rep:
 					msg.putOpt(MsgParams.RC,
 							MsgUtils.getShort(payload[offset++]));
 					break;

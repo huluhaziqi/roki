@@ -5,7 +5,7 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.utils.qrcode/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="04ffbe2c9dadb8ebb6fae2e5942ca95a8590164e">
+        sha1="8fed8aae267c3a8175930e2cc76f256efbc4dd96">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-22afd56ba994e3dbe36e147dad948abbe7e09237.jar" />
     </item>
     <item
@@ -82,7 +82,7 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.utils.speech/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="060e39d668c5282680f3117af42fd1136ca338df">
+        sha1="d1b469ed218b91832c3ac4ad28fc7b483e2df6c1">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-3749ca28b1e16f99ce27140c109be4ff95bfad5f.jar" />
     </item>
     <item
@@ -124,7 +124,7 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.ui/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="d78625fc5d10f7c8e023318d75c6cb5d7149db1a">
+        sha1="603d5b9f73caf51c1b5839acf1ce9e320cf917a3">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-5ea4263ed0359a0b4e3a70e4a8433458cd6ebd1b.jar" />
     </item>
     <item
@@ -166,7 +166,7 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.utils.easylink/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="5560a90e52287738935a91dee80dd2892481a8ff">
+        sha1="d66b63cda64ef333ed8d337406b925e0a898dc8a">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-faa16d8765d52bb9860335b7ae0f11a5984aaabb.jar" />
     </item>
     <item
@@ -194,7 +194,7 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.robam.common/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="4adb2a52d7ba1c05fb624f2720c32f98a14fef78">
+        sha1="583fc761d54be7c54f9d9fde09302ee40924de26">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-dad618bd6c97831cde685b27385d9a43c999c1b4.jar" />
     </item>
     <item
@@ -208,14 +208,14 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.utils.sharesdk/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="72447cbf6017cd65a3e8594540d5612f7eb3e765">
+        sha1="e9ca86f83f7ecb3762196821db5024c9d17b1d74">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-7598b7cb9b960b3f3f318f4ef26c3a4b24c4cf55.jar" />
     </item>
     <item
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent.plat/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="e0e49d07e32cc63c5b691bb99ed5cc431ab7f5a4">
+        sha1="743a6f83c39245bf039a4ff74197dd046e7dcd79">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-de6a18f8b71ba2bdfa387a4c9b291b0f06f25bcf.jar" />
     </item>
     <item
@@ -271,7 +271,7 @@
         jar="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/exploded-aar/ROKI3/com.legent/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="eeda02174a12712e20d34eccad5b8f9f80ec8958">
+        sha1="fc0025909710cf52911cbcafd5da0640398b1eff">
         <dex dex="/Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.robam.roki/build/intermediates/pre-dexed/debug/classes-aabd76619c33213942f5c1df7266f0fe1ceee4e4.jar" />
     </item>
     <item
