@@ -14,8 +14,11 @@ import android.widget.TextView;
 
 import com.legent.ui.ext.BaseActivity;
 import com.legent.ui.ext.HeadPage;
+import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
+import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.roki.R;
 import com.robam.roki.ui.SterilizerAnimationUtil;
+import com.robam.roki.ui.UIListeners;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -23,7 +26,8 @@ import butterknife.InjectView;
 /**
  * Created by Gu on 2016/1/6.
  */
-public class SteriSwitchPage extends Activity {
+public class SteriSwitchPage extends Activity implements UIListeners.ISteriCtrView{
+    AbsSterilizer sterilizer;
     @InjectView(R.id.tv_steri_running)
     TextView steriRun;
     @InjectView(R.id.rl_one)
@@ -46,4 +50,13 @@ public class SteriSwitchPage extends Activity {
         steriRun.setText(Html.fromHtml("<h1><big><big>02:30:00</big></big></h1>\n<h2><big>消毒中</big></h2>"));
     }
 
+    @Override
+    public void attachSteri(ISterilizer steri) {
+
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
 }

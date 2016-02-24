@@ -78,7 +78,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     public void attachSteri(ISterilizer steri) {
         Preconditions.checkState(steri instanceof Steri829, "attachFan error:not 829");
         this.steri = (Steri829) steri;
-
     }
 
     @Override
@@ -93,29 +92,11 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         setStatus(selected);
     }
 
-    @OnClick(R.id.tv_order_btn)
-    public void onClickOrder() {
-        if (steri.SteriReserveTime!=0)
-            onStopOrderClock();
-        else onStartOrderClock();
-    }
-    @OnClick(R.id.tv_stoving_btn)
-    public void onClickDrying(){
-        if (steri.SteriDrying!=0)
-            onStopDryingClock();
-        else onStartDryingClock();
-    }
-
-    @OnClick()
-    public void onClickClean(){
-        if (steri.SteriCleanTime!=0)
-            onStopClean();
-        else onStartClean();
-
-    }
-
-    @OnClick(R.id.tv_sterilizer_btn)
-    public void onClickSteri() {
+    @OnClick({R.id.tv_sterilizer_btn,R.id.tv_order_btn,R.id.tv_stoving_btn,R.id.tv_clean_btn})
+    public void onClickSteriRunning() {
+        if (sterilizer.isSelected()) {
+            CountDownDialog.start((Activity) getContext());
+        }
     }
 
     public void setBtnSelected(boolean btnSelected) {
