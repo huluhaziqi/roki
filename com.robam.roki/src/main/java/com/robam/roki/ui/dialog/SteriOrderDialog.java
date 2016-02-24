@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.robam.roki.R;
@@ -40,6 +41,16 @@ public class SteriOrderDialog extends Dialog {
     TextView sevenHour;
     @InjectView(R.id.tv_time_seven)
     TextView timeSeven;
+    @InjectView(R.id.rl_order_three)
+    RelativeLayout rlThree;
+    @InjectView(R.id.rl_order_four)
+    RelativeLayout rlFour;
+    @InjectView(R.id.rl_order_five)
+    RelativeLayout rlFive;
+    @InjectView(R.id.rl_order_six)
+    RelativeLayout rlSix;
+    @InjectView(R.id.rl_order_seven)
+    RelativeLayout rlSeven;
 
     public static void show(Context context) {
         SteriOrderDialog dialog = new SteriOrderDialog(context);
@@ -57,32 +68,33 @@ public class SteriOrderDialog extends Dialog {
         initView(view, context);
     }
 
-    @OnClick({R.id.rl_order_three, R.id.rl_order_four, R.id.rl_order_five, R.id.rl_order_six, R.id.rl_order_seven})
+    @OnClick({R.id.tv_three, R.id.tv_four, R.id.tv_five, R.id.tv_six, R.id.tv_seven})
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.rl_order_three:
-                setOrderViewStatus(threeHour, timeThree);
+            case R.id.tv_three:
+                setOrderViewStatus(threeHour, timeThree, rlThree);
                 break;
-            case R.id.rl_order_four:
-                setOrderViewStatus(fourHour, timeFour);
+            case R.id.tv_four:
+                setOrderViewStatus(fourHour, timeFour, rlFour);
                 break;
-            case R.id.rl_order_five:
-                setOrderViewStatus(fiveHour, timeFive);
+            case R.id.tv_five:
+                setOrderViewStatus(fiveHour, timeFive, rlFive);
                 break;
-            case R.id.rl_order_six:
-                setOrderViewStatus(sixHour, timeSix);
+            case R.id.tv_six:
+                setOrderViewStatus(sixHour, timeSix, rlSix);
                 break;
-            case R.id.rl_order_seven:
-                setOrderViewStatus(sevenHour, timeSeven);
+            case R.id.tv_seven:
+                setOrderViewStatus(sevenHour, timeSeven, rlSeven);
                 break;
         }
 
     }
 
-    private void setOrderViewStatus(TextView hour, TextView time) {
+    private void setOrderViewStatus(TextView hour, TextView time, RelativeLayout layout) {
         boolean selected = hour.isSelected() ? false : true;
         hour.setSelected(selected);
+        layout.setSelected(selected);
         int visible = selected ? View.VISIBLE : View.GONE;
         time.setVisibility(visible);
     }

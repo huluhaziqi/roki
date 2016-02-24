@@ -56,7 +56,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerInParent">true</item>
-        <item name="android:textSize">34sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/steri_order_text_selector</item>
     </style>
     <style name="sterilizer_order_time_style">
@@ -65,7 +65,8 @@
         <item name="android:layout_marginBottom">2dp</item>
         <item name="android:layout_marginLeft">6dp</item>
         <item name="android:text">小时</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#1f1f1f</item>
+        <item name="android:visibility">gone</item>
     </style>
 </resources>
