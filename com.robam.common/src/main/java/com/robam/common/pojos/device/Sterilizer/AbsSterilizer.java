@@ -18,11 +18,6 @@ import com.robam.common.io.device.TerminalType;
  */
 abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer {
 
-    static final public short Event_NO_Alarm =0xff;         //无报警
-    static final public short Event_Gate_Alarm =0x00;       //门控报警
-    static final public short Event_light_Alarm =0x01;      //紫外线灯管不工作或上层传感器不良
-    static final public short Event_TempSensor_Alarm =0x02;      //温度传感器不良
-
     public short status;
     public boolean isChildLock;
     public boolean isDoorLock;
@@ -30,12 +25,10 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
     public short SteriReserveTime;
     public short SteriDrying;
     public  short SteriCleanTime;
-    public short SteriDisinfectTime;
+    public short SteriDisinfectTime,work_left_time_l,work_left_time_h;
     public short temp,hum,germ,ozone;
     public boolean SwitchDisinfect,SwitchWeekDisinfect;
     public short InternalDisinfect,WeekInternalDisinfect,PVDisinfectTime;
-
-
 
     protected short terminalType = TerminalType.getType();
 
@@ -63,7 +56,7 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
     @Override
     public void onStatusChanged(){
         if (Plat.LOG_FILE_ENABLE){
-            LogUtils.logFIleWithTime(String.format("Sterilizer onStatusChanged. isConnected:%s", isConnected));
+            LogUtils.logFIleWithTime(String.format("Sterilizer onStatusChanged. isConnected:%s;work_left_time_l:%s,", isConnected,work_left_time_l));
         }
         postEvent(new SteriStatusChangedEvent(AbsSterilizer.this));
     }
@@ -81,7 +74,8 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
                 case MsgKeys.GetSteriStatus_Rep:
                     AbsSterilizer.this.status = (short) msg.optInt(MsgParams.SteriStatus);
                     AbsSterilizer.this.isChildLock = (boolean) msg.optBoolean(MsgParams.SteriLock);
-                    AbsSterilizer.this.isDoorLock = (boolean) msg.optBoolean(MsgParams.SteriDoorLock);
+                    AbsSterilizer.this.work_left_time_l = (short) msg.optInt(MsgParams.SteriWorkLeftTimeL);
+                    AbsSterilizer.this.work_left_time_h = (short) msg.optInt(MsgParams.SteriWorkLeftTimeH);
                     AbsSterilizer.this.AlarmStautus = (short) msg.optInt(MsgParams.SteriAlarmStatus);
 
                     onStatusChanged();
@@ -123,7 +117,8 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
                 protected void afterSuccess(Msg resMsg) {
                     AbsSterilizer.this.status = (short) resMsg.optInt(MsgParams.SteriStatus);
                     AbsSterilizer.this.isChildLock = (boolean) resMsg.optBoolean(MsgParams.SteriLock);
-                    AbsSterilizer.this.isDoorLock = (boolean) resMsg.optBoolean(MsgParams.SteriDoorLock);
+                    AbsSterilizer.this.work_left_time_l = (short) resMsg.optInt(MsgParams.SteriWorkLeftTimeL);
+                    AbsSterilizer.this.work_left_time_h = (short) resMsg.optInt(MsgParams.SteriWorkLeftTimeH);
                     AbsSterilizer.this.AlarmStautus = (short) resMsg.optInt(MsgParams.SteriAlarmStatus);
                     onStatusChanged();
                 }
@@ -284,7 +279,7 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
                     AbsSterilizer.this.SwitchDisinfect = (boolean) resMsg.optBoolean(MsgParams.SteriSwitchDisinfect);
                     AbsSterilizer.this.InternalDisinfect = (short) resMsg.optInt(MsgParams.SteriInternalDisinfect);
                     AbsSterilizer.this.SwitchWeekDisinfect = (boolean) resMsg.optBoolean(MsgParams.SteriSwitchWeekDisinfect);
-                    AbsSterilizer.this.InternalDisinfect = (short) resMsg.optInt(MsgParams.SteriWeekInternalDisinfect);
+                    AbsSterilizer.this.WeekInternalDisinfect = (short) resMsg.optInt(MsgParams.SteriWeekInternalDisinfect);
                     AbsSterilizer.this.PVDisinfectTime = (short) resMsg.optInt(MsgParams.SteriPVDisinfectTime);
                     onStatusChanged();
                 }

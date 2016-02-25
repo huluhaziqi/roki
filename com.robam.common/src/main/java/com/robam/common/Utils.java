@@ -19,8 +19,12 @@ public class Utils {
     }
 
     static public AbsFan getDefaultFan() {
-        AbsFan fan = (AbsFan) Plat.deviceService.getDefault();
-        return fan;
+        List<IDevice> list = Plat.deviceService.queryAll();
+        for (IDevice device : list) {
+            if (device instanceof AbsFan)
+                return (AbsFan) device;
+        }
+        return null;
     }
 
     static public Stove getDefaultStove() {

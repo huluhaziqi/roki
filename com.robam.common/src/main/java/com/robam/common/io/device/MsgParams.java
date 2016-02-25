@@ -194,6 +194,14 @@ public interface MsgParams {
      */
     String SteriLock = "SteriLock";
     /**
+     * WORK_TIME_LEFT{0:无/剩余时间到，>剩余时间} 分钟字节
+     */
+    String SteriWorkLeftTimeL = "SteriWorkLeftTimeL";
+    /**
+     * WORK_TIME_LEFT{0:无/剩余时间到，>剩余时间} 小时字节
+     */
+    String SteriWorkLeftTimeH = "SteriWorkLeftTimeH";
+    /**
      * DOORLOCK{0：门锁关，1 门锁关}
      */
     String SteriDoorLock = "SteriDoorLock";

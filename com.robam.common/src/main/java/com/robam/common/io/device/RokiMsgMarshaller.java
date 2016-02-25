@@ -531,7 +531,9 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 							MsgUtils.getShort(payload[offset++]));
 					msg.putOpt(MsgParams.SteriLock,
 							MsgUtils.getShort(payload[offset++]));
-					msg.putOpt(MsgParams.SteriDoorLock,
+					msg.putOpt(MsgParams.SteriWorkLeftTimeL,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteriWorkLeftTimeH,
 							MsgUtils.getShort(payload[offset++]));
 					msg.putOpt(MsgParams.SteriAlarmStatus,
 						MsgUtils.getShort(payload[offset++]));
