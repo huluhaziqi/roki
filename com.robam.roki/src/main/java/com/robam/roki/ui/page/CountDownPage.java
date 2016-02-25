@@ -34,8 +34,6 @@ public class CountDownPage extends BasePage {
             super.handleMessage(msg);
             tvDown.setText(String.valueOf(msg.what));
             if (msg.what == 1) {
-                Intent intent=new Intent(getActivity(),SteriSwitchPage.class);
-                startActivity(intent);
                 getActivity().finish();
             }
         }

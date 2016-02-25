@@ -93,6 +93,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_switch"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3">
@@ -130,8 +131,8 @@
             android:gravity="center_horizontal"
             android:paddingTop="68dp"
             android:text="150min"
-            android:textSize="26sp"
-            android:textColor="#575757" />
+            android:textColor="#575757"
+            android:textSize="26sp" />
 
         <CheckBox
             android:id="@+id/sterilizer_switch"
@@ -141,9 +142,39 @@
             android:layout_alignParentRight="true"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
-            android:button="@null"
             android:background="@drawable/selector_sterilizer_switch"
+            android:button="@null"
             android:padding="26dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_running"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_steri_running"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@+id/sterilizer_switch_run"
+            android:background="@mipmap/img_order_run"
+            android:gravity="center_horizontal"
+            android:paddingTop="100dp"
+            android:text="02:30:00"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/sterilizer_switch_run"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="18dp"
+            android:background="@mipmap/img_sterilizer_switch_on" />
     </RelativeLayout>
 </LinearLayout>
 

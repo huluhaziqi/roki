@@ -65,6 +65,10 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     RelativeLayout rlOzone;
     @InjectView(R.id.tv_steri_ozone)
     TextView tv_steri_ozone;
+    @InjectView(R.id.rl_running)
+    RelativeLayout rlRunning;
+    @InjectView(R.id.rl_switch)
+    RelativeLayout rlSwitch;
 
     public SteriCtr829View(Context context) {
         super(context);
@@ -95,8 +99,19 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     @Override
     public void onRefresh() {
-        if (steri==null)
+        if (steri == null)
             return;
+        if (steri.status == 2 || steri.status == 3 || steri.status == 4 || steri.status == 5) {
+            rlRunning.setVisibility(VISIBLE);
+            rlSwitch.setVisibility(GONE);
+        } else {
+            if (steri.status == 1)
+                setBtnSelected(true);
+            else
+                setBtnSelected(false);
+            rlRunning.setVisibility(GONE);
+            rlSwitch.setVisibility(VISIBLE);
+        }
         short temp = steri.temp;
         short germ = steri.germ;
         short hum = steri.hum;
@@ -128,6 +143,17 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     @OnClick({R.id.tv_sterilizer_btn,R.id.tv_stoving_btn,R.id.tv_clean_btn})
     public void onClickSteriRunning() {
         if (sterilizer.isSelected()) {
+            steri.setSteriDisinfect((short)20, new VoidCallback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+
+                }
+            });
             CountDownDialog.start((Activity) getContext());
         }
     }
