@@ -17,7 +17,9 @@ import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.NumberDialog;
+import com.legent.utils.EventUtils;
 import com.legent.utils.api.ToastUtils;
+import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Sterilizer.SteriStatus;
@@ -46,12 +48,23 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     TextView sterilizer;
     @InjectView(R.id.rl_tem)
     RelativeLayout rlTem;
+    @InjectView(R.id.tv_steri_tem)
+    TextView tv_steri_tem;
+
     @InjectView(R.id.rl_germ)
     RelativeLayout rlGerm;
+    @InjectView(R.id.tv_steri_germ)
+    TextView tv_steri_germ;
+
     @InjectView(R.id.rl_hum)
     RelativeLayout rlHum;
+    @InjectView(R.id.tv_steri_hum)
+    TextView tv_steri_hum;
+
     @InjectView(R.id.rl_ozone)
     RelativeLayout rlOzone;
+    @InjectView(R.id.tv_steri_ozone)
+    TextView tv_steri_ozone;
 
     public SteriCtr829View(Context context) {
         super(context);
@@ -82,6 +95,16 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     @Override
     public void onRefresh() {
+        if (steri==null)
+            return;
+        short temp = steri.temp;
+        short germ = steri.germ;
+        short hum = steri.hum;
+        short ozone = steri.ozone;
+        tv_steri_tem.setText(String.valueOf(temp));
+        tv_steri_germ.setText(String.valueOf(germ));
+        tv_steri_hum.setText(String.valueOf(hum));
+        tv_steri_ozone.setText(String.valueOf(ozone));
 
     }
 
@@ -91,8 +114,18 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         setBtnSelected(selected);
         setStatus(selected);
     }
+    @OnClick(R.id.tv_order_btn)
+    public void onClickSteriOrder(){
+        if (steri.status==1)
+        {
+            onStartOrderClock();
+        }else
+        {
+            onStopOrderClock();
+        }
+    }
 
-    @OnClick({R.id.tv_sterilizer_btn,R.id.tv_order_btn,R.id.tv_stoving_btn,R.id.tv_clean_btn})
+    @OnClick({R.id.tv_sterilizer_btn,R.id.tv_stoving_btn,R.id.tv_clean_btn})
     public void onClickSteriRunning() {
         if (sterilizer.isSelected()) {
             CountDownDialog.start((Activity) getContext());
@@ -135,17 +168,17 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
                     @Override
                     public void onNumberSeleted(final int value) {
-//                        fan.setFanTimeWork(currentFanlevel, (short) value, new VoidCallback() {
-//                            @Override
-//                            public void onSuccess() {
-//                                //changeClockViewStatus((short)value);
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Throwable t) {
-//                                ToastUtils.showThrowable(t);
-//                            }
-//                        });
+                        steri.SetSteriReserveTime((short) value, new VoidCallback() {
+                            @Override
+                            public void onSuccess() {
+
+                            }
+
+                            @Override
+                            public void onFailure(Throwable t) {
+
+                            }
+                        });
                     }
                 });
     }
@@ -160,19 +193,19 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
                     @Override
                     public void onClick(DialogInterface dlg, int witch) {
-//                        if (witch == DialogInterface.BUTTON_POSITIVE) {
-//                            fan.setFanTimeWork(currentFanlevel, (short) 0, new VoidCallback() {
-//                                @Override
-//                                public void onSuccess() {
-//
-//                                }
-//
-//                                @Override
-//                                public void onFailure(Throwable t) {
-//
-//                                }
-//                            });
-//                        }
+                        if (witch == DialogInterface.BUTTON_POSITIVE) {
+                            steri.SetSteriReserveTime((short) 0, new VoidCallback() {
+                                @Override
+                                public void onSuccess() {
+
+                                }
+
+                                @Override
+                                public void onFailure(Throwable t) {
+
+                                }
+                            });
+                        }
                     }
                 }).show();
     }

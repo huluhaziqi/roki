@@ -83,7 +83,7 @@ public class DeviceSterilizerPage extends HeadPage {
         Preconditions.checkNotNull(ctrView, "invalid fan, no matched view");
         ctrView.attachSteri((ISterilizer) sterilizer);
         sterilizerMain.addView((View) ctrView);
-        //onRefresh();
+        onRefresh();
     }
 
     private void setCtrView() {

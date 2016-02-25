@@ -51,6 +51,13 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
      }catch (Exception e){
          e.printStackTrace();
      }
+        try {
+            Msg msg = newReqMsg(MsgKeys.GetSteriParam_Req);
+            msg.put(MsgParams.TerminalType, terminalType);
+            sendMsg(msg, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -77,10 +84,14 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
                     AbsSterilizer.this.work_left_time_l = (short) msg.optInt(MsgParams.SteriWorkLeftTimeL);
                     AbsSterilizer.this.work_left_time_h = (short) msg.optInt(MsgParams.SteriWorkLeftTimeH);
                     AbsSterilizer.this.AlarmStautus = (short) msg.optInt(MsgParams.SteriAlarmStatus);
-
                     onStatusChanged();
                     break;
-
+                case MsgKeys.GetSteriParam_Rep:
+                    AbsSterilizer.this.temp = (short) msg.optInt(MsgParams.SteriParaTem);
+                    AbsSterilizer.this.hum = (short) msg.optInt(MsgParams.SteriParaHum);
+                    AbsSterilizer.this.germ = (short) msg.optInt(MsgParams.SteriParaGerm);
+                    AbsSterilizer.this.ozone = (short) msg.optInt(MsgParams.SteriParaOzone);
+                    onStatusChanged();
                 default:
                     break;
             }

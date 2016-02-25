@@ -279,10 +279,16 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 					buf.put(b);
 					break;
 				case MsgKeys.GetSteriParam_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
 					break;
 				case MsgKeys.GetSteriStatus_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
 					break;
 				case MsgKeys.GetSteriPVConfig_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
 					break;
 				case MsgKeys.SetSteriPVConfig_Req:
 					str = msg.optString(MsgParams.UserId);
@@ -558,9 +564,11 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 				// 通知类
 				// -------------------------------------------------------------------------------
 				case MsgKeys.SteriAlarm_Noti:
+					msg.putOpt(MsgParams.SteriAlarmStatus,MsgUtils.getShort(payload[offset++]));
 					break;
 				case MsgKeys.SteriEvent_Noti:
-
+					msg.putOpt(MsgParams.EventId,MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.EventParam,MsgUtils.getShort(payload[offset++]));
 					break;
 			}
 
