@@ -50,6 +50,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     RelativeLayout rlTem;
     @InjectView(R.id.tv_steri_tem)
     TextView tv_steri_tem;
+    @InjectView(R.id.sterilizer_switch)
+    CheckBox steriSwitch;
 
     @InjectView(R.id.rl_germ)
     RelativeLayout rlGerm;
@@ -105,10 +107,13 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             rlRunning.setVisibility(VISIBLE);
             rlSwitch.setVisibility(GONE);
         } else {
-            if (steri.status == 1)
+            if (steri.status == 1) {
                 setBtnSelected(true);
-            else
+                steriSwitch.setChecked(true);
+            } else {
                 setBtnSelected(false);
+                steriSwitch.setChecked(false);
+            }
             rlRunning.setVisibility(GONE);
             rlSwitch.setVisibility(VISIBLE);
         }
@@ -129,21 +134,20 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         setBtnSelected(selected);
         setStatus(selected);
     }
+
     @OnClick(R.id.tv_order_btn)
-    public void onClickSteriOrder(){
-        if (steri.status==1)
-        {
+    public void onClickSteriOrder() {
+        if (steri.status == 1) {
             onStartOrderClock();
-        }else
-        {
+        } else {
             onStopOrderClock();
         }
     }
 
-    @OnClick({R.id.tv_sterilizer_btn,R.id.tv_stoving_btn,R.id.tv_clean_btn})
+    @OnClick({R.id.tv_sterilizer_btn, R.id.tv_stoving_btn, R.id.tv_clean_btn})
     public void onClickSteriRunning() {
         if (sterilizer.isSelected()) {
-            steri.setSteriDisinfect((short)20, new VoidCallback() {
+            steri.setSteriDisinfect((short) 20, new VoidCallback() {
                 @Override
                 public void onSuccess() {
 
@@ -241,6 +245,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     void onStartDisinfect() {
 
     }
+
     //停止消毒
     void onStopDisinfectClock() {
 
@@ -270,6 +275,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                     }
                 });
     }
+
     //停止烘干倒计时
     void onStopDryingClock() {
 
@@ -301,11 +307,11 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     void onStartClean() {
 
     }
+
     //停止快洁
     void onStopClean() {
 
     }
-
 
 
 }
