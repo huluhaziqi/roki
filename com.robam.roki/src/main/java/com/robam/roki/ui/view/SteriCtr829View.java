@@ -17,9 +17,7 @@ import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.NumberDialog;
-import com.legent.utils.EventUtils;
-import com.legent.utils.api.ToastUtils;
-import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
+import com.robam.roki.ui.dialog.SteriTimeDialog;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Sterilizer.SteriStatus;
@@ -50,6 +48,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     RelativeLayout rlTem;
     @InjectView(R.id.tv_steri_tem)
     TextView tv_steri_tem;
+    @InjectView(R.id.sterilizer_switch)
+    CheckBox steriSwitch;
 
     @InjectView(R.id.rl_germ)
     RelativeLayout rlGerm;
@@ -105,10 +105,13 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             rlRunning.setVisibility(VISIBLE);
             rlSwitch.setVisibility(GONE);
         } else {
-            if (steri.status == 1)
+            if (steri.status == 1) {
                 setBtnSelected(true);
-            else
+                steriSwitch.setChecked(true);
+            } else {
                 setBtnSelected(false);
+                steriSwitch.setChecked(false);
+            }
             rlRunning.setVisibility(GONE);
             rlSwitch.setVisibility(VISIBLE);
         }
@@ -129,21 +132,20 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         setBtnSelected(selected);
         setStatus(selected);
     }
+
     @OnClick(R.id.tv_order_btn)
-    public void onClickSteriOrder(){
-        if (steri.status==1)
-        {
+    public void onClickSteriOrder() {
+        if (steri.status == 1) {
             onStartOrderClock();
-        }else
-        {
+        } else {
             onStopOrderClock();
         }
     }
 
-    @OnClick({R.id.tv_sterilizer_btn,R.id.tv_stoving_btn,R.id.tv_clean_btn})
+    @OnClick({R.id.tv_sterilizer_btn, R.id.tv_stoving_btn, R.id.tv_clean_btn})
     public void onClickSteriRunning() {
         if (sterilizer.isSelected()) {
-            steri.setSteriDisinfect((short)20, new VoidCallback() {
+            steri.setSteriDisinfect((short) 20, new VoidCallback() {
                 @Override
                 public void onSuccess() {
 
@@ -189,24 +191,22 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     void onStartOrderClock() {
 //        final short currentFanlevel = fan.level;
         String title = "预约消毒";
-        NumberDialog.show(getContext(), title, 0, 24, 12,
-                new NumberDialog.NumberSeletedCallback() {
+        SteriTimeDialog.show(getContext(), title, 0, 24, 12, new SteriTimeDialog.NumberSeletedCallback() {
+            @Override
+            public void onNumberSeleted(int value) {
+                steri.SetSteriReserveTime((short) value, new VoidCallback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
 
                     @Override
-                    public void onNumberSeleted(final int value) {
-                        steri.SetSteriReserveTime((short) value, new VoidCallback() {
-                            @Override
-                            public void onSuccess() {
+                    public void onFailure(Throwable t) {
 
-                            }
-
-                            @Override
-                            public void onFailure(Throwable t) {
-
-                            }
-                        });
                     }
                 });
+            }
+        });
     }
 
     //停止预约倒计时
@@ -241,6 +241,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     void onStartDisinfect() {
 
     }
+
     //停止消毒
     void onStopDisinfectClock() {
 
@@ -270,6 +271,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                     }
                 });
     }
+
     //停止烘干倒计时
     void onStopDryingClock() {
 
@@ -301,11 +303,11 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     void onStartClean() {
 
     }
+
     //停止快洁
     void onStopClean() {
 
     }
-
 
 
 }
