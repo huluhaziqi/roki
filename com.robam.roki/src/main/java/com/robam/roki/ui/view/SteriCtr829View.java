@@ -17,9 +17,7 @@ import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.NumberDialog;
-import com.legent.utils.EventUtils;
-import com.legent.utils.api.ToastUtils;
-import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
+import com.robam.roki.ui.dialog.SteriTimeDialog;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Sterilizer.SteriStatus;
@@ -193,24 +191,22 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     void onStartOrderClock() {
 //        final short currentFanlevel = fan.level;
         String title = "预约消毒";
-        NumberDialog.show(getContext(), title, 0, 24, 12,
-                new NumberDialog.NumberSeletedCallback() {
+        SteriTimeDialog.show(getContext(), title, 0, 24, 12, new SteriTimeDialog.NumberSeletedCallback() {
+            @Override
+            public void onNumberSeleted(int value) {
+                steri.SetSteriReserveTime((short) value, new VoidCallback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
 
                     @Override
-                    public void onNumberSeleted(final int value) {
-                        steri.SetSteriReserveTime((short) value, new VoidCallback() {
-                            @Override
-                            public void onSuccess() {
+                    public void onFailure(Throwable t) {
 
-                            }
-
-                            @Override
-                            public void onFailure(Throwable t) {
-
-                            }
-                        });
                     }
                 });
+            }
+        });
     }
 
     //停止预约倒计时
