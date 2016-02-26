@@ -1,23 +1,15 @@
 package com.robam.roki.ui.page;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.legent.ui.UIService;
 import com.legent.ui.ext.BasePage;
 import com.robam.roki.R;
-import com.robam.roki.ui.PageKey;
-import com.robam.roki.ui.dialog.CountDownDialog;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 

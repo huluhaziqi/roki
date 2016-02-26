@@ -104,8 +104,6 @@
         <activity
             android:name=".ui.dialog.CountDownDialog"
             android:theme="@style/countdown_dialog_style"/>
-        <activity
-            android:name=".ui.page.SteriSwitchPage" />
 
         <!-- service -->
 

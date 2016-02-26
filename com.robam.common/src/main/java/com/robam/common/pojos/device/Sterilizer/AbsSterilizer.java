@@ -181,7 +181,7 @@ abstract public class AbsSterilizer extends AbsDeviceHub implements ISterilizer 
     @Override
     public void setSteriDrying(final short SteriDrying, VoidCallback voidCallback) {
         try {
-            Msg msg = newReqMsg(MsgKeys.SetSteriDisinfect_Req);
+            Msg msg = newReqMsg(MsgKeys.SetSteriDrying_Req);
             msg.putOpt(MsgParams.TerminalType, terminalType);
             msg.putOpt(MsgParams.UserId, getSrcUser());
             msg.putOpt(MsgParams.SteriDryingTime, SteriDrying);

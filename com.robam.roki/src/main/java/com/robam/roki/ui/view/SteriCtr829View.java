@@ -17,6 +17,7 @@ import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.NumberDialog;
+import com.robam.roki.ui.dialog.SteriStopWorkingDialog;
 import com.robam.roki.ui.dialog.SteriTimeDialog;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
@@ -50,6 +51,10 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     TextView tv_steri_tem;
     @InjectView(R.id.sterilizer_switch)
     CheckBox steriSwitch;
+    @InjectView(R.id.tv_steri)
+    TextView tvSteriRunning;
+    @InjectView(R.id.tv_steri_time)
+    TextView tvRunningTime;
 
     @InjectView(R.id.rl_germ)
     RelativeLayout rlGerm;
@@ -101,9 +106,125 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     public void onRefresh() {
         if (steri == null)
             return;
+        setRunningState();
+        setRunningTime();
+        initData();
+    }
+
+    @OnClick(R.id.sterilizer_switch)
+    public void onClickSwitch(View v) {
+        boolean selected = ((CheckBox) v).isChecked();
+        setBtnSelected(selected);
+        setStatus(selected);
+    }
+
+    @OnClick(R.id.tv_order_btn)
+    public void onClickOrderRunning() {
+        if (steri.status == 1) {
+            onStartOrderClock();
+        }
+    }
+
+    @OnClick(R.id.tv_stoving_btn)
+    public void onClickStoveRunning() {
+        if (steri.status == 1) {
+            onStartDryingClock();
+        }
+    }
+
+    @OnClick(R.id.tv_clean_btn)
+    public void onClickCleanRunning() {
+        if (steri.status == 1) {
+            steri.setSteriClean((short) 60, new VoidCallback() {
+                @Override
+                public void onSuccess() {
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+                }
+            });
+            CountDownDialog.start((Activity) getContext());
+        }
+    }
+
+    @OnClick(R.id.tv_sterilizer_btn)
+    public void onClickSteriRunning() {
+        if (steri.status == 1) {
+            steri.setSteriDisinfect((short) 150, new VoidCallback() {
+                @Override
+                public void onSuccess() {
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+                }
+            });
+            CountDownDialog.start((Activity) getContext());
+        }
+    }
+
+    @OnClick(R.id.fl_running)
+    public void onClickStopWorking() {
+        String str = "结束工作";
+        if (steri.status == 2)
+            str = "结束消毒";
+        if (steri.status == 3)
+            str = "结束保洁";
+        if (steri.status == 4)
+            str = "结束烘干";
+        if (steri.status == 5)
+            str = "结束预约";
+        SteriStopWorkingDialog.show(getContext(), str, new UIListeners.StopworkCallback() {
+            @Override
+            public void callBack() {
+                setStatus(true);
+            }
+        });
+    }
+
+    @OnClick(R.id.sterilizer_switch_run)
+    public void onClickTakeOff() {
+        String str = "结束工作";
+        if (steri.status == 2)
+            str = "关闭电源，\n消毒工作将停止。";
+        if (steri.status == 3)
+            str = "关闭电源，\n保洁工作将停止。";
+        if (steri.status == 4)
+            str = "关闭电源，\n烘干工作将停止。";
+        if (steri.status == 5)
+            str = "关闭电源，\n预约工作将停止。";
+        SteriStopWorkingDialog.show(getContext(), str, new UIListeners.StopworkCallback() {
+            @Override
+            public void callBack() {
+                setStatus(false);
+            }
+        });
+    }
+
+    private void initData() {
+        short temp = steri.temp;
+        short germ = steri.germ;
+        short hum = steri.hum;
+        short ozone = steri.ozone;
+        tv_steri_tem.setText(String.valueOf(temp));
+        tv_steri_germ.setText(String.valueOf(germ));
+        tv_steri_hum.setText(String.valueOf(hum));
+        tv_steri_ozone.setText(String.valueOf(ozone));
+    }
+
+    private void setRunningState() {
         if (steri.status == 2 || steri.status == 3 || steri.status == 4 || steri.status == 5) {
             rlRunning.setVisibility(VISIBLE);
             rlSwitch.setVisibility(GONE);
+            if (steri.status == 2)
+                tvSteriRunning.setText("消毒中");
+            if (steri.status == 3)
+                tvSteriRunning.setText("快洁中");
+            if (steri.status == 4)
+                tvSteriRunning.setText("烘干中");
+            if (steri.status == 5)
+                tvSteriRunning.setText("预约消毒中");
         } else {
             if (steri.status == 1) {
                 setBtnSelected(true);
@@ -115,49 +236,18 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             rlRunning.setVisibility(GONE);
             rlSwitch.setVisibility(VISIBLE);
         }
-        short temp = steri.temp;
-        short germ = steri.germ;
-        short hum = steri.hum;
-        short ozone = steri.ozone;
-        tv_steri_tem.setText(String.valueOf(temp));
-        tv_steri_germ.setText(String.valueOf(germ));
-        tv_steri_hum.setText(String.valueOf(hum));
-        tv_steri_ozone.setText(String.valueOf(ozone));
-
     }
 
-    @OnClick(R.id.sterilizer_switch)
-    public void onClickSwitch(View v) {
-        boolean selected = ((CheckBox) v).isChecked();
-        setBtnSelected(selected);
-        setStatus(selected);
-    }
-
-    @OnClick(R.id.tv_order_btn)
-    public void onClickSteriOrder() {
-        if (steri.status == 1) {
-            onStartOrderClock();
+    private void setRunningTime() {
+        int time = 0;
+        if (steri.status == 3) {
+            time = steri.work_left_time_l + steri.work_left_time_h;
         } else {
-            onStopOrderClock();
+            time = steri.work_left_time_l;
         }
-    }
-
-    @OnClick({R.id.tv_sterilizer_btn, R.id.tv_stoving_btn, R.id.tv_clean_btn})
-    public void onClickSteriRunning() {
-        if (sterilizer.isSelected()) {
-            steri.setSteriDisinfect((short) 20, new VoidCallback() {
-                @Override
-                public void onSuccess() {
-
-                }
-
-                @Override
-                public void onFailure(Throwable t) {
-
-                }
-            });
-            CountDownDialog.start((Activity) getContext());
-        }
+        int hour = time / 60;
+        String minute = time % 60 == 0 ? "00" : String.valueOf(time % 60);
+        tvRunningTime.setText("0" + hour + ":" + minute);
     }
 
     public void setBtnSelected(boolean btnSelected) {
@@ -177,137 +267,51 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         steri.setSteriPower(status, new VoidCallback() {
             @Override
             public void onSuccess() {
-
             }
 
             @Override
             public void onFailure(Throwable t) {
-
             }
         });
     }
 
     //设置预约倒计时
     void onStartOrderClock() {
-//        final short currentFanlevel = fan.level;
         String title = "预约消毒";
-        SteriTimeDialog.show(getContext(), title, 0, 24, 12, new SteriTimeDialog.NumberSeletedCallback() {
+        String timeUnit = "小时";
+        SteriTimeDialog.show(getContext(), title, timeUnit, 0, 24, 12, new SteriTimeDialog.NumberSeletedCallback() {
             @Override
             public void onNumberSeleted(int value) {
                 steri.SetSteriReserveTime((short) value, new VoidCallback() {
                     @Override
                     public void onSuccess() {
-
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-
                     }
                 });
             }
         });
     }
 
-    //停止预约倒计时
-    void onStopOrderClock() {
-
-        String message = "确定要关闭倒计时吗？";
-//        final short currentFanlevel = fan.level;
-        DialogHelper.newDialog_OkCancel(getContext(), null, message,
-                new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dlg, int witch) {
-                        if (witch == DialogInterface.BUTTON_POSITIVE) {
-                            steri.SetSteriReserveTime((short) 0, new VoidCallback() {
-                                @Override
-                                public void onSuccess() {
-
-                                }
-
-                                @Override
-                                public void onFailure(Throwable t) {
-
-                                }
-                            });
-                        }
-                    }
-                }).show();
-    }
-
-
-    //开始消毒
-    void onStartDisinfect() {
-
-    }
-
-    //停止消毒
-    void onStopDisinfectClock() {
-
-    }
-
-
-    //设置烘干倒计时
+    //设置烘干模式
     void onStartDryingClock() {
-//        final short currentFanlevel = fan.level;
-        String title = "设置倒计时";
-        NumberDialog.show(getContext(), title, 60, 80, 60,
-                new NumberDialog.NumberSeletedCallback() {
+        String title = "烘干模式";
+        String timeUnit = "分钟";
+        SteriTimeDialog.show(getContext(), title, timeUnit, 0, 225, 120, new SteriTimeDialog.NumberSeletedCallback() {
+            @Override
+            public void onNumberSeleted(int value) {
+                steri.setSteriDrying((short) value, new VoidCallback() {
+                    @Override
+                    public void onSuccess() {
+                    }
 
                     @Override
-                    public void onNumberSeleted(final int value) {
-//                        fan.setFanTimeWork(currentFanlevel, (short) value, new VoidCallback() {
-//                            @Override
-//                            public void onSuccess() {
-//                                //changeClockViewStatus((short)value);
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Throwable t) {
-//                                ToastUtils.showThrowable(t);
-//                            }
-//                        });
+                    public void onFailure(Throwable t) {
                     }
                 });
+            }
+        });
     }
-
-    //停止烘干倒计时
-    void onStopDryingClock() {
-
-        String message = "确定要关闭倒计时吗？";
-//        final short currentFanlevel = fan.level;
-        DialogHelper.newDialog_OkCancel(getContext(), null, message,
-                new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dlg, int witch) {
-//                        if (witch == DialogInterface.BUTTON_POSITIVE) {
-//                            fan.setFanTimeWork(currentFanlevel, (short) 0, new VoidCallback() {
-//                                @Override
-//                                public void onSuccess() {
-//
-//                                }
-//
-//                                @Override
-//                                public void onFailure(Throwable t) {
-//
-//                                }
-//                            });
-//                        }
-                    }
-                }).show();
-    }
-
-    //开始快洁
-    void onStartClean() {
-
-    }
-
-    //停止快洁
-    void onStopClean() {
-
-    }
-
-
 }

@@ -26,4 +26,8 @@ public interface UIListeners {
     interface CookingNextCallback {
         void onClickNext();
     }
+
+    interface StopworkCallback{
+        void callBack();
+    }
 }
