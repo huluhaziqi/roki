@@ -2,6 +2,8 @@ package com.robam.common.io.device;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
+import com.legent.plat.pojos.device.AbsDevice;
+import com.legent.plat.pojos.device.AbsDeviceHub;
 import com.legent.plat.pojos.device.DeviceInfo;
 import com.legent.plat.pojos.device.IDevice;
 import com.legent.plat.pojos.device.IDeviceFactory;
@@ -44,7 +46,8 @@ public class RokiDeviceFactory implements IDeviceFactory {
                 return new Steri829(devInfo);
             }else{
                 //TODO add log here ....
-                return null;
+                return new AbsDeviceHub(devInfo) {
+                };
             }
         } else {
             // is subDevice/chileDevice
