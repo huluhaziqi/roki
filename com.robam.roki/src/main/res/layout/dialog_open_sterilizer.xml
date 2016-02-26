@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/tv_steri_count_down"
-        android:text="已预约消毒"
-        android:textSize="16sp"
+        android:text="开启消毒工作(150分钟)"
+        android:textSize="20sp"
         android:textColor="#f8bf40"/>
 
 </RelativeLayout>
