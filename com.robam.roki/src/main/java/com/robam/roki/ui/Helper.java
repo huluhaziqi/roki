@@ -54,6 +54,21 @@ public class Helper {
         });
     }
 
+    public static void login(String account, String pwdMd5) {
+        Plat.accountService.login(account, pwdMd5, new Callback<User>() {
+
+            @Override
+            public void onSuccess(User user) {
+                Helper.onLoginCompleted(user);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                ToastUtils.showThrowable(t);
+            }
+        });
+    }
+
     public static void onLoginCompleted(Activity atv, final User user) {
 
         ToastUtils.showShort("登录成功");
@@ -63,6 +78,10 @@ public class Helper {
             MainActivity.start(atv);
         }
 
+    }
+
+    public static void onLoginCompleted(final User user) {
+        UIService.getInstance().returnHome();
     }
 
     public static void startCook(Context cx, Recipe recipe) {

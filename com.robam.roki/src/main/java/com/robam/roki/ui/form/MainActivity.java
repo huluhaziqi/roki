@@ -18,6 +18,7 @@ import com.legent.utils.EventUtils;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.events.DeviceEasylinkCompletedEvent;
 import com.robam.roki.ui.FormKey;
+import com.robam.roki.ui.Helper;
 import com.robam.roki.ui.PageKey;
 
 public class MainActivity extends BaseActivity {
@@ -30,6 +31,15 @@ public class MainActivity extends BaseActivity {
     @Override
     protected String createFormKey() {
         return FormKey.MainForm;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedState) {
+        super.onCreate(savedState);
+        User currentUser = Plat.accountService.getCurrentUser();
+        if (currentUser != null) {
+            Helper.login(currentUser.getAccount(), currentUser.password);
+        }
     }
 
     @Override
@@ -64,6 +74,7 @@ public class MainActivity extends BaseActivity {
     protected void showTipWhenExit() {
         ToastUtils.showShort("再按一次返回键退出程序");
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -94,7 +105,7 @@ public class MainActivity extends BaseActivity {
 
                         @Override
                         public void onFailure(Throwable t) {
-                            ToastUtils.show("绑定失败",2000);
+                            ToastUtils.show("绑定失败", 2000);
                         }
                     });
 

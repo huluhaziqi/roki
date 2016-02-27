@@ -17,6 +17,7 @@ import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.NumberDialog;
+import com.legent.utils.api.ToastUtils;
 import com.robam.roki.ui.dialog.SteriStopWorkingDialog;
 import com.robam.roki.ui.dialog.SteriTimeDialog;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
@@ -113,6 +114,11 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     @OnClick(R.id.sterilizer_switch)
     public void onClickSwitch(View v) {
+        if (!steri.isConnected()) {
+            ((CheckBox) v).setChecked(false);
+            ToastUtils.showShort("消毒柜已离线");
+            return;
+        }
         boolean selected = ((CheckBox) v).isChecked();
         setBtnSelected(selected);
         setStatus(selected);
