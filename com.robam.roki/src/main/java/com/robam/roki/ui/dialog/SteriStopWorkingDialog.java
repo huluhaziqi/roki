@@ -61,6 +61,7 @@ public class SteriStopWorkingDialog extends Dialog {
         WindowManager.LayoutParams p = dialogWindow.getAttributes(); // 获取对话框当前的参数值
         p.height = (int) (d.getHeight() * 0.4); // 高度设置为屏幕的0.6
         p.width = d.getWidth(); // 宽度设置为屏幕的0.65
+        p.alpha=0.7f;
         dialogWindow.setAttributes(p);
         ButterKnife.inject(this, view);
         tvStop.setText(str);

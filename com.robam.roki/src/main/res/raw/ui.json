@@ -218,15 +218,14 @@
       "clazz": "com.robam.roki.ui.page.DeviceSterilizerPage"
     },
     {
-      "id": "SteriSwitch",
-      "name": "开始消毒",
-      "clazz": "com.robam.roki.ui.page.SteriSwitchPage"
-    },
-    {
       "id": "CountDown",
       "name": "开始倒计时",
       "clazz": "com.robam.roki.ui.page.CountDownPage"
+    },
+    {
+      "id": "SteriSmartParams",
+      "name": "消毒柜智能设定",
+      "clazz": "com.robam.roki.ui.page.SteriSmartParamsPage"
     }
-
   ]
 }

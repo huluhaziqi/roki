@@ -8,6 +8,7 @@ public class PageKey {
     static public final String RecipeCookMoments = "RecipeCookMoments";
     static public final String SaleService = "SaleService";
     static public final String SmartParams = "SmartParams";
+    static public final String SteriSmartParams = "SteriSmartParams";
     // Menu-----end
 
     // 设备----start

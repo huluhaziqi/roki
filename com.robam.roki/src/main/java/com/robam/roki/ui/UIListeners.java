@@ -30,4 +30,7 @@ public interface UIListeners {
     interface StopworkCallback{
         void callBack();
     }
+    interface SteriStoveCallback{
+        void callBack(int time);
+    }
 }

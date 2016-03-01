@@ -16,13 +16,16 @@ import com.google.common.base.Preconditions;
 import com.google.common.eventbus.Subscribe;
 import com.legent.plat.Plat;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
+import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
+import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.events.SteriStatusChangedEvent;
 import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.roki.R;
 import com.robam.roki.ui.PageArgumentKey;
+import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.view.SteriCtr829View;
 
@@ -83,7 +86,20 @@ public class DeviceSterilizerPage extends HeadPage {
         Preconditions.checkNotNull(ctrView, "invalid fan, no matched view");
         ctrView.attachSteri((ISterilizer) sterilizer);
         sterilizerMain.addView((View) ctrView);
+        //消毒柜智能设定按钮
+        //setTitleBar();
         onRefresh();
+    }
+
+    private void setTitleBar() {
+        TextView txtSmart = TitleBar.newTitleTextView(getActivity(), "智能设定", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIService.getInstance().postPage(PageKey.SteriSmartParams);
+            }
+        });
+        txtSmart.setTextColor(getResources().getColor(R.color.c11));
+        getTitleBar().replaceRight(txtSmart);
     }
 
     private void setCtrView() {
@@ -109,15 +125,5 @@ public class DeviceSterilizerPage extends HeadPage {
         if (sterilizer == null)
             return;
         ctrView.onRefresh();
-    }
-
-
-    boolean checkConnection() {
-        if (!sterilizer.isConnected()) {
-            ToastUtils.showShort(R.string.steri_invalid_error);
-            return false;
-        } else {
-            return true;
-        }
     }
 }

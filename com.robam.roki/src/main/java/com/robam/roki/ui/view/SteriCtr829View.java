@@ -3,7 +3,6 @@ package com.robam.roki.ui.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -15,10 +14,9 @@ import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
-import com.legent.ui.ext.dialogs.DialogHelper;
-import com.legent.ui.ext.dialogs.NumberDialog;
 import com.legent.utils.api.ToastUtils;
 import com.robam.roki.ui.dialog.SteriStopWorkingDialog;
+import com.robam.roki.ui.dialog.SteriStovingDialog;
 import com.robam.roki.ui.dialog.SteriTimeDialog;
 import com.robam.common.pojos.device.Sterilizer.ISterilizer;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
@@ -27,6 +25,7 @@ import com.robam.roki.R;
 import com.robam.roki.ui.SterilizerAnimationUtil;
 import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.dialog.CountDownDialog;
+import com.robam.roki.ui.dialog.SteriWarnDialog;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -38,6 +37,8 @@ import butterknife.OnClick;
 public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCtrView {
     Steri829 steri;
     SterilizerAnimationUtil animationUtil;
+    //警告弹框资源图片
+    int[] imgs = {R.mipmap.img_steri_wran_door, R.mipmap.img_steri_wran_tem};
     @InjectView(R.id.tv_order_btn)
     TextView order;
     @InjectView(R.id.tv_stoving_btn)
@@ -107,23 +108,30 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     public void onRefresh() {
         if (steri == null)
             return;
+        //断开连接
+        if (!steri.isConnected()) {
+            steriSwitch.setClickable(false);
+        } else {
+            steriSwitch.setClickable(true);
+        }
+        //消毒柜警告状态判断
+        //JudgeWran();
+        //设置控制按钮状态
         setRunningState();
+        //设置消毒时间
         setRunningTime();
         initData();
     }
 
+    //电源开关
     @OnClick(R.id.sterilizer_switch)
     public void onClickSwitch(View v) {
-        if (!steri.isConnected()) {
-            ((CheckBox) v).setChecked(false);
-            ToastUtils.showShort("消毒柜已离线");
-            return;
-        }
         boolean selected = ((CheckBox) v).isChecked();
         setBtnSelected(selected);
         setStatus(selected);
     }
 
+    //预约消毒控制
     @OnClick(R.id.tv_order_btn)
     public void onClickOrderRunning() {
         if (steri.status == 1) {
@@ -131,6 +139,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         }
     }
 
+    //烘干控制
     @OnClick(R.id.tv_stoving_btn)
     public void onClickStoveRunning() {
         if (steri.status == 1) {
@@ -138,6 +147,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         }
     }
 
+    //快洁控制
     @OnClick(R.id.tv_clean_btn)
     public void onClickCleanRunning() {
         if (steri.status == 1) {
@@ -154,6 +164,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         }
     }
 
+    //消毒控制
     @OnClick(R.id.tv_sterilizer_btn)
     public void onClickSteriRunning() {
         if (steri.status == 1) {
@@ -170,6 +181,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         }
     }
 
+    //停止工作
     @OnClick(R.id.fl_running)
     public void onClickStopWorking() {
         String str = "结束工作";
@@ -189,6 +201,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         });
     }
 
+    //停止工作并断开电源
     @OnClick(R.id.sterilizer_switch_run)
     public void onClickTakeOff() {
         String str = "结束工作";
@@ -219,6 +232,28 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         tv_steri_ozone.setText(String.valueOf(ozone));
     }
 
+    private void JudgeWran() {
+        if (steri.AlarmStautus == 0) {
+            SteriWarnDialog.show(getContext(), "消毒柜门没关好", imgs[0]);
+        }
+        if (steri.AlarmStautus == 1) {
+            SteriWarnDialog.show(getContext(), "消毒柜故障", "*可能是紫外线灯管或上层传感器出现问题", imgs[1], new UIListeners.StopworkCallback() {
+                @Override
+                public void callBack() {
+                    //一键售后处理
+                }
+            });
+        }
+        if (steri.AlarmStautus == 2) {
+            SteriWarnDialog.show(getContext(), "无法显示消毒状况", "*温度传感器出现问题", imgs[1], new UIListeners.StopworkCallback() {
+                @Override
+                public void callBack() {
+                    //一键售后处理
+                }
+            });
+        }
+    }
+
     private void setRunningState() {
         if (steri.status == 2 || steri.status == 3 || steri.status == 4 || steri.status == 5) {
             rlRunning.setVisibility(VISIBLE);
@@ -246,14 +281,14 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     private void setRunningTime() {
         int time = 0;
-        if (steri.status == 3) {
-            time = steri.work_left_time_l + steri.work_left_time_h;
+        if (steri.status == 5) {
+            time = (steri.work_left_time_l + steri.work_left_time_h) * 60;
         } else {
-            time = steri.work_left_time_l;
+            time = steri.work_left_time_l + steri.work_left_time_h;
         }
-        int hour = time / 60;
-        String minute = time % 60 == 0 ? "00" : String.valueOf(time % 60);
-        tvRunningTime.setText("0" + hour + ":" + minute);
+        String hour = time / 60 < 10 ? "0" + time / 60 : String.valueOf(time / 60);
+        String minute = time % 60 == 0 ? "00" : time % 60 < 10 ? "0" + String.valueOf(time % 60) : String.valueOf(time % 60);
+        tvRunningTime.setText(hour + ":" + minute);
     }
 
     public void setBtnSelected(boolean btnSelected) {
@@ -303,12 +338,26 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     //设置烘干模式
     void onStartDryingClock() {
-        String title = "烘干模式";
-        String timeUnit = "分钟";
-        SteriTimeDialog.show(getContext(), title, timeUnit, 0, 225, 120, new SteriTimeDialog.NumberSeletedCallback() {
+//        String title = "烘干模式";
+//        String timeUnit = "分钟";
+//        SteriTimeDialog.show(getContext(), title, timeUnit, 0, 225, 120, new SteriTimeDialog.NumberSeletedCallback() {
+//            @Override
+//            public void onNumberSeleted(int value) {
+//                steri.setSteriDrying((short) value, new VoidCallback() {
+//                    @Override
+//                    public void onSuccess() {
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Throwable t) {
+//                    }
+//                });
+//            }
+//        });
+        SteriStovingDialog.show(getContext(), new UIListeners.SteriStoveCallback() {
             @Override
-            public void onNumberSeleted(int value) {
-                steri.setSteriDrying((short) value, new VoidCallback() {
+            public void callBack(int time) {
+                steri.setSteriDrying((short) time, new VoidCallback() {
                     @Override
                     public void onSuccess() {
                     }
