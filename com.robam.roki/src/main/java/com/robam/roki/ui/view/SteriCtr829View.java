@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,6 +41,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     SterilizerAnimationUtil animationUtil;
     //警告弹框资源图片
     int[] imgs = {R.mipmap.img_steri_wran_door, R.mipmap.img_steri_wran_tem};
+    //倒计时弹窗标志位
+    boolean flag = true;
     @InjectView(R.id.tv_order_btn)
     TextView order;
     @InjectView(R.id.tv_stoving_btn)
@@ -57,6 +61,10 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     TextView tvSteriRunning;
     @InjectView(R.id.tv_steri_time)
     TextView tvRunningTime;
+    @InjectView(R.id.ll_empty)
+    LinearLayout imgEmpty;
+    @InjectView(R.id.ll_animation)
+    LinearLayout llAnimation;
 
     @InjectView(R.id.rl_germ)
     RelativeLayout rlGerm;
@@ -160,7 +168,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 public void onFailure(Throwable t) {
                 }
             });
-            CountDownDialog.start((Activity) getContext());
         }
     }
 
@@ -177,7 +184,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 public void onFailure(Throwable t) {
                 }
             });
-            CountDownDialog.start((Activity) getContext());
         }
     }
 
@@ -256,6 +262,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
 
     private void setRunningState() {
         if (steri.status == 2 || steri.status == 3 || steri.status == 4 || steri.status == 5) {
+            llAnimation.setVisibility(VISIBLE);
+            imgEmpty.setVisibility(GONE);
             rlRunning.setVisibility(VISIBLE);
             rlSwitch.setVisibility(GONE);
             if (steri.status == 2)
@@ -267,6 +275,10 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             if (steri.status == 5)
                 tvSteriRunning.setText("预约消毒中");
         } else {
+            llAnimation.setVisibility(GONE);
+            imgEmpty.setVisibility(VISIBLE);
+            rlRunning.setVisibility(GONE);
+            rlSwitch.setVisibility(VISIBLE);
             if (steri.status == 1) {
                 setBtnSelected(true);
                 steriSwitch.setChecked(true);
@@ -274,8 +286,20 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 setBtnSelected(false);
                 steriSwitch.setChecked(false);
             }
-            rlRunning.setVisibility(GONE);
-            rlSwitch.setVisibility(VISIBLE);
+        }
+        //设置倒计时
+        if (flag) {
+            setCountDown();
+            flag = false;
+        }
+        if (rlSwitch.getVisibility() == VISIBLE) {
+            flag = true;
+        }
+    }
+
+    private void setCountDown() {
+        if (rlRunning.getVisibility() == VISIBLE) {
+            CountDownDialog.start((Activity) getContext());
         }
     }
 
