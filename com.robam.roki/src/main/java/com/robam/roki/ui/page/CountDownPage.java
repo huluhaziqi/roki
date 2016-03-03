@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.legent.ui.ext.BasePage;
 import com.robam.roki.R;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -26,7 +28,8 @@ public class CountDownPage extends BasePage {
             super.handleMessage(msg);
             tvDown.setText(String.valueOf(msg.what));
             if (msg.what == 1) {
-                getActivity().finish();
+                if (getActivity() != null)
+                    getActivity().finish();
             }
         }
     };
