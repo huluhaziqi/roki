@@ -4,19 +4,19 @@ package com.robam.roki.ui.view;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
-import com.legent.utils.api.ToastUtils;
 import com.robam.roki.ui.dialog.SteriStopWorkingDialog;
 import com.robam.roki.ui.dialog.SteriStovingDialog;
 import com.robam.roki.ui.dialog.SteriTimeDialog;
@@ -28,6 +28,9 @@ import com.robam.roki.ui.SterilizerAnimationUtil;
 import com.robam.roki.ui.UIListeners;
 import com.robam.roki.ui.dialog.CountDownDialog;
 import com.robam.roki.ui.dialog.SteriWarnDialog;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -41,8 +44,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     SterilizerAnimationUtil animationUtil;
     //警告弹框资源图片
     int[] imgs = {R.mipmap.img_steri_wran_door, R.mipmap.img_steri_wran_tem};
-    //倒计时弹窗标志位
-    boolean flag = true;
     @InjectView(R.id.tv_order_btn)
     TextView order;
     @InjectView(R.id.tv_stoving_btn)
@@ -59,8 +60,12 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     CheckBox steriSwitch;
     @InjectView(R.id.tv_steri)
     TextView tvSteriRunning;
-    @InjectView(R.id.tv_steri_time)
-    TextView tvRunningTime;
+    @InjectView(R.id.tv_steri_time_hour)
+    TextView txtHour;
+    @InjectView(R.id.tv_steri_time_minute)
+    TextView txtMinute;
+    @InjectView(R.id.tv_steri_time_point)
+    TextView txtPoint;
     @InjectView(R.id.ll_empty)
     LinearLayout imgEmpty;
     @InjectView(R.id.ll_animation)
@@ -85,6 +90,15 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
     @InjectView(R.id.rl_switch)
     RelativeLayout rlSwitch;
 
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            String s = msg.what % 2 == 0 ? "" : ":";
+            txtPoint.setText(s);
+        }
+    };
+
     public SteriCtr829View(Context context) {
         super(context);
         init(context, null);
@@ -103,6 +117,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             ButterKnife.inject(this, view);
             animationUtil = new SterilizerAnimationUtil(cx, rlTem, rlHum, rlGerm, rlOzone);
             animationUtil.setAnimation();
+            setPoint();
         }
     }
 
@@ -162,6 +177,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             steri.setSteriClean((short) 60, new VoidCallback() {
                 @Override
                 public void onSuccess() {
+                    CountDownDialog.start((Activity) getContext());
                 }
 
                 @Override
@@ -178,6 +194,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             steri.setSteriDisinfect((short) 150, new VoidCallback() {
                 @Override
                 public void onSuccess() {
+                    CountDownDialog.start((Activity) getContext());
                 }
 
                 @Override
@@ -287,20 +304,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 steriSwitch.setChecked(false);
             }
         }
-        //设置倒计时
-        if (flag) {
-            setCountDown();
-            flag = false;
-        }
-        if (rlSwitch.getVisibility() == VISIBLE) {
-            flag = true;
-        }
-    }
-
-    private void setCountDown() {
-        if (rlRunning.getVisibility() == VISIBLE) {
-            CountDownDialog.start((Activity) getContext());
-        }
     }
 
     private void setRunningTime() {
@@ -312,7 +315,8 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
         }
         String hour = time / 60 < 10 ? "0" + time / 60 : String.valueOf(time / 60);
         String minute = time % 60 == 0 ? "00" : time % 60 < 10 ? "0" + String.valueOf(time % 60) : String.valueOf(time % 60);
-        tvRunningTime.setText(hour + ":" + minute);
+        txtHour.setText(hour);
+        txtMinute.setText(minute);
     }
 
     public void setBtnSelected(boolean btnSelected) {
@@ -350,6 +354,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 steri.SetSteriReserveTime((short) value, new VoidCallback() {
                     @Override
                     public void onSuccess() {
+                        CountDownDialog.start((Activity) getContext());
                     }
 
                     @Override
@@ -384,6 +389,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 steri.setSteriDrying((short) time, new VoidCallback() {
                     @Override
                     public void onSuccess() {
+                        CountDownDialog.start((Activity) getContext());
                     }
 
                     @Override
@@ -393,4 +399,27 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             }
         });
     }
+
+    //时间显示闪烁
+    private void setPoint() {
+        Timer timer = new Timer();
+        MyTask myTask = new MyTask();
+        timer.schedule(myTask, 0, 1000);
+    }
+
+    class MyTask extends TimerTask {
+        //时间显示中间两点闪烁标志位
+        int i = 0;
+
+        @Override
+        public void run() {
+            if (rlRunning.getVisibility() == GONE)
+                return;
+            Message message = handler.obtainMessage();
+            message.what = i;
+            handler.sendMessage(message);
+            i++;
+        }
+    }
 }
+
