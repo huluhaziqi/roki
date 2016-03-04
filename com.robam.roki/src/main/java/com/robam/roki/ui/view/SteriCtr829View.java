@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
+import com.robam.roki.ui.PageKey;
 import com.robam.roki.ui.dialog.SteriStopWorkingDialog;
 import com.robam.roki.ui.dialog.SteriStovingDialog;
 import com.robam.roki.ui.dialog.SteriTimeDialog;
@@ -177,7 +178,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             steri.setSteriClean((short) 60, new VoidCallback() {
                 @Override
                 public void onSuccess() {
-                    CountDownDialog.start((Activity) getContext());
                 }
 
                 @Override
@@ -194,7 +194,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
             steri.setSteriDisinfect((short) 150, new VoidCallback() {
                 @Override
                 public void onSuccess() {
-                    CountDownDialog.start((Activity) getContext());
                 }
 
                 @Override
@@ -291,6 +290,10 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 tvSteriRunning.setText("烘干中");
             if (steri.status == 5)
                 tvSteriRunning.setText("预约消毒中");
+            if (PageKey.STERI_CD_FLAG) {
+                CountDownDialog.start((Activity) getContext());
+                PageKey.STERI_CD_FLAG = false;
+            }
         } else {
             llAnimation.setVisibility(GONE);
             imgEmpty.setVisibility(VISIBLE);
@@ -303,6 +306,7 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 setBtnSelected(false);
                 steriSwitch.setChecked(false);
             }
+            PageKey.STERI_CD_FLAG = true;
         }
     }
 
@@ -354,7 +358,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 steri.SetSteriReserveTime((short) value, new VoidCallback() {
                     @Override
                     public void onSuccess() {
-                        CountDownDialog.start((Activity) getContext());
                     }
 
                     @Override
@@ -389,7 +392,6 @@ public class SteriCtr829View extends FrameLayout implements UIListeners.ISteriCt
                 steri.setSteriDrying((short) time, new VoidCallback() {
                     @Override
                     public void onSuccess() {
-                        CountDownDialog.start((Activity) getContext());
                     }
 
                     @Override

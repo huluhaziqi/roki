@@ -62,4 +62,7 @@ public class PageKey {
     //	common
     static public final String WebClient = "WebClient";
     static public final String Chat = "Chat";
+
+    //消毒柜倒计时界面标志位
+    public static boolean STERI_CD_FLAG = true;
 }
