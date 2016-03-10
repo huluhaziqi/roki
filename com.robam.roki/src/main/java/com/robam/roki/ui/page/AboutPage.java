@@ -1,9 +1,13 @@
 package com.robam.roki.ui.page;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.legent.Callback;
@@ -40,6 +44,10 @@ public class AboutPage extends HeadPage {
     TextView txtWebSite;
     @InjectView(R.id.txtTerm)
     TextView txtTerm;
+    @InjectView(R.id.ic_about_logo)
+    ImageView aboutLogo;
+    boolean isExit;
+    int logoClickCount;
 
     AppVersionInfo verInfo;
 
@@ -85,6 +93,32 @@ public class AboutPage extends HeadPage {
         bd.putString(PageArgumentKey.Url, url);
         UIService.getInstance().postPage(PageKey.WebClient, bd);
     }
+
+    @OnClick(R.id.ic_about_logo)
+    public void onClickLogo() {
+        if (!isExit) {
+            isExit = true;
+            aboutLogo.postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    isExit = false;
+                }
+            }, 500);
+        } else {
+            logoClickCount++;
+            if (logoClickCount >= 5) {
+                Context cx =getContext();
+                jmptoFirmwareUpgrade(cx);
+            }
+        }
+    }
+    public void jmptoFirmwareUpgrade(Context cx){
+        Uri uri = Uri.parse("http://manage.myroki.com:8080/jun-cas-server/login?service=http%3A%2F%2Fmanage.myroki.com%2Frest%2Fapi%2Fcas%2Flogin");
+        Intent it = new Intent(Intent.ACTION_VIEW, uri);
+        cx.startActivity(it);
+    }
+
 
     void checkVer() {
         ProgressDialogHelper.setRunning(cx, true);
