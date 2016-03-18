@@ -5,24 +5,33 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
+import com.legent.Callback2;
 import com.legent.VoidCallback;
 import com.legent.ui.ext.dialogs.DialogHelper;
 import com.legent.ui.ext.dialogs.NumberDialog;
+import com.legent.ui.ext.popoups.BaseStoveSettingPopupWindowPad;
+import com.legent.ui.ext.popoups.PopoupHelper;
 import com.legent.utils.api.ToastUtils;
 import com.legent.utils.graphic.ImageUtils;
+import com.robam.common.Utils;
 import com.robam.common.pojos.device.Stove.Stove;
-import com.robam.common.pojos.device.Stove.Stove.StoveHead;
 import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.common.ui.UiHelper;
 import com.robam.rokipad.R;
+import com.robam.rokipad.ui.Helper;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -64,6 +73,14 @@ public class StoveHeadView extends FrameLayout {
 
     @InjectView(R.id.clockView)
     View clockView;
+    @InjectView(R.id.relLevel)
+    RelativeLayout relLevel;
+    @InjectView(R.id.imgSwitch)
+    ImageView imgSwitch;
+    @InjectView(R.id.linSwitch)
+    LinearLayout linSwitch;
+    @InjectView(R.id.txtSwitch)
+    TextView txtSwitch;
 
     public StoveHeadView(Context context) {
         super(context);
@@ -80,7 +97,7 @@ public class StoveHeadView extends FrameLayout {
         init(context, attrs);
     }
 
-    StoveHead head;
+    Stove.StoveHead head;
     Stove stove;
 
     boolean isValid = true;
@@ -103,12 +120,17 @@ public class StoveHeadView extends FrameLayout {
                 imgPowerLeft.setVisibility(isLeft ? VISIBLE : GONE);
                 imgPowerRight.setVisibility(!isLeft ? VISIBLE : GONE);
 
+                imgPowerLeft.setVisibility(View.GONE);
+                imgPowerRight.setVisibility(View.GONE);
+
                 initViewStatus();
             }
         }
+//        stove = Utils.getDefaultStove();
+//        head = stove.getHeadById()
     }
 
-    void setData(StoveHead head) {
+    void setData(Stove.StoveHead head) {
         this.head = head;
         this.stove = head.parent;
     }
@@ -141,6 +163,11 @@ public class StoveHeadView extends FrameLayout {
                     imgPowerLeft.setEnabled(true);
                     imgPowerRight.setEnabled(true);
                     imgLevel.setImageResource(R.mipmap.ic_stove_invalid);
+                    imgTimer.setVisibility(View.VISIBLE);
+                    txtTime.setVisibility(View.GONE);
+                    imgSwitch.setImageResource(R.mipmap.ic_switch_gray);
+                    txtSwitch.setText("已关闭");
+                    txtSwitch.setTextColor(getResources().getColor(R.color.stove_text));
                     setCounddownTime(0);
                     break;
                 case StoveStatus.StandyBy:
@@ -153,6 +180,9 @@ public class StoveHeadView extends FrameLayout {
                     setValid(true);
                     refreshLevel(head.level);
                     setCounddownTime(head.time);
+                    imgSwitch.setImageResource(R.mipmap.ic_switch_white);
+                    txtSwitch.setText("已开启");
+                    txtSwitch.setTextColor(getResources().getColor(R.color.content_bg));
                     break;
 
                 default:
@@ -191,13 +221,15 @@ public class StoveHeadView extends FrameLayout {
         String strTime = UiHelper.second2String(time);
         if (Objects.equal(strTime, txtTime.getText().toString())) return;
 
+        txtTime.setVisibility(View.VISIBLE);
         txtTime.setText(strTime);
+        imgTimer.setVisibility(View.GONE);
     }
 
 
     //==============================================================================================================================
 
-    @OnClick({R.id.switch_left, R.id.switch_right})
+    @OnClick({R.id.switch_left, R.id.switch_right, R.id.linSwitch})
     public void onClickPower() {
         onSetStatus();
     }
@@ -246,13 +278,20 @@ public class StoveHeadView extends FrameLayout {
                     }).show();
         } else {
 
-            String title = "设置倒计时";
-            NumberDialog.show(getContext(), title, 0, 99, 0, new NumberDialog.NumberSeletedCallback() {
+//            String title = "设置倒计时";
+//            NumberDialog.show(getContext(), title, 0, 99, 0, new NumberDialog.NumberSeletedCallback() {
+//                @Override
+//                public void onNumberSeleted(int i) {
+//                    onSetShutdown(i * 60);
+//                }
+//            });
+            PopupWindow pop = Helper.newStoveSettingPickerPad(getContext(), new Callback2<String>() {
                 @Override
-                public void onNumberSeleted(int i) {
-                    onSetShutdown(i * 60);
+                public void onCompleted(String s) {
+                    ToastUtils.show(s.toString(), Toast.LENGTH_SHORT);
                 }
             });
+            PopoupHelper.show(clockView, pop, Gravity.CENTER);
         }
     }
 

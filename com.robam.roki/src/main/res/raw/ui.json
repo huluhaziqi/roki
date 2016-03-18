@@ -80,6 +80,26 @@
       "clazz": "com.robam.roki.ui.page.DeviceAddByEasylinkPage"
     },
     {
+      "id": "DeviceSteamOven",
+      "name": "蒸汽炉",
+      "clazz": "com.robam.roki.ui.page.DeviceSteamOvenPage"
+    },
+    {
+      "id": "DeviceSteamWorking",
+      "name": "蒸汽炉",
+      "clazz": "com.robam.roki.ui.page.DeviceSteamWorkingPage"
+    },
+    {
+      "id": "DeviceSteamOvenSetting",
+      "name": "设置",
+      "clazz": "com.robam.roki.ui.page.DeviceSteamOvenSettingPage"
+    },
+    {
+      "id": "DeviceSteamOvenWorking",
+      "name": "蒸汽炉",
+      "clazz": "com.robam.roki.ui.page.DeviceSteamOvenWorkingPage"
+    },
+    {
       "id": "DeviceFan",
       "clazz": "com.robam.roki.ui.page.DeviceFanPage"
     },
@@ -87,6 +107,21 @@
       "id": "DeviceStove",
       "name": "",
       "clazz": "com.robam.roki.ui.page.DeviceStovePage"
+    },
+    {
+      "id": "DeviceOven",
+      "name": "烤箱",
+      "clazz": "com.robam.roki.ui.page.DeviceOvenPage"
+    },
+    {
+      "id": "DeviceOvenProfessionalSetting",
+      "name": "专业模式设置",
+      "clazz": "com.robam.roki.ui.page.DeviceOvenProfessionalSettingPage"
+    },
+    {
+      "id": "DeviceOvenWorking",
+      "name": "烤箱工作",
+      "clazz": "com.robam.roki.ui.page.DeviceOvenWorkingPage"
     },
     {
       "id": "CookWithoutDevice",

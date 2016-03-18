@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="312dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true" >
+
+        <LinearLayout
+            android:id="@+id/lin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="24dp">
+
+            <TextView
+                android:id="@+id/txtStep1"
+                android:text="2"
+                android:textSize="60sp"
+                android:textColor="#6486b0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="8dp"
+                android:src="@mipmap/img_recipe_leanline"/>
+
+            <TextView
+                android:id="@+id/txtStep2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textColor="#dadada"
+                android:layout_marginLeft="5dp"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_below="@id/lin"
+            android:id="@+id/txtBrief"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:text="     JSON为曲奇达人热捧的老师......原料简单快手曲奇~教你用一份原料做出双卫曲奇。"
+            android:lineSpacingExtra="2dp"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#232323"/>
+        
+        <LinearLayout
+            android:id="@+id/linSet"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:layout_below="@id/txtBrief"
+            android:background="@drawable/shape_recipe_autosetting_bg"
+            android:orientation="vertical">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="模式"
+                    android:textSize="20sp"
+                    android:textColor="#1d1c1c"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:background="@color/home_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="温度"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#1d1c1c"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:background="@color/home_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="时间"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#1d1c1c"/>
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/recipeList"
+                android:layout_width="match_parent"
+                android:divider="@null"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"/>
+            
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtTips"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:text="小贴士：搅拌时需要均匀，需慢慢加入材料"
+            android:layout_marginTop="26dp"
+            android:textColor="#ff5400"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/linSet"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtAutoSet"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_toLeftOf="@id/rel"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@color/home_bg"
+        android:text="烤箱自动设置"
+        android:textColor="#ffffff"
+        android:textSize="30sp"/>
+
+    <RelativeLayout
+        android:id="@+id/relProgress"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_toLeftOf="@id/rel"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/progressbar_horizontal"
+            android:progress="0"
+            android:secondaryProgress="0"
+            android:layout_height="77dp" />
+
+        <TextView
+            android:id="@+id/txtProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="12:12"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtStart"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_toLeftOf="@id/rel"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@color/home_bg"
+        android:text="开始"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="6dp"
+        android:layout_above="@id/txtAutoSet"
+        android:layout_toLeftOf="@id/rel"/>
+
+    <ImageView
+        android:id="@+id/imgLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/img_recipe_light"
+        android:layout_above="@id/txtAutoSet"
+        android:layout_toLeftOf="@id/rel"
+        android:layout_marginBottom="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="28dp"
+        android:src="@mipmap/img_recipe_close"/>
+
+    <ImageView
+        android:id="@+id/imgReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="36dp"
+        android:src="@mipmap/img_recipe_back" />
+
+</RelativeLayout>

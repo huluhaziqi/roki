@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Transparent">
+
+    <com.robam.rokipad.ui.view.HomeTitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize" />
+
+    <include layout="@layout/view_device_disconnect_hint"
+        android:id="@+id/disconnectHintView"
+        android:layout_below="@id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/relMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#212121"
+        android:layout_below="@id/titleView">
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fraIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="195dp"
+        android:layout_marginTop="12dp"
+        android:background="@mipmap/ic_home_half_circle_black">
+
+        <ImageView
+            android:layout_marginTop="-5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_oven_logo"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

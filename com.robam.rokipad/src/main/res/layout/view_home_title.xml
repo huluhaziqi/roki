@@ -5,6 +5,22 @@
     android:layout_height="?android:actionBarSize">
 
     <LinearLayout
+        android:id="@+id/pnlLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true">
+
+        <ImageView
+            android:id="@+id/img_left"
+            style="@style/titlebar_icon_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_home_recipe"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/pnlMiddle"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -34,40 +50,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imgFan"
-            style="@style/titlebar_icon_style"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home_fan_selector" />
-
-        <ImageView
-            android:id="@+id/imgStove"
-            style="@style/titlebar_icon_style"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home_stove_selector" />
-
-        <ImageView
-            android:id="@+id/imgStove1"
-            style="@style/titlebar_icon_style"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home_stove_selector"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/imgStove2"
-            style="@style/titlebar_icon_style"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_home_stove_selector"
-            android:visibility="gone" />
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/pnlRight"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
@@ -75,46 +58,24 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/img_pause"
+            android:id="@+id/img_recipe"
             style="@style/titlebar_icon_style"
             android:contentDescription="@null"
-            android:src="@drawable/ic_pause_selector" />
+            android:src="@mipmap/ic_home_recipe" />
 
         <ImageView
             android:id="@+id/img_setting"
             style="@style/titlebar_icon_style"
             android:contentDescription="@null"
-            android:src="@drawable/ic_home_setting_selector" />
+            android:src="@mipmap/ic_home_setting_off" />
 
         <ImageView
-            android:id="@+id/img_clock"
+            android:id="@+id/img_search"
             style="@style/titlebar_icon_style"
             android:contentDescription="@null"
-            android:src="@drawable/ic_clock_selector" />
+            android:src="@mipmap/ic_search"
+            android:visibility="gone"/>
 
-        <RelativeLayout
-            android:id="@+id/layout_count_down"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/common_view_background_selector"
-            android:visibility="gone">
-
-            <ImageView
-                style="@style/titlebar_icon_style"
-                android:layout_centerInParent="true"
-                android:contentDescription="@null"
-                android:src="@mipmap/ic_clock_down" />
-
-            <TextView
-                android:id="@+id/tvCountdownTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="00:00"
-                android:textColor="@color/home_bg"
-                android:textSize="16sp" />
-        </RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>

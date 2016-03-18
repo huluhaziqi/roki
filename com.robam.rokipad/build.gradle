@@ -57,6 +57,7 @@ dependencies {
     compile project(':com.robam.common')
     compile project(':com.legent.utils.serialport')
     compile 'com.legent.libraries:com.handmark.pulltorefresh:2.1.1'
+    compile "com.daimajia.swipelayout:library:1.1.8@aar"
     //    compile 'com.legent.common:com.legent.utils.serialport:1.0'
 }
 

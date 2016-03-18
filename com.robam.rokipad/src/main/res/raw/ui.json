@@ -51,12 +51,12 @@
     },
     {
       "id": "GuideWifi",
-      "name": "WIFI设置",
+      "name": "网络连接",
       "clazz": "com.robam.rokipad.ui.page.GuideWifiPage"
     },
     {
       "id": "GuideLogin",
-      "name": "用户登录",
+      "name": "登录",
       "clazz": "com.robam.rokipad.ui.page.GuideLoginPage"
     },
     {
@@ -65,8 +65,16 @@
       "clazz": "com.robam.rokipad.ui.page.GuideRegistPage"
     },
     {
+      "id": "GuideFind",
+      "clazz": "com.robam.rokipad.ui.page.GuideFindPage"
+    },
+    {
       "id": "RecipeCategory",
       "clazz": "com.robam.rokipad.ui.page.RecipeCategoryPage"
+    },
+    {
+      "id":"RecipeContainer",
+      "clazz": "com.robam.rokipad.ui.page.RecipeContainerPage"
     },
     {
       "id": "RecipeToday",
@@ -98,6 +106,14 @@
     {
       "id": "RecipeCooking",
       "clazz": "com.robam.rokipad.ui.page.RecipeCookingPage"
+    },
+    {
+      "id": "DeviceSteam",
+      "clazz": "com.robam.rokipad.ui.page.DeviceSteamPage"
+    },
+    {
+      "id": "DeviceSteamWorking",
+      "clazz": "com.robam.rokipad.ui.page.DeviceSteamWorkingPage"
     }
   ]
 }

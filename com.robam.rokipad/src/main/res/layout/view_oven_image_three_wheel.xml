@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+
+    android:gravity="center"
+    android:background="@color/Transparent"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="300dp"
+    android:orientation="horizontal"
+    >
+    <com.robam.rokipad.ui.view.DeviceOvenModeWheel
+        android:id="@+id/wv1"
+        style="@style/steam_setting_wheel_view_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <com.robam.rokipad.ui.view.DeviceOvenTemWheel
+        android:id="@+id/wv2"
+        style="@style/steam_setting_wheel_view_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <com.robam.rokipad.ui.view.DeviceOvenTimeWheel
+        android:id="@+id/wv3"
+        style="@style/steam_setting_wheel_view_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+    <TextView
+        android:id="@+id/proText"
+        android:text="底加热"
+        android:textColor="#929292"
+        android:textSize="24sp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="49dp"/>
+    <TextView
+        android:id="@+id/proTextInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:lines="2"
+        android:text="该功能简介该功能简介该功能简介\n该功能简介该功能简介该功能简介"
+        android:gravity="left"
+        android:textSize="20sp"
+        android:textColor="#a0a0a0"/>
+        </LinearLayout>
+
+</LinearLayout>

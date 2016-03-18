@@ -103,7 +103,7 @@ public class DeviceAddByEasylinkPage extends HeadPage {
         PreferenceUtils.setString(PrefsKey.Ssid, ssid);
         PreferenceUtils.setString(ssid, pwd);
 
-       IDeviceFinder finder =  Plat.commander.getDeviceFinder();
+       IDeviceFinder finder =  Plat.dcMqtt.getDeviceFinder();
 
         ProgressDialogHelper.setRunning(cx, true);
         finder.start(ssid, pwd, 1000 * 40, new Callback<DeviceInfo>() {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel"
+    android:layout_width="113dp"
+    android:layout_height="113dp"
+    android:background="@mipmap/img_oven_complete" >
+
+    <TextView
+        android:id="@id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="蒸"
+        android:layout_centerInParent="true"
+        android:textSize="32sp"
+        android:textColor="@color/home_bg"/>
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTitle"
+        android:textColor="@color/home_bg"
+        android:textSize="18sp"
+        android:text="00:00"
+        android:layout_marginLeft="45dp"/>
+
+</RelativeLayout>

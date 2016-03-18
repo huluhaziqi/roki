@@ -87,4 +87,58 @@
         <item name="unitHight">40dp</item>
     </style>
 
+    <style name="wheel_Oven_view_style">
+        <item name="itemNumber">7</item>
+        <item name="lineColor">#a5a5a5</item>
+        <item name="lineHeight">1px</item>
+        <item name="maskHight">32dp</item>
+        <item name="noEmpty">true</item>
+        <!--<item name="heightDiv">10dp</item>-->
+        <item name="normalTextColor">#b1b1b1</item>
+        <item name="normalTextSize">14sp</item>
+        <item name="selectedTextColor">#1f1f1f</item>
+        <item name="selectedTextSize">24sp</item>
+        <item name="unitHight">45dp</item>
+    </style>
+
+    <style name="wheel_steam_view_style">
+        <item name="itemNumber">7</item>
+        <item name="lineColor">#a5a5a5</item>
+        <item name="lineHeight">1px</item>
+        <item name="maskHight">32dp</item>
+        <item name="noEmpty">true</item>
+        <!--<item name="heightDiv">10dp</item>-->
+        <item name="normalTextColor">#b1b1b1</item>
+        <item name="normalTextSize">14sp</item>
+        <item name="selectedTextColor">#1f1f1f</item>
+        <item name="selectedTextSize">24sp</item>
+        <item name="unitHight">45dp</item>
+    </style>
+
+    <style name="stove_wheel_view_style">
+        <item name="itemNumber">7</item>
+        <item name="lineColor">#a5a5a5</item>
+        <item name="lineHeight">1px</item>
+        <item name="maskHight">32dp</item>
+        <item name="noEmpty">true</item>
+        <item name="normalTextColor">#b1b1b1</item>
+        <item name="normalTextSize">14sp</item>
+        <item name="selectedTextColor">#4b4848</item>
+        <item name="selectedTextSize">16sp</item>
+        <item name="unitHight">40dp</item>
+    </style>
+
+    <style name="steam_setting_wheel_view_style">
+        <item name="itemNumber">3</item>
+        <item name="lineColor">#a5a5a5</item>
+        <item name="lineHeight">1px</item>
+        <item name="maskHight">32dp</item>
+        <item name="noEmpty">true</item>
+        <item name="normalTextColor">#929292</item>
+        <item name="normalTextSize">28sp</item>
+        <item name="selectedTextColor">#232323</item>
+        <item name="selectedTextSize">40sp</item>
+        <item name="unitHight">100dp</item>
+    </style>
+
 </resources>

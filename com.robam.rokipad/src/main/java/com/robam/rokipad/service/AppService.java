@@ -2,19 +2,24 @@ package com.robam.rokipad.service;
 
 import android.content.Context;
 
+import com.google.common.collect.Lists;
 import com.google.common.eventbus.Subscribe;
 import com.legent.Callback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
+import com.legent.plat.pojos.device.DeviceGroupInfo;
 import com.legent.plat.pojos.device.DeviceGuid;
 import com.legent.plat.pojos.device.DeviceInfo;
 import com.legent.plat.pojos.device.IDevice;
+import com.legent.plat.services.DeviceService;
 import com.legent.services.AbsService;
 import com.legent.services.TaskService;
 import com.robam.common.Utils;
 import com.robam.common.io.device.RokiDeviceFactory;
 import com.robam.common.pojos.device.fan.AbsFan;
+
+import java.util.List;
 
 /**
  * Created by sylar on 15/7/24.
@@ -28,6 +33,7 @@ public class AppService extends AbsService {
     }
 
     long userId;
+    DeviceService ds;
 
     private AppService() {
     }
@@ -36,6 +42,10 @@ public class AppService extends AbsService {
     public void init(Context cx, Object... params) {
         super.init(cx, params);
 
+        ds = Plat.deviceService;
+        if (Plat.accountService.isLogon()) {
+            onLogin();
+        }
         Plat.deviceService.setPolltingPeriod(2000, 2000);
         onProbeGuid();
     }
@@ -48,12 +58,14 @@ public class AppService extends AbsService {
     @Subscribe
     public void onEvent(UserLoginEvent event) {
         userId = event.pojo.id;
+        onLogin();
         onBindOwner();
     }
 
     @Subscribe
     public void onEvent(UserLogoutEvent event) {
         userId = 0;
+        ds.clear();
     }
 
     // -------------------------------------------------------------------------------
@@ -63,7 +75,7 @@ public class AppService extends AbsService {
 
     private void onProbeGuid() {
 
-        Plat.commander.getDevice(DeviceGuid.ZeroGuid, new Callback<DeviceInfo>() {
+        Plat.dcSerial.getDevice(DeviceGuid.ZeroGuid, new Callback<DeviceInfo>() {
 
             @Override
             public void onSuccess(DeviceInfo devInfo) {
@@ -96,8 +108,72 @@ public class AppService extends AbsService {
         if (fan == null)
             return;
 
-        Plat.commander.setOwnerId(fan.getID(), userId, null);
+        Plat.dcSerial.setOwnerId(fan.getID(), userId, null);
         Plat.deviceService.bindDevice(userId, fan.getID(), fan.getName(), true, null);
+
+    }
+
+    private void onLogin() {
+        ds.clear();
+        onLoadGroup();
+        onLoadDevice();
+    }
+
+    private void onLoadGroup() {
+
+        ds.getDeviceGroups(userId, new Callback<List<DeviceGroupInfo>>() {
+
+            @Override
+            public void onSuccess(List<DeviceGroupInfo> groups) {
+                if (groups != null) {
+                    ds.batchAddGroup(groups);
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+    }
+
+    private void onLoadDevice() {
+
+        ds.getDevices(userId, new Callback<List<DeviceInfo>>() {
+
+            @Override
+            public void onSuccess(List<DeviceInfo> result) {
+                if (result != null) {
+                    List<IDevice> devices = Lists.newArrayList();
+                    IDevice defaultFan = null;
+
+                    for (DeviceInfo deviceInfo : result) {
+                        boolean isFan = Utils.isFan(deviceInfo.guid);
+                        if (isFan && defaultFan != null) {
+                            continue;
+                        }
+
+                        IDevice dev = RokiDeviceFactory.generateModel(deviceInfo);
+                        devices.add(dev);
+
+                        if (isFan) {
+                            defaultFan = dev;
+                        }
+                    }
+                    ds.batchAdd(devices);
+
+                    if (defaultFan != null) {
+                        ds.setDefault(defaultFan);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                t.printStackTrace();
+            }
+        });
 
     }
 

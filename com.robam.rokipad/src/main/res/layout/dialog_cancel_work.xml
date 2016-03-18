@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/img_steam_work_cancel"
+        android:layout_marginTop="13dp"/>
+
+    <TextView
+        android:id="@+id/txtOne"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:text="请保持水箱水量"
+        android:lineSpacingExtra="6dp"
+        android:textSize="28sp"
+        android:textColor="#e9a60f"/>
+
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="141dp"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:text="确定"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:background="#e9a60f" />
+
+</LinearLayout>

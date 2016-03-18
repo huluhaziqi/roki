@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.common.eventbus.Subscribe;
 import com.legent.events.ConnectionModeChangedEvent;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
+import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.api.WifiUtils;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.PageKey;
@@ -38,7 +40,13 @@ public class GuideWifiPage extends HeadPage {
 			ButterKnife.inject(this, view);
 			refresh();
 		}
-
+		TextView v = TitleBar.newTitleTextView(cx, "跳过", new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				GuideActivity.onGuideOver(activity, false);
+			}
+		});
+		getTitleBar().replaceRight(v);
 		return view;
 	}
 

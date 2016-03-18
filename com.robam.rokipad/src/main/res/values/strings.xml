@@ -14,6 +14,8 @@
     <string name="add_dev">点击添加更多联网设备</string>
     <string name="search_again">重新搜索</string>
     <string name="cancel_search">取消搜索</string>
+    <string name="roki_error_no_wifi">无可用WiFi网络，请检查WiFi网络</string>
+    <string name="roki_wifi_pwd_hint">请输入WiFi密码</string>
 
     <!-- 首页 -->
     <string name="love_meal">来吃有爱的饭</string>
@@ -38,7 +40,7 @@
     <string name="company_title">公司名称 : </string>
     <string name="company_name">杭州老板电器股份有限公司</string>
     <string name="system_version">系统版本 : </string>
-    <string name="copyright">Copyright@2014robam All right reserved</string>
+    <string name="copyright">Copyright 2011-2014@ Roki.All right reserved</string>
     <string name="update">版本更新</string>
     <string name="update_en">Version update</string>
     <string name="apply_foresale">申请售后</string>
@@ -101,8 +103,10 @@
     <!-- 设备相关 -->
     <string name="device_sync_timeout_error">sync timeout</string>
     <string name="fan_invalid_error">油烟机已离线</string>
+    <string name="steam_invalid_error">蒸汽炉已离线</string>
     <string name="stove_invalid_error">电磁灶已离线</string>
     <string name="dev_invalid_error">没有可用的设备</string>
+    <string name="oven_invalid_error">烤箱已离线</string>
 
     <!-- 售后 -->
     <string name="forsale_address_hz">浙江省余杭经济开发区临平大道592号</string>

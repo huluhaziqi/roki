@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@mipmap/img_tab_steam_off"
+        android:state_selected="false" >
+    </item>
+    <item
+        android:drawable="@mipmap/img_tab_steam_on"
+        android:state_selected="true">
+        <shape>
+            <stroke
+                android:width="4px"
+                android:color="@color/home_bg" />
+        </shape>
+    </item>
+</selector>

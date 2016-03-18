@@ -99,6 +99,7 @@ public class WifiListView extends FrameLayout {
 
 			adapter = new Adapter();
 			wifiList.setAdapter(adapter);
+			wifiList.setVerticalScrollBarEnabled(true);
 		}
 	}
 
@@ -251,14 +252,14 @@ public class WifiListView extends FrameLayout {
 			@InjectView(R.id.txtSsid)
 			TextView txtSsid;
 
-			@InjectView(R.id.txtStatus)
-			TextView txtStatus;
-
 			@InjectView(R.id.imgLock)
 			ImageView imgLock;
 
 			@InjectView(R.id.imgWifi)
 			ImageView imgWifi;
+
+			@InjectView(R.id.imgSelect)
+			ImageView imgSelect;
 
 			public ViewHolder(View view) {
 				ButterKnife.inject(this, view);
@@ -268,14 +269,11 @@ public class WifiListView extends FrameLayout {
 				txtSsid.setText(sr.SSID);
 				imgWifi.setSelected(isConnected);
 
-				txtStatus.setVisibility(isConnected ? VISIBLE : INVISIBLE);
+				imgSelect.setVisibility(isConnected ? VISIBLE : INVISIBLE);
 				boolean isEncrypted = WifiUtils.isEncrypted(sr);
 				imgLock.setVisibility(isEncrypted ? VISIBLE : GONE);
 
-				int color = cx.getResources().getColor(
-						isConnected ? R.color.setting_text_pressed
-								: R.color.setting_text_normal);
-				txtSsid.setTextColor(color);
+				txtSsid.setTextColor(cx.getResources().getColor(R.color.balck));
 			}
 		}
 	}

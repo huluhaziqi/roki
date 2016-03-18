@@ -131,19 +131,19 @@ public class RecipeGridItemView extends FrameLayout {
 	public boolean onLongClick(View view) {
 
 		switch (modelType) {
-		case RecipeAdapter.Model_Today:
-			isInDelete = true;
-			imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
+			case RecipeAdapter.Model_Today:
+				isInDelete = true;
+				imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
 
-			return true;
-		case RecipeAdapter.Model_Favority:
-			isInDelete = true;
+				return true;
+			case RecipeAdapter.Model_Favority:
+				isInDelete = true;
 
-			imgToday.setVisibility(!isInDelete ? View.VISIBLE : View.GONE);
-			imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
-			return true;
-		default:
-			return true;
+				imgToday.setVisibility(!isInDelete ? View.VISIBLE : View.GONE);
+				imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
+				return true;
+			default:
+				return true;
 		}
 
 	}
@@ -155,26 +155,26 @@ public class RecipeGridItemView extends FrameLayout {
 			return;
 
 		switch (view.getId()) {
-		case R.id.layout:
-			if (isInDelete) {
-				onDelete();
-			} else {
-				onToDetail();
-			}
-			break;
-		case R.id.imgToday:
-			if (UiHelper.checkAuth(PageKey.UserLogin)) {
-				onToday();
-			}
-			break;
-		case R.id.imgFavority:
-			if (UiHelper.checkAuth(PageKey.UserLogin)) {
-				onFavority();
-			}
-			break;
+			case R.id.layout:
+				if (isInDelete) {
+					onDelete();
+				} else {
+					onToDetail();
+				}
+				break;
+			case R.id.imgToday:
+				if (UiHelper.checkAuth(PageKey.UserLogin)) {
+					onToday();
+				}
+				break;
+			case R.id.imgFavority:
+				if (UiHelper.checkAuth(PageKey.UserLogin)) {
+					onFavority();
+				}
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -215,22 +215,22 @@ public class RecipeGridItemView extends FrameLayout {
 		imgDelete.setVisibility(View.GONE);
 
 		switch (modelType) {
-		case RecipeAdapter.Model_Today:
-			imgFavority.setVisibility(View.VISIBLE);
-			imgToday.setVisibility(View.GONE);
-			//
-			imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
-			break;
-		case RecipeAdapter.Model_Favority:
-			imgFavority.setVisibility(View.GONE);
-			//
-			imgToday.setVisibility(!isInDelete ? View.VISIBLE : View.GONE);
-			imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
-			break;
-		default:
-			imgFavority.setVisibility(View.VISIBLE);
-			imgToday.setVisibility(View.VISIBLE);
-			break;
+			case RecipeAdapter.Model_Today:
+				imgFavority.setVisibility(View.VISIBLE);
+				imgToday.setVisibility(View.GONE);
+				//
+				imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
+				break;
+			case RecipeAdapter.Model_Favority:
+				imgFavority.setVisibility(View.GONE);
+				//
+				imgToday.setVisibility(!isInDelete ? View.VISIBLE : View.GONE);
+				imgDelete.setVisibility(isInDelete ? View.VISIBLE : View.GONE);
+				break;
+			default:
+				imgFavority.setVisibility(View.VISIBLE);
+//				imgToday.setVisibility(View.VISIBLE);
+				break;
 		}
 
 	}
@@ -308,14 +308,14 @@ public class RecipeGridItemView extends FrameLayout {
 			return;
 
 		switch (modelType) {
-		case RecipeAdapter.Model_Today:
-			onDeleteToday();
-			break;
-		case RecipeAdapter.Model_Favority:
-			onDeleteFavority();
-			break;
-		default:
-			break;
+			case RecipeAdapter.Model_Today:
+				onDeleteToday();
+				break;
+			case RecipeAdapter.Model_Favority:
+				onDeleteFavority();
+				break;
+			default:
+				break;
 		}
 	}
 

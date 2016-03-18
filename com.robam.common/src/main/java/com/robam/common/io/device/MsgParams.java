@@ -244,7 +244,90 @@ public interface MsgParams {
     String SteriParaGerm = "SteriParaGerm";
     String SteriParaOzone = "SteriParaOzone";
 
+    // ---------------------------------------------------------------------------------------------
+    // 蒸汽炉json参数
+    // ---------------------------------------------------------------------------------------------
 
+    /**
+     * 童锁状态
+     */
+    String SteamLock = "SteamLock";
+    /**
+     * 蒸汽炉工作状态
+     */
+    String SteamStatus = "SteamStatus";
+    /**
+     * 蒸汽炉工作模式
+     */
+    String SteamMode = "SteamMode";
+    /**
+     * 蒸汽炉警告
+     */
+    String SteamAlarm = "SteamAlarm";
+    /**
+     * 蒸汽炉门阀状态
+     */
+    String SteamDoorState = "SteamDoorState";
+    /**
+     * 蒸汽炉工作当前温度和剩余时间
+     */
+    String SteamTemp = "SteamTemp";
+    String SteamTime = "SteamTime";
+    /**
+     * 蒸汽炉设定时间
+     */
+    String SteamTempSet = "SteamTempSet";
+    String SteamTimeSet = "SteamTimeSet";
+    String PreFlag = "preFlag";
 
+    // ------------------------------------------------------------------------
+    // 微波炉json参数
+    // ------------------------------------------------------------------------
+    String MicroWaveStatus = "MicroWaveStatus";
+    String MicroWaveMode = "MicroWaveMode";
+    String MicroWaveWeight = "MicroWaveWeight";
+    String MicroWaveLight = "MicroWaveLight";
+    String MicroWavePower = "MicroWavePower";
+    String MicroWaveTime = "MicroWaveTime";
+    String MicroWaveDoorState = "MicroWaveDoorState";
+    // ---------------------------------------------------------------------------------------------
+    // 烤箱Json参数
+    // ---------------------------------------------------------------------------------------------
+
+    /**
+     * 烤箱工作状态
+     */
+    String OvenStatus = "OvenStatus";
+    /**
+     * 烤箱工作模式
+     */
+    String OvenMode = "OvenMode";
+    /**
+     * 烤箱警告
+     */
+    String OvenAlarm = "OvenAlarm";
+    /**
+     * 烤箱运行状态
+     */
+    String OvenRunP = "OvenRunP";
+    /**
+     * 烤箱烤叉旋转
+     */
+    String OvenRevolve = "OvenRevolve";
+    /**
+     * 烤箱灯光
+     */
+    String OvenLight = "OvenLight";
+    /**
+     * 烤箱设置温度和设置时间
+     */
+    String OvenSetTime =  "OvenSetTime";
+    String OvenSetTemp =  "OvenSetTemp";
+    /**
+     * 烤箱工作当前温度和剩余时间
+     */
+    String OvenTemp = "OvenTemp";
+    String OvenTime = "OvenTime";
+    String OvenPreFlag = "OvenPreflag";
 
 }

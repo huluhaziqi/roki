@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROKI智能厨电"
+        android:textSize="20sp"
+        android:textColor="#393939"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="34dp"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/img_dialog_close"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="500dp"/>
+
+    <TextView
+        android:id="@+id/txtChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择您要添加的智能厨电"
+        android:textSize="18sp"
+        android:layout_below="@id/txtTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:textColor="#393939"/>
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_below="@id/txtChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:paddingBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:horizontalSpacing="28dp"
+        android:verticalSpacing="28dp"
+        android:numColumns="3">
+
+    </GridView>
+
+</RelativeLayout>

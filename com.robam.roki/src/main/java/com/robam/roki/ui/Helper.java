@@ -11,6 +11,9 @@ import com.legent.plat.Plat;
 import com.legent.plat.pojos.User;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.popoups.BasePickerPopupWindow;
+import com.legent.ui.ext.popoups.BasePickerPopupWindow2;
+import com.legent.ui.ext.popoups.BasePickerPopupWindow3;
+import com.legent.ui.ext.popoups.BasePickerPopupWindow4;
 import com.legent.utils.api.ToastUtils;
 import com.legent.utils.graphic.collection.CircleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -21,12 +24,17 @@ import com.robam.common.pojos.device.Stove.StoveStatus;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.roki.R;
 import com.robam.roki.model.CrmArea;
+import com.robam.roki.model.DeviceWorkMsg;
+import com.robam.roki.model.NormalModeItemMsg;
 import com.robam.roki.service.CookTaskService;
 import com.robam.roki.ui.dialog.ChooseStoveByManualDialog;
 import com.robam.roki.ui.dialog.ChooseStoveByWaitDialog;
 import com.robam.roki.ui.form.MainActivity;
 import com.robam.roki.ui.view.CrmAreaWheelView;
+import com.robam.roki.ui.view.DeviceOvenNormalSettingWheelView;
 import com.robam.roki.ui.view.OrderAreaWheelView;
+import com.robam.roki.ui.view.OvenResetWheelView;
+import com.robam.roki.ui.view.SteamovenResetWheelView;
 
 /**
  * Created by sylar on 15/6/11.
@@ -178,5 +186,71 @@ public class Helper {
         pop.setPickListener(listener);
         return pop;
     }
+
+    public static PopupWindow newSteamOvenTwoSettingPicker(Context cx, final Callback2<DeviceWorkMsg> callback, DeviceWorkMsg msg) {
+        final SteamovenResetWheelView view = new SteamovenResetWheelView(cx, msg.getType());
+        BasePickerPopupWindow2.PickListener listener = new BasePickerPopupWindow2.PickListener() {
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onConfirm() {
+                if (callback != null) {
+                    callback.onCompleted(view.getSelected());
+                }
+            }
+        };
+        BasePickerPopupWindow2 pop = new BasePickerPopupWindow2(cx, view);
+        pop.setPickListener(listener);
+        return pop;
+    }
+
+    public static PopupWindow newOvenTwoSettingPicker(Context cx, final Callback2<NormalModeItemMsg> callback, NormalModeItemMsg msg, final String guid) {
+        final DeviceOvenNormalSettingWheelView view = new DeviceOvenNormalSettingWheelView(cx, msg.getType());
+        BasePickerPopupWindow3.PickListener listener = new BasePickerPopupWindow3.PickListener() {
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onConfirm() {
+                if (callback != null) {
+                    callback.onCompleted(view.getSelected());
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString(PageArgumentKey.Guid, guid);
+                    bundle1.putSerializable("msg",view.getSelected());
+                    UIService.getInstance().postPage(PageKey.DeviceOvenWorking, bundle1);
+
+                }
+
+            }
+        };
+        BasePickerPopupWindow3 pop = new BasePickerPopupWindow3(cx, view);
+        pop.setPickListener(listener);
+        return pop;
+    }
+
+    public static PopupWindow newOvenResetTwoSettingPicker(Context cx, final Callback2<NormalModeItemMsg> callback, NormalModeItemMsg msg) {
+        final OvenResetWheelView view = new OvenResetWheelView(cx, msg.getType());
+        BasePickerPopupWindow4.PickListener listener = new BasePickerPopupWindow4.PickListener() {
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onConfirm() {
+                if (callback != null) {
+                    callback.onCompleted(view.getSelected());
+                }
+            }
+        };
+        BasePickerPopupWindow4 pop = new BasePickerPopupWindow4(cx, view);
+        pop.setPickListener(listener);
+        return pop;
+    }
+
 
 }

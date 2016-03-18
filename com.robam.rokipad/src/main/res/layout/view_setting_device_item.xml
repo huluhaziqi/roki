@@ -1,56 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
     android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/imgDevice"
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:id="@+id/linDevice"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
-        android:src="@mipmap/img_fan" />
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
 
-    <TableLayout
+    </LinearLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp" >
+        android:text="已连接用户"
+        android:textSize="16sp"
+        android:textColor="#f9b011" />
 
-        <TableRow>
-
-            <TextView
-                style="@style/setting_content_text"
-                android:text="编码 : " />
-
-            <TextView
-                android:id="@+id/txtNumber"
-                style="@style/setting_content_text" />
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp" >
-
-            <TextView
-                style="@style/setting_content_text"
-                android:text="型号 : " />
-
-            <TextView
-                android:id="@+id/txtModel"
-                style="@style/setting_content_text" />
-        </TableRow>
-
-        <TableRow android:layout_marginTop="10dp" >
-
-            <TextView
-                style="@style/setting_content_text"
-                android:text="固件版本 : " />
-
-            <TextView
-                android:id="@+id/txtVersion"
-                style="@style/setting_content_text" />
-        </TableRow>
-    </TableLayout>
+    <LinearLayout
+        android:id="@+id/linUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:orientation="vertical" >
+    </LinearLayout>
 
 </LinearLayout>

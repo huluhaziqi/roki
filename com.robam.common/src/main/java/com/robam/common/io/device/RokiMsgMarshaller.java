@@ -307,6 +307,203 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 				default:
 					break;
 			}
+		} else if (isSteamMsg(msg)) {
+			switch (key) {
+				case MsgKeys.setSteamTime_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.SteamTime);
+					buf.put(b);
+					break;
+				case MsgKeys.setSteamTemp_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.SteamTemp);
+					buf.put(b);
+					break;
+				case MsgKeys.setSteamMode_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.SteamMode);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.SteamTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.SteamTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.PreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setSteamProMode_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.SteamTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.SteamTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.PreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.GetSteamOvenStatus_Req:
+					break;
+				case MsgKeys.setSteamStatus_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.SteamStatus);
+					buf.put(b);
+					break;
+			}
+		} else if (isMicroWaveMsg(msg)) {
+			switch (key) {
+				case MsgKeys.setMicroWaveStatus_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.MicroWaveStatus);
+					buf.put(b);
+					break;
+				case MsgKeys.setMicroWaveKindsAndHeatCold_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.MicroWaveMode);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.MicroWaveWeight);
+					buf.put(b);
+					break;
+				case MsgKeys.setMicroWaveProModeHeat_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.MicroWaveMode);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.MicroWaveTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.MicroWavePower);
+					buf.put(b);
+					break;
+				case MsgKeys.setMicroWaveLight_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.MicroWaveLight);
+					buf.put(b);
+					break;
+				case MsgKeys.getMicroWaveStatus_Req:
+					break;
+			}
+		} else if (isOvenMsg(msg)) {
+			switch (key) {
+				case MsgKeys.setOvenStatusControl_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.OvenStatus);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenQuickHeat_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenAirBaking_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenToast_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenBottomHeat_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenUnfreeze_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenAirBarbecue_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenBarbecue_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenStrongBarbecue_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenTemp);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenTime);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.setOvenSpitRotateLightControl_Req:
+					str = msg.optString(MsgParams.UserId);
+					buf.put(str.getBytes());
+					b = (byte) msg.optInt(MsgParams.OvenRevolve);
+					buf.put(b);
+
+					b = (byte) msg.optInt(MsgParams.OvenLight);
+					buf.put(b);
+					b = (byte) msg.optInt(MsgParams.OvenPreFlag);
+					buf.put(b);
+					break;
+				case MsgKeys.getOvenStatus_Req:
+					break;
+				default:
+					break;
+			}
 		}
 
 		//
@@ -572,6 +769,183 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 					break;
 			}
 
+		} else if (isOvenMsg(msg)) {
+			switch (key) {
+				case MsgKeys.setOvenStatusControl_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenQuickHeat_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenAirBaking_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenAirBarbecue_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenToast_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenBottomHeat_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenUnfreeze_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenStrongBarbecue_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenBarbecue_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setOvenSpitRotateLightControl_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.getOvenStatus_Rep:
+					msg.putOpt(MsgParams.OvenStatus,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenAlarm,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenRunP,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenTemp,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenRevolve,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenTime,
+							MsgUtils.getShort(payload, offset++));
+					offset++;
+					msg.putOpt(MsgParams.OvenLight,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenSetTemp,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.OvenSetTime,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.OvenAlarm_Noti:
+					msg.putOpt(MsgParams.AlarmId,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.Oven_Noti:
+					msg.putOpt(MsgParams.EventId,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.EventParam,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.UserId,
+							MsgUtils.getString(payload, offset++, 10));
+					break;
+			}
+		} else if (isSteamMsg(msg)) {
+			switch (key) {
+				case MsgKeys.setSteamTime_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setSteamTemp_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setSteamMode_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setSteamProMode_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.GetSteamOvenStatus_Rep:
+					msg.putOpt(MsgParams.SteamLock,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamStatus,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamAlarm,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamMode,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamTemp,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamTime, MsgUtils.getShort(payload, offset++));
+					offset++;
+					msg.putOpt(MsgParams.SteamDoorState,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamTempSet,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.SteamTimeSet,
+							MsgUtils.getShort(payload[offset++]));
+
+					break;
+				case MsgKeys.setSteamStatus_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SteamOvenAlarm_Noti:
+					msg.putOpt(MsgParams.AlarmId,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.SteamOven_Noti:
+					msg.putOpt(MsgParams.EventId,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.EventParam,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.UserId,
+							MsgUtils.getString(payload, offset++, 10));
+					break;
+			}
+		} else if (isMicroWaveMsg(msg)) {
+			switch (key) {
+				case MsgKeys.setMicroWaveStates_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setMicroWaveKindsAndHeatCold_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setMicroWaveProModeHeat_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.setMicroWaveLight_Rep:
+					msg.putOpt(MsgParams.RC,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.getMicroWaveStatus_Rep:
+					msg.putOpt(MsgParams.MicroWaveStatus,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.MicroWaveLight,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.MicroWaveMode,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.MicroWavePower,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.MicroWaveWeight,
+							MsgUtils.getInt(payload, offset++));
+					offset++;
+					msg.putOpt(MsgParams.MicroWaveTime,
+							MsgUtils.getInt(payload, offset++));
+					offset++;
+					msg.putOpt(MsgParams.MicroWaveDoorState,
+							MsgUtils.getShort(payload[offset++]));
+					break;
+				case MsgKeys.MicroWave_Noti:
+					msg.putOpt(MsgParams.EventId,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.EventParam,
+							MsgUtils.getShort(payload[offset++]));
+					msg.putOpt(MsgParams.UserId,
+							MsgUtils.getString(payload, offset, 10));
+					break;
+			}
 		}
 	}
 
@@ -583,5 +957,16 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 	}
 	private boolean isSterilizer(Msg msg){//判断是否为消毒柜 by zhaiyuanyi 20151120
 		return Utils.isSterilizer(msg.getDeviceGuid().getGuid());
+	}
+	private boolean isSteamMsg(Msg msg) {
+		return Utils.isSteam(msg.getDeviceGuid().getGuid());
+	}
+
+	private boolean isMicroWaveMsg(Msg msg) {
+		return Utils.isMicroWave(msg.getDeviceGuid().getGuid());
+	}
+
+	private boolean isOvenMsg(Msg msg) {  //判断是否为油烟机 by linxiaobin 20151220
+		return Utils.isOven(msg.getDeviceGuid().getGuid());
 	}
 }

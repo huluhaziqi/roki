@@ -10,6 +10,7 @@
     <color name="black_35">#5A000000</color>
     <color name="black_30">#4D000000</color>
     <color name="black_20">#33000000</color>
+    <color name="balck">#3e3e3e</color>
     <color name="white_70">#B4FFFFFF</color>
     <color name="white_25">#40FFFFFF</color>
 
@@ -33,6 +34,7 @@
     <color name="setting_text_pressed">#e9a60f</color>
     <color name="setting_divide">#1A000000</color>
     <color name="setting_bg_pressed">#80cecece</color>
+    <color name="stove_text">#424242</color>
 
     <!-- recipes -->
     <color name="recipe_category_title_color">#575757</color>
@@ -56,5 +58,33 @@
     <color name="foresale_btn_bg_normal">#cecece</color>
     <color name="foresale_divider">#19000000</color>
     <color name="btn_recovery_normal">#0c000000</color>
+
+    <color name="c01">#acacac</color>
+    <color name="c02">#e9a60f</color>
+    <color name="c03">#343434</color>
+    <color name="c04">#6586b1</color>
+    <color name="c05">#1b2046</color>
+    <color name="c06">#db4545</color>
+    <color name="c07">#f41f1f</color>
+    <color name="c08">#6486b0</color>
+    <color name="c09">#f6f9fe</color>
+    <color name="c10">#82a0c7</color>
+    <color name="c11">#e9a60f</color>
+    <color name="c12">#3b495a</color>
+    <color name="c13">#dadada</color>
+    <color name="c15">#f1f2ed</color>
+    <color name="c16">#929292</color>
+    <color name="c17">#98989a</color>
+    <color name="c18">#dedfd7</color>
+
+    <color name="Black_65">#a6000000</color>
+    <color name="Black_80">#cd000000</color>
+    <color name="White_90">#e5ffffff</color>
+    <color name="White_60">#99ffffff</color>
+
+
+    <color name="c14">#ffffff</color>
+    <color name="c19">#575757</color>
+    <color name="Gray_57">#575757</color>
 
 </resources>

@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.legent.VoidCallback;
 import com.legent.ui.ext.HeadPage;
+import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.api.ToastUtils;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.form.GuideActivity;
@@ -33,7 +35,8 @@ public class GuideRegistPage extends HeadPage {
 		if (!view.isInEditMode()) {
 			ButterKnife.inject(this, view);
 		}
-
+		TextView v = TitleBar.newTitleTextView(cx, "注册");
+		getTitleBar().replaceMiddle(v);
 		return view;
 	}
 

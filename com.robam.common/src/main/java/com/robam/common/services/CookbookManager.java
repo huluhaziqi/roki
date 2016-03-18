@@ -278,6 +278,14 @@ public class CookbookManager extends AbsService {
         });
     }
 
+    public void getCookbooks(final Callback<List<Recipe>> callback) {
+        List<Recipe> list = DaoHelper.getAll(Recipe.class);
+        if (list != null && list.size() > 0) {
+            Helper.onSuccess(callback, list);
+        } else {
+        }
+    }
+
     public void getFavorityCookbooks(final Callback<CookbooksResponse> callback) {
         //是否10分钟内更新
         boolean isNearest = Calendar.getInstance().getTimeInMillis() - lastUpdateTime_favority <= UpdatePeriod;

@@ -3,19 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="30dp" >
+        android:src="@mipmap/img_dialog_close"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:id="@+id/txtPwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textColor="@color/Black"
-            android:textSize="19sp" />
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="roki"
+        android:textSize="34sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/relPwd"
+        android:layout_width="540dp"
+        android:layout_height="85dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/shape_pwdedt_bg"
+        android:orientation="horizontal"
+        android:layout_marginTop="34dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txt"
+        android:padding="30dp" >
 
         <EditText
             android:id="@+id/edtPwd"
@@ -23,22 +41,36 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:paddingLeft="10dp"
-            android:layout_toRightOf="@+id/txtPwd"
+            android:hint="请输入密码"
+            android:textSize="21sp"
+            android:background="@null"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:layout_weight="1"
             android:ems="10"
             android:inputType="textPassword" >
 
             <requestFocus />
         </EditText>
 
-        <CheckBox
-            android:id="@+id/chkShowPwd"
+        <ImageView
+            android:id="@+id/imgPwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/edtPwd"
-            android:layout_below="@+id/edtPwd"
-            android:layout_marginTop="15dp"
-            android:text="@string/show_password"
-            android:textSize="12sp" />
-    </RelativeLayout>
+            android:src="@mipmap/img_pwd_eye"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtConfirm"
+        android:layout_width="540dp"
+        android:layout_height="85dp"
+        android:layout_below="@id/relPwd"
+        android:layout_marginTop="20dp"
+        android:background="@color/home_bg"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:textSize="36sp"
+        android:gravity="center"/>
 
 </RelativeLayout>

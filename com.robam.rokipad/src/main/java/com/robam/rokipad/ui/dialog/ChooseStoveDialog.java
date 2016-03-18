@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.legent.ui.ext.dialogs.AbsDialog;
-import com.robam.common.pojos.device.Stove.Stove.StoveHead;
+import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.rokipad.R;
 
 import butterknife.ButterKnife;
@@ -53,7 +53,7 @@ public class ChooseStoveDialog extends AbsDialog {
 		dismiss();
 
 		if (callback != null) {
-			callback.onStoveSelected(StoveHead.LEFT_ID);
+			callback.onStoveSelected(Stove.StoveHead.LEFT_ID);
 		}
 	}
 
@@ -62,7 +62,7 @@ public class ChooseStoveDialog extends AbsDialog {
 		dismiss();
 
 		if (callback != null) {
-			callback.onStoveSelected(StoveHead.RIGHT_ID);
+			callback.onStoveSelected(Stove.StoveHead.RIGHT_ID);
 		}
 	}
 

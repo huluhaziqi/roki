@@ -58,6 +58,7 @@
         android:id="@+id/recipeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:numColumns="4"
         app:column_count="4"
         app:grid_paddingBottom="4dp"
         app:grid_paddingLeft="4dp"

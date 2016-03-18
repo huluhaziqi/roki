@@ -61,9 +61,10 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginRight="@dimen/collection_item_add_margin_right"
-                 android:background="@drawable/common_view_background_selector"
+                android:background="@drawable/common_view_background_selector"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop"
+                android:visibility="gone"
                 android:src="@drawable/ic_today_selector" />
 
             <ImageView
@@ -71,7 +72,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginRight="@dimen/collection_item_collect_margin_right"
-                 android:background="@drawable/common_view_background_selector"
+                android:background="@drawable/common_view_background_selector"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_favority_selector" />

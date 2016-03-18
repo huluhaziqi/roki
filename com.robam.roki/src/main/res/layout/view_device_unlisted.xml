@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="*">
+
+    <TableRow>
+
+        <com.robam.roki.ui.view.DeviceUnlistedItemView
+            android:id="@+id/item1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="Sterilizer"
+            app:imgSource="@mipmap/ic_home_device_xdg"
+            app:title="消毒柜" />
+
+
+        <com.robam.roki.ui.view.DeviceUnlistedItemView
+            android:id="@+id/item2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            app:description="Oven"
+            app:imgSource="@mipmap/ic_home_device_dkx"
+            app:title="电烤箱" />
+    </TableRow>
+
+    <TableRow android:layout_marginTop="3dp">
+
+        <com.robam.roki.ui.view.DeviceUnlistedItemView
+            android:id="@+id/item3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:description="Sterilizer"
+            app:imgSource="@mipmap/ic_home_device_wbl"
+            app:title="消毒柜" />
+
+
+        <com.robam.roki.ui.view.DeviceUnlistedItemView
+            android:id="@+id/item4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            app:description="Sterilizer"
+            app:imgSource="@mipmap/ic_home_device_zql"
+            app:title="消毒柜" />
+    </TableRow>
+</TableLayout>

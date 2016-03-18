@@ -47,7 +47,7 @@ public class RecipeIntroduceView extends FrameLayout {
 	public void onClickNext() {
 		if (book == null)
 			return;
-		
+
 		Bundle bd = new Bundle();
 		bd.putLong(PageArgumentKey.BookId, book.id);
 		UIService.getInstance().postPage(PageKey.RecipePrepare, bd);
@@ -91,7 +91,7 @@ public class RecipeIntroduceView extends FrameLayout {
 
 		@Override
 		public View getView(final int position, View convertView,
-				ViewGroup parent) {
+							ViewGroup parent) {
 			ViewHolder holder;
 			if (convertView == null) {
 				LayoutInflater layoutInflator = LayoutInflater

@@ -24,9 +24,6 @@ import butterknife.InjectViews;
 
 public class HomeFanView extends FrameLayout {
 
-    @InjectView(R.id.fanWind)
-    FanWindView fanWind;
-
     @InjectView(R.id.fanLight)
     FanLightView fanLight;
 
@@ -146,7 +143,7 @@ public class HomeFanView extends FrameLayout {
         if(level == this.level)return;
         this.level = level;
 
-        fanWind.setLevel(fan.level);
+//        fanWind.setLevel(fan.level);
         for (FanLevelView flv : fanLevels) {
             flv.setSelected(false);
         }

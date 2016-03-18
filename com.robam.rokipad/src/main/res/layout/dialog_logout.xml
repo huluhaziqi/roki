@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/img_logout_sad"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="残忍退出"
+        android:textSize="32sp"
+        android:textColor="#393939"
+        android:layout_marginTop="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="退出后，您连接的厨电（不含烟、灶）\n将不能控制了呢。"
+        android:textSize="16sp"
+        android:textColor="#ff7612"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="115dp"
+        android:layout_marginRight="115dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/txtCancel"
+            android:layout_width="161dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:text="取消"
+            android:textSize="32sp"
+            android:textColor="#ffffff"
+            android:background="#e9a60f"/>
+
+        <TextView
+            android:id="@+id/txtConfirm"
+            android:layout_width="161dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:text="确定"
+            android:textSize="32sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="61dp"
+            android:layout_marginBottom="39dp"
+            android:background="#e9a60f"/>
+
+    </LinearLayout>
+
+</LinearLayout>

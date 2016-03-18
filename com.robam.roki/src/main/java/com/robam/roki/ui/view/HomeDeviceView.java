@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -27,7 +28,12 @@ import com.legent.ui.ext.views.TitleBar;
 import com.legent.utils.EventUtils;
 import com.legent.utils.qrcode.ScanQrActivity;
 import com.robam.common.Utils;
+import com.robam.common.events.DeviceDeleteEvent;
 import com.robam.common.events.DeviceEasylinkCompletedEvent;
+import com.robam.common.events.OvenStatusChangedEvent;
+import com.robam.common.events.SteamOvenStatusChangedEvent;
+import com.robam.common.pojos.device.Oven.AbsOven;
+import com.robam.common.pojos.device.Steamoven.AbsSteamoven;
 import com.robam.common.pojos.device.Sterilizer.AbsSterilizer;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.AbsFan;
@@ -62,6 +68,10 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
     LinearLayout disconnectHintView;
     @InjectView(R.id.pull_refresh_scrollview)
     PullToRefreshScrollView pullRefreshScrollview;
+    @InjectView(R.id.device2)
+    DeviceSteamView steamView;
+    @InjectView(R.id.deviceOven)
+    DeviceOvenView deviceOvenView;
 
     public HomeDeviceView(Context context) {
         super(context);
@@ -122,6 +132,44 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
         String guid = event.device.getID();
         if (Utils.isFan(guid)) {
             onRefreshConnection();
+        }
+    }
+
+    @Subscribe
+    public void onEvent(DeviceDeleteEvent event) {
+        if (event.name.equals("蒸汽炉")) {
+            steamView.setType(false);
+        }
+        if (event.name.equals("电烤箱")) {
+            deviceOvenView.setType(false);
+        }
+    }
+
+    @Subscribe
+    public void onEvent(SteamOvenStatusChangedEvent event) {
+        if (event.pojo == null) {
+            return;
+        }
+        if (event.pojo instanceof AbsSteamoven) {
+            refreshSteamView(event.pojo.status);
+        } else  {
+            return;
+        }
+    }
+
+    @Subscribe
+    public void onEvent(OvenStatusChangedEvent event) {
+        boolean hasOven = (event.pojo != null);
+        deviceOvenView.setType(hasOven);
+
+        if (event.pojo == null) {
+            return;
+        }
+        if (event.pojo instanceof AbsOven) {
+            Log.e("status", String.valueOf(event.pojo.status));
+            refreshOvenView(event.pojo.status);
+        } else {
+            return;
         }
     }
 
@@ -194,6 +242,13 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
 //        });
         onFanViewFresh();
         onSteriViewFresh();
+        AbsSteamoven steam = Utils.getDefaultSteam();
+        boolean hasSteam = (steam != null);
+        steamView.setType(hasSteam);
+
+        AbsOven oven = Utils.getDefaultOven();
+        boolean hasOven = (oven != null);
+        deviceOvenView.setType(hasOven);
     }
 
 
@@ -227,5 +282,13 @@ public class HomeDeviceView extends FrameLayout implements UIListeners.IRefresh 
         sterilizerLayout.setVisibility(hasSterilizer ? VISIBLE : GONE);
         if (!hasSterilizer) return;
         sterilizerLayout.loadData(sterilizer);
+    }
+
+    void refreshSteamView(short status) {
+        steamView.setStatus(status);
+    }
+
+    void refreshOvenView(short status) {
+        deviceOvenView.setStatus(status);
     }
 }

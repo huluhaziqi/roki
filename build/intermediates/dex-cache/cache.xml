@@ -2,11 +2,25 @@
 <items version="2" >
 
     <item
-        jar="E:\Androidstudio\roki2016\roki\com.robam.roki\build\intermediates\exploded-aar\roki\com.robam.common\unspecified\jars\classes.jar"
+        jar="/Users/RoWithPet/StudioProjects/project_roki/com.robam.roki/build/intermediates/exploded-aar/project_roki/com.robam.common/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="ac947d743cb94ecdf183a26ef122ce6cfdc2982d">
-        <dex dex="E:\Androidstudio\roki2016\roki\com.robam.roki\build\intermediates\pre-dexed\debug\classes-354a169b9b786d7543369198c5de1384f4d13de6.jar" />
+        sha1="72a06ffc52a9e8f8114b1841bb46f8f132868074">
+        <dex dex="/Users/RoWithPet/StudioProjects/project_roki/com.robam.roki/build/intermediates/pre-dexed/release/classes-4d4e6fff853650b6e5ee0045ecbd97e0f44b8ddb.jar" />
+    </item>
+    <item
+        jar="/Users/RoWithPet/StudioProjects/project_roki/com.robam.roki/build/intermediates/exploded-aar/project_roki/com.legent/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6dc949912aedbf462609cc605ef20ac2912e9b03">
+        <dex dex="/Users/RoWithPet/StudioProjects/project_roki/com.robam.roki/build/intermediates/pre-dexed/release/classes-a1f5daa2868e1f2c9746db74ecb9e03c6daf4972.jar" />
+    </item>
+    <item
+        jar="/Users/RoWithPet/StudioProjects/project_roki/com.robam.roki/build/intermediates/exploded-aar/project_roki/com.legent.plat/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2497c5c8d799dcd689af0664803cf5f413015bda">
+        <dex dex="/Users/RoWithPet/StudioProjects/project_roki/com.robam.roki/build/intermediates/pre-dexed/release/classes-88e1cee7def298f3aad01035fcddd46995d80f1a.jar" />
     </item>
 
 </items>

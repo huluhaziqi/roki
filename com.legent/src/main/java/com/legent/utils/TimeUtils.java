@@ -139,4 +139,23 @@ public class TimeUtils {
 		res.set(Calendar.SECOND, 0);
 		return res;
 	}
+
+	public static String sec2clock(long sec) {
+		if (sec <=0) {
+			return "00:00";
+		}
+		StringBuilder sb = new StringBuilder();
+		long min = sec / 60;
+		long second = sec % 60;
+		if (min < 10) {
+			sb.append("0");
+		}
+		sb.append(min);
+		sb.append(":");
+		if (second < 10) {
+			sb.append("0");
+		}
+		sb.append(second);
+		return sb.toString();
+	}
 }

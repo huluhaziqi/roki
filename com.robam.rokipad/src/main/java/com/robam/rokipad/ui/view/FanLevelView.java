@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.robam.rokipad.R;
@@ -17,17 +18,13 @@ import butterknife.InjectView;
 
 public class FanLevelView extends FrameLayout {
 
-    @InjectView(R.id.imgCircle)
-    ImageView imgCircle;
-
     @InjectView(R.id.imgLevel)
     ImageView imgLevel;
 
-    @InjectView(R.id.txtTitle)
-    TextView txtTitle;
-
     Animation anim;
     short level;
+    @InjectView(R.id.pnlImg)
+    RelativeLayout pnlImg;
 
 
     public FanLevelView(Context cx) {
@@ -50,11 +47,6 @@ public class FanLevelView extends FrameLayout {
         super.setSelected(selected);
 
         imgLevel.setSelected(selected);
-        imgCircle.setVisibility(selected ? View.VISIBLE : View.INVISIBLE);
-//        if (selected)
-//            imgCircle.startAnimation(anim);   //档位动画 by zhaiyuanyi
-//        else
-//            imgCircle.clearAnimation();
     }
 
     void init(Context cx, AttributeSet attrs) {
@@ -75,7 +67,6 @@ public class FanLevelView extends FrameLayout {
         if (this.level == level) return;
 
         this.level = (short) level;
-        txtTitle.setVisibility(View.INVISIBLE);
 
         switch (level) {
             case 1:
@@ -89,7 +80,6 @@ public class FanLevelView extends FrameLayout {
                 break;
             case 6:
                 imgLevel.setImageResource(R.drawable.ic_gear6_selector);
-                txtTitle.setVisibility(View.VISIBLE);
                 break;
 
             default:

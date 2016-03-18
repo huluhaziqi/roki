@@ -1,4 +1,5 @@
 package com.robam.common;
+
 import com.legent.plat.Plat;
 import com.legent.plat.PlatApp;
 import com.legent.ui.UIService;
@@ -11,7 +12,8 @@ import com.robam.common.services.StoreService;
 
 abstract public class RobamApp extends PlatApp {
 
-    protected static final String SERVICE_HOST = "mqtt.myroki.com";  //"112.124.101.32";   //
+    //    protected static final String SERVICE_HOST = "112.124.101.32";
+    protected static final String SERVICE_HOST = "mqtt.myroki.com";
 
     abstract public NotifyService getNotifyService();
 
@@ -31,10 +33,17 @@ abstract public class RobamApp extends PlatApp {
 
     protected void initPlat() {
         Plat.serverOpt.set(getServiceHost());
-        Plat.commander.setAsyncLogEnable(true);// 1104 zhaiyuanyi
-        Plat.commander.setSyncLogEnable(true);
 
-        Plat.LOG_FILE_ENABLE = false;
+        if (Plat.dcMqtt != null) {
+            Plat.dcMqtt.setAsyncLogEnable(true);// 1104 zhaiyuanyi
+            Plat.dcMqtt.setSyncLogEnable(true);
+        }
+        if (Plat.dcSerial != null) {
+            Plat.dcSerial.setAsyncLogEnable(true);// 1104 zhaiyuanyi
+            Plat.dcSerial.setSyncLogEnable(true);
+        }
+
+        Plat.LOG_FILE_ENABLE = true;
         if (Plat.LOG_FILE_ENABLE) {
             LogUtils.logFIleWithTime("\n\n");
             LogUtils.logFIleWithTime("=============================================");

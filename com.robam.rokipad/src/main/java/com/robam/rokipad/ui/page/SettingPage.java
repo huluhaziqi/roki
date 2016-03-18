@@ -18,12 +18,15 @@ import com.legent.VoidCallback;
 import com.legent.plat.Plat;
 import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.events.UserLogoutEvent;
+import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.Utils;
 import com.robam.common.pojos.device.fan.AbsFan;
+import com.robam.common.ui.UiHelper;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.PageArgumentKey;
+import com.robam.rokipad.ui.PageKey;
 import com.robam.rokipad.ui.view.SettingAboutView;
 import com.robam.rokipad.ui.view.SettingAccountView;
 import com.robam.rokipad.ui.view.SettingDeviceView;
@@ -36,15 +39,16 @@ import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import butterknife.OnItemClick;
 
 public class SettingPage extends HeadPage {
 
-	public static final int ITEM_INDEX_DEVICE = 0;
-	public static final int ITEM_INDEX_ACCOUNT = 1;
-	public static final int ITEM_INDEX_WIFI = 2;
-	public static final int ITEM_INDEX_SMART = 3;
-	public static final int ITEM_INDEX_SERVICE = 4;
+	public static final int ITEM_INDEX_ACCOUNT = 0;
+	public static final int ITEM_INDEX_SMART = 1;
+	public static final int ITEM_INDEX_SERVICE = 2;
+	public static final int ITEM_INDEX_DEVICE = 3;
+	public static final int ITEM_INDEX_WIFI = 4;
 	public static final int ITEM_INDEX_ABOUT = 5;
 
 	@InjectView(R.id.itemList)
@@ -148,7 +152,7 @@ public class SettingPage extends HeadPage {
 			if (fan == null)
 				return;
 
-			Plat.commander.setWifiParam(
+			Plat.dcSerial.setWifiParam(
 					fan.getID(), ssid, pwd, new VoidCallback() {
 
 						@Override
@@ -187,17 +191,17 @@ public class SettingPage extends HeadPage {
 
 		List<SettingItem> buildItems() {
 			List<SettingItem> list = Lists.newArrayList();
-			list.add(new SettingItem(0, "设备管理",
+			list.add(new SettingItem(0, "控制管理",
 					R.drawable.ic_setting_item_device_selector));
-			list.add(new SettingItem(1, "账户管理",
+			list.add(new SettingItem(1, "智能设定",
 					R.drawable.ic_setting_item_account_selector));
-			list.add(new SettingItem(2, "联网设置",
+			list.add(new SettingItem(2, "售后服务",
 					R.drawable.ic_setting_item_wifi_selector));
-			list.add(new SettingItem(3, "智能设置",
+			list.add(new SettingItem(3, "厨电信息",
 					R.drawable.ic_setting_item_smart_selector));
-			list.add(new SettingItem(4, "售后服务",
+			list.add(new SettingItem(4, "WLAN",
 					R.drawable.ic_setting_item_sale_selector));
-			list.add(new SettingItem(5, "关于软件",
+			list.add(new SettingItem(5, "关于ROKI",
 					R.drawable.ic_setting_item_about_selector));
 
 			return list;
@@ -246,12 +250,6 @@ public class SettingPage extends HeadPage {
 			@InjectView(R.id.imgItem)
 			ImageView imgItem;
 
-			@InjectView(R.id.imgFlag)
-			ImageView imgFlag;
-
-			@InjectView(R.id.txtItem)
-			TextView txtItem;
-
 			View view;
 
 			public ViewHolder(View view) {
@@ -260,19 +258,10 @@ public class SettingPage extends HeadPage {
 			}
 
 			public void showItem(SettingItem item, boolean isSelected) {
-
 				imgItem.setImageResource(item.imgResid);
 				imgItem.setSelected(isSelected);
-
-				txtItem.setText(item.title);
-				int colorResid = isSelected ? R.color.setting_text_pressed
-						: R.color.setting_text_normal;
-				txtItem.setTextColor(cx.getResources().getColor(colorResid));
-
-				imgFlag.setVisibility(isSelected ? View.VISIBLE : View.GONE);
 			}
 		}
-
 	}
 
 }

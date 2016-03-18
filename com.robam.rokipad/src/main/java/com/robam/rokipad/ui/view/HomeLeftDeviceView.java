@@ -11,9 +11,9 @@ import com.legent.plat.events.DeviceConnectedNoticEvent;
 import com.legent.plat.events.DeviceConnectionChangedEvent;
 import com.legent.plat.pojos.device.IDevice;
 import com.legent.utils.EventUtils;
+import com.robam.common.Utils;
 import com.robam.common.events.FanStatusChangedEvent;
 import com.robam.common.events.StoveStatusChangedEvent;
-import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.fan.Fan9700;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.UIEvents;
@@ -76,7 +76,10 @@ public class HomeLeftDeviceView extends FrameLayout {
 			if (isFan) {
 				fanView.setData((Fan9700) device);
 			} else {
-				stoveView.setData((Stove) device);
+
+//				stoveView.setData((Stove) device);
+				stoveView.setData(Utils.getDefaultStove());
+//				stoveView.setData((Stove)(((Fan9700)device).getChild()));
 			}
 		}
 	}

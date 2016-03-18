@@ -5,11 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.legent.Callback;
+import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.pojos.User;
 import com.legent.ui.UIService;
 import com.legent.ui.ext.HeadPage;
+import com.legent.ui.ext.views.TitleBar;
+import com.legent.utils.EventUtils;
 import com.legent.utils.api.ToastUtils;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.PageKey;
@@ -37,8 +41,17 @@ public class GuideLoginPage extends HeadPage {
 		if (!view.isInEditMode()) {
 			ButterKnife.inject(this, view);
 			loginView.setOnRegistCallback(resitCallback);
+			loginView.setOnFindPwdCallback(findCallback);
 		}
-
+		TextView v = TitleBar.newTitleTextView(cx, "跳过", new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				GuideActivity.onGuideOver(activity, false);
+			}
+		});
+		TextView v1 = TitleBar.newTitleTextView(cx, "登录");
+		getTitleBar().replaceMiddle(v1);
+		getTitleBar().replaceRight(v);
 		return view;
 	}
 
@@ -50,12 +63,11 @@ public class GuideLoginPage extends HeadPage {
 
 	@OnClick(R.id.btnLogin)
 	public void onLogin() {
-
 		loginView.login(new Callback<User>() {
 
 			@Override
 			public void onSuccess(User user) {
-				onLoginCompleted(user);
+				onLoginCompleted();
 			}
 
 			@Override
@@ -63,7 +75,6 @@ public class GuideLoginPage extends HeadPage {
 				ToastUtils.showThrowable(t);
 			}
 		});
-
 	}
 
 	UserLoginView.OnRegistCallback resitCallback = new UserLoginView.OnRegistCallback() {
@@ -74,7 +85,14 @@ public class GuideLoginPage extends HeadPage {
 		}
 	};
 
-	private void onLoginCompleted(final User user) {
+	UserLoginView.OnFindPwdCallback findCallback = new UserLoginView.OnFindPwdCallback() {
+		@Override
+		public void onFindPwd() {
+			UIService.getInstance().postPage(PageKey.GuideFind);
+		}
+	};
+
+	private void onLoginCompleted() {
 		ToastUtils.showShort("登录成功!");
 		GuideActivity.onGuideOver(activity, true);
 	}

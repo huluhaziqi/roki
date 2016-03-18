@@ -15,7 +15,6 @@ import com.robam.common.pojos.Material;
 import com.robam.common.pojos.Materials;
 import com.robam.common.pojos.Recipe;
 import com.robam.common.pojos.device.Stove.Stove;
-import com.robam.common.pojos.device.Stove.Stove.StoveHead;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.rokipad.R;
 import com.robam.rokipad.service.CookTaskService;
@@ -92,7 +91,7 @@ public class RecipePrepareView extends FrameLayout {
 
         AbsFan device = Utils.getDefaultFan();
         Stove stove = Utils.getDefaultStove();
-        StoveHead head = null;
+        Stove.StoveHead head = null;
 
         if (stove != null) {
             head = stove.getHeadById(headId);

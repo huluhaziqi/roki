@@ -33,11 +33,15 @@ public class DeviceCommander extends AbsCommander implements IDeviceCommander {
     protected static final String TAG = LogTags.TAG_IO;
     private static DeviceCommander instance = new DeviceCommander();
 
-    synchronized public static DeviceCommander getInstance() {
-        return instance;
-    }
+//    synchronized public static DeviceCommander getInstance() {
+//        return instance;
+//    }
 
     private DeviceCommander() {
+    }
+
+    public DeviceCommander(IChannel channel) {
+        this.channel = channel;
     }
 
     protected boolean isLog_sync, isLog_async;
@@ -57,7 +61,7 @@ public class DeviceCommander extends AbsCommander implements IDeviceCommander {
         super.init(cx, params);
 
         this.cx = cx;
-        this.channel = Plat.channel;
+//        this.channel = Plat.channel;
         this.msgMarshaller = Plat.appMsgMarshaller;
         this.syncDecider = Plat.appMsgSyncDecider;
         this.noticeReceiver = Plat.appNoticeReceiver;

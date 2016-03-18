@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="36dp"
+        android:src="@mipmap/img_recipe_back" />
+
+    <ImageView
+        android:id="@+id/imgClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="28dp"
+        android:src="@mipmap/img_recipe_close"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/rel"
+            android:layout_width="312dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true" >
+
+            <LinearLayout
+                android:id="@+id/lin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/txtStep1"
+                    android:text="2"
+                    android:textSize="60sp"
+                    android:textColor="#6486b0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:src="@mipmap/img_recipe_leanline"/>
+
+                <TextView
+                    android:id="@+id/txtStep2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textColor="#dadada"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_below="@id/lin"
+                android:id="@+id/txtBrief"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:text="     JSON为曲奇达人热捧的老师......原料简单快手曲奇~教你用一份原料做出双卫曲奇。"
+                android:lineSpacingExtra="2dp"
+                android:textSize="24sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#232323"/>
+            
+            <TextView
+                android:id="@+id/txtTips"
+                android:layout_width="264dp"
+                android:layout_height="wrap_content"
+                android:text="小贴士：搅拌时需要均匀，需慢慢加入材料"
+                android:layout_marginTop="46dp"
+                android:textColor="#ff5400"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/txtBrief"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgRecipeBrief"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/rel"/>
+
+        <ImageView
+            android:id="@+id/imgLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/rel"
+            android:layout_marginRight="26dp"
+            android:layout_marginTop="280dp"
+            android:src="@mipmap/img_recipe_light"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -57,6 +57,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:weightSum="3"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -82,45 +83,37 @@
                         app:description="Sterilizer"
                         app:title="消毒柜" />
 
-
-                    <com.robam.roki.ui.view.DeviceUnlistedItemNoView
-                        android:id="@+id/item2"
+                    <com.robam.roki.ui.view.DeviceOvenView
+                        android:id="@+id/deviceOven"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
-                        android:layout_weight="1"
-                        app:description="Oven"
-                        app:imgSource="@mipmap/ic_home_device_dkx"
-                        app:title="电烤箱" />
+                        android:layout_weight="1" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="3dp">
+
+                    <com.robam.roki.ui.view.DeviceSteamView
+                        android:id="@+id/device2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
 
                     <com.robam.roki.ui.view.DeviceUnlistedItemNoView
                         android:id="@+id/item3"
                         android:layout_width="0dp"
+                        android:layout_marginLeft="3dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:description="Microwave"
                         app:imgSource="@mipmap/ic_home_device_wbl"
                         app:title="微波炉" />
-
-
-                    <com.robam.roki.ui.view.DeviceUnlistedItemNoView
-                        android:id="@+id/item4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="3dp"
-                        android:layout_weight="1"
-                        app:description="SteamOven"
-                        app:imgSource="@mipmap/ic_home_device_zql"
-                        app:title="蒸汽炉" />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </com.handmark.pulltorefresh.library.PullToRefreshScrollView>

@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import com.legent.VoidCallback;
 import com.legent.plat.Plat;
+import com.legent.ui.UIService;
+import com.legent.utils.EventUtils;
 import com.legent.utils.api.PackageUtils;
 import com.legent.utils.api.PreferenceUtils;
 import com.legent.utils.api.ToastUtils;
 import com.robam.common.PrefsKey;
 import com.robam.common.Utils;
+import com.robam.common.events.AppDownEvent;
 import com.robam.common.pojos.device.fan.AbsFan;
 import com.robam.common.services.AppUpdateService;
 import com.robam.rokipad.R;
@@ -37,6 +40,9 @@ public class SettingAboutView extends FrameLayout {
 
     @InjectView(R.id.txtUpgrade)
     TextView txtUpgrade;
+
+    @InjectView(R.id.txtCurVersion)
+    TextView txtCurVersion;
 
     boolean isExit;
     int logoClickCount;
@@ -64,6 +70,7 @@ public class SettingAboutView extends FrameLayout {
             ButterKnife.inject(this, view);
 
             txtVersion.append("V" + PackageUtils.getVersionName(getContext()));
+            txtCurVersion.append("V" + PackageUtils.getVersionName(getContext()));
         }
     }
 
@@ -86,14 +93,15 @@ public class SettingAboutView extends FrameLayout {
         }
     }
 
-    @OnClick(R.id.txtUpgrade)
+    @OnClick(R.id.linUpgrade)
     public void onClickUpgrade() {
         AppUpdateService.getInstance().start(getContext());
     }
 
-    @OnClick(R.id.txtRestore)
-    public void onClickRestore() {
-        onRestore();
+    @OnClick(R.id.linDownload)
+    public void onClickDownload() {
+        UIService.getInstance().popBack();
+        EventUtils.postEvent(new AppDownEvent());
     }
 
     void onToDestop() {

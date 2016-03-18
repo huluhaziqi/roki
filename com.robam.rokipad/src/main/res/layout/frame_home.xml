@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.robam.rokipad.ui.view.HomeTitleView
-        android:id="@+id/titleView"
-        android:layout_width="match_parent"
-        android:layout_height="?android:actionBarSize" />
+<!--<<<<<<< HEAD-->
+    <!--&lt;!&ndash;<com.robam.rokipad.ui.view.HomeTitleView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/titleView"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="?android:actionBarSize" />&ndash;&gt;-->
+<!--=======-->
+<!--&gt;>>>>>> efbbc5472c84f788a3521c87dee729eb7ef5bb7c-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,10 +26,11 @@
         <com.viewpagerindicator.UnderlinePageIndicator
             android:id="@+id/indicator"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="0dp"
             android:layout_alignParentBottom="true"
             app:selectedColor="@color/home_bg"
             app:fades="false" />
+
     </RelativeLayout>
 
 </LinearLayout>

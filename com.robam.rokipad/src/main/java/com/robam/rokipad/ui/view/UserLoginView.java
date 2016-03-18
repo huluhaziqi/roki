@@ -13,8 +13,10 @@ import com.google.common.base.Strings;
 import com.legent.Helper;
 import com.legent.Callback;
 import com.legent.plat.Plat;
+import com.legent.plat.events.UserLoginEvent;
 import com.legent.plat.pojos.User;
 import com.legent.ui.ext.dialogs.ProgressDialogHelper;
+import com.legent.utils.EventUtils;
 import com.legent.utils.StringUtils;
 import com.robam.rokipad.R;
 
@@ -28,6 +30,10 @@ public class UserLoginView extends FrameLayout {
         void onRegist();
     }
 
+    public static interface OnFindPwdCallback {
+        void onFindPwd();
+    }
+
     @InjectView(R.id.edtPhone)
     EditText edtPhone;
 
@@ -39,6 +45,7 @@ public class UserLoginView extends FrameLayout {
 
     Context cx;
     OnRegistCallback callabck;
+    OnFindPwdCallback callbackFind;
 
     public UserLoginView(Context context) {
         super(context);
@@ -62,6 +69,13 @@ public class UserLoginView extends FrameLayout {
         }
     }
 
+    @OnClick(R.id.txtForgotPwd)
+    public void onClickForgot() {
+        if (callbackFind != null) {
+            callbackFind.onFindPwd();
+        }
+    }
+
     void init(Context cx, AttributeSet attrs) {
 
         this.cx = cx;
@@ -76,6 +90,10 @@ public class UserLoginView extends FrameLayout {
 
     public void setOnRegistCallback(OnRegistCallback callback) {
         this.callabck = callback;
+    }
+
+    public void setOnFindPwdCallback(OnFindPwdCallback callbackFind) {
+        this.callbackFind = callbackFind;
     }
 
     public void login(final Callback<User> callback) {

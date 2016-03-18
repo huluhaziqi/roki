@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_login_background">
+
+    <EditText
+        android:layout_marginTop="108dp"
+        android:id="@+id/edtPhone"
+        android:layout_width="540dp"
+        android:layout_height="65dp"
+        android:paddingLeft="30dp"
+        android:inputType="phone"
+        android:background="@drawable/shape_pwdedt_bg"
+        android:layout_gravity="center_vertical"
+        android:hint="请输入您的手机号码"
+        android:textColorHint="#9b9b9b"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/linCode"
+        android:layout_width="540dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/edtPhone"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edtCode"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:inputType="phone"
+            android:background="@drawable/shape_pwdedt_bg"
+            android:layout_gravity="center_vertical"
+            android:hint="请输入验证码"
+            android:textColorHint="#9b9b9b"
+            android:textColor="#ffffff"
+            android:textSize="21sp" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btnGetCode"
+            android:layout_width="152dp"
+            android:layout_height="match_parent"
+            android:background="@color/home_bg"
+            android:text="发送验证码"
+            android:textColor="@color/White"
+            android:layout_marginLeft="5dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtNewPwd"
+        android:layout_width="540dp"
+        android:layout_height="65dp"
+        android:paddingLeft="30dp"
+        android:inputType="phone"
+        android:layout_below="@id/linCode"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_pwdedt_bg"
+        android:layout_gravity="center_vertical"
+        android:hint="新密码"
+        android:textColorHint="#9b9b9b"
+        android:textColor="#ffffff"
+        android:textSize="21sp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="288dp"
+        android:layout_height="59dp"
+        android:layout_below="@id/edtNewPwd"
+        android:background="@color/home_bg"
+        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/White"
+        android:textSize="22sp" />
+</RelativeLayout>

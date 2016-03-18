@@ -26,7 +26,9 @@ abstract public class AbsDevice extends AbsKeyPojo<String> implements IDevice {
     protected boolean valid;
     protected int errorCountOnCheck;
     protected IDevice parent;
-    protected DeviceCommander dc = Plat.commander;
+    //    protected DeviceCommander dc = Plat.commander;
+    protected DeviceCommander dcMqtt = Plat.dcMqtt;
+    protected DeviceCommander dcSerial = Plat.dcSerial;
 
     public AbsDevice(SubDeviceInfo devInfo) {
         this.valid = true;
@@ -45,13 +47,25 @@ abstract public class AbsDevice extends AbsKeyPojo<String> implements IDevice {
     @Override
     public void init(Context cx, Object... params) {
         super.init(cx, params);
-        dc.initIO(id);
+//        dc.initIO(id);
+        if (dcMqtt != null) {
+            dcMqtt.initIO(id);
+        }
+        if (dcSerial != null) {
+            dcSerial.initIO(id);
+        }
     }
 
     @Override
     public void dispose() {
         super.dispose();
-        dc.disposeIO(id);
+//        dc.disposeIO(id);
+        if (dcMqtt != null) {
+            dcMqtt.initIO(id);
+        }
+        if (dcSerial != null) {
+            dcSerial.initIO(id);
+        }
     }
 
     // -------------------------------------------------------------------------------
@@ -173,7 +187,17 @@ abstract public class AbsDevice extends AbsKeyPojo<String> implements IDevice {
     }
 
     final protected void sendMsg(Msg reqMsg, MsgCallback callback) {
-        dc.asyncSend(id, reqMsg, callback);
+//        dc.asyncSend(id, reqMsg, callback);
+        Plat.dcMqtt.asyncSend(id, reqMsg, callback);
+        Plat.dcSerial.asyncSend(id, reqMsg, callback);
+    }
+
+    final protected void sendMsgBySerial(Msg reqMsg, MsgCallback callback) {
+        Plat.dcSerial.asyncSend(id, reqMsg, callback);
+    }
+
+    final protected void sendMsgByMqtt(Msg reqMsg, MsgCallback callback) {
+        Plat.dcMqtt.asyncSend(id, reqMsg, callback);
     }
 
     final protected String getSrcUser() {

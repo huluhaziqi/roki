@@ -17,16 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="60dp"
-            android:paddingRight="60dp" >
+            android:paddingLeft="46dp"
+            android:paddingRight="45dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="联动"
-                android:textColor="@color/intel_setting_text"
+                android:textColor="#6486b0"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,8 +46,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="灶具开，烟机开"
-                    android:textColor="@color/intel_setting_text"
+                    android:text="当开启灶具时，烟机自动开启。"
+                    android:textColor="#6c6c6c"
+                    android:gravity="center_vertical"
                     android:textSize="18sp" />
 
                 <CheckBox
@@ -50,6 +57,57 @@
                     android:layout_height="wrap_content"
                     android:focusable="false" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当关闭灶具，烟机延时"
+                    android:textColor="#6c6c6c"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="1"
+                    android:textColor="@color/Red" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="分钟关闭"
+                    android:textColor="#6c6c6c"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#e9a60f" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,8 +121,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="灶具档位调大小，烟机风量自动调大小"
-                    android:textColor="@color/intel_setting_text"
+                    android:text="灶具调整到最大档时，烟机自动调整为爆炒模式。"
+                    android:textColor="#6c6c6c"
                     android:textSize="18sp" />
 
                 <CheckBox
@@ -74,41 +132,6 @@
                     android:layout_gravity="right|center_vertical"
                     android:textColor="#e9a60f" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal" >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="灶具关，烟机延时"
-                    android:textColor="@color/intel_setting_text"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tv_time"
-                    style="@style/setting_text_with_line"
-                    android:text="1"
-                    android:textColor="#e9a60f" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="分钟"
-                    android:textColor="@color/intel_setting_text"
-                    android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/cb_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#e9a60f" />
-            </LinearLayout>
         </LinearLayout>
 
         <View
@@ -116,22 +139,31 @@
             android:layout_height="1px"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginRight="40dp"
             android:background="@color/setting_divide" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="60dp"
-            android:paddingRight="60dp" >
+            android:paddingLeft="46dp"
+            android:paddingRight="45dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="通风换气"
-                android:textColor="@color/intel_setting_text"
+                android:textColor="#6486b0"
+                android:layout_marginTop="12dp"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -142,16 +174,20 @@
 
                 <TextView
                     android:id="@+id/tv_close"
-                    style="@style/setting_text_with_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
                     android:text="2"
-                    android:textColor="#e9a60f" />
+                    android:textColor="@color/Red" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="days未开启烟机，烟机自动换气"
-                    android:textColor="@color/intel_setting_text"
+                    android:text="天未开启烟机，自动开启换气。"
+                    android:textColor="#6c6c6c"
                     android:textSize="18sp" />
 
                 <CheckBox
@@ -162,12 +198,11 @@
                     />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="（换气时间为下午2:00）"
-                android:textColor="@color/intel_setting_text"
-                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -180,27 +215,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="每周固定"
-                    android:textColor="@color/intel_setting_text"
+                    android:textColor="#6c6c6c"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_week"
-                    style="@style/setting_text_with_line"
-                    android:text="周三" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="8dp"
+                    android:text="周三"
+                    android:textColor="@color/Red"/>
 
                 <TextView
                     android:id="@+id/tv_date"
-                    style="@style/setting_text_with_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="5dp"
                     android:layout_marginLeft="3dp"
                     android:text="07:20"
-                    android:textColor="#e9a60f" />
+                    android:textColor="@color/Red" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="开启烟机"
-                    android:textColor="@color/intel_setting_text"
+                    android:text="开启烟机3分钟自动换气"
+                    android:textColor="#6c6c6c"
                     android:textSize="18sp" />
 
                 <CheckBox
@@ -210,35 +254,34 @@
                     android:textColor="#e9a60f" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="自动换气5分钟"
-                android:textColor="@color/intel_setting_text"
-                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/setting_divide" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="60dp"
-            android:paddingRight="60dp" >
+            android:paddingLeft="46dp"
+            android:paddingRight="45dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="清洗提示"
-                android:textColor="@color/intel_setting_text"
+                android:layout_marginTop="22dp"
+                android:textColor="#6486b0"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="6dp"
+                android:background="@color/setting_divide" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -252,7 +295,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="开启智能油网清洗提示"
-                    android:textColor="@color/intel_setting_text"
+                    android:textColor="#6c6c6c"
                     android:textSize="18sp" />
 
                 <CheckBox
@@ -269,20 +312,23 @@
             android:layout_height="1px"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginRight="45dp"
             android:background="@color/setting_divide" />
 
-        <Button
+        <TextView
             android:id="@+id/btn_recover"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:layout_width="wrap_content"
+            android:paddingLeft="46dp"
+            android:paddingRight="45dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_setting_smart_config_recovery_selector"
+            android:gravity="right"
             android:text="@string/recover_setting"
-            android:textColor="@color/intel_setting_text"
+            android:textColor="#6486b0"
             android:textSize="17sp" />
+
     </LinearLayout>
 
 </ScrollView>

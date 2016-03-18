@@ -16,6 +16,14 @@
         <item name="android:textSize">28sp</item>
     </style>
 
+    <style name="progressbar_horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progressbar_horizontal</item><!-- progress_horizontal -->
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:minHeight">77dp</item>
+        <item name="android:maxHeight">77dp</item>
+    </style>
+
     <style name="style_tv_dish_name">
         <item name="android:layout_height">90dp</item>
         <item name="android:layout_width">match_parent</item>
@@ -52,5 +60,12 @@
         <item name="android:textColor">@color/intel_setting_text</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="dialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:background">#f9f6f6</item>
+    </style>
+
 
 </resources>

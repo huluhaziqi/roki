@@ -1,66 +1,95 @@
 package com.robam.rokipad.ui.dialog;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.legent.Callback2;
+import com.legent.ui.ext.dialogs.AbsDialog;
 import com.legent.utils.api.PreferenceUtils;
 import com.robam.rokipad.R;
 
-public class WifiAuthDialog {
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
-	static public void show(Context cx, String ssid,
-			final Callback2<String> callabck) {
+public class WifiAuthDialog extends AbsDialog {
 
-		View view = LayoutInflater.from(cx).inflate(
-				R.layout.dialog_input_wifi_pwd, null, false);
+    @InjectView(R.id.edtPwd)
+    EditText edtPwd;
+    @InjectView(R.id.img)
+    ImageView img;
+    @InjectView(R.id.txt)
+    TextView txt;
+    @InjectView(R.id.relPwd)
+    LinearLayout relPwd;
+    @InjectView(R.id.txtConfirm)
+    TextView txtConfirm;
+    @InjectView(R.id.imgPwd)
+    ImageView imgPwd;
 
-		final EditText edtPwd = (EditText) view.findViewById(R.id.edtPwd);
-		String savedPwd = PreferenceUtils.getString(ssid, null);
-		edtPwd.setText(savedPwd);
+    private Callback2<String> callback;
+    private boolean checked = true;
 
-		CheckBox chkPwd = (CheckBox) view.findViewById(R.id.chkShowPwd);
-		chkPwd.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+    static public void show(Context cx, String ssid,
+                            final Callback2<String> callabck) {
+        WifiAuthDialog dlg = new WifiAuthDialog(cx);
+        dlg.setCallback(callabck);
+        dlg.setEdtPwd(ssid);
+        dlg.show();
+    }
 
-			@Override
-			public void onCheckedChanged(CompoundButton chk, boolean checked) {
-				if (!checked)
-					edtPwd.setInputType(InputType.TYPE_CLASS_TEXT
-							| InputType.TYPE_TEXT_VARIATION_PASSWORD);
-				else
-					edtPwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-			}
-		});
-		chkPwd.setChecked(true);
+    @Override
+    protected int getViewResId() {
+        return R.layout.dialog_input_wifi_pwd;
+    }
 
-		DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+    @Override
+    protected void initView(View view) {
+        ButterKnife.inject(this, view);
+    }
 
-			@Override
-			public void onClick(DialogInterface dlg, int witch) {
-				if (witch == DialogInterface.BUTTON_POSITIVE) {
-					String pwd = edtPwd.getText().toString();
-					dlg.dismiss();
-					if (callabck != null) {
-						callabck.onCompleted(pwd);
-					}
-				}
-			}
-		};
+    public WifiAuthDialog(Context context) {
+        super(context, R.style.Theme_Dialog_FullScreen);
+    }
 
-		AlertDialog.Builder builder = new Builder(cx);
-		builder.setPositiveButton("连接", listener);
-		builder.setNegativeButton("取消", null);
-		builder.setView(view);
-		builder.setTitle(ssid);
-		builder.create().show();
-	}
+    public WifiAuthDialog(Context context, int theme) {
+        super(context, theme);
+    }
+
+    private void setCallback(Callback2<String> callback) {
+        this.callback = callback;
+    }
+
+    private void setEdtPwd(String ssid) {
+        String savedPwd = PreferenceUtils.getString(ssid, null);
+        edtPwd.setText(savedPwd);
+    }
+
+    @OnClick(R.id.txtConfirm)
+    public void onClickConfirm() {
+        String pwd = edtPwd.getText().toString();
+        dismiss();
+        callback.onCompleted(pwd);
+    }
+
+    @OnClick(R.id.img)
+    public void onClickImg() {
+        dismiss();
+    }
+
+    @OnClick(R.id.imgPwd)
+    public void onClickPwd() {
+        if (checked) {
+            edtPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        } else {
+            edtPwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        }
+        checked = !checked;
+    }
 
 }

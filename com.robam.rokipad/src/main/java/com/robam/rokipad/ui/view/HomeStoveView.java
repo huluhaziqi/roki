@@ -3,6 +3,7 @@ package com.robam.rokipad.ui.view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import com.google.common.base.Preconditions;
 import com.legent.VoidCallback;
 import com.legent.utils.api.ToastUtils;
+import com.robam.common.Utils;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.rokipad.R;
 
@@ -53,11 +55,17 @@ public class HomeStoveView extends FrameLayout {
 		if (!view.isInEditMode()) {
 			ButterKnife.inject(this, view);
 		}
+		stove = Utils.getDefaultStove();
+		if (stove != null) {
+			leftHead.setData(stove != null ? stove.leftHead : null);
+			rightHead.setData(stove != null ? stove.rightHead : null);
+		}
+//		Log.e("test",stove.getStoveStatus());
 	}
 
 	@OnClick(R.id.imgLock)
 	public void onClickLock() {
-
+  		Log.e("test", stove.toString());
 		if (!checkStove())
 			return;
 

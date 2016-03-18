@@ -212,13 +212,8 @@ abstract public class AbsPlatProtocol extends AbsProtocol {
     // -------------------------------------------------------------------------------
 
     private IAppMsgMarshaller getMarshaller() {
-        return Plat.commander.getMsgMarshaller();
-//        return Plat.dcMqtt.getMsgMarshaller();
+        return Plat.dcMqtt.getMsgMarshaller();
     }
-//    private IAppMsgMarshaller getMarshaller_serial() {
-////        return Plat.commander.getMsgMarshaller();
-//        return Plat.dcSerial.getMsgMarshaller();
-//    }
 
     private DeviceInfo parserDeviceInfo(String guid, String bid, long ownerId) {
         return new DeviceInfo(guid, bid, ownerId);

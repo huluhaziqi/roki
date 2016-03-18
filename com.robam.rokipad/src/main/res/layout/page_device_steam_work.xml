@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121">
+
+    <TextView
+        android:id="@+id/txt_warn_water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="200dp"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/img_steam_work_warning"
+        android:drawablePadding="4dp"
+        android:text="工作中不能打开门，以防蒸汽烫伤"
+        android:textColor="#a9a9a9"
+        android:textSize="14sp"/>
+
+    <RelativeLayout
+        android:id="@+id/relWorkMsg"
+        android:layout_width="462dp"
+        android:layout_height="220dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_alignParentLeft="true"
+        android:background="@mipmap/img_steam_work_background">
+
+        <TextView
+            android:id="@+id/txtTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-- °C"
+            android:textColor="#24f22e"
+            android:textSize="40sp"
+            android:layout_marginTop="48dp"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:id="@+id/txtTempSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:textSize="24sp"
+            android:textColor="#a9a9a9"/>
+
+        <TextView
+            android:id="@+id/txtTimeSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:textSize="24sp"
+            android:textColor="#a9a9a9"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="85dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/txtVolSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#a9a9a9"
+            android:layout_marginRight="143dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="100dp"
+            android:textSize="24sp"/>
+
+        <ImageView
+            android:id="@+id/imgTemp"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtTemp"
+            android:layout_marginTop="58dp"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/img_steam_reset"
+            android:visibility="gone"/>
+        
+        <ImageView
+            android:id="@+id/imgVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="123dp"
+            android:layout_marginBottom="40dp"
+            android:src="@mipmap/img_steam_work_water_has"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:textColor="#36fcfa"
+        android:textSize="40sp"
+        android:layout_below="@id/relWorkMsg"
+        android:layout_marginLeft="170dp"/>
+
+    <ImageView
+        android:id="@+id/imgTime"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/img_steam_reset"
+        android:layout_below="@id/relWorkMsg"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/txtTime"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/fraContent"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_toRightOf="@id/relWorkMsg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp" />
+
+    <ImageView
+        android:id="@+id/imgSteamCircle"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@mipmap/img_steam_work_circle_yellow"
+        android:layout_toRightOf="@id/relWorkMsg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"/>
+
+    <ImageView
+        android:id="@+id/imgSteamWorkContent"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@mipmap/img_steam_work_content"
+        android:layout_toRightOf="@id/relWorkMsg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"/>
+
+    <ImageView
+        android:id="@+id/imgSteamPauseWork"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@mipmap/img_steam_pause"
+        android:layout_toRightOf="@id/relWorkMsg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/imgSteamDoneWork"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_toRightOf="@id/relWorkMsg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:src="@mipmap/img_steam_done"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/relSwitch"
+        android:layout_width="133dp"
+        android:layout_height="133dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginBottom="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/img_switch_yellow">
+
+    </ImageView>
+
+</RelativeLayout>

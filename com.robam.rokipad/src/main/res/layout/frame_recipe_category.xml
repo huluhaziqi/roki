@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:column_count="3"
+            android:numColumns="3"
             app:grid_paddingBottom="4dp"
             app:grid_paddingLeft="4dp"
             app:grid_paddingRight="4dp"

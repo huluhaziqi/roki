@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/titlebar_style"
+    android:layout_width="match_parent"
+    android:background="@color/black_10"
+    android:layout_height="?android:actionBarSize">
+
+
+    <LinearLayout
+        android:id="@+id/pnlMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/common_view_background_selector"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="12:59"
+            android:gravity="center"
+            android:textColor="@color/setting_text_normal"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/img_wifi"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_wifi_connection_selector" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pnlRight"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_recipe"
+            style="@style/titlebar_icon_style"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_home_recipe" />
+
+        <ImageView
+            android:id="@+id/img_setting"
+            style="@style/titlebar_icon_style"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_home_setting_off" />
+
+    </LinearLayout>
+
+</RelativeLayout>

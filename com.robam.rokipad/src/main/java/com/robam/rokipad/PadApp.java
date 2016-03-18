@@ -2,6 +2,7 @@ package com.robam.rokipad;
 
 import com.legent.VoidCallback2;
 import com.legent.plat.Plat;
+import com.legent.plat.io.device.mqtt.MqttChannel;
 import com.robam.common.RobamApp;
 import com.robam.common.io.device.RokiDeviceFactory;
 import com.robam.common.io.device.RokiMsgMarshaller;
@@ -29,6 +30,7 @@ public class PadApp extends RobamApp {
                 new RokiMsgMarshaller(),
                 new RokiMsgSyncDecider(),
                 new RokiNoticeReceiver(),
+                MqttChannel.getInstance(),
                 new SerialChannel(),
                 new VoidCallback2() {
                     @Override

@@ -2,6 +2,7 @@ package com.robam.rokipad.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.GridView;
 
 import com.etsy.android.grid.StaggeredGridView;
 import com.robam.common.pojos.Recipe;
@@ -9,7 +10,7 @@ import com.robam.rokipad.ui.adapter.RecipeAdapter;
 
 import java.util.List;
 
-public class RecipeGridView extends StaggeredGridView {
+public class RecipeGridView extends GridView {
 
 	protected RecipeAdapter adapter;
 

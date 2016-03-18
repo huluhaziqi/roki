@@ -24,7 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="100dp"
         android:layout_marginTop="110dp"
-        android:text="让不会做饭的人学会做饭"
+        android:text="烹饪，从未如此简单。"
         android:textColor="@color/setting_text_normal"
         android:textSize="30sp" />
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="软件版本 : "
+            android:text="系统版本 : "
             android:textColor="@color/setting_text_normal"
             android:textSize="19sp" />
     </LinearLayout>
@@ -73,11 +73,13 @@
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/img_fan"
-        android:layout_below="@id/img_fan"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="83dp"
         android:layout_marginTop="10dp"
-        android:text="@string/active_welcome"
-        android:textColor="@color/setting_text_normal"
-        android:textSize="15sp" />
+        android:text="ROBAM智能一小步，你的厨艺一大步，点击开始味蕾征程！"
+        android:textColor="#7f7f7f"
+        android:textSize="18sp" />
 
 </RelativeLayout>

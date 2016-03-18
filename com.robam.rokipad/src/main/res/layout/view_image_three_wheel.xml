@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/Transparent"
+    android:orientation="horizontal">
+
+    <com.robam.rokipad.ui.view.ImageWheelView
+        android:id="@+id/wv1"
+        style="@style/steam_setting_wheel_view_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <com.robam.rokipad.ui.view.TemlWheelView
+        android:id="@+id/wv2"
+        style="@style/steam_setting_wheel_view_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <com.robam.rokipad.ui.view.TimeWheelView
+        android:id="@+id/wv3"
+        style="@style/steam_setting_wheel_view_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

@@ -11,11 +11,16 @@ import android.view.ViewGroup;
 import com.google.common.collect.Lists;
 import com.google.common.eventbus.Subscribe;
 import com.legent.ui.ext.BasePage;
+import com.robam.common.events.AppDownEvent;
+import com.robam.common.events.DeviceAddEvent;
 import com.robam.rokipad.R;
 import com.robam.rokipad.ui.UIEvents;
+import com.robam.rokipad.ui.dialog.FullScreen2ImageDialog;
+import com.robam.rokipad.ui.view.HomeAdvertView;
+import com.robam.rokipad.ui.view.HomeDeviceView;
 import com.robam.rokipad.ui.view.HomeLeftView;
+import com.robam.rokipad.ui.view.HomeRecipeView;
 import com.robam.rokipad.ui.view.HomeRightView;
-import com.robam.rokipad.ui.view.HomeTitleView;
 import com.viewpagerindicator.PageIndicator;
 
 import java.util.List;
@@ -25,9 +30,12 @@ import butterknife.InjectView;
 
 public class HomePage extends BasePage {
 
-	@InjectView(R.id.titleView)
-	HomeTitleView titleView;
-
+//<<<<<<< HEAD
+////	@InjectView(R.id.titleView)
+////	HomeTitleView titleView;
+//
+//=======
+//>>>>>>> efbbc5472c84f788a3521c87dee729eb7ef5bb7c
 	@InjectView(R.id.pager)
 	ViewPager pager;
 
@@ -62,7 +70,18 @@ public class HomePage extends BasePage {
 
 	@Subscribe
 	public void onEvent(UIEvents.HomeDeviceSelectedEvent event) {
-		pager.setCurrentItem(0,true);
+		pager.setCurrentItem(0, true);
+	}
+
+	@Subscribe
+	public void onEvent(DeviceAddEvent event) {
+		pager.setCurrentItem(1);
+	}
+
+	@Subscribe
+	public void onEvent(AppDownEvent event) {
+		pager.setCurrentItem(1);
+		FullScreen2ImageDialog.show(cx, null);
 	}
 
 	class Adapter extends PagerAdapter {
@@ -71,10 +90,14 @@ public class HomePage extends BasePage {
 
 		public Adapter() {
 
-			HomeLeftView left = new HomeLeftView(cx);
+			HomeAdvertView adView = new HomeAdvertView(cx);
 			HomeRightView right = new HomeRightView(cx);
-			views.add(left);
-			views.add(right);
+			HomeRecipeView recipe = new HomeRecipeView(cx);
+			HomeDeviceView middle = new HomeDeviceView(cx);
+			views.add(adView);
+			views.add(middle);
+//			views.add(right);
+			views.add(recipe);
 		}
 
 		@Override

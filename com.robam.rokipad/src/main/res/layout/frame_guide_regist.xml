@@ -2,25 +2,27 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_login_background">
 
     <com.robam.rokipad.ui.view.UserRegistView
         android:id="@+id/registView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
         android:padding="10dp" />
 
     <Button
         android:id="@+id/btnRegist"
         android:layout_width="288dp"
         android:layout_height="59dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@mipmap/img_guide_btn_bg"
-        android:gravity="center_vertical|right"
-        android:paddingRight="60dp"
-        android:text="@string/check_and_active"
+        android:layout_below="@id/registView"
+        android:background="@color/home_bg"
+        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="确定"
         android:textColor="@color/White"
         android:textSize="22sp" />
 </RelativeLayout>

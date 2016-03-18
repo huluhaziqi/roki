@@ -10,6 +10,8 @@ import com.legent.plat.pojos.device.IDeviceFactory;
 import com.legent.plat.pojos.device.SubDeviceInfo;
 import com.legent.plat.services.DeviceTypeManager;
 import com.robam.common.pojos.device.IRokiFamily;
+import com.robam.common.pojos.device.Oven.AbsOven;
+import com.robam.common.pojos.device.Steamoven.SteamovenW74;
 import com.robam.common.pojos.device.Sterilizer.Steri829;
 import com.robam.common.pojos.device.Stove.Stove;
 import com.robam.common.pojos.device.Stove.Stove9B39;
@@ -42,8 +44,12 @@ public class RokiDeviceFactory implements IDeviceFactory {
                 return new Fan8700(devInfo);
             } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.R8229)) {
                 return new Fan8229(devInfo);
+            } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.RR209)) {
+                return new SteamovenW74(devInfo);
             } else if (DeviceTypeManager.getInstance().isInDeviceType(guid,IRokiFamily.RR829)){
                 return new Steri829(devInfo);
+            } else if (DeviceTypeManager.getInstance().isInDeviceType(guid, IRokiFamily.RR039)) {
+                return new AbsOven(devInfo);
             }else{
                 //TODO add log here ....
                 return new AbsDeviceHub(devInfo) {

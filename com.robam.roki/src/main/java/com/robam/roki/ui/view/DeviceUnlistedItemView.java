@@ -27,6 +27,7 @@ import butterknife.OnClick;
 
 public class DeviceUnlistedItemView extends FrameLayout {
 
+    DeviceType type;
     @InjectView(R.id.layout)
     RelativeLayout layout;
     @InjectView(R.id.txtTitle)
@@ -104,6 +105,15 @@ public class DeviceUnlistedItemView extends FrameLayout {
             txtDesc.setText(dt.tag.toString());
         }
 
+    }
+
+    public void loadData(DeviceType devType) {
+        if (devType == null) return;
+        txtTitle.setText(devType.getName());
+        type = devType;
+        if (devType.tag != null) {
+            txtDesc.setText(devType.tag.toString());
+        }
     }
 
     @OnClick(R.id.layout)

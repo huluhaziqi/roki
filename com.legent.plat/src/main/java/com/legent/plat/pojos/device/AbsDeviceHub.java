@@ -170,13 +170,24 @@ abstract public class AbsDeviceHub extends AbsDevice implements IDeviceHub {
     @Override
     public void setWifiParam(String wifiSsid, String wifiPwd,
                              VoidCallback callback) {
-        dc.setWifiParam(id, wifiSsid, wifiPwd, callback);
+        if (Plat.dcMqtt!=null)
+            dcMqtt.setWifiParam(id, wifiSsid, wifiPwd, callback);
+        if (Plat.dcSerial!=null)
+            dcSerial.setWifiParam(id, wifiSsid, wifiPwd, callback);
+
+        dcMqtt.setWifiParam(id, wifiSsid, wifiPwd, callback);
     }
 
     @Override
     public void setOwnerId(long ownerId, VoidCallback callback) {
-        dc.setOwnerId(id, ownerId, callback);
+        if (Plat.dcMqtt!=null)
+            dcMqtt.setOwnerId(id, ownerId, callback);
+        if (Plat.dcSerial!=null)
+            dcSerial.setOwnerId(id, ownerId, callback);
+
+        dcMqtt.setOwnerId(id, ownerId, callback);
     }
+
 
     // -------------------------------------------------------------------------------
     // IDeviceHub

@@ -40,11 +40,14 @@
     <color name="c16">#929292</color>
     <color name="c17">#98989a</color>
     <color name="c18">#dedfd7</color>
+    <color name="c19">#575757</color>
     <color name="Black_65">#a6000000</color>
     <color name="Black_80">#cd000000</color>
     <color name="White_90">#e5ffffff</color>
     <color name="White_60">#99ffffff</color>
     <color name="dialog_bg">#60000000</color>
+    <color name="Gray_57">#575757</color>
+    <color name="framework_line">#817f79</color>
 
     <!--device-->
     <color name="device_board_bg">@color/c03</color>

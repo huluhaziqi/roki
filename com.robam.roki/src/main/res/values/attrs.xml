@@ -39,5 +39,9 @@
     <declare-styleable name="EmojiEmpty">
         <attr name="description" />
     </declare-styleable>
+    <declare-styleable name="DeviceOvenNormalItem">
+        <attr name="title"></attr>
+        <attr name="imgSource"></attr>
+    </declare-styleable>
 
 </resources>

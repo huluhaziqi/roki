@@ -17,6 +17,13 @@ public class PageKey {
     static public final String DeviceFan = "DeviceFan";
     static public final String DeviceStove = "DeviceStove";
     static public final String DeviceSterilizer = "DeviceSterilizer";
+    static public final String DeviceSteamOven = "DeviceSteamOven"; // 蒸汽炉
+    static public final String DeviceSteamOvenSetting = "DeviceSteamOvenSetting"; // 蒸汽炉设置页面
+    static public final String DeviceSteamOvenWorking = "DeviceSteamOvenWorking"; // 蒸汽炉工作页面
+    static public final String DeviceSteamWorking = "DeviceSteamWorking";
+    static public final String DeviceOven = "DeviceOven";//电烤箱
+    static public final String DeviceOvenProfessionalSetting = "DeviceOvenProfessionalSetting";//电烤箱专业模式设置页面
+    static public final String DeviceOvenWorking = "DeviceOvenWorking";
     // 设备----end
 
     // 菜谱----start

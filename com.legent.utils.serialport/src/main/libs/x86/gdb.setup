@@ -1,3 +1,2 @@
-set solib-search-path /Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.legent.utils.serialport/src/main/obj/local/x86
-source /Users/zhaiyuanyi/AndroidStudioProjects/android-ndk-r10e/prebuilt/common/gdb/common.setup
-directory /Users/zhaiyuanyi/AndroidStudioProjects/android-ndk-r10e/platforms/android-9/arch-x86/usr/include /Users/zhaiyuanyi/AndroidStudioProjects/ROKI3/com.legent.utils.serialport/src/main/jni /Users/zhaiyuanyi/AndroidStudioProjects/android-ndk-r10e/sources/cxx-stl/system
+set solib-search-path /Users/RoWithPet/StudioProjects/project_roki/com.legent.utils.serialport/src/main/obj/local/x86
+directory /Users/RoWithPet/Library/Android/android-ndk-r10b/platforms/android-9/arch-x86/usr/include /Users/RoWithPet/StudioProjects/project_roki/com.legent.utils.serialport/src/main/jni /Users/RoWithPet/Library/Android/android-ndk-r10b/sources/cxx-stl/system

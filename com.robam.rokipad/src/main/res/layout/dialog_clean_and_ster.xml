@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:paddingTop="62dp"
+    android:paddingBottom="62dp"
+    android:gravity="center_horizontal">
+    
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_marginTop="5dp"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/img_steam_clean_tag" />
+
+    <TextView
+        android:id="@+id/txtOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="请保持水箱水量，并在凹状加热盘内滴些食醋"
+        android:lines="2"
+        android:lineSpacingExtra="6dp"
+        android:textSize="36sp"
+        android:textColor="#e9a60f"/>
+    
+    <TextView
+        android:id="@+id/txtTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="*请确认水箱加满水"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:textColor="#f41f1f"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="确定"
+        android:textSize="40sp"
+        android:textColor="#ffffff"
+        android:background="#e9a60f" />
+
+</LinearLayout>

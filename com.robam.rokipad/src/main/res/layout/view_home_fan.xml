@@ -2,52 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shape_device_control_bg"
     android:baselineAligned="false"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="1px" >
 
-    <LinearLayout
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout1"
-            android:layout_width="186dp"
-            android:layout_height="match_parent"
-            android:background="@color/home_bg" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="33dp"
-                android:layout_marginTop="26dp"
-                android:text="Wind"
-                android:textColor="@color/White"
-                android:textSize="40sp" />
-
-            <com.robam.rokipad.ui.view.FanWindView
-                android:id="@+id/fanWind"
-                android:scaleType="centerInside"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="110dp" />
-        </RelativeLayout>
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="@mipmap/img_home_fan_oblique"
-            android:contentDescription="@null" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:text="风量控制"
+        android:layout_marginTop="22dp"
+        android:textSize="18sp"
+        android:textColor="#505050"/>
 
     <TableLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginLeft="165dp"
+        android:layout_marginRight="40dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:stretchColumns="*" >
@@ -76,17 +49,42 @@
         </TableRow>
     </TableLayout>
 
-    <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_height="1dp"
+        android:background="@color/introduce_back_bg" />
+
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:padding="40dp" >
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:text="照明"
+        android:layout_marginTop="22dp"
+        android:textSize="18sp"
+        android:textColor="#505050"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center" >
 
         <com.robam.rokipad.ui.view.FanLightView
             android:id="@+id/fanLight"
             android:scaleType="centerInside"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_width="165dp"
+            android:layout_height="165dp" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:text="当电磁灶为P9档时，油烟机自动调整为爆炒模式"
+        android:paddingBottom="22dp"
+        android:textSize="18sp"
+        android:textColor="#505050"/>
 
 </LinearLayout>

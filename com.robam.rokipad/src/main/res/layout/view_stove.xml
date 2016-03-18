@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/divHeadView"
-    android:background="@drawable/shape_stove_bg_selector"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -11,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-         android:background="@drawable/common_view_background_selector"
+        android:background="@drawable/common_view_background_selector"
         android:contentDescription="@null"
         android:src="@mipmap/ic_stove_switch_left" />
 
@@ -21,11 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-         android:background="@drawable/common_view_background_selector"
+        android:background="@drawable/common_view_background_selector"
         android:contentDescription="@null"
         android:src="@mipmap/ic_stove_switch_right" />
 
     <RelativeLayout
+        android:id="@+id/relLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -62,13 +62,40 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relLevel"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_switch_gray"/>
+
+        <TextView
+            android:id="@+id/txtSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textColor="#424242"
+            android:text="已关闭"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/clockView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/relLevel"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-         android:background="@drawable/common_view_background_selector"
+        android:background="@drawable/common_view_background_selector"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp" >

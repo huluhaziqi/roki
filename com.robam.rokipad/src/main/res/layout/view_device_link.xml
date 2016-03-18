@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="100sp"
+        android:textColor="#989898"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="50dp"/>
+
+    <TextView
+        android:id="@+id/txtPlePush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请长按电烤箱上的"
+        android:textSize="30sp"
+        android:textColor="#989898"
+        android:layout_toRightOf="@id/txt1"
+        android:layout_marginTop="220dp"/>
+
+    <TextView
+        android:id="@+id/txtPlePush2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="该图标闪烁，并会听到“哔”一声"
+        android:layout_toRightOf="@id/txt1"
+        android:layout_below="@id/txtPlePush"
+        android:textSize="20sp"
+        android:textColor="#f8480b"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*请在WIFI状态下进行此操作"
+        android:layout_toRightOf="@id/txt1"
+        android:layout_below="@id/txtPlePush2"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textColor="#989898"/>
+
+    <RelativeLayout
+        android:id="@+id/relIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_toRightOf="@id/txtPlePush"
+        android:layout_marginTop="120dp"
+        android:background="@mipmap/img_device_link_red">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/img_device_link" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/relIcon"
+        android:text="2"
+        android:textSize="100sp"
+        android:textColor="#989898"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请输入wifi密码"
+        android:layout_toRightOf="@id/txt2"
+        android:textSize="30sp"
+        android:textColor="#989898"
+        android:layout_marginTop="105dp"/>
+
+    <TextView
+        android:id="@+id/txtRssi"
+        android:layout_width="340dp"
+        android:layout_height="73dp"
+        android:layout_toRightOf="@id/relIcon"
+        android:layout_below="@id/txt2"
+        android:layout_marginLeft="50dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:background="@drawable/shape_pwdedt_bg"/>
+
+    <EditText
+        android:id="@+id/edtPwd"
+        android:layout_width="340dp"
+        android:layout_height="73dp"
+        android:layout_toRightOf="@id/relIcon"
+        android:layout_below="@id/txtRssi"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:hint="请告诉烟机您家的wifi密码"
+        android:textColorHint="#7c7c7c"
+        android:background="@drawable/shape_pwdedt_bg"/>
+
+    <TextView
+        android:id="@+id/txtConfirm"
+        android:layout_width="340dp"
+        android:layout_height="73dp"
+        android:layout_below="@id/edtPwd"
+        android:layout_toRightOf="@id/relIcon"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="26dp"
+        android:background="#7c7c7c"
+        android:text="确认连接"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/White"
+        />
+
+</RelativeLayout>

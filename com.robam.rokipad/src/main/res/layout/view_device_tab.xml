@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <com.robam.rokipad.ui.view.DeviceTabItemView
+        android:id="@+id/itemFan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imgSource="@mipmap/img_fan_on"
+        android:layout_weight="1" />
+
+    <com.robam.rokipad.ui.view.DeviceTabItemView
+        android:id="@+id/itemStove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imgSource="@mipmap/img_stove_on"
+        android:layout_weight="1" />
+
+    <com.robam.rokipad.ui.view.DeviceTabItemView
+        android:id="@+id/itemSteam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imgSource="@mipmap/img_tab_steam_off"
+        android:layout_weight="1" />
+
+    <com.robam.rokipad.ui.view.DeviceTabItemView
+        android:id="@+id/itemOven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imgSource="@mipmap/img_oven_off"
+        android:layout_weight="1" />
+
+    <com.robam.rokipad.ui.view.DeviceTabItemView
+        android:id="@+id/itemSterilizer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imgSource="@mipmap/img_steril_off"
+        android:layout_weight="1" />
+
+    <com.robam.rokipad.ui.view.DeviceTabItemView
+        android:id="@+id/itemWave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imgSource="@mipmap/img_wave_off"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -45,7 +45,7 @@ public class SettingSmartConfigView extends FrameLayout implements
 
     TextView tvTime, tvWeek, tvClose, tvDate;
     CheckBox cbSwitch, cbLevel, cbTime, cbAir, cbClose, cbHint;
-    Button btnRecovery;
+    TextView btnRecovery;
 
     AbsFan fan;
 
@@ -79,7 +79,7 @@ public class SettingSmartConfigView extends FrameLayout implements
         cbAir = (CheckBox) root.findViewById(R.id.cb_air);
         cbTime = (CheckBox) root.findViewById(R.id.cb_time);
         cbHint = (CheckBox) root.findViewById(R.id.cb_hint);
-        btnRecovery = (Button) root.findViewById(R.id.btn_recover);
+        btnRecovery = (TextView) root.findViewById(R.id.btn_recover);
 
         btnRecovery.setOnClickListener(this);
         initData();

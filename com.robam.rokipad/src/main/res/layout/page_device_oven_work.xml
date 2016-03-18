@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121">
+
+    <RelativeLayout
+        android:id="@+id/rlTimeAndTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="50dp">
+
+
+        <TextView
+            android:id="@+id/txtTemSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="40dp"
+            android:text="120"
+            android:textColor="#7d7d7d"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imgTempLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/img_oven_working_leanline_gray" />
+
+        <TextView
+            android:id="@+id/txtTem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/imgTempLine"
+            android:paddingLeft="5dp"
+            android:text="温度"
+            android:textColor="#7d7d7d"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtTempUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTem"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/txtTemSet"
+            android:paddingLeft="35dp"
+            android:text="°C"
+            android:textColor="#7d7d7d"
+            android:textSize="21sp" />
+
+        <View
+            android:id="@+id/imgTempHorLine"
+            android:layout_width="211dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/txtTempUnit"
+            android:layout_marginTop="3dp"
+            android:background="#474747" />
+
+        <TextView
+            android:id="@+id/txtCurrentTem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgTempHorLine"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:text="--"
+            android:textColor="#ffffff"
+            android:textSize="52sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtCurrentTem"
+            android:layout_marginBottom="15dp"
+            android:layout_toRightOf="@id/txtCurrentTem"
+            android:layout_marginLeft="10dp"
+            android:text="°C"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imgTempReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/imgTempHorLine"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="9dp"
+            android:src="@mipmap/img_device_oven_reset"
+            />
+
+        <TextView
+            android:id="@+id/txtTimeSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/txtCurrentTem"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:text="30"
+            android:textColor="#7d7d7d"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imgTimeLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@id/txtTimeSet"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/img_oven_working_leanline_gray" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txtTimeSet"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imgTimeLine"
+            android:paddingLeft="5dp"
+            android:text="时间"
+            android:textColor="#7d7d7d"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtTimeUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTime"
+            android:layout_marginTop="0dp"
+            android:layout_toRightOf="@id/imgTimeLine"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingLeft="10dp"
+            android:text="min"
+            android:textColor="#7d7d7d"
+            android:textSize="21sp" />
+
+
+        <View
+            android:id="@+id/imgTimeHorLine"
+            android:layout_width="211dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/txtTimeUnit"
+            android:layout_marginTop="3dp"
+            android:background="#474747" />
+
+        <ImageView
+            android:id="@+id/imgTimeReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/imgTimeHorLine"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/img_device_oven_reset"
+             />
+
+        <TextView
+            android:id="@+id/txtCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgTimeHorLine"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="-- "
+            android:textColor="#ffffff"
+            android:textSize="52sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtCurrentTime"
+            android:layout_marginBottom="15dp"
+            android:text="min"
+            android:layout_toRightOf="@id/txtCurrentTime"
+            android:layout_marginLeft="10dp"
+
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgSpinCircle"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="300dp"
+        android:layout_marginTop="80dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/img_oven_working_circle_yellow" />
+
+    <ImageView
+        android:id="@+id/imgContent"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/imgSpinCircle"
+        android:layout_marginRight="300dp"
+        android:src="@mipmap/img_oven_pre_heating_working" />
+
+    <ImageView
+        android:id="@+id/imgPause"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="300dp"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/img_oven_pause"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imgDone"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="300dp"
+        android:layout_marginTop="80dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/img_oven_finish"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/workType1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imgSpinCircle"
+        android:layout_marginRight="360dp"
+        android:layout_marginTop="40dp"
+        android:text="风扇烤模式"
+        android:textColor="#ffffff"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/workType2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/imgSpinCircle"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="83dp"
+        android:layout_marginRight="370dp"
+        android:text="已完成~"
+        android:textColor="#e9a60f"
+        android:textSize="36sp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rlLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="189dp"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        >
+
+        <ImageView
+            android:id="@+id/imgLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/img_device_oven_light_close" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relRotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="74dp"
+        android:layout_marginTop="110dp">
+
+        <ImageView
+            android:id="@+id/imgRotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/img_device_oven_rotate_colse" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relSwitch"
+        android:layout_width="133dp"
+        android:layout_height="133dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginRight="40dp">
+
+
+        <TextView
+            android:id="@+id/txtSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="已开启"
+            android:textColor="#e9a60f"
+            android:textSize="26sp" />
+
+        <ImageView
+            android:id="@+id/imgSwitch"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/txtSwitch"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/ic_device_oven_start_button_yellow" />
+
+        <ImageView
+            android:id="@+id/imgSwitchLine"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:paddingRight="25dp"
+            android:src="@mipmap/ic_device_oven_leanline_yellow" />
+    </RelativeLayout>
+
+</RelativeLayout>

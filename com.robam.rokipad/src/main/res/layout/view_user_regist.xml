@@ -4,108 +4,139 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center" >
 
-    <TableRow>
+    <TableRow
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:text="@string/your_phone"
-            android:textSize="21sp" />
+        <LinearLayout
+            android:layout_width="540dp"
+            android:layout_height="65dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edtPhone"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="phone"
-            android:textSize="21sp" >
-        </EditText>
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:paddingLeft="30dp"
+                android:inputType="phone"
+                android:background="@drawable/shape_pwdedt_bg"
+                android:layout_gravity="center_vertical"
+                android:hint="请输入您的手机号码"
+                android:textColorHint="#9b9b9b"
+                android:textSize="21sp" >
+            </EditText>
+
+            <Button
+                android:id="@+id/btnGetCode"
+                android:layout_width="152dp"
+                android:layout_height="match_parent"
+                android:background="@color/home_bg"
+                android:text="发送验证码"
+                android:textColor="@color/White"
+                android:layout_marginLeft="5dp"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
     </TableRow>
 
-    <TableRow android:layout_marginTop="10dp" >
+    <TableRow android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:text="@string/nickname"
-            android:textSize="21sp" />
+        <LinearLayout
+            android:layout_width="540dp"
+            android:layout_height="65dp"
+            android:paddingLeft="20dp"
+            android:background="@drawable/shape_pwdedt_bg">
 
-        <EditText
-            android:id="@+id/edtNickname"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="text"
-            android:textSize="21sp" >
-        </EditText>
+            <EditText
+                android:id="@+id/edtCode"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:inputType="phone"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:hint="请输入验证码"
+                android:textColorHint="#9b9b9b"
+                android:textSize="21sp" >
+            </EditText>
+
+        </LinearLayout>
     </TableRow>
 
-    <TableRow android:layout_marginTop="10dp" >
+    <TableRow android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:text="@string/password"
-            android:textSize="21sp" />
+        <LinearLayout
+            android:layout_width="540dp"
+            android:layout_height="65dp"
+            android:paddingLeft="20dp"
+            android:background="@drawable/shape_pwdedt_bg">
 
-        <EditText
-            android:id="@+id/edtPwd"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="textPassword"
-            android:textSize="21sp" >
-        </EditText>
+            <EditText
+                android:id="@+id/edtPwd"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:inputType="phone"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:hint="密码"
+                android:textColorHint="#9b9b9b"
+                android:textSize="21sp" >
+            </EditText>
+        </LinearLayout>
     </TableRow>
 
-    <TableRow android:layout_marginTop="10dp" >
+    <TableRow android:layout_marginTop="10dp"
+        android:gravity="center_horizontal" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:text="@string/confirm_pwd"
-            android:textSize="21sp" />
+        <LinearLayout
+            android:layout_width="540dp"
+            android:layout_height="65dp"
+            android:paddingLeft="20dp"
+            android:background="@drawable/shape_pwdedt_bg">
 
-        <EditText
-            android:id="@+id/edtPwd2"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="textPassword"
-            android:textSize="21sp" >
-        </EditText>
+            <EditText
+                android:id="@+id/edtPwd2"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:inputType="phone"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:hint="请重新输入密码"
+                android:textColorHint="#9b9b9b"
+                android:textSize="21sp" >
+            </EditText>
+        </LinearLayout>
     </TableRow>
 
-    <TableRow android:layout_marginTop="10dp" >
+    <TableRow android:layout_marginTop="10dp"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:text="@string/input_identify_code"
-            android:textSize="21sp" />
+        <LinearLayout
+            android:layout_width="540dp"
+            android:layout_height="65dp"
+            android:paddingLeft="20dp"
+            android:background="@drawable/shape_pwdedt_bg">
 
-        <EditText
-            android:id="@+id/edtCode"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="21sp" >
-        </EditText>
+            <EditText
+                android:id="@+id/edtNickname"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:inputType="phone"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:hint="昵称"
+                android:textColorHint="#9b9b9b"
+                android:textSize="21sp" >
+            </EditText>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btnGetCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/img_send_identify_bg"
-            android:text="@string/send_identify_code"
-            android:textColor="@color/White"
-            android:textSize="18sp" />
     </TableRow>
 
 </TableLayout>

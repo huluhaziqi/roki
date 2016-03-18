@@ -52,12 +52,12 @@ public interface IRokiFamily {
     /**
      * 微波炉
      */
-    String RM509 = "RM509";
+    String R9W73 = "R9W73";
 
     /**
      * 蒸汽炉
      */
-    String RS209 = "RS209";
+    String RR209 = "RS209";
 
 
 }

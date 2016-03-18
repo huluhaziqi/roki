@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_login_background"
+    android:orientation="vertical" >
 
     <com.robam.rokipad.ui.view.UserLoginView
         android:id="@+id/loginView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
         android:padding="10dp" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="288dp"
-        android:layout_height="59dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@mipmap/img_guide_btn_bg"
-        android:text="@string/active"
+        android:layout_width="540dp"
+        android:layout_height="69dp"
+        android:background="@color/home_bg"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="登录"
         android:textColor="@color/White"
         android:textSize="22sp" />
-</RelativeLayout>
+</LinearLayout>

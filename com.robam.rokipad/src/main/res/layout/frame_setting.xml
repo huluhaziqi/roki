@@ -9,7 +9,7 @@
         style="@style/common_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4"
+        android:layout_weight="8"
         android:listSelector="@color/setting_bg_pressed" >
     </ListView>
 

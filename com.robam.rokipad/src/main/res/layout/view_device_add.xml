@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Transparent">
+
+    <ImageView
+        android:id="@+id/imgAdd"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="240dp"
+        android:src="@mipmap/img_device_add"/>
+
+    <TextView
+        android:id="@+id/txtMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgAdd"
+        android:text="添加智能烤箱"
+        android:textColor="#e9a60f"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="20dp"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:id="@+id/txtMsg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="烤出美好生活~"
+        android:textColor="#989898"
+        android:textSize="20sp"
+        android:layout_below="@id/txtMsg"
+        android:layout_marginLeft="265dp"/>
+
+    <ImageView
+        android:id="@+id/imgTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>
