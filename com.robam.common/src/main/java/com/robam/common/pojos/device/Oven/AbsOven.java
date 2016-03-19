@@ -114,8 +114,8 @@ public class AbsOven extends AbsDeviceHub implements IOven {
 
                     break;
                 case MsgKeys.OvenAlarm_Noti:
-                    short alarmId = (short) msg.optInt(MsgParams.AlarmId);
-                    postEvent(new OvenAlarmEvent(this, alarmId));
+                    short OvenAlarm = (short) msg.optInt(MsgParams.OvenAlarm);
+                    postEvent(new OvenAlarmEvent(AbsOven.this, OvenAlarm));
 
 //                    switch (alarmId) {
 //                        case Event_Oven_Alarm_ok:

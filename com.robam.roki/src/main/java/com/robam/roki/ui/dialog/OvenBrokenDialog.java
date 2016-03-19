@@ -7,7 +7,9 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.legent.ui.UIService;
 import com.legent.ui.ext.dialogs.AbsDialog;
+import com.robam.common.pojos.device.Oven.AbsOven;
 import com.robam.roki.R;
 
 import butterknife.ButterKnife;
@@ -24,6 +26,8 @@ public class OvenBrokenDialog extends AbsDialog {
     @InjectView(R.id.img)
     ImageView img;
 
+    @InjectView(R.id.txtError)
+    TextView txtError;
     public OvenBrokenDialog(Context context) {
         super(context, R.style.Theme_Dialog_HorziFullScreen);
     }
@@ -40,7 +44,16 @@ public class OvenBrokenDialog extends AbsDialog {
     public void setText(String s) {
         if (s != null) txt.setText(s);
     }
-
+    public void changeErrorText(short type) {
+        switch (type) {
+            case AbsOven.Event_Oven_Alarm_Senor_Short:
+                txtError.setText("错误：E01");
+                break;
+            case AbsOven.Event_Oven_Alarm_Senor_Open:
+                txtError.setText("错误：E02");
+                break;
+        }
+    }
     static public void show(Context cx, String one, short type) {
         OvenBrokenDialog dlg = new OvenBrokenDialog(cx);
         Window win = dlg.getWindow();
@@ -50,12 +63,13 @@ public class OvenBrokenDialog extends AbsDialog {
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.alpha = 0.6f;
         win.setAttributes(lp);
+        dlg.changeErrorText(type);
         dlg.show();
     }
 
     @OnClick(R.id.afterBuy)
     public void onClickAfterBuy() {
-        dismiss();
+//        dismiss();
 //        UIService.getInstance().postPage()
     }
 

@@ -84,14 +84,14 @@ public class DeviceOvenWorkingPage extends BasePage {
     private boolean canCountDown = false;
     int preStatus;
     int currentStatus;
-
+    boolean tagAlarmShow = false;
     static final int Light = 7;
     static final int Rotate = 8;
 
     static final int PollStatus = 9;
     static final int RefreshTime = 10;
 
-    static  boolean fromSetting = false;
+    static boolean fromSetting = false;
 
     private OvenBrokenDialog dlg = null;//报警
 
@@ -136,14 +136,13 @@ public class DeviceOvenWorkingPage extends BasePage {
     TextView txtTimeSet;
 
 
-
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Start:
 
-                    if (type.equals("快热")||type.equals("蛋糕")||type.equals("蔬菜")) {
+                    if (type.equals("快热") || type.equals("蛋糕") || type.equals("蔬菜")) {
 
                         oven.setOvenQuickHeating(preTime, preTemp, (short) 0, new VoidCallback() {
                             @Override
@@ -209,7 +208,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                                 ToastUtils.showThrowable(t);
                             }
                         });
-                    } else if (type.equals("焙烤")||type.equals("牛排")||type.equals("披萨")) {
+                    } else if (type.equals("焙烤") || type.equals("牛排") || type.equals("披萨")) {
                         oven.setOvenToast(preTime, preTemp, (short) 0, new VoidCallback() {
                             @Override
                             public void onSuccess() {
@@ -305,7 +304,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                                 ToastUtils.showThrowable(t);
                             }
                         });
-                    } else if (type.equals("风扇烤")||type.equals("饼干")||type.equals("面包")||type.equals("五花肉")) {
+                    } else if (type.equals("风扇烤") || type.equals("饼干") || type.equals("面包") || type.equals("五花肉")) {
                         oven.setOvenAirBarbecue(preTime, preTemp, (short) 0, new VoidCallback() {
                             @Override
                             public void onSuccess() {
@@ -371,7 +370,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                                 ToastUtils.showThrowable(t);
                             }
                         });
-                    } else if (type.equals("强烧烤")||type.equals("海鲜")||type.equals("鸡翅")) {
+                    } else if (type.equals("强烧烤") || type.equals("海鲜") || type.equals("鸡翅")) {
                         oven.setOvenStrongBarbecue(preTime, preTemp, (short) 0, new VoidCallback() {
                             @Override
                             public void onSuccess() {
@@ -391,6 +390,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                                         workType1.setText("强烧烤");
                                         imgSpinCircle.startAnimation(circleRotate);
                                     }
+
                                     @Override
                                     public void onFailure(Throwable t) {
                                     }
@@ -404,7 +404,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             }
                         });
                     } else if (type.equals("自洁")) {
-                        oven.setOvenAirBarbecue(preTime,preTemp,(short)0, new VoidCallback() {
+                        oven.setOvenAirBarbecue(preTime, preTemp, (short) 0, new VoidCallback() {
                             @Override
                             public void onSuccess() {
                                 txtTemSet.setText(String.valueOf(preTemp));
@@ -431,49 +431,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             }
                         });
                     }
-// else if(type.equals("鸡翅")||type.equals("蛋糕")||type.equals("饼干")||
-//                            type.equals("牛排")||type.equals("五花肉")||type.equals("蔬菜")||
-//                            type.equals("海鲜")||type.equals("披萨")||type.equals("面包")){
-//                        txtTemSet.setText(String.valueOf(preTemp));
-//                        txtTimeSet.setText(String.valueOf(preTime));
-//                        txtCurrentTem.setClickable(false);
-//                        txtCurrentTime.setClickable(false);
-//                        if (circleRotate == null) {
-//                            circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
-//                            LinearInterpolator lin = new LinearInterpolator();
-//                            circleRotate.setInterpolator(lin);
-//                        }
-//                        if(type.equals("鸡翅")){
-//                        imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_chicken_work_view));
-//                        workType1.setText("烤鸡翅");
-//                        }else if(type.equals("蛋糕")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_cake_work_view));
-//                            workType1.setText("烤蛋糕");}
-//                        else if(type.equals("面包")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_bread_work_view));
-//                            workType1.setText("烤面包");}
-//                        else if(type.equals("五花肉")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_streaky_pork_work_view));
-//                            workType1.setText("烤五花肉");}
-//                        else if(type.equals("牛排")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_steak_work_view));
-//                            workType1.setText("烤牛排");}
-//                        else
-//                        if(type.equals("披萨")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_pisa_work_view));
-//                            workType1.setText("烤披萨");}
-//                        else if(type.equals("海鲜")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_seafood_work_view));
-//                            workType1.setText("烤海鲜");}
-//                        else if(type.equals("饼干")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_cookies_work_view));
-//                            workType1.setText("烤饼干");}
-//                        else if(type.equals("蔬菜")){
-//                            imgContent.setImageDrawable(getResources().getDrawable(R.mipmap.oven_vegetable_work_view));
-//                            workType1.setText("烤蔬菜");}
-//                        imgSpinCircle.startAnimation(circleRotate);
-//
-//                    }
+
                     break;
                 case Pause:
                     oven.setOvenStatusControl(OvenStatus.Pause, new VoidCallback() {
@@ -529,9 +487,9 @@ public class DeviceOvenWorkingPage extends BasePage {
                     break;
                 case CountDown:
                     if (oven.status == OvenStatus.Working) {
-                        int min = (int)(remainTime/60.0);
+                        int min = (int) (remainTime / 60.0);
                         int leftMin = oven.time - min * 60;
-                        if(leftMin > 0)
+                        if (leftMin > 0)
                             min++;
                         txtCurrentTime.setText(String.valueOf(min));
                         remainTime--;
@@ -540,8 +498,8 @@ public class DeviceOvenWorkingPage extends BasePage {
                     }
                     break;
                 case Light:
-                    Log.e("light",String.valueOf(oven.light));
-                    Log.e("revolve",String.valueOf(oven.revolve));
+                    Log.e("light", String.valueOf(oven.light));
+                    Log.e("revolve", String.valueOf(oven.revolve));
                     if (oven.light == 0) {
                         oven.setOvenSpitRotateLightControl(oven.revolve, (short) 1, (short) 0, new VoidCallback() {
                             @Override
@@ -612,12 +570,12 @@ public class DeviceOvenWorkingPage extends BasePage {
 
 
                     if (oven.runP == 1)
-                        oven.setOvenQuickHeating(Short.valueOf(message.getTime()),Short.valueOf(message.getTemperature()), (short) 0, new VoidCallback() {
+                        oven.setOvenQuickHeating(Short.valueOf(message.getTime()), Short.valueOf(message.getTemperature()), (short) 0, new VoidCallback() {
                             @Override
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime()) *60;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
 
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
@@ -638,7 +596,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime())*60 ;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                             }
 
                             @Override
@@ -652,7 +610,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime())*60 ;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
                                     LinearInterpolator lin = new LinearInterpolator();
@@ -672,7 +630,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime())*60 ;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
                                     LinearInterpolator lin = new LinearInterpolator();
@@ -692,7 +650,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime()) *60;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
                                     LinearInterpolator lin = new LinearInterpolator();
@@ -712,7 +670,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime()) *60;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
                                     LinearInterpolator lin = new LinearInterpolator();
@@ -732,7 +690,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime()) *60;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
                                     LinearInterpolator lin = new LinearInterpolator();
@@ -752,7 +710,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             public void onSuccess() {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
-                                remainTime = Short.valueOf(message.getTime()) *60;
+                                remainTime = Short.valueOf(message.getTime()) * 60;
                                 if (circleRotate == null) {
                                     circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
                                     LinearInterpolator lin = new LinearInterpolator();
@@ -774,7 +732,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                     //判断完成后关机
                     int min = oven.time / 60;
                     int leftMin = oven.time - min * 60;
-                    if(leftMin >0)
+                    if (leftMin > 0)
                         min++;
                     preStatus = currentStatus;
                     currentStatus = oven.status;
@@ -783,11 +741,16 @@ public class DeviceOvenWorkingPage extends BasePage {
                     txtCurrentTem.setText(String.valueOf(oven.temp));
                     txtCurrentTime.setText(String.valueOf(min));
                     Log.e("preStatus", String.valueOf(preStatus));
-                    Log.e("currentStatus",String.valueOf(currentStatus));
-                    if(preStatus == OvenStatus.Working&&currentStatus!=preStatus&&currentStatus!=OvenStatus.Off
-                            &&currentStatus!=OvenStatus.Pause&&currentStatus!=OvenStatus.Working)
+                    Log.e("currentStatus", String.valueOf(currentStatus));
+                    if (!tagAlarmShow||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+                        checkBroken();
+                        tagAlarmShow = true;
+                        break;
+                    }
+                    if (preStatus == OvenStatus.Working && currentStatus != preStatus && currentStatus != OvenStatus.Off
+                            && currentStatus != OvenStatus.Pause && currentStatus != OvenStatus.Working && currentStatus != 18 && preStatus != 18)
                         handler.sendEmptyMessage(Done);
-                    if(oven.status == OvenStatus.Off)
+                    if (oven.status == OvenStatus.Off)
                         UIService.getInstance().returnHome();
                     if (oven.status == OvenStatus.Pause) {
                         imgPause.setVisibility(View.VISIBLE);
@@ -836,16 +799,16 @@ public class DeviceOvenWorkingPage extends BasePage {
                     UIService.getInstance().returnHome();
                     break;
                 case RefreshTime:
-                    int minute = oven.time/60;
+                    int minute = oven.time / 60;
                     int minuteLeft = oven.time - minute * 60;
-                    if(minuteLeft > 0)
+                    if (minuteLeft > 0)
                         minute++;
                     txtCurrentTime.setText(String.valueOf(minute));
 //                    txtCurrentTime.setText(TimeUtils.sec2clock(50));
 
                     break;
-                case  15:
-                    Log.e("time",String.valueOf(oven.time));
+                case 15:
+                    Log.e("time", String.valueOf(oven.time));
                 default:
                     break;
             }
@@ -858,7 +821,7 @@ public class DeviceOvenWorkingPage extends BasePage {
         String guid = bd == null ? null : bd.getString(PageArgumentKey.Guid);
         NormalModeItemMsg msg = bd == null ? null : (NormalModeItemMsg) bd.getSerializable("msg");
         if (msg != null) {
-            preTime = Short.valueOf(msg.getTime()) ;
+            preTime = Short.valueOf(msg.getTime());
 
             preTemp = Short.valueOf(msg.getTemperature());
 
@@ -871,6 +834,12 @@ public class DeviceOvenWorkingPage extends BasePage {
                 container, false);
         ButterKnife.inject(this, contentView);
 //        Log.e("temp", String.valueOf(oven.setTemp));
+
+        if (!tagAlarmShow||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+            checkBroken();
+            tagAlarmShow = true;
+        }
+
         if (oven.status == OvenStatus.Pause || oven.status == OvenStatus.Working) {//烤箱处于暂停或者工作状态
             initView();
         }
@@ -899,11 +868,11 @@ public class DeviceOvenWorkingPage extends BasePage {
     }
 
     private void initView() {
-        Log.e("temp",String.valueOf(oven.setTemp));
+        Log.e("temp", String.valueOf(oven.setTemp));
         txtCurrentTem.setText(String.valueOf(oven.temp));
-        int min = oven.time/60;
+        int min = oven.time / 60;
         int leftMin = oven.time - min * 60;
-        if(leftMin > 0)
+        if (leftMin > 0)
             min++;
         Log.e("min", String.valueOf(min));
         txtCurrentTime.setText(String.valueOf(min));
@@ -912,35 +881,28 @@ public class DeviceOvenWorkingPage extends BasePage {
 //        txtCurrentTime.setText(String.valueOf(preTime + ":00"));
         remainTime = oven.time;
         //更新图标以及模式
-        if(oven.runP == 1){
+        if (oven.runP == 1) {
             workType1.setText("快热模式");
             imgContent.setImageResource(R.mipmap.img_oven_quick_heating_working);
-        }else
-        if(oven.runP == 2){
+        } else if (oven.runP == 2) {
             workType1.setText("风焙烤模式");
             imgContent.setImageResource(R.mipmap.img_oven_air_barking_working);
-        }else
-        if(oven.runP == 3){
+        } else if (oven.runP == 3) {
             workType1.setText("焙烤模式");
             imgContent.setImageResource(R.mipmap.img_oven_toast_working);
-        }else
-        if(oven.runP == 4){
+        } else if (oven.runP == 4) {
             workType1.setText("底加热模式");
             imgContent.setImageResource(R.mipmap.img_oven_bottom_heating_working);
-        }else
-        if(oven.runP == 5){
+        } else if (oven.runP == 5) {
             workType1.setText("解冻模式");
             imgContent.setImageResource(R.mipmap.img_oven_unfreezing_working);
-        }else
-        if(oven.runP == 6){
+        } else if (oven.runP == 6) {
             workType1.setText("风扇烤模式");
             imgContent.setImageResource(R.mipmap.img_oven_air_barbecue_working);
-        }else
-        if(oven.runP == 7){
+        } else if (oven.runP == 7) {
             workType1.setText("烧烤模式");
             imgContent.setImageResource(R.mipmap.img_oven_barbecue_working);
-        }else
-        if(oven.runP == 8){
+        } else if (oven.runP == 8) {
             workType1.setText("强烧烤模式");
             imgContent.setImageResource(R.mipmap.img_oven_strong_barbecue_working);
         }
@@ -972,8 +934,17 @@ public class DeviceOvenWorkingPage extends BasePage {
 
     private void restoreView() {
         txtCurrentTime.setText(String.valueOf(preTime));
-        remainTime = preTime ;
+        remainTime = preTime;
         handler.sendEmptyMessage(Start);
+    }
+
+    private void checkBroken() {
+        Log.e("alarm", String.valueOf(oven.alarm));
+        if (oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+            showDialog("错误：E01", AbsOven.Event_Oven_Alarm_Senor_Short);
+        } else if (oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open) {
+            showDialog("错误：E02", AbsOven.Event_Oven_Alarm_Senor_Open);
+        }
     }
 
     private void readyToWork() {
@@ -994,11 +965,11 @@ public class DeviceOvenWorkingPage extends BasePage {
                 break;
             case AbsOven.Event_Oven_Alarm_Senor_Short:
 //                handler.sendEmptyMessage(Pause);
-                showDialog("错误：E00", AbsOven.Event_Oven_Alarm_Senor_Short);
+                showDialog("错误：E01", AbsOven.Event_Oven_Alarm_Senor_Short);
                 break;
             case AbsOven.Event_Oven_Alarm_Senor_Open:
 //                handler.sendEmptyMessage(Pause);
-                showDialog("错误：E01", AbsOven.Event_Oven_Alarm_Senor_Open);
+                showDialog("错误：E02", AbsOven.Event_Oven_Alarm_Senor_Open);
                 break;
         }
     }
@@ -1162,7 +1133,7 @@ public class DeviceOvenWorkingPage extends BasePage {
     private void startTimer() {
         timer = new Timer();
         timerTask = new MyTimerTask();
-        timer.scheduleAtFixedRate(timerTask, 1000*4, 30 * 1000);
+        timer.scheduleAtFixedRate(timerTask, 1000 * 4, 30 * 1000);
     }
 
     private class MyTimerTask extends TimerTask {
@@ -1189,7 +1160,11 @@ public class DeviceOvenWorkingPage extends BasePage {
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.alpha = 0.6f;
         win.setAttributes(lp);
+        dlg.setCanceledOnTouchOutside(false);
+        imgSpinCircle.clearAnimation();
+        imgPause.setVisibility(View.VISIBLE);
         dlg.setText(s);
+        dlg.changeErrorText(type);
         dlg.show();
     }
 

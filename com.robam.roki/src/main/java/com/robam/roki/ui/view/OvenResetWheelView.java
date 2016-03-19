@@ -48,11 +48,11 @@ public class OvenResetWheelView extends FrameLayout {
             for (int i = 50; i <= 180; i++) {
                 list.add(i);
             }
-        } else if (s.equals("低加热")) {
+        } else if (s.equals("底加热")) {
             for (int i = 15; i <= 80; i++) {
                 list.add(i);
             }
-        } else if (s.equals("快热") || s.equals("风烘焙") || s.equals("解冻")
+        } else if (s.equals("快热") || s.equals("风焙烤") || s.equals("解冻")
                 || s.equals("风扇烤") || s.equals("烧烤") || s.equals("强烧烤")) {
             for (int i = 50; i <= 230; i++) {
                 list.add(i);

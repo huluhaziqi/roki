@@ -833,7 +833,7 @@ public class RokiMsgMarshaller implements IAppMsgMarshaller {
 							MsgUtils.getShort(payload[offset++]));
 					break;
 				case MsgKeys.OvenAlarm_Noti:
-					msg.putOpt(MsgParams.AlarmId,
+					msg.putOpt(MsgParams.OvenAlarm,
 							MsgUtils.getShort(payload[offset++]));
 					break;
 				case MsgKeys.Oven_Noti:
