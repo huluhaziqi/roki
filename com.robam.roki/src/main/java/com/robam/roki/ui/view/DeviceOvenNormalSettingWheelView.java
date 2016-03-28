@@ -43,13 +43,8 @@ public class DeviceOvenNormalSettingWheelView extends FrameLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-//        loadData();
     }
 
-//    private void loadData() {
-//        wv1.setData(list);
-//        wv2.setData(list1);
-//    }
 
     private void init(Context cx, AttributeSet attrs, String s) {
 
