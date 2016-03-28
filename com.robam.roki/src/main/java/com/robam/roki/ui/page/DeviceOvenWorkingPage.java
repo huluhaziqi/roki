@@ -742,7 +742,11 @@ public class DeviceOvenWorkingPage extends BasePage {
                     txtCurrentTime.setText(String.valueOf(min));
                     Log.e("preStatus", String.valueOf(preStatus));
                     Log.e("currentStatus", String.valueOf(currentStatus));
+<<<<<<< HEAD
                     if (tagAlarmShow == false||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+=======
+                    if (!tagAlarmShow&&(oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short)) {
+>>>>>>> 7efae17672729a8d88ee448f024e50769ee66e38
                         checkBroken();
                         tagAlarmShow = true;
                         break;
@@ -835,7 +839,11 @@ public class DeviceOvenWorkingPage extends BasePage {
         ButterKnife.inject(this, contentView);
 //        Log.e("temp", String.valueOf(oven.setTemp));
 
+<<<<<<< HEAD
         if (tagAlarmShow == false||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+=======
+        if (!tagAlarmShow&&(oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short)) {
+>>>>>>> 7efae17672729a8d88ee448f024e50769ee66e38
             checkBroken();
             tagAlarmShow = true;
         }
