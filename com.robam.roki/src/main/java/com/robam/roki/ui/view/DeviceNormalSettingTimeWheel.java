@@ -505,7 +505,7 @@ public class DeviceNormalSettingTimeWheel  extends View {
                     R.styleable.WheelView_selectedTextSize, 22.0f);
             selectedFont = normalFont + 8.0f;
             itemNumber = attribute.getInt(R.styleable.WheelView_itemNumber, 7);
-            itemNumber = 5;
+//            itemNumber = 5;
             normalColor = attribute.getColor(
                     R.styleable.WheelView_normalTextColor, 0xff000000);
             selectedColor = attribute.getColor(

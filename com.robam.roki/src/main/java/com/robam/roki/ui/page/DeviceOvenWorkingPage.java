@@ -742,7 +742,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                     txtCurrentTime.setText(String.valueOf(min));
                     Log.e("preStatus", String.valueOf(preStatus));
                     Log.e("currentStatus", String.valueOf(currentStatus));
-                    if (!tagAlarmShow||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+                    if (tagAlarmShow == false||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
                         checkBroken();
                         tagAlarmShow = true;
                         break;
@@ -835,7 +835,7 @@ public class DeviceOvenWorkingPage extends BasePage {
         ButterKnife.inject(this, contentView);
 //        Log.e("temp", String.valueOf(oven.setTemp));
 
-        if (!tagAlarmShow||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
+        if (tagAlarmShow == false||oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Open || oven.alarm == AbsOven.Event_Oven_Alarm_Senor_Short) {
             checkBroken();
             tagAlarmShow = true;
         }
