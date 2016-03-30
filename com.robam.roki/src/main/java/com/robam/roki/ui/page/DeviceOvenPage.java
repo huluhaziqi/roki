@@ -264,20 +264,20 @@ public class DeviceOvenPage extends HeadPage {
     }
 
     //------------------------------------------- 自洁模式按钮 --------------------------------------
-    @OnClick(R.id.selfCleaningButton)
-    public void onClickClean() {
-        if (oven.status == OvenStatus.Off) {
-            llNoticeStart.setVisibility(View.VISIBLE);
-        } else if (oven.status != OvenStatus.Off) {
-            NormalModeItemMsg msg = new NormalModeItemMsg();
-            msg.setType("自洁");
-            msg.setTime(String.valueOf(90));
-            msg.setTemperature(String.valueOf(230));
-            Bundle bundle = new Bundle();
-            bundle.putString(PageArgumentKey.Guid, oven.getID());
-            OvenSelfCleaningDialog.show(getContext(), msg, bundle);
-        }
-    }
+//    @OnClick(R.id.selfCleaningButton)
+//    public void onClickClean() {
+//        if (oven.status == OvenStatus.Off) {
+//            llNoticeStart.setVisibility(View.VISIBLE);
+//        } else if (oven.status != OvenStatus.Off) {
+//            NormalModeItemMsg msg = new NormalModeItemMsg();
+//            msg.setType("自洁");
+//            msg.setTime(String.valueOf(90));
+//            msg.setTemperature(String.valueOf(230));
+//            Bundle bundle = new Bundle();
+//            bundle.putString(PageArgumentKey.Guid, oven.getID());
+//            OvenSelfCleaningDialog.show(getContext(), msg, bundle);
+//        }
+//    }
 
     @OnClick({R.id.chickenWingItem})
     public void onClickChicken() {

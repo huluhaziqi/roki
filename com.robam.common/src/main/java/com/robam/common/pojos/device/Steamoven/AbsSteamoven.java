@@ -1,5 +1,7 @@
 package com.robam.common.pojos.device.Steamoven;
 
+import android.util.Log;
+
 import com.legent.VoidCallback;
 import com.legent.plat.Plat;
 import com.legent.plat.io.RCMsgCallbackWithVoid;
@@ -79,6 +81,7 @@ public class AbsSteamoven extends AbsDevice implements ISteamoven {
 
         try {
             int key = msg.getID();
+            Log.e("key",String.valueOf(key));
             switch (key) {
                 case MsgKeys.SteamOven_Noti:
                     // TODO 处理事件

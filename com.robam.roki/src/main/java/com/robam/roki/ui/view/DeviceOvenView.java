@@ -78,7 +78,7 @@ public class DeviceOvenView extends FrameLayout {
             return;
 
         boolean isOn = event.pojo.isConnected() && event.pojo.status != OvenStatus.Off;
-        relOven.setBackgroundColor(getResources().getColor(isOn ? R.color.home_bg : R.color.c16));
+        relOven.setBackgroundColor(getResources().getColor(isOn ? R.color.home_bg : R.color.c01));
     }
 
     @OnClick
@@ -101,7 +101,7 @@ public class DeviceOvenView extends FrameLayout {
     }
 
     public void setType(boolean hasDevice) {
-        relOven.setBackgroundColor(getResources().getColor(hasDevice ? R.color.c01 : R.color.White));
+        relOven.setBackgroundColor(getResources().getColor(hasDevice ? R.color. c01 : R.color.White));
         imgDevice.setImageResource(hasDevice ? R.mipmap.ic_device_oven_home : R.mipmap.img_device_oven_add);
         txtTitle.setTextColor(getResources().getColor(hasDevice ? R.color.White : R.color.home_bg));
         txtDesc.setTextColor(getResources().getColor(hasDevice ? R.color.White : R.color.home_bg));
@@ -110,10 +110,12 @@ public class DeviceOvenView extends FrameLayout {
     public void setStatus(short status) {
         switch (status) {
             case OvenStatus.Working:
+            case OvenStatus.On:
+            case OvenStatus.Pause:
                 relOven.setBackgroundColor(getResources().getColor(R.color.home_bg));
                 break;
             case OvenStatus.Off:
-                relOven.setBackgroundColor(getResources().getColor(R.color.c16));
+                relOven.setBackgroundColor(getResources().getColor(R.color.c01));
                 break;
             default:
                 break;

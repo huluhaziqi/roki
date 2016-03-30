@@ -443,6 +443,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                             imgTempReset.setVisibility(View.VISIBLE);
                             imgTimeReset.setVisibility(View.VISIBLE);
                             imgSpinCircle.clearAnimation();
+                            imgPause.bringToFront();
                         }
 
                         @Override
@@ -711,12 +712,9 @@ public class DeviceOvenWorkingPage extends BasePage {
                                 txtTemSet.setText(message.getTemperature());
                                 txtTimeSet.setText(message.getTime());
                                 remainTime = Short.valueOf(message.getTime()) * 60;
-                                if (circleRotate == null) {
-                                    circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
-                                    LinearInterpolator lin = new LinearInterpolator();
-                                    circleRotate.setInterpolator(lin);
-                                    imgSpinCircle.startAnimation(circleRotate);
-                                }
+//                                if (circleRotate == null) {
+
+//                                }
                             }
 
                             @Override
@@ -724,7 +722,11 @@ public class DeviceOvenWorkingPage extends BasePage {
                                 ToastUtils.showThrowable(t);
                             }
                         });
-
+                    circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
+                    LinearInterpolator lin = new LinearInterpolator();
+                    circleRotate.setInterpolator(lin);
+                    imgSpinCircle.startAnimation(circleRotate);
+                    handler.sendEmptyMessage(PollStatus);
                     break;
 
                 case PollStatus:
@@ -747,6 +749,7 @@ public class DeviceOvenWorkingPage extends BasePage {
                         tagAlarmShow = true;
                         break;
                     }
+                    checkRotate();
                     if (preStatus == OvenStatus.Working && currentStatus != preStatus && currentStatus != OvenStatus.Off
                             && currentStatus != OvenStatus.Pause && currentStatus != OvenStatus.Working && currentStatus != 18 && preStatus != 18)
                         handler.sendEmptyMessage(Done);
@@ -771,12 +774,12 @@ public class DeviceOvenWorkingPage extends BasePage {
                         txtCurrentTime.setClickable(false);
                         if (circleRotate == null) {
                             circleRotate = AnimationUtils.loadAnimation(getContext(), R.anim.device_oven_circle_rotate);
-                            LinearInterpolator lin = new LinearInterpolator();
-                            circleRotate.setInterpolator(lin);
+                            LinearInterpolator lin1 = new LinearInterpolator();
+                            circleRotate.setInterpolator(lin1);
                             imgSpinCircle.startAnimation(circleRotate);
                         }
 //                        if (oven.time < lastTime) {
-                        handler.sendEmptyMessage(15);
+//                        handler.sendEmptyMessage(15);
 
                         if (oven.time < lastTime) {
                             if (!canCountDown) {
@@ -807,8 +810,6 @@ public class DeviceOvenWorkingPage extends BasePage {
 //                    txtCurrentTime.setText(TimeUtils.sec2clock(50));
 
                     break;
-                case 15:
-                    Log.e("time", String.valueOf(oven.time));
                 default:
                     break;
             }
@@ -946,6 +947,12 @@ public class DeviceOvenWorkingPage extends BasePage {
             showDialog("错误：E02", AbsOven.Event_Oven_Alarm_Senor_Open);
         }
     }
+    private void checkRotate(){
+    if (oven.revolve == 1)
+            imgRotate.setImageDrawable(getResources().getDrawable(R.mipmap.img_device_oven_rotate_open));
+        else
+            imgRotate.setImageDrawable(getResources().getDrawable(R.mipmap.img_device_oven_rotate_close));
+    }
 
     private void readyToWork() {
         lastTime = 0;
@@ -956,6 +963,8 @@ public class DeviceOvenWorkingPage extends BasePage {
 
     @Subscribe
     public void onEvent(OvenAlarmEvent event) {
+        Log.e("alarm","test");
+        Log.e("alarm",String.valueOf(event.alarmId));
         switch (event.alarmId) {
             case AbsOven.Event_Oven_Alarm_ok:
                 if (dlg != null) {
@@ -985,19 +994,20 @@ public class DeviceOvenWorkingPage extends BasePage {
 
     @Subscribe
     public void onEvent(OvenSpitRotateResetEvent event) {
-        if (event.rotate == 1)
-            imgRotate.setImageDrawable(getResources().getDrawable(R.mipmap.img_device_oven_rotate_open));
-        else
-            imgRotate.setImageDrawable(getResources().getDrawable(R.mipmap.img_device_oven_rotate_close));
+        handler.sendEmptyMessage(Rotate);
+//        if (event.rotate == 1)
+//            imgRotate.setImageDrawable(getResources().getDrawable(R.mipmap.img_device_oven_rotate_open));
+//        else
+//            imgRotate.setImageDrawable(getResources().getDrawable(R.mipmap.img_device_oven_rotate_close));
     }
 
-    @Subscribe
-    public void onEvent(OvenLightResetEvent event) {
-        if (event.light == 1)
-            imgLight.setImageDrawable(getResources().getDrawable(R.mipmap.ic_device_fan_light_selected));
-        else
-            imgLight.setImageDrawable(getResources().getDrawable(R.mipmap.ic_device_fan_light_normal));
-    }
+//    @Subscribe
+//    public void onEvent(OvenLightResetEvent event) {
+//        if (event.light == 1)
+//            imgLight.setImageDrawable(getResources().getDrawable(R.mipmap.ic_device_fan_light_selected));
+//        else
+//            imgLight.setImageDrawable(getResources().getDrawable(R.mipmap.ic_device_fan_light_normal));
+//    }
 
 
     @Subscribe

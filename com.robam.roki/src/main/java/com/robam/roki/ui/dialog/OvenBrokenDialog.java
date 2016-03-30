@@ -11,6 +11,7 @@ import com.legent.ui.UIService;
 import com.legent.ui.ext.dialogs.AbsDialog;
 import com.robam.common.pojos.device.Oven.AbsOven;
 import com.robam.roki.R;
+import com.robam.roki.ui.PageKey;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -69,8 +70,9 @@ public class OvenBrokenDialog extends AbsDialog {
 
     @OnClick(R.id.afterBuy)
     public void onClickAfterBuy() {
-//        dismiss();
-//        UIService.getInstance().postPage()
+        dismiss();
+//        postPage(PageKey.SaleService);
+        UIService.getInstance().postPage(PageKey.SaleService);
     }
 
 }

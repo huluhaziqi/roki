@@ -1,9 +1,12 @@
 package com.robam.common.pojos.device.Oven;
 
+import android.util.Log;
+
 import com.legent.VoidCallback;
 import com.legent.plat.Plat;
 import com.legent.plat.io.RCMsgCallbackWithVoid;
 import com.legent.plat.io.device.msg.Msg;
+import com.legent.plat.pojos.device.AbsDevice;
 import com.legent.plat.pojos.device.AbsDeviceHub;
 import com.legent.plat.pojos.device.DeviceInfo;
 import com.legent.utils.LogUtils;
@@ -22,7 +25,7 @@ import com.robam.common.io.device.TerminalType;
 /**
  * Created by linxiaobin on 2015/12/27.
  */
-public class AbsOven extends AbsDeviceHub implements IOven {
+public class AbsOven extends AbsDevice implements IOven {
 
 //    10	烤箱开关控制事件
 //    11	烤箱烧烤运行模式调整件
@@ -44,7 +47,7 @@ public class AbsOven extends AbsDeviceHub implements IOven {
 
     public short status;
     public short runP;
-    public short alarm;
+    public short alarm = 0 ;
     public short temp; // 当前温度
     public short time; // 当前剩余时
     public short light;//灯光控制
@@ -85,12 +88,13 @@ public class AbsOven extends AbsDeviceHub implements IOven {
 
         try {
             int key = msg.getID();
+            Log.e("key",String.valueOf(key));
             switch (key) {
                 case MsgKeys.Oven_Noti:
                     // TODO 处理事件
-
                     short eventId = (short) msg.optInt(MsgParams.EventId);
                     short eventParam = (short) msg.optInt(MsgParams.EventParam);
+                    Log.e("eventId",String.valueOf(eventId));
 
                     switch (eventId) {
                         case Event_Oven_Switch_Control_Reset:
@@ -114,21 +118,8 @@ public class AbsOven extends AbsDeviceHub implements IOven {
 
                     break;
                 case MsgKeys.OvenAlarm_Noti:
-                    short OvenAlarm = (short) msg.optInt(MsgParams.OvenAlarm);
-                    postEvent(new OvenAlarmEvent(AbsOven.this, OvenAlarm));
-
-//                    switch (alarmId) {
-//                        case Event_Oven_Alarm_ok:
-//                            postEvent(new OvenAlarmOkEvent(this));
-//                            break;
-//                        case Event_Oven_Alarm_Senor_Short:
-//                            postEvent(new OvenAlarmSenorShortEvent(this));
-//                            break;
-//                        case Event_Oven_Alarm_Senor_Open:
-//                            postEvent(new OvenAlarmSenorOpenEvent(this));
-//                            break;
-//                    }
-                    break;
+                    short alarmId= (short) msg.optInt(MsgParams.AlarmId);
+                    postEvent(new OvenAlarmEvent(AbsOven.this, alarmId));
                 case MsgKeys.getOvenStatus_Rep:
                     AbsOven.this.status = (short) msg.optInt(MsgParams.OvenStatus);
                     AbsOven.this.runP = (short) msg.optInt(MsgParams.OvenRunP);

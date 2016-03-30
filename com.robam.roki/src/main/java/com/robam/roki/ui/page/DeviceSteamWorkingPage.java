@@ -558,6 +558,7 @@ public class DeviceSteamWorkingPage extends BasePage {
      */
     @Subscribe
     public void onEvent(SteamAlarmEvent event) {
+        Log.e("alarm",String.valueOf(event.alarmId));
         switch (event.alarmId) {
             case AbsSteamoven.Event_Steam_Alarm_ok:
                 if (dlg != null) {

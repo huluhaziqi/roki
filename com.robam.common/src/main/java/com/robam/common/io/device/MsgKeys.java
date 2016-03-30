@@ -431,7 +431,7 @@ public interface MsgKeys {
      * 设置解冻
      */
     short setOvenUnfreeze_Req = 138;
-    /**
+    /**p[
      * 设置解冻回应（应答）
      */
     short setOvenUnfreeze_Rep = 139;
@@ -482,6 +482,6 @@ public interface MsgKeys {
     /**
      * 烤箱工作事件上报
      */
-    short Oven_Noti = 150;
+    short Oven_Noti = 153;
 
 }

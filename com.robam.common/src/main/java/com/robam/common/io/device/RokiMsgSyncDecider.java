@@ -124,6 +124,7 @@ public class RokiMsgSyncDecider implements IAppMsgSyncDecider {
             addPairsKey(MsgKeys.setOvenBottomHeat_Req, MsgKeys.setOvenBottomHeat_Rep);
             addPairsKey(MsgKeys.setOvenUnfreeze_Req, MsgKeys.setOvenUnfreeze_Rep);
             addPairsKey(MsgKeys.setOvenToast_Req, MsgKeys.setOvenToast_Rep);
+            addPairsKey(MsgKeys.getOvenStatus_Req, MsgKeys.getOvenStatus_Rep);
         }
     }
 }
