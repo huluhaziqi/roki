@@ -15,11 +15,26 @@ public interface IRokiFamily {
      * 油烟机（pad）
      */
     String R9700 = "R9700";
+
+    /**
+     * 油烟机（pad）
+     */
+    String R8230 = "R8230";
     /**
      * 油烟机8229 added by zhaiyuanyi
      */
     String R8229 = "R8229";
-
+    /**
+     * 油烟机66A2
+     */
+    String R66A2 = "R66A2";
+    /**
+     * 油烟机5610
+     */
+    String R5610 = "R5610";
+    /**
+     * 电磁灶
+     */
     /**
      * 电磁灶
      */

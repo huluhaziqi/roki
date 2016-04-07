@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ public class DeviceFanGearView extends FrameLayout {
     TextView txtDesc;
     @InjectView(R.id.layout)
     RelativeLayout layout;
+    @InjectView(R.id.iv)
+    public ImageView img;
 
     public DeviceFanGearView(Context context) {
         super(context);
@@ -71,5 +74,7 @@ public class DeviceFanGearView extends FrameLayout {
         txtDesc.setText(description);
     }
 
-
+    public ImageView getImg() {
+        return img;
+    }
 }
