@@ -2,11 +2,207 @@
 <items version="2" >
 
     <item
-        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.roki/build/intermediates/exploded-aar/robam/com.robam.common/unspecified/jars/classes.jar"
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.legent.ui/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f051675833b8c58aa205df6612cd0a32e2b18c62">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-e3e19bf50ddd4d15b150363985dc7fe8c8e9b7d6.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="959c454243581fdf730abfd4f4745441724bcf2c">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/okhttp-2.2.0-15e61d3d0441bd2ec638975ce831a46fd055637f.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/retrofit-1.9.0-52a8690592d2a80db97445f9f0b7c0e52eea8f8b.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/universal-image-loader-1.9.3-5697c42ba389e7178612e76e24da06dde9a8930a.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/com.legent.libraries/com.handmark.pulltorefresh/2.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="08d82621660376de3e36a623f71572d64790819a">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-adc3ce78d27c0af2ff414f6ebfc4bfb3c6f7c262.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.legent.utils.easylink/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cafa229391a6ac331f9c93c360afd1d850162cb5">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-01a1a31ba127fb2a185f39c5e67578132d6340bc.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.legent/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9c2954fb7c393e95b7f91d69d0b2606c8f9d0d55">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-5d81ad27bd5f788071364ef604b700ea391237bf.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-78d5b32e59959721d8145be0b353aec252ffafeb.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/com.daimajia.swipelayout/library/1.1.8/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="71078cb0460b50cead8a2fc9f5529673aee0bbce">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-1030829d3d2f101bbe55ac7724c09d0ddbe1c983.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.legent.utils.serialport/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1021c080a25a0ffa6a6558ff083d95ab8c733a32">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-c8d3ecf7f505d2863527cd5f0bf620eb8a41b9c2.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/com.legent.libraries/com.etsy.android.grid/1.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b656ae947c6589f2cbd97f748c10193dfd0c880d">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-3c3566dd3f6c30d9a16f918e3cc826e31a7a5805.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-android/4.48/afa06f539a4026c10b247386312aa67404b80a16/ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/ormlite-android-4.48-fb20856eb65b32006261c5f584e0e66737c85769.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.5.1/5e57baebad3898aca8a825adaf2be6fd189442f2/jackson-databind-2.5.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5e57baebad3898aca8a825adaf2be6fd189442f2">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/jackson-databind-2.5.1-e08a6010a7c214d4a4d2426e986da887cc275100.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/guava-18.0-0be0bd281510bd4be2a926efe80e615021421718.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.5.1/e2a00ad1d7e540ec395e9296a34da484c8888d4d/jackson-core-2.5.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e2a00ad1d7e540ec395e9296a34da484c8888d4d">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/jackson-core-2.5.1-9042cd8b4c5ec50c4e2cefeab27e0d0f1e52001b.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.legent.utils.qrcode/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ff0aae53d0f6ea34f5abf4974ff2720d881573af">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-0dddeddef544686620a388945f994fb35dc119b5.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/support-annotations-23.1.1-8a8ca4cd5d86913962fdf45f100615cff04a11b4.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/butterknife-6.1.0-197c7db5878df29b5cdd9b0cfc78bc15b78a53ab.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/converter-jackson/1.9.0/a3968e43e377b21ade8fa77d633716edda8fe17b/converter-jackson-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a3968e43e377b21ade8fa77d633716edda8fe17b">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/converter-jackson-1.9.0-fb2a24f73c16f4e6d74bd64793900419d192778a.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/11752d3f24d1a9deda4533a7ca18d8496417ceeb/org.eclipse.paho.client.mqttv3-1.0.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="11752d3f24d1a9deda4533a7ca18d8496417ceeb">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/org.eclipse.paho.client.mqttv3-1.0.2-309de3a4a202ecc2f7535e6136691d932e427c49.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/com.legent.libraries/com.viewpagerindicator/2.4.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6e66b2b99b21f6cf24be3a8da8ece5414731c8c1">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-1d2809e2e870159fbedc393cd3c06e5efe0a2f4e.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-core/4.48/e579bd2905d0399af5029aaaf9817d5fa0ca88a5/ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/ormlite-core-4.48-0c2da59f3b971146c7e83b347f4f772188285523.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.robam.common/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="f3f4465865524f1d653e626d33e525625905f76a">
-        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.roki/build/intermediates/pre-dexed/debug/classes-420d19d50e7bb38c61bcf1b1eda40b2151013f4f.jar" />
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-292a9ef30a86cd67cc71e287dce9d3ce0018369a.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.2.0/c0b52915a48fa91b1b94a28d4a2997bac5f524df/okio-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c0b52915a48fa91b1b94a28d4a2997bac5f524df">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/okio-1.2.0-fec9533a3d7e9b952dd2f6e6c838e1a93ca8fffc.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/internal_impl-23.1.1-b12a3601395e928a55263fcb45904b261e37d96a.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/exploded-aar/robam/com.legent.plat/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="446bc1de309fc113ed40b023b34b2757677c804d">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/classes-51238c53c15b92559e1b899c571af08338255fe5.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/core-3.2.0-95637ecfe38d864f0926f1088240389aed4eedf7.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.5.1/71c1992c0cf5e0ce62574e96009572062ba0f4d9/jackson-annotations-2.5.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="71c1992c0cf5e0ce62574e96009572062ba0f4d9">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/jackson-annotations-2.5.1-2181a473d57505c85204a3e545d5a7a635a36a35.jar" />
+    </item>
+    <item
+        jar="/Users/lxb/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/lxb/AndroidStudioProjects/final/robam/com.robam.rokipad/build/intermediates/pre-dexed/release/gson-2.3.1-a39c5ee72165f7b4cf43644a6028816bc9b0a0f5.jar" />
     </item>
 
 </items>
